@@ -1,0 +1,12 @@
+{
+    "tasks": {
+        "start": "deno run --allow-read --allow-write main.ts"
+    },
+    "fmt": {
+        "options": {
+            "indentWidth": 4,
+            "lineWidth": 120,
+            "singleQuote": true
+        }
+    }
+}
