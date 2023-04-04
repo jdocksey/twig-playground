@@ -37,15 +37,21 @@ function render(): void {
     const twigTemplate = readTextFile(Config.twigTemplate);
     const tailwindConfig = readTextFile(Config.tailwindConfig);
 
-    const templateObject = Twig.twig({ data: twigTemplate });
-    const renderedHtml = templateObject.render(data);
+    const renderedTemplate = renderTemplate(twigTemplate, data);
+
     const output = documentTemplate
         .replace('{{ tailwindConfig }}', tailwindConfig)
-        .replace('{{ contents }}', renderedHtml);
+        .replace('{{ contents }}', renderedTemplate);
 
     Deno.writeTextFile(Config.output, output);
 
     console.log(`updated at ${new Date().toLocaleTimeString()}`);
+}
+
+// deno-lint-ignore no-explicit-any
+function renderTemplate(template: string, data: any): string {
+    const templateObject = Twig.twig({ data: template });
+    return templateObject.render(data);
 }
 
 // deno-lint-ignore no-explicit-any

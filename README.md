@@ -9,9 +9,8 @@ helpful.
 
 ## To use:
 
-- Remove the `*.example` extension from the `./input/*.example` files
 - Execute `deno task start`
 - Open `./output.html`
 
-The HTML file will be updated as you make changes to the Twig and document templates, the template data, and the
+The output file will be updated as you make changes to the Twig and document templates, the template data, and the
 Tailwind configuration.

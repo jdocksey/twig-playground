@@ -1,7 +1,3 @@
-input/data.json
-input/template.twig
-input/tailwind.config.js
-input/document-template.html
 output.html
 
 # Visual Studio Code
