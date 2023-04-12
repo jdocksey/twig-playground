@@ -1,6 +1,8 @@
 import { debounce } from 'https://deno.land/std@0.177.0/async/debounce.ts';
+import { parse } from 'https://deno.land/std@0.177.0/flags/mod.ts';
 import Twig from 'https://esm.sh/twig@1.16.0';
 
+//#region configuration
 const Config = {
     data: './input/data.json',
     twigTemplate: './input/template.twig',
@@ -8,12 +10,27 @@ const Config = {
     tailwindConfig: './input/tailwind.config.js',
     output: './output.html',
 } as const;
+//#endregion
 
-run();
+//#region top-level logic
+const flags = parse(Deno.args, {
+    boolean: ['watch'],
+    default: { watch: true }
+});
 
-async function run(): Promise<void> {
+run(flags.watch);
+
+function run(watch: boolean): void {
     render();
 
+    if (watch) {
+        executeWatch();
+    }
+}
+//#endregion
+
+//#region helper functions
+async function executeWatch(): Promise<void> {
     const debouncedRender = debounce(() => {
         render();
     }, 200);
@@ -78,3 +95,4 @@ function readTextFile(filepath: string): string {
 function printErrorMessage(message: string, error: any): void {
     console.log(`\nError: ${message}\n\n${error}`);
 }
+//#endregion
