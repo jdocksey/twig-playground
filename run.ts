@@ -1,5 +1,7 @@
 import { debounce } from 'https://deno.land/std@0.177.0/async/debounce.ts';
+import { emptyDirSync } from 'https://deno.land/std@0.129.0/fs/empty_dir.ts';
 import { parse } from 'https://deno.land/std@0.177.0/flags/mod.ts';
+import { copySync } from 'https://deno.land/std@0.129.0/fs/copy.ts';
 import Twig from 'https://esm.sh/twig@1.16.0';
 
 //#region configuration
@@ -8,7 +10,7 @@ const Config = {
     twigTemplate: './input/template.twig',
     documentTemplate: './input/document-template.html',
     tailwindConfig: './input/tailwind.config.js',
-    output: './output.html',
+    output: 'output',
 } as const;
 //#endregion
 
@@ -60,7 +62,9 @@ function render(): void {
         .replace('{{ tailwindConfig }}', tailwindConfig)
         .replace('{{ contents }}', renderedTemplate);
 
-    Deno.writeTextFile(Config.output, output);
+    emptyDirSync(Config.output);
+    copySync('./input/assets', Config.output + '/assets', { overwrite: true });
+    Deno.writeTextFile(Config.output + '/output.html', output);
 
     console.log(`updated at ${new Date().toLocaleTimeString()}`);
 }
