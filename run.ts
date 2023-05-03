@@ -17,7 +17,7 @@ const Config = {
 //#region top-level logic
 const flags = parse(Deno.args, {
     boolean: ['watch'],
-    default: { watch: true }
+    default: { watch: true },
 });
 
 run(flags.watch);
