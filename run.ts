@@ -1,8 +1,8 @@
-import { debounce } from 'https://deno.land/std@0.177.0/async/debounce.ts';
-import { emptyDirSync } from 'https://deno.land/std@0.129.0/fs/empty_dir.ts';
-import { parse } from 'https://deno.land/std@0.177.0/flags/mod.ts';
-import { copySync } from 'https://deno.land/std@0.129.0/fs/copy.ts';
-import Twig from 'https://esm.sh/twig@1.16.0';
+import { debounce } from 'deno/async/debounce.ts';
+import { parse } from 'deno/flags/mod.ts';
+import { emptyDirSync } from 'deno/fs/empty_dir.ts';
+import { copySync } from 'deno/fs/copy.ts';
+import Twig from 'twig';
 
 //#region configuration
 const Config = {

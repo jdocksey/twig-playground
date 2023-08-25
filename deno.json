@@ -7,5 +7,9 @@
         "indentWidth": 4,
         "lineWidth": 120,
         "singleQuote": true
+    },
+    "imports": {
+        "deno/": "https://deno.land/std@0.177.0/",
+        "twig": "https://esm.sh/twig@1.16.0"
     }
 }
