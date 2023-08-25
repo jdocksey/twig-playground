@@ -1,28 +1,52 @@
 {
     "pins": [
         {
-            "name": "boston",
-            "x": 31.5,
-            "y": 80,
-            "url": "https://www.youtube.com/watch?v=fwSNMibfaRg"
+            "name": "Los Angeles",
+            "x": 13,
+            "y": 60,
+            "url": "https://www.youtube.com/watch?v=I1rA68yF4tM"
         },
         {
-            "name": "ireland",
-            "x": 40,
-            "y": 40,
-            "url": "https://www.youtube.com/watch?v=rOjHhS5MtvA"
+            "name": "Boston",
+            "x": 28.2,
+            "y": 63.5,
+            "url": "https://www.youtube.com/watch?v=E__X8IDR6a0"
         },
         {
-            "name": "japan",
-            "x": 70,
+            "name": "Argentina",
+            "x": 30,
+            "y": 15,
+            "url": "https://www.youtube.com/watch?v=DWwppYEEdcI"
+        },
+        {
+            "name": "Ireland",
+            "x": 48,
+            "y": 71,
+            "url": "https://www.youtube.com/watch?v=Ec6i45d74nk"
+        },
+        {
+            "name": "London",
+            "x": 51,
             "y": 70,
-            "url": "https://www.youtube.com/watch?v=GRxofEmo3HA"
+            "url": "https://www.youtube.com/watch?v=Rd0HnxWm5CY"
         },
         {
-            "name": "something",
-            "x": 70,
-            "y": 95,
-            "url": "https://www.youtube.com/watch?v=GRxofEmo3HA"
+            "name": "Madagascar",
+            "x": 66,
+            "y": 28,
+            "url": "https://www.youtube.com/watch?v=fOk8Tm815lE"
+        },
+        {
+            "name": "Dubai",
+            "x": 68,
+            "y": 52.1,
+            "url": "https://www.youtube.com/watch?v=xWDIwsfgQnE"
+        },
+        {
+            "name": "Japan",
+            "x": 94.8,
+            "y": 59.6,
+            "url": "https://www.youtube.com/watch?v=GQ7-hbEWdw8"
         }
     ]
 }
