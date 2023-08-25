@@ -1,19 +1,28 @@
 {
-    "pins": {
-        "boston": {
-            "x": 20,
-            "y": 20,
+    "pins": [
+        {
+            "name": "boston",
+            "x": 31.5,
+            "y": 80,
             "url": "https://www.youtube.com/watch?v=fwSNMibfaRg"
         },
-        "ireland": {
+        {
+            "name": "ireland",
             "x": 40,
             "y": 40,
             "url": "https://www.youtube.com/watch?v=rOjHhS5MtvA"
         },
-        "japan": {
+        {
+            "name": "japan",
             "x": 70,
             "y": 70,
             "url": "https://www.youtube.com/watch?v=GRxofEmo3HA"
+        },
+        {
+            "name": "something",
+            "x": 70,
+            "y": 95,
+            "url": "https://www.youtube.com/watch?v=GRxofEmo3HA"
         }
-    }
+    ]
 }

@@ -1,11 +1,23 @@
-<div class="bg-stone-400 max-h-[70vh] mt-[15vh] overflow-auto">
+<div class="relative overflow-auto bg-stone-400 max-h-[70vh] mt-[15vh]">
+
+
 
     {# TODO:
-        - add ability to pan
-        - add pins
+        - add pin hover:bounce animation
+        - handle pin-overflow-top problem
         - add video player
+            - display by default
     #}
+
 
     {# 210 x 150 = 7/5 #}
     <img src="./assets/map.svg" alt="world map" class="object-cover">
+
+    <div class="inert absolute left-0 right-0 top-0 h-[calc(100vw*(5/7))]">
+        {% for pin in pins %}
+        <img src="./assets/pin.svg" alt="TODO" class="z-10 absolute left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16         cursor-pointer hover:opacity-60">
+        {% endfor %}
+
+    </div>
+
 </div>
