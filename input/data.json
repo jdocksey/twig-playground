@@ -25,6 +25,12 @@
             "url": "https://www.youtube.com/watch?v=Ec6i45d74nk"
         },
         {
+            "name": "London",
+            "x": 51,
+            "y": 70,
+            "url": "https://www.youtube.com/watch?v=Rd0HnxWm5CY"
+        },
+        {
             "name": "Madagascar",
             "x": 66,
             "y": 28,
@@ -35,12 +41,6 @@
             "x": 68,
             "y": 52.1,
             "url": "https://www.youtube.com/watch?v=xWDIwsfgQnE"
-        },
-        {
-            "name": "Bratsk",
-            "x": 83,
-            "y": 73,
-            "url": "https://www.youtube.com/watch?v=Rd0HnxWm5CY"
         },
         {
             "name": "Japan",
