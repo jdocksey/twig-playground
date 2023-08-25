@@ -11,7 +11,7 @@
 
     <div class="inert absolute left-0 right-0 top-0 h-[calc(100vw*(5/7))]">
         {% for pin in pins %}
-        {# pins are positioned by their point from the bottom-left corner of the container #}
+        {# Pins are positioned by their point from the bottom-left corner of the container. Valid x/y values are in the range 0-100. #}
         <img src="./assets/pin.svg" alt="{{ pin.name }}" class="z-10 absolute left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
         {% endfor %}
     </div>
