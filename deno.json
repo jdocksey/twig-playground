@@ -1,7 +1,7 @@
 {
     "tasks": {
-        "start": "deno run --allow-read --allow-write=./output run.ts",
-        "run-once": "deno run --allow-read --allow-write=./output run.ts --watch=false"
+        "start": "deno run --allow-read --allow-write=./docs run.ts",
+        "run-once": "deno run --allow-read --allow-write=./docs run.ts --watch=false"
     },
     "fmt": {
         "indentWidth": 4,

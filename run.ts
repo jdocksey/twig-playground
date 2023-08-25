@@ -10,7 +10,7 @@ const Config = {
     twigTemplate: './input/template.twig',
     documentTemplate: './input/document-template.html',
     tailwindConfig: './input/tailwind.config.js',
-    output: './output',
+    output: './docs',
 } as const;
 //#endregion
 
