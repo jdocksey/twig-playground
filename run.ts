@@ -10,7 +10,7 @@ const Config = {
     twigTemplate: './input/template.twig',
     documentTemplate: './input/document-template.html',
     tailwindConfig: './input/tailwind.config.js',
-    output: 'output',
+    output: './output',
 } as const;
 //#endregion
 
@@ -51,6 +51,13 @@ async function executeWatch(): Promise<void> {
 }
 
 function render(): void {
+    if (Config.output.includes('..')) {
+        console.error(
+            `Rendering failed, as writing to a parent directory is not allowed. Attempted to write to: ${Config.output}`,
+        );
+        return;
+    }
+
     const data = getData();
     const documentTemplate = readTextFile(Config.documentTemplate);
     const twigTemplate = readTextFile(Config.twigTemplate);
@@ -64,7 +71,7 @@ function render(): void {
 
     emptyDirSync(Config.output);
     copySync('./input/assets', Config.output + '/assets', { overwrite: true });
-    Deno.writeTextFile(Config.output + '/output.html', output);
+    Deno.writeTextFile(Config.output + '/index.html', output);
 
     console.log(`updated at ${new Date().toLocaleTimeString()}`);
 }
