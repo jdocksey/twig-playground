@@ -11,12 +11,15 @@
     // videoID: null,
     closeVideo() {
         this.showVideo = false;
+    },
+    openVideo(videoID) {
+        this.showVideo = true;
     }
 }">
     {# map and pins #}
     <img src="./assets/map.svg" alt="world map">
     {% for pin in pins %}
-    <img src="./assets/pin.svg" alt="{{ pin.name }}" class="absolute z-10 left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
+    <img @click="openVideo('{{ pin.videoID }}')" src="./assets/pin.svg" alt="{{ pin.name }}" class="absolute z-10 left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
     {% endfor %}
 
     {# video player #}
