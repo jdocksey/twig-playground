@@ -1,6 +1,5 @@
 {# TODO:
-    - max width
-    - handle pin-overflow-top problem
+    - make pins resize
     - add video player
         - display by default
     - add pin hover:bounce animation
@@ -12,16 +11,3 @@
     <img src="./assets/pin.svg" alt="{{ pin.name }}" class="z-10 absolute left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
     {% endfor %}
 </div>
-
-
-
-{#
-<div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]">
-    <img src="./assets/map.svg" alt="world map">
-    <div class="inert absolute left-0 right-0 top-0 h-[calc(100vw*(5/7))]">
-        {% for pin in pins %}
-        <img src="./assets/pin.svg" alt="{{ pin.name }}" class="z-10 absolute left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
-        {% endfor %}
-    </div>
-</div>
-#}
