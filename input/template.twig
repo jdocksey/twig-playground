@@ -8,6 +8,9 @@
 
 <div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]">
     <img src="./assets/map.svg" alt="world map">
+    {% for pin in pins %}
+    <img src="./assets/pin.svg" alt="{{ pin.name }}" class="z-10 absolute left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
+    {% endfor %}
 </div>
 
 
