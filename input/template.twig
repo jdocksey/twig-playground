@@ -1,13 +1,40 @@
 {# TODO:
-    - make pins resize
     - add video player
         - display by default
+    - make pins resize
     - add pin hover:bounce animation
 #}
 
-<div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]">
+<div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]" x-data="{
+    showVideo: true,
+    videoID: 'I1rA68yF4tM',
+    // videoID: null,
+    closeVideo() {
+        this.showVideo = false;
+    }
+}">
+    {# map and pins #}
     <img src="./assets/map.svg" alt="world map">
     {% for pin in pins %}
-    <img src="./assets/pin.svg" alt="{{ pin.name }}" class="z-10 absolute left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
+    <img src="./assets/pin.svg" alt="{{ pin.name }}" class="absolute z-10 left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
     {% endfor %}
+
+    {# video player #}
+    <div x-cloak x-show="showVideo" class="absolute top-1/3 right-16 z-20 bg-sky-200 justify-center p-8 rounded-xl shadow-xl">
+        <button @click="closeVideo()" class="absolute top-3 right-3">
+            <img src="./assets/x.svg" alt="Close video">
+        </button>
+
+        <iframe
+            x-show="videoID"
+            src="https://www.youtube.com/embed/I1rA68yF4tM"
+            {# src="https://www.youtube-nocookie.com/embed/{{ videoID }}" #}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+        >
+        </iframe>
+
+
+    </div>
 </div>
