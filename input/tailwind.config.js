@@ -5,6 +5,9 @@
 tailwind.config = {
   theme: {
     extend: {
+      backgroundImage: {
+        'map': "url('./assets/map.svg')"
+      }
     },
   },
 };
