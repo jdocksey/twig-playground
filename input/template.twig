@@ -27,12 +27,14 @@
     {% endfor %}
 
     {# video player #}
-    <div x-show="showVideo" class="absolute top-1/3 right-16 z-20 bg-sky-200 justify-center p-8 rounded-xl shadow-xl">
-        <button @click="closeVideo()" class="absolute top-3 right-3">
+    <div x-show="showVideo" class="absolute top-1/3 right-16 z-20 bg-gray-50 justify-center p-8 pt-10 rounded-3xl shadow-2xl">
+        <button @click="closeVideo()" class="absolute top-4 right-4">
             <img src="./assets/x.svg" alt="Close video">
         </button>
 
         <iframe
+            width="560"
+            height="315"
             :src="videoUrl"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
