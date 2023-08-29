@@ -20,10 +20,40 @@
 // https://tailwindcss.com/docs/configuration
 tailwind.config = {
   theme: {
-    extend: {
+      animation: {
+        // TODO: Rename
+        'bounce': 'bounce .8s infinite'
+      },
+      keyframes: {
+        // TODO: Rename
+        'bounce': {
+          '0%': {
+            transform: 'translateY(0)',
+            'animation-timing-function': 'cubic-bezier(0, 0, 0 .2, 1)'
+          },
+          '50%': {
+            transform: 'translateY(-80%)',
+            'animation-timing-function': 'cubic-bezier(0.95, 0, 1, 1)'
+          }
+        }
     },
   },
 };
+
+/*/
+    	animation: bounce 1s infinite;
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(-25%);
+          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+          transform: translateY(0);
+          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+      }
+/*/
 
   </script>
   <style type="text/tailwindcss">
@@ -37,45 +67,15 @@ tailwind.config = {
 <body class="bg-stone-700 text-white">
   
 
-<script>
-    // Load the YouTube API code asynchronously
-    var tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-
-    // This creates an <iframe> and YouTube player after the YouTube API code above downloads
-    var player;
-    function onYouTubeIframeAPIReady() {
-        // player = new YT.Player('player', {
-        player = new YT.Player('youtube-player', {
-            width: '576',
-            height: '360',
-            videoId: 'I1rA68yF4tM',
-            playerVars: {
-                'playsinline': 1
-            },
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-        });
-    }
-
-    function onPlayerReady(event) {
-        event.target.playVideo();
-    }
-
-
-</script>
-
 <div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]" x-data="{
     showVideo: true,
     videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
-    closeVideo() {
-        this.showVideo = false;
-    },
     openVideo(videoID) {
         this.videoUrl = 'https://www.youtube.com/embed/' + videoID;
         this.showVideo = true;
+    },
+    closeVideo() {
+        this.showVideo = false;
     }
 }">
     
@@ -103,8 +103,6 @@ tailwind.config = {
             allowfullscreen
         >
         </iframe>
-
-
     </div>
 </div>
 
