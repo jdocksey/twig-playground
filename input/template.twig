@@ -1,9 +1,20 @@
-<div class="h-screen bg-sky-800 text-white text-7xl font-mono flex justify-center items-center">
-    <div>One</div>
-</div>
-<div class="h-screen bg-cyan-700 text-white text-7xl font-mono flex justify-center items-center">
-    <div>Two</div>
-</div>
-<div class="h-screen bg-teal-800 text-white text-7xl font-mono flex justify-center items-center">
-    <div>Three</div>
+<div x-data="{
+    test1: 'initial',
+    test2: false
+}">
+    <div class="fixed p-8 text-2xl text-gray-800 m-12 top-24 left-24 rounded-3xl bg-gray-50 bg-opacity-90" x-text="test1">
+    </div>
+
+    <div class="fixed p-8 text-2xl text-gray-800 m-12 top-64 left-24 rounded-3xl bg-gray-50 bg-opacity-90" x-text="test2" :class="test2 ? 'animate-ping' : ''">
+    </div>
+
+    <div class="h-[120vh] bg-sky-800 text-white text-7xl font-mono flex justify-center items-center">
+        <div>One</div>
+    </div>
+    <div class="h-[120vh] bg-cyan-700 text-white text-7xl font-mono flex justify-center items-center" x-intersect="test1 = 'updated'; test2 = true" x-intersect:leave="test2 = false">
+        <div>Two</div>
+    </div>
+    <div class="h-[120vh] bg-teal-800 text-white text-7xl font-mono flex justify-center items-center">
+        <div>Three</div>
+    </div>
 </div>
