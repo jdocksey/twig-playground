@@ -4,6 +4,10 @@
 // https://tailwindcss.com/docs/configuration
 tailwind.config = {
   theme: {
+    screens: {
+      'md': '769px',
+      'lg': '992px',
+    },
     animation: {
       // TODO: Add an explanation
       'bounce-by-growing': 'bounce-by-growing .8s infinite'
@@ -29,6 +33,8 @@ tailwind.config = {
       },
       spacing: {
         '4.5': '1.125rem',
+        '78.75': '315px',
+        '140': '560px',
       }
     }
   },
