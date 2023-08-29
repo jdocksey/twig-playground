@@ -1,18 +1,43 @@
-<div class="relative overflow-auto bg-stone-400 max-h-[70vh] mt-[15vh]">
-    {# TODO:
-        - add pin hover:bounce animation
-        - handle pin-overflow-top problem
-        - add video player
-            - display by default
-    #}
+{# TODO:
+    - add video player
+        - https://developers.google.com/youtube/iframe_api_reference
+        - https://developers.google.com/youtube/player_parameters
+        - determine default video
+    - make pins resize
+#}
 
-    {# aspect ratio: 7x5 #}
+
+<div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]" x-data="{
+    showVideo: true,
+    videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
+    openVideo(videoID) {
+        this.videoUrl = 'https://www.youtube.com/embed/' + videoID;
+        this.showVideo = true;
+    },
+    closeVideo() {
+        this.showVideo = false;
+    }
+}">
+    {# map and pins #}
     <img src="./assets/map.svg" alt="world map">
-    <div class="inert absolute left-0 right-0 top-0 h-[calc(100vw*(5/7))]">
-        {% for pin in pins %}
-        {# Pins are positioned by their point from the bottom-left corner of the container. Valid x/y values are in the range 0-100. #}
-        <img src="./assets/pin.svg" alt="{{ pin.name }}" class="z-10 absolute left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer">
-        {% endfor %}
+    {% for pin in pins %}
+    <div class="absolute z-10 left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('{{ pin.videoID }}')" src="./assets/pin.svg" alt="{{ pin.name }}" class="h-16">
     </div>
+    {% endfor %}
 
+    {# video player #}
+    <div x-show="showVideo" class="absolute top-1/3 right-16 z-20 bg-sky-200 justify-center p-8 rounded-xl shadow-xl">
+        <button @click="closeVideo()" class="absolute top-3 right-3">
+            <img src="./assets/x.svg" alt="Close video">
+        </button>
+
+        <iframe
+            :src="videoUrl"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+        >
+        </iframe>
+    </div>
 </div>

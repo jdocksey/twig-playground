@@ -20,7 +20,21 @@
 // https://tailwindcss.com/docs/configuration
 tailwind.config = {
   theme: {
-    extend: {
+    animation: {
+      // TODO: Add an explanation
+      'bounce-by-growing': 'bounce-by-growing .8s infinite'
+    },
+    keyframes: {
+      'bounce-by-growing': {
+        '0%, 100%': {
+          height: '4rem',
+          'animation-timing-function': 'cubic-bezier(0, 0, 0 .2, 1)',
+        },
+        '50%': {
+          height: '4.8rem',
+          'animation-timing-function': 'cubic-bezier(0.95, 0, 1, 1)',
+        },
+      },
     },
   },
 };
@@ -35,30 +49,64 @@ tailwind.config = {
 </head>
 
 <body class="bg-stone-700 text-white">
-  <div class="relative overflow-auto bg-stone-400 max-h-[70vh] mt-[15vh]">
-    
+  
 
+
+<div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]" x-data="{
+    showVideo: true,
+    videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
+    openVideo(videoID) {
+        this.videoUrl = 'https://www.youtube.com/embed/' + videoID;
+        this.showVideo = true;
+    },
+    closeVideo() {
+        this.showVideo = false;
+    }
+}">
     
     <img src="./assets/map.svg" alt="world map">
-    <div class="inert absolute left-0 right-0 top-0 h-[calc(100vw*(5/7))]">
-                
-        <img src="./assets/pin.svg" alt="Los Angeles" class="z-10 absolute left-[calc(13%-22.5px)] bottom-[60%] h-16 cursor-pointer">
-                
-        <img src="./assets/pin.svg" alt="Boston" class="z-10 absolute left-[calc(28.2%-22.5px)] bottom-[63.5%] h-16 cursor-pointer">
-                
-        <img src="./assets/pin.svg" alt="Argentina" class="z-10 absolute left-[calc(30%-22.5px)] bottom-[15%] h-16 cursor-pointer">
-                
-        <img src="./assets/pin.svg" alt="Ireland" class="z-10 absolute left-[calc(48%-22.5px)] bottom-[71%] h-16 cursor-pointer">
-                
-        <img src="./assets/pin.svg" alt="London" class="z-10 absolute left-[calc(51%-22.5px)] bottom-[70%] h-16 cursor-pointer">
-                
-        <img src="./assets/pin.svg" alt="Madagascar" class="z-10 absolute left-[calc(66%-22.5px)] bottom-[28%] h-16 cursor-pointer">
-                
-        <img src="./assets/pin.svg" alt="Dubai" class="z-10 absolute left-[calc(68%-22.5px)] bottom-[52.1%] h-16 cursor-pointer">
-                
-        <img src="./assets/pin.svg" alt="Japan" class="z-10 absolute left-[calc(94.8%-22.5px)] bottom-[59.6%] h-16 cursor-pointer">
-            </div>
+        <div class="absolute z-10 left-[calc(83%-22.5px)] bottom-[97%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('I1rA68yF4tM')" src="./assets/pin.svg" alt="Top" class="h-16">
+    </div>
+        <div class="absolute z-10 left-[calc(13%-22.5px)] bottom-[60%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('I1rA68yF4tM')" src="./assets/pin.svg" alt="Los Angeles" class="h-16">
+    </div>
+        <div class="absolute z-10 left-[calc(28.2%-22.5px)] bottom-[63.5%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('E__X8IDR6a0')" src="./assets/pin.svg" alt="Boston" class="h-16">
+    </div>
+        <div class="absolute z-10 left-[calc(30%-22.5px)] bottom-[15%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('DWwppYEEdcI')" src="./assets/pin.svg" alt="Argentina" class="h-16">
+    </div>
+        <div class="absolute z-10 left-[calc(48%-22.5px)] bottom-[71%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('Ec6i45d74nk')" src="./assets/pin.svg" alt="Ireland" class="h-16">
+    </div>
+        <div class="absolute z-10 left-[calc(51%-22.5px)] bottom-[70%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('Rd0HnxWm5CY')" src="./assets/pin.svg" alt="London" class="h-16">
+    </div>
+        <div class="absolute z-10 left-[calc(66%-22.5px)] bottom-[28%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('fOk8Tm815lE')" src="./assets/pin.svg" alt="Madagascar" class="h-16">
+    </div>
+        <div class="absolute z-10 left-[calc(68%-22.5px)] bottom-[52.1%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('xWDIwsfgQnE')" src="./assets/pin.svg" alt="Dubai" class="h-16">
+    </div>
+        <div class="absolute z-10 left-[calc(94.8%-22.5px)] bottom-[59.6%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('hbEWdw8')" src="./assets/pin.svg" alt="Japan" class="h-16">
+    </div>
+    
+    
+    <div x-show="showVideo" class="absolute top-1/3 right-16 z-20 bg-sky-200 justify-center p-8 rounded-xl shadow-xl">
+        <button @click="closeVideo()" class="absolute top-3 right-3">
+            <img src="./assets/x.svg" alt="Close video">
+        </button>
 
+        <iframe
+            :src="videoUrl"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+        >
+        </iframe>
+    </div>
 </div>
 
 </body>
