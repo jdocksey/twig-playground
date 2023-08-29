@@ -37,13 +37,44 @@ tailwind.config = {
 <body class="bg-stone-700 text-white">
   
 
+<script>
+    // Load the YouTube API code asynchronously
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+
+    // This creates an <iframe> and YouTube player after the YouTube API code above downloads
+    var player;
+    function onYouTubeIframeAPIReady() {
+        // player = new YT.Player('player', {
+        player = new YT.Player('youtube-player', {
+            width: '576',
+            height: '360',
+            videoId: 'I1rA68yF4tM',
+            playerVars: {
+                'playsinline': 1
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+
+
+</script>
+
 <div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]" x-data="{
     showVideo: true,
-    videoID: 'I1rA68yF4tM',
+    videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
     closeVideo() {
         this.showVideo = false;
     },
     openVideo(videoID) {
+        this.videoUrl = 'https://www.youtube.com/embed/' + videoID;
         this.showVideo = true;
     }
 }">
@@ -60,16 +91,13 @@ tailwind.config = {
         <img @click="openVideo('hbEWdw8')" src="./assets/pin.svg" alt="Japan" class="absolute z-10 left-[calc(94.8%-22.5px)] bottom-[59.6%] h-16 cursor-pointer hover:animate-bounce">
     
     
-    
     <div x-show="showVideo" class="absolute top-1/3 right-16 z-20 bg-sky-200 justify-center p-8 rounded-xl shadow-xl">
         <button @click="closeVideo()" class="absolute top-3 right-3">
             <img src="./assets/x.svg" alt="Close video">
         </button>
 
         <iframe
-            x-show="videoID"
-            src="https://www.youtube.com/embed/I1rA68yF4tM"
-            
+            :src="videoUrl"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen

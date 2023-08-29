@@ -9,11 +9,12 @@
 
 <div class="relative max-w-screen-lg mx-auto bg-stone-400 mt-[15vh]" x-data="{
     showVideo: true,
-    videoID: 'I1rA68yF4tM',
+    videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
     closeVideo() {
         this.showVideo = false;
     },
     openVideo(videoID) {
+        this.videoUrl = 'https://www.youtube.com/embed/' + videoID;
         this.showVideo = true;
     }
 }">
@@ -30,9 +31,7 @@
         </button>
 
         <iframe
-            x-show="videoID"
-            src="https://www.youtube.com/embed/I1rA68yF4tM"
-            {# src="https://www.youtube-nocookie.com/embed/{{ videoID }}" #}
+            :src="videoUrl"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
