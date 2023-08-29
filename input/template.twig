@@ -21,7 +21,9 @@
     {# map and pins #}
     <img src="./assets/map.svg" alt="world map">
     {% for pin in pins %}
-    <img @click="openVideo('{{ pin.videoID }}')" src="./assets/pin.svg" alt="{{ pin.name }}" class="absolute z-10 left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] h-16 cursor-pointer hover:animate-bounce">
+    <div class="absolute z-10 left-[calc({{ pin.x }}%-22.5px)] bottom-[{{ pin.y }}%] cursor-pointer hover:animate-bounce-by-growing">
+        <img @click="openVideo('{{ pin.videoID }}')" src="./assets/pin.svg" alt="{{ pin.name }}" class="h-16">
+    </div>
     {% endfor %}
 
     {# video player #}
