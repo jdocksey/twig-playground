@@ -21,6 +21,9 @@ tailwind.config = {
       },
     },
     extend: {
+      colors: {
+        'blue-ispe': '#0052A5',
+      },
       spacing: {
         '4.5': '1.125rem',
       }
