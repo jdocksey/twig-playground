@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Alpine.js https://alpinejs.dev/essentials/installation#from-a-script-tag -->
+  <!-- "Collapse" plugin (see https://alpinejs.dev/plugins/collapse) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <!-- core -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Tailwind 3 playground CDN https://tailwindcss.com/docs/installation/play-cdn -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // deno-fmt-ignore-file
+// deno-lint-ignore-file
+
+// https://tailwindcss.com/docs/configuration
+tailwind.config = {
+  theme: {
+    screens: {
+      'md': '769px',
+      'lg': '992px',
+    },
+    animation: {
+      // TODO: Add an explanation
+      'bounce-by-growing': 'bounce-by-growing .8s infinite'
+    },
+    keyframes: {
+      'bounce-by-growing': {
+        '0%, 100%': {
+          height: '4rem',
+          'animation-timing-function': 'cubic-bezier(0, 0, 0 .2, 1)',
+        },
+        '50%': {
+          height: '4.8rem',
+          'animation-timing-function': 'cubic-bezier(0.95, 0, 1, 1)',
+        },
+      },
+    },
+    extend: {
+      boxShadow: {
+        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
+      },
+      colors: {
+        'blue-ispe': '#0052A5',
+      },
+      spacing: {
+        '4.5': '1.125rem',
+        '78.75': '315px',
+        '140': '560px',
+      }
+    }
+  },
+};
+
+  </script>
+  <style type="text/tailwindcss">
+    /* For Alpine.js (see https://alpinejs.dev/directives/cloak) */
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body class="bg-blue-ispe text-white">
+  <div class="bg-white mt-[15vh]">
+    <div class="relative max-w-screen-lg mx-auto" x-data="{
+        showVideo: true,
+        videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
+        openVideo(videoID) {
+            this.videoUrl = 'https://www.youtube.com/embed/' + videoID;
+            this.showVideo = true;
+        },
+        closeVideo() {
+            this.showVideo = false;
+        }
+    }">
+        
+        <img src="./assets/map.svg" alt="world map">
+                <div class="absolute z-10 bottom-[97%] left-[calc(83%-11.25px)] md:left-[calc(83%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('I1rA68yF4tM')" src="./assets/pin.svg" alt="Top" class="h-8 md:h-16">
+        </div>
+                <div class="absolute z-10 bottom-[60%] left-[calc(13%-11.25px)] md:left-[calc(13%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('I1rA68yF4tM')" src="./assets/pin.svg" alt="Los Angeles" class="h-8 md:h-16">
+        </div>
+                <div class="absolute z-10 bottom-[63.5%] left-[calc(28.2%-11.25px)] md:left-[calc(28.2%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('E__X8IDR6a0')" src="./assets/pin.svg" alt="Boston" class="h-8 md:h-16">
+        </div>
+                <div class="absolute z-10 bottom-[15%] left-[calc(30%-11.25px)] md:left-[calc(30%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('DWwppYEEdcI')" src="./assets/pin.svg" alt="Argentina" class="h-8 md:h-16">
+        </div>
+                <div class="absolute z-10 bottom-[71%] left-[calc(48%-11.25px)] md:left-[calc(48%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('Ec6i45d74nk')" src="./assets/pin.svg" alt="Ireland" class="h-8 md:h-16">
+        </div>
+                <div class="absolute z-10 bottom-[70%] left-[calc(51%-11.25px)] md:left-[calc(51%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('Rd0HnxWm5CY')" src="./assets/pin.svg" alt="London" class="h-8 md:h-16">
+        </div>
+                <div class="absolute z-10 bottom-[28%] left-[calc(66%-11.25px)] md:left-[calc(66%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('fOk8Tm815lE')" src="./assets/pin.svg" alt="Madagascar" class="h-8 md:h-16">
+        </div>
+                <div class="absolute z-10 bottom-[52.1%] left-[calc(68%-11.25px)] md:left-[calc(68%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('xWDIwsfgQnE')" src="./assets/pin.svg" alt="Dubai" class="h-8 md:h-16">
+        </div>
+                <div class="absolute z-10 bottom-[59.6%] left-[calc(94.8%-11.25px)] md:left-[calc(94.8%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+            <img @click="openVideo('hbEWdw8')" src="./assets/pin.svg" alt="Japan" class="h-8 md:h-16">
+        </div>
+        
+        
+        <div x-show="showVideo" class="absolute z-20 max-md:-bottom-12 max-md:inset-x-0 flex justify-center px-8 md:block md:top-1/3 md:right-16 md:px-0">
+            <div class="relative w-full bg-gray-50 pt-6 pb-4 px-4 md:pt-12 md:pb-6 md:px-8 rounded-2xl md:rounded-3xl shadow-md-heavy">
+                <button @click="closeVideo()" class="absolute top-2 right-2 md:top-4.5 md:right-4">
+                    <img src="./assets/x.svg" alt="Close video" class="h-2 md:h-full">
+                </button>
+
+                <div class="md:h-78.75 md:w-140">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        :src="videoUrl"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    >
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
