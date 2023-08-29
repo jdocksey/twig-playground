@@ -21,6 +21,9 @@ tailwind.config = {
       },
     },
     extend: {
+      boxShadow: {
+        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
+      },
       colors: {
         'blue-ispe': '#0052A5',
       },
