@@ -1,5 +1,5 @@
 <div class="bg-white mt-[15vh]">
-    <div class="relative max-w-screen-xl mx-auto" x-data="{
+    <div class="relative max-w-[1440px] mx-auto" x-data="{
         showVideo: true,
         videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
         openVideo(videoID) {
@@ -13,7 +13,7 @@
         {# map and pins #}
         <img src="./assets/map.svg" alt="world map">
         {% for pin in pins %}
-        <div class="absolute z-10 bottom-[{{ pin.y }}%] left-[calc({{ pin.x }}%-11.25px)] md:left-[calc({{ pin.x }}%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+        <div class="absolute z-10 bottom-[{{ pin.y }}%] left-[calc({{ pin.x }}%-11.25px)] md:left-[calc({{ pin.x }}%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('{{ pin.videoID }}')" src="./assets/pin.svg" alt="{{ pin.name }}" class="h-8 md:h-16">
         </div>
         {% endfor %}

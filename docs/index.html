@@ -27,7 +27,8 @@ tailwind.config = {
     },
     animation: {
       // TODO: Add an explanation (if this works for mobile)
-      'bounce-by-growing': 'bounce-by-growing .8s infinite'
+      'bounce-by-growing': 'bounce-by-growing .8s infinite',
+      'bounce-by-growing-small': 'bounce-by-growing-small .8s infinite',
     },
     keyframes: {
       'bounce-by-growing': {
@@ -37,6 +38,16 @@ tailwind.config = {
         },
         '50%': {
           height: '4.8rem',
+          'animation-timing-function': 'cubic-bezier(0.95, 0, 1, 1)',
+        },
+      },
+      'bounce-by-growing-small': {
+        '0%, 100%': {
+          height: '2rem',
+          'animation-timing-function': 'cubic-bezier(0, 0, 0 .2, 1)',
+        },
+        '50%': {
+          height: '2.75rem',
           'animation-timing-function': 'cubic-bezier(0.95, 0, 1, 1)',
         },
       },
@@ -68,7 +79,7 @@ tailwind.config = {
 
 <body class="bg-blue-ispe text-white">
   <div class="bg-white mt-[15vh]">
-    <div class="relative max-w-screen-xl mx-auto" x-data="{
+    <div class="relative max-w-[1440px] mx-auto" x-data="{
         showVideo: true,
         videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
         openVideo(videoID) {
@@ -81,31 +92,31 @@ tailwind.config = {
     }">
         
         <img src="./assets/map.svg" alt="world map">
-                <div class="absolute z-10 bottom-[97%] left-[calc(83%-11.25px)] md:left-[calc(83%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[97%] left-[calc(83%-11.25px)] md:left-[calc(83%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('I1rA68yF4tM')" src="./assets/pin.svg" alt="Top" class="h-8 md:h-16">
         </div>
-                <div class="absolute z-10 bottom-[60%] left-[calc(13%-11.25px)] md:left-[calc(13%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[60%] left-[calc(13%-11.25px)] md:left-[calc(13%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('I1rA68yF4tM')" src="./assets/pin.svg" alt="Los Angeles" class="h-8 md:h-16">
         </div>
-                <div class="absolute z-10 bottom-[63.5%] left-[calc(28.2%-11.25px)] md:left-[calc(28.2%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[63.5%] left-[calc(28.2%-11.25px)] md:left-[calc(28.2%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('E__X8IDR6a0')" src="./assets/pin.svg" alt="Boston" class="h-8 md:h-16">
         </div>
-                <div class="absolute z-10 bottom-[15%] left-[calc(30%-11.25px)] md:left-[calc(30%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[15%] left-[calc(30%-11.25px)] md:left-[calc(30%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('DWwppYEEdcI')" src="./assets/pin.svg" alt="Argentina" class="h-8 md:h-16">
         </div>
-                <div class="absolute z-10 bottom-[71%] left-[calc(48%-11.25px)] md:left-[calc(48%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[71%] left-[calc(48%-11.25px)] md:left-[calc(48%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('Ec6i45d74nk')" src="./assets/pin.svg" alt="Ireland" class="h-8 md:h-16">
         </div>
-                <div class="absolute z-10 bottom-[70%] left-[calc(51%-11.25px)] md:left-[calc(51%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[70%] left-[calc(51%-11.25px)] md:left-[calc(51%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('Rd0HnxWm5CY')" src="./assets/pin.svg" alt="London" class="h-8 md:h-16">
         </div>
-                <div class="absolute z-10 bottom-[28%] left-[calc(66%-11.25px)] md:left-[calc(66%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[28%] left-[calc(66%-11.25px)] md:left-[calc(66%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('fOk8Tm815lE')" src="./assets/pin.svg" alt="Madagascar" class="h-8 md:h-16">
         </div>
-                <div class="absolute z-10 bottom-[52.1%] left-[calc(68%-11.25px)] md:left-[calc(68%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[52.1%] left-[calc(68%-11.25px)] md:left-[calc(68%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('xWDIwsfgQnE')" src="./assets/pin.svg" alt="Dubai" class="h-8 md:h-16">
         </div>
-                <div class="absolute z-10 bottom-[59.6%] left-[calc(94.8%-11.25px)] md:left-[calc(94.8%-22.5px)] cursor-pointer hover:animate-bounce-by-growing">
+                <div class="absolute z-10 bottom-[59.6%] left-[calc(94.8%-11.25px)] md:left-[calc(94.8%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
             <img @click="openVideo('hbEWdw8')" src="./assets/pin.svg" alt="Japan" class="h-8 md:h-16">
         </div>
         
