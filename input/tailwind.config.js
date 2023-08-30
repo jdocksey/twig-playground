@@ -7,9 +7,10 @@ tailwind.config = {
     screens: {
       'md': '769px',
       'lg': '992px',
+      'xl': '1200px',
     },
     animation: {
-      // TODO: Add an explanation
+      // TODO: Add an explanation (if this works for mobile)
       'bounce-by-growing': 'bounce-by-growing .8s infinite'
     },
     keyframes: {

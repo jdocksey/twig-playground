@@ -23,9 +23,10 @@ tailwind.config = {
     screens: {
       'md': '769px',
       'lg': '992px',
+      'xl': '1200px',
     },
     animation: {
-      // TODO: Add an explanation
+      // TODO: Add an explanation (if this works for mobile)
       'bounce-by-growing': 'bounce-by-growing .8s infinite'
     },
     keyframes: {
@@ -66,10 +67,8 @@ tailwind.config = {
 </head>
 
 <body class="bg-blue-ispe text-white">
-  
-
-<div class="bg-white mt-[15vh]">
-    <div class="relative max-w-screen-lg mx-auto" x-data="{
+  <div class="bg-white mt-[15vh]">
+    <div class="relative max-w-screen-xl mx-auto" x-data="{
         showVideo: true,
         videoUrl: 'https://www.youtube.com/embed/I1rA68yF4tM',
         openVideo(videoID) {
