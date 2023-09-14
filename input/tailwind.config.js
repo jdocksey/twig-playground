@@ -20,14 +20,13 @@ tailwind.config = {
       ],
     },
     fontSize: {
-      base: ['1rem', '1.5625rem'],
-
-      // TODO: Rename these (after all sizes have been determined)
+      // TODO: Rename these (except `base`)
       'impact':      ['0.8125rem', 'normal'],
       'eyebrow':     ['0.8125rem', 'normal'],
       'detail':      ['0.875rem',  '1.42857'],
       'h6':          ['1rem',      'normal'],
       'widget-link': ['1rem',      '1.4375'],
+      'base':        ['1rem',      '1.5625'],
       'widget':      ['1rem',      '1.5625'],
       'h5-mobile':   ['1.0625',    'normal'],
       'h5':          ['1.125rem',  'normal'],
