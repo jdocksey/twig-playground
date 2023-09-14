@@ -23,59 +23,33 @@ tailwind.config = {
       base: ['1rem', '1.5625rem'],
 
       // TODO: Rename these (after all sizes have been determined)
-      'h1':             ['2.8125rem', 'normal'],
-      'h2':             ['1.875rem',  'normal'],
-      'subtitle':       ['1.8125rem', 'normal'],
-      'h1-mobile':      ['1.5625rem', 'normal'],
-      'h2-mobile':      ['1.5625rem', 'normal'],
-      'h3':             ['1.25rem',   'normal'],
-      'h4':             ['1.25rem',   'normal'],
-
-      // TODO: Choose one of these options
-      'article':        ['1.125rem',  '1.875rem'],
-      'article-LH':     ['1.125rem',  '1.66666'],
-
-      'large-link':     ['1.125rem',  '1.25rem'],
-      'large-link-LH':  ['1.125rem',  '1.11111'],
-      'h3-mobile':      ['1.125rem',  'normal'],
-      'h4-mobile':      ['1.125rem',  'normal'],
-      'h5':             ['1.125rem',  'normal'],
-      'h5-mobile':      ['1.0625',    'normal'],
-
-      // TODO: Choose one of these options
-      'widget':         ['1rem',      '1.5625rem'],
-      'widget-LH':      ['1rem',      '1.5625'],
-
-      'widget-link':    ['1rem',      '1.4375rem'],
-      'widget-link-LH': ['1rem',      '1.4375'],
-      'h6':             ['1rem',      'normal'],
-
-      // TODO: Choose one of these options
-      'detail':         ['0.875rem',  '1.25rem'],
-      'detail-LH':      ['0.875rem',  '1.42857'],
-
-      'eyebrow':        ['0.8125rem', 'normal'],
-      'impact':         ['0.8125rem', 'normal'],
+      'h1':          ['2.8125rem', 'normal'],
+      'h2':          ['1.875rem',  'normal'],
+      'subtitle':    ['1.8125rem', 'normal'],
+      'h1-mobile':   ['1.5625rem', 'normal'],
+      'h2-mobile':   ['1.5625rem', 'normal'],
+      'h3':          ['1.25rem',   'normal'],
+      'h4':          ['1.25rem',   'normal'],
+      'article':     ['1.125rem',  '1.66666'],
+      'large-link':  ['1.125rem',  '1.11111'],
+      'h3-mobile':   ['1.125rem',  'normal'],
+      'h4-mobile':   ['1.125rem',  'normal'],
+      'h5':          ['1.125rem',  'normal'],
+      'h5-mobile':   ['1.0625',    'normal'],
+      'widget':      ['1rem',      '1.5625'],
+      'widget-link': ['1rem',      '1.4375'],
+      'h6':          ['1rem',      'normal'],
+      'detail':      ['0.875rem',  '1.42857'],
+      'eyebrow':     ['0.8125rem', 'normal'],
+      'impact':      ['0.8125rem', 'normal'],
     },
     lineHeight: {
       normal: 'normal',
-
-      // TODO: Choose one of the three sets below
-      loose: '1.66666',
-      relaxed: '1.5625',
-      standard: '1.4375',
-      snug: '1.42857',
       tight: '1.11111',
-
-      8: '1.875rem',
-      7: '1.5625rem',
-      6: '1.4375rem',
-      5: '1.25rem',
-
-      '7.5': '1.875rem',
-      '6.25': '1.5625rem',
-      '5.75': '1.4375rem',
-      '5': '1.25rem',
+      snug: '1.42857',
+      standard: '1.4375',
+      relaxed: '1.5625',
+      loose: '1.66666',
     },
     fontWeight: {
       normal: 400,
