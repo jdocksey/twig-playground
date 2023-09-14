@@ -1,8 +1,8 @@
 <div class="space-y-12 my-24">
     <ul class="max-w-screen-md mx-auto bg-stone-200 space-y-8 text-lg p-12 list-disc rounded-lg border-2 border-white">
         <li>✅ Breakpoints</li>
+        <li>✅ Colors: elements</li>
         <li>Font sizes</li>
-        <li>Colors: elements</li>
         <li>Colors: text</li>
         <li>Spacing for section padding and margins</li>
         <li>Buttons: rounding sizes</li>
@@ -12,6 +12,20 @@
     <ul class="max-w-screen-md mx-auto bg-stone-200 space-y-8 text-lg p-12 list-disc rounded-lg border-2 border-white">
         <li>Implement templates for all elements</li>
     </ul>
+
+    <div class="flex gap-8 justify-center">
+        {% set color_classes = [
+            'bg-blue-950',
+            'bg-blue-400',
+            'bg-blue-800',
+            'bg-green-500',
+            'bg-cyan-50',
+            'bg-gray-50',
+        ] %}
+        {% for color in color_classes %}
+        <div class="{{ color }} h-48 w-48 rounded-full"></div>
+        {% endfor %}
+    </div>
 </div>
 {% include '@partials/partial-one.twig' with { something: 'ABC' } %}
 <img src="./assets/example.jpg" alt="example image">
