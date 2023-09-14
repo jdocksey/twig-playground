@@ -21,6 +21,7 @@ tailwind.config = {
     },
     fontSize: {
       base: ['1rem', '1.5625rem'],
+
       // TODO: Rename these (after all sizes have been determined)
       'h1': ['2.8125rem', 'normal'],
       'h1-mobile': ['1.5625', 'normal'],
@@ -33,6 +34,15 @@ tailwind.config = {
       'h5': ['1.125rem', 'normal'],
       'h5-mobile': ['1.0625', 'normal'],
       'h6': ['1rem', 'normal'],
+
+      'article': ['1.125rem', '1.875rem'],
+      'widget': ['1rem', '1.5625rem'],
+      'widget-link': ['1rem', '1.4375rem'],
+      'large-link': ['1.125rem', '1.25rem'],
+      'detail': ['0.875rem', '1.25rem'],
+      'eyebrow': ['0.8125rem', 'normal'],
+      'impact': ['0.8125rem', 'normal'],
+      'subtitle': ['1.8125rem', 'normal'],
     },
     fontWeight: {
       normal: 400,
@@ -48,10 +58,11 @@ tailwind.config = {
           950: '#001b3f',
         },
         cyan: {
-          50: "#e5f7fa",
+          50: '#e5f7fa',
         },
         gray: {
-          50: "#fafafa", // background color
+          50: '#fafafa', // background color
+          600: '#555555',
         },
         green: {
           500: '#b6c42c',
