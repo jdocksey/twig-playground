@@ -20,18 +20,6 @@ tailwind.config = {
       ],
     },
     fontSize: {
-      // TODO: Rename these (except `base`)
-      'impact':      ['0.8125rem', 'normal'],
-      'eyebrow':     ['0.8125rem', 'normal'],
-      'detail':      ['0.875rem',  '1.42857'],
-      'widget-link': ['1rem',      '1.4375'],
-      'base':        ['1rem',      '1.5625'],
-      'widget':      ['1rem',      '1.5625'],
-      'large-link':  ['1.125rem',  '1.11111'],
-      'article':     ['1.125rem',  '1.66666'],
-      'subtitle':    ['1.8125rem', 'normal'],
-
-
       'xs':    ['0.8125rem', 'normal'],
       'sm':    ['0.875rem', '1.42857'],
       'base':  ['1rem', '1.5625'],

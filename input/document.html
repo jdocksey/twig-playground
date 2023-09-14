@@ -23,6 +23,15 @@
     }
 
     /* Tailwind styles */
+    body {
+      @apply text-base;
+    }
+
+    a {
+      @apply text-blue-800;
+      @apply underline;
+    }
+
     h1 {
       @apply text-3xl;
       @apply md:text-6xl;
@@ -40,7 +49,7 @@
     }
 
     h4 {
-      @apply text-text-xl;
+      @apply text-xl;
       @apply md:text-2xl;
       @apply font-bold;
     }
@@ -54,6 +63,50 @@
       @apply text-base;
       @apply leading-normal;
       @apply font-bold;
+    }
+
+    .text-article {
+      @apply text-xl;
+      @apply leading-loose;
+    }
+
+    .text-detail {
+      @apply text-sm;
+      @apply leading-snug;
+      @apply font-bold;
+      @apply text-gray-600;
+    }
+
+    .text-eyebrow {
+      @apply text-xs;
+      @apply font-bold;
+      @apply text-green-500;
+    }
+
+    .text-impact {
+      @apply text-xs;
+      @apply font-bold;
+    }
+
+    .text-large-link {
+      @apply text-xl;
+      @apply leading-tight;
+      @apply text-blue-800;
+    }
+
+    .text-subtitle {
+      @apply text-4xl;
+      @apply leading-normal;
+    }
+
+    .text-widget {
+      @apply leading-relaxed;
+      @apply text-gray-600;
+    }
+
+    .text-widget-link {
+      @apply leading-standard;
+      @apply text-blue-800;
     }
   </style>
 </head>
