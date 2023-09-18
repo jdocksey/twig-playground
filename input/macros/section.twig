@@ -1,10 +1,24 @@
-{% macro start(gray_background) %}
-    {% set wrapper_classes = gray_background
-        ? 'bg-gray-50 py-17.5 my-8.75'
-        : 'bg-white py-8.75'
-    %}
+{% macro start(gray_background, first, last) %}
+    {% set background = gray_background ? 'bg-gray-50' : 'bg-white' %}
 
-    <div class="{{ wrapper_classes }}">
+    {% set padding = '' %}
+    {% set margin_top = '' %}
+    {% set margin_bottom = '' %}
+
+    {% if gray_background %}
+        {% if not first %}
+            {% set margin_top = 'mt-8.75' %}
+        {% endif %}
+        {% if not last %}
+            {% set margin_bottom = 'mb-8.75' %}
+        {% endif %}
+
+        {% set padding = 'py-17.5' %}
+    {% else %}
+        {% set padding = 'py-8.75' %}
+    {% endif %}
+
+    <div class="{{ background }} {{ padding }} {{ margin_top }} {{ margin_bottom }}">
         <div class="max-w-screen-xl mx-auto">
 {% endmacro %}
 

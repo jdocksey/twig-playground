@@ -1,7 +1,7 @@
 {% import '@macros/section.twig' as section %}
 {% import '@macros/shapes.twig' as shapes %}
 
-{{ section.start(gray_background) }}
+{{ section.start(gray_background, first, last) }}
 <div class="flex gap-8 justify-center">
     {{ shapes.circle('bg-blue-950') }}
     {{ shapes.circle('bg-blue-400') }}
