@@ -20,6 +20,11 @@
     </ul>
 </div>
 
-{% include '@partials/colors.twig'       with { gray_background: true,  first: true,  last: false } %}
-{% include '@partials/headers.twig'      with { gray_background: false, first: false, last: false } %}
-{% include '@partials/text-samples.twig' with { gray_background: true,  first: false, last: true } %}
+{% set partials = [
+    'colors',
+    'headers',
+    'text-samples',
+] %}
+{% for partial in partials %}
+    {% include '@partials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } %}
+{% endfor %}
