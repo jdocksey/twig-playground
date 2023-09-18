@@ -1,0 +1,14 @@
+{% macro start(gray_background) %}
+    {% set wrapper_classes = gray_background
+        ? 'bg-gray-50 py-17.5 my-8.75'
+        : 'bg-white py-8.875'
+    %}
+
+    <div class="{{ wrapper_classes }}">
+        <div class="max-w-screen-xl mx-auto">
+{% endmacro %}
+
+{% macro end() %}
+        </div>
+    </div>
+{% endmacro %}

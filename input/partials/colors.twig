@@ -1,0 +1,19 @@
+{% import '@macros/section.twig' as section %}
+
+{{ section.start(true) }}
+
+<div class="flex gap-8 justify-center">
+        {% set color_classes = [
+            'bg-blue-950',
+            'bg-blue-400',
+            'bg-blue-800',
+            'bg-green-500',
+            'bg-cyan-50',
+            'bg-gray-50',
+        ] %}
+        {% for color in color_classes %}
+        <div class="{{ color }} h-36 w-36 rounded-full"></div>
+        {% endfor %}
+    </div>
+
+{{ section.end() }}

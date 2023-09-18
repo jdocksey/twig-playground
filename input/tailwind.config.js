@@ -64,6 +64,11 @@ tailwind.config = {
         },
         white: '#ffffff',
       },
+      spacing: {
+        8.75: '2.1875rem',
+        17.5: '4.375rem',
+        17.5: '4.375rem',
+      }
     },
   },
 };

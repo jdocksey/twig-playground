@@ -80,7 +80,10 @@ function render(): void {
 function renderTemplate(template: string, data: any): string {
     const twigConfig = {
         data: template,
-        namespaces: { 'partials': './input/partials' },
+        namespaces: {
+            macros: './input/macros',
+            partials: './input/partials',
+        },
     };
 
     const templateObject = Twig.twig(twigConfig);
