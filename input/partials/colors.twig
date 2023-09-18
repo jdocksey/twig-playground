@@ -1,19 +1,13 @@
 {% import '@macros/section.twig' as section %}
+{% import '@macros/shapes.twig' as shapes %}
 
-{{ section.start(true) }}
-
+{{ section.start(gray_background) }}
 <div class="flex gap-8 justify-center">
-        {% set color_classes = [
-            'bg-blue-950',
-            'bg-blue-400',
-            'bg-blue-800',
-            'bg-green-500',
-            'bg-cyan-50',
-            'bg-gray-50',
-        ] %}
-        {% for color in color_classes %}
-        <div class="{{ color }} h-36 w-36 rounded-full"></div>
-        {% endfor %}
-    </div>
-
+    {{ shapes.circle('bg-blue-950') }}
+    {{ shapes.circle('bg-blue-400') }}
+    {{ shapes.circle('bg-blue-800') }}
+    {{ shapes.circle('bg-green-500') }}
+    {{ shapes.circle('bg-cyan-50', true) }}
+    {{ shapes.circle('bg-gray-50', true) }}
+</div>
 {{ section.end() }}

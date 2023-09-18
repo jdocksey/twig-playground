@@ -1,0 +1,4 @@
+{% macro circle(background_class, include_border = false) %}
+    {% set border_classes = include_border ? 'border-4 border-gray-600' : '' %}
+    <div class="{{ background_class }} {{ border_classes }} h-36 w-36 rounded-full"></div>
+{% endmacro %}

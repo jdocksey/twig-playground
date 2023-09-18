@@ -5,7 +5,7 @@
         <li>✅ Colors: elements</li>
         <li>✅ Font sizes</li>
         <li>✅ Colors: text</li>
-        <li>Spacing for section padding and margins (use templates)</li>
+        <li>✅ Spacing for section padding and margins (use templates)</li>
         <li>Buttons: rounding sizes (and other specs?)</li>
         <li>Links: "automatic" icon additions</li>
         <li>Icons</li>
@@ -18,55 +18,6 @@
     </ul>
 </div>
 
-{% include '@partials/colors.twig' %}
+{% include '@partials/colors.twig' with { gray_background: true } %}
 {% include '@partials/headers.twig' %}
-
-{# Text #}
-<div class="bg-white flex justify-center p-12">
-    <div class="max-w-screen-md space-y-12">
-        <div class="space-y-2">
-            <h3>Paragraph</h3>
-            <p>An example paragraph. <a href="https://www.example.com" target="_blank">a link going somewhere</a> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-        </div>
-
-        <div class="space-y-2">
-            <h3>Article</h3>
-            <p class="text-article">An example article. <a href="https://www.example.com" target="_blank">a link going somewhere</a> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-        </div>
-
-        <div class="space-y-2">
-            <h3>Widget Text</h3>
-            <p class="text-widget">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="space-y-2">
-            <h3>Widget Links</h3>
-            <p class="text-widget-link">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="space-y-2">
-            <h3>Large Links</h3>
-            <p class="text-large-link">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="space-y-2">
-            <h3>Subtitles</h3>
-            <p class="text-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="space-y-2">
-            <h3>Details</h3>
-            <p class="text-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="space-y-2">
-            <h3>Eyebrows</h3>
-            <p class="text-eyebrow">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-
-        <div class="space-y-2">
-            <h3>Impact Text</h3>
-            <p class="text-impact">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-    </div>
-</div>
+{% include '@partials/text-samples.twig' with { gray_background: true } %}
