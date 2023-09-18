@@ -7,8 +7,8 @@ import Twig from 'twig';
 //#region configuration
 const Config = {
     data: './input/data.json',
-    twigTemplate: './input/template.twig',
-    documentTemplate: './input/document-template.html',
+    twigTemplate: './input/content.twig',
+    documentTemplate: './input/document.html',
     tailwindConfig: './input/tailwind.config.js',
     output: './output',
 } as const;
@@ -67,7 +67,7 @@ function render(): void {
 
     const output = documentTemplate
         .replace('{{ tailwindConfig }}', tailwindConfig)
-        .replace('{{ contents }}', renderedTemplate);
+        .replace('{{ content }}', renderedTemplate);
 
     emptyDirSync(Config.output);
     copySync('./input/assets', Config.output + '/assets', { overwrite: true });
@@ -78,7 +78,12 @@ function render(): void {
 
 // deno-lint-ignore no-explicit-any
 function renderTemplate(template: string, data: any): string {
-    const templateObject = Twig.twig({ data: template });
+    const twigConfig = {
+        data: template,
+        namespaces: { 'partials': './input/partials' },
+    };
+
+    const templateObject = Twig.twig(twigConfig);
     return templateObject.render(data);
 }
 
