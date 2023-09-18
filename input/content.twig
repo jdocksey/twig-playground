@@ -1,23 +1,25 @@
 {# TODO's #}
-<div class="space-y-12 mt-12 mx-4">
-    <ul class="max-w-screen-md mx-auto bg-stone-200 space-y-8 text-lg p-12 list-disc rounded-lg border-2 border-white">
-        <li>✅ Breakpoints</li>
-        <li>✅ Colors: elements</li>
-        <li>✅ Font sizes</li>
-        <li>✅ Colors: text</li>
-        <li>✅ Spacing for section padding and margins (use templates)</li>
-        <li>Buttons: rounding sizes (and other specs?)</li>
-        <li>Links: "automatic" icon additions</li>
-        <li>Icons</li>
-        <li>Checkboxes</li>
-        <li>Labels</li>
-        <li>ISPE logos</li>
-    </ul>
-    <ul class="max-w-screen-md mx-auto bg-stone-200 space-y-8 text-lg p-12 list-disc rounded-lg border-2 border-white">
-        <li>Implement templates for all elements</li>
+<div class="bg-stone-700 text-white py-24 px-4">
+    <ul class="max-w-screen-xl mx-auto flex flex-wrap gap-4">
+        {% set todos = [
+            '✅ Breakpoints',
+            '✅ Colors: elements',
+            '✅ Font sizes',
+            '✅ Colors: text',
+            '✅ Spacing for section padding and margins (use templates)',
+            'Buttons: rounding sizes (and other specs?)',
+            'Links: "automatic" icon additions',
+            'Icons',
+            'Checkboxes',
+            'Labels',
+            'ISPE logos',
+        ] %}
+        {% for todo in todos %}
+        <li class="bg-stone-500 border border-black p-2 rounded-md">{{ todo }}</li>
+        {% endfor %}
     </ul>
 </div>
 
-{% include '@partials/colors.twig' with { gray_background: true } %}
-{% include '@partials/headers.twig' %}
-{% include '@partials/text-samples.twig' with { gray_background: true } %}
+{% include '@partials/colors.twig' with { gray_background: false } %}
+{% include '@partials/headers.twig' with { gray_background: true } %}
+{% include '@partials/text-samples.twig' with { gray_background: false } %}
