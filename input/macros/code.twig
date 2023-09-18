@@ -3,3 +3,10 @@
         {{ '&lt;' ~ element ~ ' class="' ~ classes ~ '"/&gt;' }}
     </span>
 {% endmacro %}
+
+{% macro title_with_classes(title, element, classes) %}
+<div class="flex gap-2">
+    <h3>{{ title }}</h3>
+    {{ _self.class(element, classes) }}
+</div>
+{% endmacro %}

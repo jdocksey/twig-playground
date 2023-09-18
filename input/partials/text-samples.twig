@@ -4,57 +4,49 @@
 {{ section.start(gray_background, first, last) }}
 <div class="space-y-12">
     <div class="space-y-2">
-        <div class="flex gap-2">
-            <h3>Paragraph</h3>
-            {{ code.class('p', '') }}
-        </div>
+        {{ code.title_with_classes('Paragraph', 'p', '') }}
         <p>An example paragraph. <a href="https://www.example.com" target="_blank">a link going somewhere</a> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
     </div>
 
     <div class="space-y-2">
-        <div class="flex gap-2">
-            <h3>Article</h3>
-            {{ code.class('p', 'text-article') }}
-        </div>
+        {{ code.title_with_classes('Article', 'p', 'text-article') }}
         <p class="text-article">An example article. <a href="https://www.example.com" target="_blank">a link going somewhere</a> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
     </div>
 
     <div class="space-y-2">
-        <div class="flex gap-2">
-            <h3>Widget Text</h3>
-            {{ code.class('p', 'text-widget') }}
-        </div>
+        {{ code.title_with_classes('Widget Text', 'p', 'text-widget') }}
         <p class="text-widget">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 
     <div class="space-y-2">
-        <h3>Widget Links</h3>
+        {{ code.title_with_classes('Widget Links', 'p', 'text-widget-link') }}
         <p class="text-widget-link">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 
     <div class="space-y-2">
-        <h3>Large Links</h3>
-        <p class="text-large-link">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        {{ code.title_with_classes('Large Links', 'p', 'text-link-large') }}
+        <p class="text-link-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 
     <div class="space-y-2">
-        <h3>Subtitles</h3>
+        {{ code.title_with_classes('Subtitles', 'p', 'text-subtitle') }}
         <p class="text-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 
     <div class="space-y-2">
-        <h3>Details</h3>
+        {{ code.title_with_classes('Details', 'p', 'text-detail') }}
         <p class="text-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 
     <div class="space-y-2">
-        <h3>Eyebrows</h3>
+        {{ code.title_with_classes('Eyebrows', 'p', 'text-eyebrow') }}
         <p class="text-eyebrow">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 
     <div class="space-y-2">
-        <h3>Impact Text</h3>
+        {{ code.title_with_classes('Impact Text', 'p', 'text-impact') }}
         <p class="text-impact">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 </div>
+
 {{ section.end() }}
