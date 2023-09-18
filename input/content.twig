@@ -5,9 +5,13 @@
         <li>✅ Colors: elements</li>
         <li>✅ Font sizes</li>
         <li>✅ Colors: text</li>
-        <li>Spacing for section padding and margins</li>
-        <li>Buttons: rounding sizes</li>
-        <li>Links: "automatic" icon addition</li>
+        <li>Spacing for section padding and margins (use templates)</li>
+        <li>Buttons: rounding sizes (and other specs?)</li>
+        <li>Links: "automatic" icon additions</li>
+        <li>Icons</li>
+        <li>Checkboxes</li>
+        <li>Labels</li>
+        <li>ISPE logos</li>
     </ul>
     <ul class="max-w-screen-md mx-auto bg-stone-200 space-y-8 text-lg p-12 list-disc rounded-lg border-2 border-white">
         <li>Implement templates for all elements</li>
@@ -92,5 +96,8 @@
         </div>
     </div>
 </div>
-{% include '@partials/partial-one.twig' with { something: 'ABC' } %}
-<img src="./assets/example.jpg" alt="example image">
+
+{# Sections #}
+<div class="mt-12">
+    {% include '@partials/section.twig' %}
+</div>
