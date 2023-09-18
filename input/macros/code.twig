@@ -1,14 +1,14 @@
 {% macro class(element, classes) %}
     <button x-data @click="() => navigator.clipboard.writeText('{{ classes }}')"
         {{ code.title_with_classes('Widget Text', 'p', 'text-widget') }}
-        class="font-mono text-xs py-1.5 px-4 rounded w-fit text-gray-50 bg-gray-700 hover:bg-gray-800 active:bg-gray-900"
+        class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
     >
-        {{ '&lt;' ~ element ~ ' class="' ~ classes ~ '"/&gt;' }}
+        {{ '&lt;' ~ element ~ ' class="' ~ classes ~ '"&gt;' }}
     </button>
 {% endmacro %}
 
 {% macro title_with_classes(title, element, classes) %}
-<div class="flex flex-col gap-2">
+<div class="flex gap-2">
     <h3>{{ title }}</h3>
     {{ _self.class(element, classes) }}
 </div>
