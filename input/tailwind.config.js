@@ -21,8 +21,8 @@ tailwind.config = {
     },
     fontSize: {
       'xs':    ['0.8125rem', 'normal'],
-      'sm':    ['0.875rem', '1.42857'],
-      'base':  ['1rem', '1.5625'],
+      'sm':    ['0.875rem',  '1.42857'],
+      'base':  ['1rem',      '1.5625'],
       'lg':    ['1.0625',    'normal'],
       'xl':    ['1.125rem',  'normal'],
       '2xl':   ['1.25rem',   'normal'],
@@ -32,12 +32,12 @@ tailwind.config = {
       '6xl':   ['2.8125rem', 'normal'],
     },
     lineHeight: {
-      normal: 'normal',
-      tight: '1.11111',
-      snug: '1.42857',
+      normal:   'normal',
+      tight:    '1.11111',
+      snug:     '1.42857',
       standard: '1.4375',
-      relaxed: '1.5625',
-      loose: '1.66666',
+      relaxed:  '1.5625',
+      loose:    '1.66666',
     },
     fontWeight: {
       normal: 400,
