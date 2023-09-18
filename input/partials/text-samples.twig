@@ -1,19 +1,29 @@
 {% import '@macros/section.twig' as section %}
+{% import '@macros/code.twig' as code %}
 
 {{ section.start(gray_background, first, last) }}
 <div class="space-y-12">
     <div class="space-y-2">
-        <h3>Paragraph</h3>
+        <div class="flex gap-2">
+            <h3>Paragraph</h3>
+            {{ code.class('p', '') }}
+        </div>
         <p>An example paragraph. <a href="https://www.example.com" target="_blank">a link going somewhere</a> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
     </div>
 
     <div class="space-y-2">
-        <h3>Article</h3>
+        <div class="flex gap-2">
+            <h3>Article</h3>
+            {{ code.class('p', 'text-article') }}
+        </div>
         <p class="text-article">An example article. <a href="https://www.example.com" target="_blank">a link going somewhere</a> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
     </div>
 
     <div class="space-y-2">
-        <h3>Widget Text</h3>
+        <div class="flex gap-2">
+            <h3>Widget Text</h3>
+            {{ code.class('p', 'text-widget') }}
+        </div>
         <p class="text-widget">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 

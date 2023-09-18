@@ -18,6 +18,14 @@ tailwind.config = {
         'Arial',
         'sans-serif',
       ],
+      // TODO: Remove for production
+      mono: [
+        'JetBrains Mono',
+        'Fira Code',
+        'ui-monospace',
+        'Courier New',
+        'monospace',
+      ],
     },
     fontSize: {
       'xs':    ['0.8125rem', 'normal'],

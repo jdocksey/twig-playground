@@ -1,0 +1,5 @@
+{% macro class(element, classes) %}
+    <span class="bg-gray-700 text-gray-50 font-mono text-xs py-1.5 px-4 rounded w-fit">
+        {{ '&lt;' ~ element ~ ' class="' ~ classes ~ '"/&gt;' }}
+    </span>
+{% endmacro %}
