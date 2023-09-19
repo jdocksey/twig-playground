@@ -17,21 +17,21 @@
     },
 ] %}
 
-<div class="bg-blue-950 py-17.5 mb-8.75 flex flex-col items-center gap-6">
+<div class="bg-blue-950 py-17.5 mb-8.75 flex flex-col items-center gap-6 overflow-x-auto">
 	{% for breakpoints in breakpoint_pairs %}
-		<div x-data class="{{ breakpoints.container.width_class }} pt-2 flex flex-col gap-2 items-center text-white border-x-2 border-white bg-white bg-opacity-5">
+		<div x-data class="{{ breakpoints.container.width_class }} pt-2 flex flex-col gap-2 items-center text-white border-x-2 border-white border-opacity-70 bg-white bg-opacity-5 hover:border-opacity-100">
             <div class="bg-blue-400 bg-opacity-50 py-2 px-12 rounded font-mono text-2xl">{{ breakpoints.container.tag }}</div>
 
 			<div class="w-full flex flex-col items-center font-mono text-sm">
                 {% set button_classes = 'w-full flex flex-col items-center gap-3 bg-blue-400 opacity-80 hover:opacity-100 bg-opacity-0 hover:bg-opacity-20' %}
 
                 <button @click="() => navigator.clipboard.writeText('{{ breakpoints.container.max_width_class }}')" class="{{ button_classes }} pt-8">
-                    <span class="self-start ml-12">container: {{ breakpoints.container.width }}</span>
+                    <span class="w-64 text-left">container: {{ breakpoints.container.width }}</span>
                     <span class="h-0 w-full {{ breakpoints.container.max_width_class }} border border-dotted border-white"></span>
                 </button>
 
                 <button @click="() => navigator.clipboard.writeText('{{ breakpoints.content.max_width_class }}')" class="{{ button_classes }} pt-10">
-                    <span class="self-start ml-12">content: {{ breakpoints.content.width }}</span>
+                    <span class="w-64 text-left">content: {{ breakpoints.content.width }}</span>
                     <span class="h-0 w-full {{ breakpoints.content.max_width_class }} border border-dotted border-white"></span>
                 </button>
 			</div>
