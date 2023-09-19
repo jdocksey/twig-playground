@@ -19,22 +19,22 @@
 
 <div class="bg-blue-950 py-17.5 mb-8.75 flex flex-col items-center gap-6">
 	{% for breakpoints in breakpoint_pairs %}
-		<button x-data @click="() => navigator.clipboard.writeText('{{ breakpoints.container.max_width_class }}')"
-            class="{{ breakpoints.container.max_width_class }} w-full pt-2 flex flex-col gap-2 items-center text-white border-x-2 border-white bg-white bg-opacity-5"
-        >
-            <span class="bg-blue-400 bg-opacity-50 py-2 px-12 rounded font-mono text-2xl">{{ breakpoints.container.tag }}</span>
+		<div x-data class="{{ breakpoints.container.max_width_class }} w-full pt-2 flex flex-col gap-2 items-center text-white border-x-2 border-white bg-white bg-opacity-5">
+            <div class="bg-blue-400 bg-opacity-50 py-2 px-12 rounded font-mono text-2xl">{{ breakpoints.container.tag }}</div>
 
-			<span class="w-full flex flex-col items-center font-mono text-sm">
-                <span class="w-full pt-8 flex flex-col items-center gap-3 bg-blue-400 opacity-80 hover:opacity-100 bg-opacity-0 hover:bg-opacity-20">
+			<div class="w-full flex flex-col items-center font-mono text-sm">
+                {% set button_classes = 'w-full flex flex-col items-center gap-3 bg-blue-400 opacity-80 hover:opacity-100 bg-opacity-0 hover:bg-opacity-20' %}
+
+                <button @click="() => navigator.clipboard.writeText('{{ breakpoints.container.max_width_class }}')" class="{{ button_classes }} pt-8">
                     <span class="self-start ml-12">container: {{ breakpoints.container.width }}</span>
-                    <span class="block h-0 w-full {{ breakpoints.container.max_width_class }} border border-dotted border-white"></span>
-                </span>
+                    <span class="h-0 w-full {{ breakpoints.container.max_width_class }} border border-dotted border-white"></span>
+                </button>
 
-                <span class="w-full pt-10 flex flex-col items-center gap-3 bg-blue-400 opacity-80 hover:opacity-100 bg-opacity-0 hover:bg-opacity-20">
+                <button @click="() => navigator.clipboard.writeText('{{ breakpoints.content.max_width_class }}')" class="{{ button_classes }} pt-10">
                     <span class="self-start ml-12">content: {{ breakpoints.content.width }}</span>
-                    <span class="block h-0 w-full {{ breakpoints.content.max_width_class }} border border-dotted border-white"></span>
-                </span>
-			</span>
-		</button>
+                    <span class="h-0 w-full {{ breakpoints.content.max_width_class }} border border-dotted border-white"></span>
+                </button>
+			</div>
+		</div>
 	{% endfor %}
 </div>
