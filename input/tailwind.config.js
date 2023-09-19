@@ -8,8 +8,7 @@ tailwind.config = {
       'sm': '374px',
       'md': '768px',
       'lg': '991px',
-      // This value is 3rem (48px) greater than the content maximum width limit of 1200px (see `maxWidth: content-limit` below)
-      'xl': '1248px',
+      'xl': '1200px',
     },
     fontFamily: {
       sans: [
@@ -89,7 +88,8 @@ tailwind.config = {
         17.5: '4.375rem',
       },
       maxWidth: {
-        'content-limit': '1200px',
+      // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
+      'content-limit': '1248px',
       },
     },
   },
