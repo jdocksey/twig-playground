@@ -1,25 +1,25 @@
 {% set breakpoint_pairs = [
     {
-        container: { tag: 'xl', width: 'calc(1200px + 3rem)', max_width_class: 'max-w-screen-xl' },
-        content: { tag: 'xl-content', width: '1200px', max_width_class: 'max-w-screen-xl-content' },
+        container: { tag: 'xl', width: 'calc(1200px + 3rem)', width_class: 'w-[calc(1200px_+_3rem)]', max_width_class: 'max-w-screen-xl' },
+        content: { tag: 'xl-content', width: '1200px', width_class: 'w-[1200px]', max_width_class: 'max-w-screen-xl-content' },
     },
     {
-        container: { tag: 'lg', width: 'calc(991px + 3rem)', max_width_class: 'max-w-screen-lg' },
-        content: { tag: 'lg-content', width: '991px', max_width_class: 'max-w-screen-lg-content' },
+        container: { tag: 'lg', width: 'calc(991px + 3rem)', width_class: 'w-[calc(991px_+_3rem)]', max_width_class: 'max-w-screen-lg' },
+        content: { tag: 'lg-content', width: '991px', width_class: 'w-[991px]', max_width_class: 'max-w-screen-lg-content' },
     },
     {
-        container: { tag: 'md', width: 'calc(768px + 3rem)', max_width_class: 'max-w-screen-md' },
-        content: { tag: 'md-content', width: '768px', max_width_class: 'max-w-screen-md-content' },
+        container: { tag: 'md', width: 'calc(768px + 3rem)', width_class: 'w-[calc(768px_+_3rem)]', max_width_class: 'max-w-screen-md' },
+        content: { tag: 'md-content', width: '768px', width_class: 'w-[768px]', max_width_class: 'max-w-screen-md-content' },
     },
     {
-        container: { tag: 'sm', width: 'calc(374px + 3rem)', max_width_class: 'max-w-screen-sm' },
-        content: { tag: 'sm-content', width: '374px', max_width_class: 'max-w-screen-sm-content' },
+        container: { tag: 'sm', width: 'calc(374px + 3rem)', width_class: 'w-[calc(374px_+_3rem)]', max_width_class: 'max-w-screen-sm' },
+        content: { tag: 'sm-content', width: '374px', width_class: 'w-[374px]', max_width_class: 'max-w-screen-sm-content' },
     },
 ] %}
 
 <div class="bg-blue-950 py-17.5 mb-8.75 flex flex-col items-center gap-6">
 	{% for breakpoints in breakpoint_pairs %}
-		<div x-data class="{{ breakpoints.container.max_width_class }} w-full pt-2 flex flex-col gap-2 items-center text-white border-x-2 border-white bg-white bg-opacity-5">
+		<div x-data class="{{ breakpoints.container.width_class }} pt-2 flex flex-col gap-2 items-center text-white border-x-2 border-white bg-white bg-opacity-5">
             <div class="bg-blue-400 bg-opacity-50 py-2 px-12 rounded font-mono text-2xl">{{ breakpoints.container.tag }}</div>
 
 			<div class="w-full flex flex-col items-center font-mono text-sm">
