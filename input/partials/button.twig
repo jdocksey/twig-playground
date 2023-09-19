@@ -33,7 +33,11 @@
 {# TODO: Add animation/transition #}
 {# TODO: Add on-click UI change #}
 
-<button class="flex items-center stroke-blue-950 hover:stroke-white {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }}">
+{% set code_for_copying = "{% include \'@partials/button.twig\' with { text: \'abc\', size: \'" ~ size ~ "\', primary: " ~ primary ~ ", icon: " ~ icon ~ " } %}" %}
+
+<button x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
+    class="flex items-center stroke-blue-950 hover:stroke-white {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }}"
+>
     <span>{{ text }}</span>
     {% if icon %}
         {% include '@assets/link-icon.svg' with { class: icon_position ~ ' ' ~ icon_scale } %}
