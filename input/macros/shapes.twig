@@ -3,9 +3,9 @@
 {% macro circle(background_class, include_border = false) %}
     {% set border_classes = include_border ? 'border-4 border-gray-600' : '' %}
     <button x-data @click="() => navigator.clipboard.writeText('{{ background_class }}')"
-        class="flex flex-col items-center gap-4 p-4 rounded w-fit font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
     >
-        <div class="{{ background_class }} {{ border_classes }} h-36 w-36 rounded-full"></div>
+        <div class="{{ background_class }} {{ border_classes }} w-full aspect-square rounded-full"></div>
         <div>{{ background_class }}</div>
     </button>
 {% endmacro %}
