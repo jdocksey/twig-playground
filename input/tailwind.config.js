@@ -5,10 +5,10 @@
 tailwind.config = {
   theme: {
     screens: {
-      'sm': '375px',
-      'md': '769px',
-      'lg': '992px',
-      'xl': '1201px',
+      'sm': '374px',
+      'md': '768px',
+      'lg': '991px',
+      'xl': '1200px',
     },
     fontFamily: {
       sans: [
