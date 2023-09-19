@@ -5,10 +5,10 @@
 tailwind.config = {
   theme: {
     screens: {
-      'sm': '374px',
-      'md': '768px',
-      'lg': '991px',
-      'xl': '1200px',
+      'sm': 'calc(374px + 3rem)',
+      'md': 'calc(768px + 3rem)',
+      'lg': 'calc(991px + 3rem)',
+      'xl': 'calc(1200px + 3rem)',
     },
     fontFamily: {
       sans: [
@@ -76,7 +76,13 @@ tailwind.config = {
         8.75: '2.1875rem',
         17.5: '4.375rem',
         17.5: '4.375rem',
-      }
+      },
+      maxWidth: {
+        'screen-sm-content': '374px',
+        'screen-md-content': '768px',
+        'screen-lg-content': '991px',
+        'screen-xl-content': '1200px',
+      },
     },
   },
 };
