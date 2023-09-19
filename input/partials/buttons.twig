@@ -1,0 +1,38 @@
+{% import '@macros/section.twig' as section %}
+
+{% set buttons = [
+    { size: 's', primary: true,  icon: false },
+    { size: 's', primary: true,  icon: true },
+    { size: 's', primary: false, icon: true },
+    { size: 's', primary: false, icon: false },
+
+    { size: 'm', primary: true,  icon: false },
+    { size: 'm', primary: true,  icon: true },
+    { size: 'm', primary: false, icon: true },
+    { size: 'm', primary: false, icon: false },
+
+    { size: 'l', primary: true,  icon: false },
+    { size: 'l', primary: true,  icon: true },
+    { size: 'l', primary: false, icon: true },
+    { size: 'l', primary: false, icon: false },
+] %}
+
+{{ section.start(gray_background, first, last) }}
+<div class="flex flex-wrap">
+    {% for button in buttons %}
+    {% include '@partials/button.twig' with { size: button.size, primary: button.primary, icon: button.icon } %}
+    {% endfor %}
+</div>
+{{ section.end() }}
+
+{#
+button(
+    size: s | m | l
+    primary: boolean
+    icon: boolean
+)
+
+button_wide(
+    size: s | m | l
+)
+#}
