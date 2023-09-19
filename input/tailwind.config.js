@@ -5,10 +5,11 @@
 tailwind.config = {
   theme: {
     screens: {
-      'sm': 'calc(374px + 3rem)',
-      'md': 'calc(768px + 3rem)',
-      'lg': 'calc(991px + 3rem)',
-      'xl': 'calc(1200px + 3rem)',
+      'sm': '374px',
+      'md': '768px',
+      'lg': '991px',
+      // This value is 3rem (48px) greater than the `screen-xl-content` value in the `extend: maxWidth` section below, to accommodate the 3rem horizontal
+      'xl': '1248px',
     },
     fontFamily: {
       sans: [
