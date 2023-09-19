@@ -8,7 +8,7 @@ tailwind.config = {
       'sm': '374px',
       'md': '768px',
       'lg': '991px',
-      // This value is 3rem (48px) greater than the `screen-xl-content` value in the `extend: maxWidth` section below, to accommodate the 3rem horizontal
+      // This value is 3rem (48px) greater than the content maximum width limit of 1200px (see `maxWidth: content-limit` below)
       'xl': '1248px',
     },
     fontFamily: {
@@ -79,10 +79,7 @@ tailwind.config = {
         17.5: '4.375rem',
       },
       maxWidth: {
-        'screen-sm-content': '374px',
-        'screen-md-content': '768px',
-        'screen-lg-content': '991px',
-        'screen-xl-content': '1200px',
+        'content-limit': '1200px',
       },
     },
   },

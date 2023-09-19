@@ -1,41 +1,19 @@
-{% set breakpoint_pairs = [
-    {
-        container: { tag: 'xl', width: 'calc(1200px + 3rem)', width_class: 'w-[calc(1200px_+_3rem)]', max_width_class: 'max-w-screen-xl' },
-        content: { tag: 'xl-content', width: '1200px', width_class: 'w-[1200px]', max_width_class: 'max-w-screen-xl-content' },
-    },
-    {
-        container: { tag: 'lg', width: 'calc(991px + 3rem)', width_class: 'w-[calc(991px_+_3rem)]', max_width_class: 'max-w-screen-lg' },
-        content: { tag: 'lg-content', width: '991px', width_class: 'w-[991px]', max_width_class: 'max-w-screen-lg-content' },
-    },
-    {
-        container: { tag: 'md', width: 'calc(768px + 3rem)', width_class: 'w-[calc(768px_+_3rem)]', max_width_class: 'max-w-screen-md' },
-        content: { tag: 'md-content', width: '768px', width_class: 'w-[768px]', max_width_class: 'max-w-screen-md-content' },
-    },
-    {
-        container: { tag: 'sm', width: 'calc(374px + 3rem)', width_class: 'w-[calc(374px_+_3rem)]', max_width_class: 'max-w-screen-sm' },
-        content: { tag: 'sm-content', width: '374px', width_class: 'w-[374px]', max_width_class: 'max-w-screen-sm-content' },
-    },
+{% set breakpoints = [
+    { tag: 'xl', width: '1248px', width_class: 'w-[1248px]', max_width_class: 'max-w-screen-xl' },
+    { tag: 'content-limit', width: '1200px', width_class: 'w-[1200px]', max_width_class: 'max-w-content-limit' },
+    { tag: 'lg', width: '991px', width_class: 'w-[991px]', max_width_class: 'max-w-screen-lg' },
+    { tag: 'md', width: '768px', width_class: 'w-[768px]', max_width_class: 'max-w-screen-md' },
+    { tag: 'sm', width: '374px', width_class: 'w-[374px]', max_width_class: 'max-w-screen-sm' },
 ] %}
 
-<div class="bg-blue-950 py-17.5 mb-8.75 flex flex-col items-center gap-6 overflow-x-auto">
-    <h2 class="text-white">Breakpoints and width limits</h2>
-	{% for breakpoints in breakpoint_pairs %}
-		<div x-data class="{{ breakpoints.container.width_class }} pt-2 flex flex-col gap-2 items-center text-white border-x-2 border-white border-opacity-70 bg-white bg-opacity-5 hover:border-opacity-100">
-            <div class="bg-blue-400 bg-opacity-50 py-2 px-12 rounded font-mono text-2xl">{{ breakpoints.container.tag }}</div>
-
-			<div class="w-full flex flex-col items-center font-mono text-sm">
-                {% set button_classes = 'w-full flex flex-col items-center gap-3 bg-blue-400 opacity-80 hover:opacity-100 bg-opacity-0 hover:bg-opacity-20' %}
-
-                <button @click="() => navigator.clipboard.writeText('{{ breakpoints.container.max_width_class }}')" class="{{ button_classes }} pt-8">
-                    <span class="w-64 text-left">container: {{ breakpoints.container.width }}</span>
-                    <span class="h-0 w-full {{ breakpoints.container.max_width_class }} border border-dotted border-white"></span>
-                </button>
-
-                <button @click="() => navigator.clipboard.writeText('{{ breakpoints.content.max_width_class }}')" class="{{ button_classes }} pt-10">
-                    <span class="w-64 text-left">content: {{ breakpoints.content.width }}</span>
-                    <span class="h-0 w-full {{ breakpoints.content.max_width_class }} border border-dotted border-white"></span>
-                </button>
-			</div>
-		</div>
+<div x-data class="bg-blue-950 py-17.5 mb-8.75 flex flex-col items-center gap-6 overflow-x-auto">
+	{% for breakpoint in breakpoints %}
+        <button
+            @click="() => navigator.clipboard.writeText('{{ breakpoint.max_width_class }}')"
+            class="{{ breakpoint.width_class }} flex flex-col items-center gap-2 py-3 px-12 rounded font-mono text-white bg-blue-400 bg-opacity-50 hover:bg-opacity-80 active:bg-opacity-100"
+        >
+            <span class="text-2xl">{{ breakpoint.tag }}</span>
+            <span class="opacity-80">{{ breakpoint.width }}</span>
+        </button>
 	{% endfor %}
 </div>
