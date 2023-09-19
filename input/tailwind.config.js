@@ -78,7 +78,11 @@ tailwind.config = {
         },
         white: '#ffffff',
       },
+      scale: {
+        250: '2.5',
+      },
       spacing: {
+        0.25: '0.0625rem',
         8.75: '2.1875rem',
         15: '3.75rem',
         17.5: '4.375rem',

@@ -3,19 +3,25 @@
 {% set buttons = [
     { size: 's', primary: true,  icon: false, text: 'Small' },
     { size: 's', primary: true,  icon: true,  text: 'Small' },
-    { size: 's', primary: false, icon: true,  text: 'Small' },
     { size: 's', primary: false, icon: false, text: 'Small' },
+    { size: 's', primary: false, icon: true,  text: 'Small' },
 
     { size: 'm', primary: true,  icon: false, text: 'Medium' },
     { size: 'm', primary: true,  icon: true,  text: 'Medium' },
-    { size: 'm', primary: false, icon: true,  text: 'Medium' },
     { size: 'm', primary: false, icon: false, text: 'Medium' },
+    { size: 'm', primary: false, icon: true,  text: 'Medium' },
 
     { size: 'l', primary: true,  icon: false, text: 'Large' },
     { size: 'l', primary: true,  icon: true,  text: 'Large' },
-    { size: 'l', primary: false, icon: true,  text: 'Large' },
     { size: 'l', primary: false, icon: false, text: 'Large' },
+    { size: 'l', primary: false, icon: true,  text: 'Large' },
 ] %}
+
+{#
+button_wide(
+    size: s | m | l
+)
+#}
 
 {{ section.start(gray_background, first, last) }}
 <div class="flex flex-wrap gap-8">
@@ -26,15 +32,3 @@
     {% endfor %}
 </div>
 {{ section.end() }}
-
-{#
-button(
-    size: s | m | l
-    primary: boolean
-    icon: boolean
-)
-
-button_wide(
-    size: s | m | l
-)
-#}
