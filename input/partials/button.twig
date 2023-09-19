@@ -24,6 +24,7 @@
 {# TODO: Add animation/transition #}
 {# TODO: Add on-click UI change #}
 
-<button class="{{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }}">
-    {{ text }}
+<button class="{{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} stroke-blue-950 hover:stroke-white flex gap-2">
+    <span>{{ text }}</span>
+    {% include '@assets/link-icon.svg' %}
 </button>

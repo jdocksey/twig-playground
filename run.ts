@@ -81,6 +81,7 @@ function renderTemplate(template: string, data: any): string {
     const twigConfig = {
         data: template,
         namespaces: {
+            assets: './input/assets',
             macros: './input/macros',
             partials: './input/partials',
         },
