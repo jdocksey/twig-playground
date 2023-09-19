@@ -38,7 +38,8 @@ tailwind.config = {
       '3xl':   ['1.5625rem', 'normal'],
       '4xl':   ['1.8125rem', 'normal'],
       '5xl':   ['1.875rem',  'normal'],
-      '6xl':   ['2.8125rem', 'normal'],
+      '6xl':   ['2.1875rem',    'normal'],
+      '7xl':   ['2.8125rem', 'normal'],
     },
     lineHeight: {
       normal:   'normal',
@@ -50,9 +51,13 @@ tailwind.config = {
     },
     fontWeight: {
       normal: 400,
+      semibold: 600,
       bold: 700,
     },
     extend: {
+      borderRadius: {
+        '6xl': '3.125rem',
+      },
       // TODO: Move this out of `extend` when moving into the production code base
       colors: {
         black: '#000000',
@@ -75,6 +80,7 @@ tailwind.config = {
       },
       spacing: {
         8.75: '2.1875rem',
+        15: '3.75rem',
         17.5: '4.375rem',
         17.5: '4.375rem',
       },

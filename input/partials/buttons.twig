@@ -1,26 +1,28 @@
 {% import '@macros/section.twig' as section %}
 
 {% set buttons = [
-    { size: 's', primary: true,  icon: false },
-    { size: 's', primary: true,  icon: true },
-    { size: 's', primary: false, icon: true },
-    { size: 's', primary: false, icon: false },
+    { size: 's', primary: true,  icon: false, text: 'Small' },
+    { size: 's', primary: true,  icon: true,  text: 'Small' },
+    { size: 's', primary: false, icon: true,  text: 'Small' },
+    { size: 's', primary: false, icon: false, text: 'Small' },
 
-    { size: 'm', primary: true,  icon: false },
-    { size: 'm', primary: true,  icon: true },
-    { size: 'm', primary: false, icon: true },
-    { size: 'm', primary: false, icon: false },
+    { size: 'm', primary: true,  icon: false, text: 'Medium' },
+    { size: 'm', primary: true,  icon: true,  text: 'Medium' },
+    { size: 'm', primary: false, icon: true,  text: 'Medium' },
+    { size: 'm', primary: false, icon: false, text: 'Medium' },
 
-    { size: 'l', primary: true,  icon: false },
-    { size: 'l', primary: true,  icon: true },
-    { size: 'l', primary: false, icon: true },
-    { size: 'l', primary: false, icon: false },
+    { size: 'l', primary: true,  icon: false, text: 'Large' },
+    { size: 'l', primary: true,  icon: true,  text: 'Large' },
+    { size: 'l', primary: false, icon: true,  text: 'Large' },
+    { size: 'l', primary: false, icon: false, text: 'Large' },
 ] %}
 
 {{ section.start(gray_background, first, last) }}
-<div class="flex flex-wrap">
+<div class="flex flex-wrap gap-8">
     {% for button in buttons %}
-    {% include '@partials/button.twig' with { size: button.size, primary: button.primary, icon: button.icon } %}
+    <div>
+        {% include '@partials/button.twig' with { text: button.text, size: button.size, primary: button.primary, icon: button.icon } %}
+    </div>
     {% endfor %}
 </div>
 {{ section.end() }}
