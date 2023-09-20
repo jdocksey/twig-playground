@@ -11,6 +11,32 @@
     <div class="bg-green-500 h-fit py-2 px-13 font-bold">{{ text }}</div>
 {% endmacro %}
 
+{% macro link_emphasized_text(address = '', text = '', arrow = 'r') %}
+    <div>
+        <a href="{{ address }}" class="flex items-end gap-3 text-black font-bold underline underline-offset-[10px] decoration-2 decoration-blue-800">
+            {% if arrow == 'l' %}
+            {{ _self.chevron_icon('l') }}
+            {% endif %}
+
+            <span>{{ text }}</span>
+
+            {% if arrow == 'r' %}
+            {{ _self.chevron_icon('r') }}
+            {% endif %}
+        </a>
+    </div>
+{% endmacro %}
+
+{% macro chevron_icon(direction, size = 's') %}
+    <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+        {% if direction == 'l' %}
+            <img src="./assets/chevron-left-small.svg" alt="left arrow">
+        {% elseif direction == 'r' %}
+            <img src="./assets/chevron-right-small.svg" alt="right arrow">
+        {% endif %}
+    </span>
+{% endmacro %}
+
 {% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, new_tab = false) %}
     {% set background = 'bg-blue-400 hover:bg-blue-950' %}
 
