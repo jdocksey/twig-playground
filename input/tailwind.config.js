@@ -78,6 +78,9 @@ tailwind.config = {
         },
         white: '#ffffff',
       },
+      letterSpacing: {
+        wide: '0.01875em'
+      },
       maxWidth: {
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
@@ -94,8 +97,11 @@ tailwind.config = {
         17.5: '4.375rem',
         17.5: '4.375rem',
       },
-      letterSpacing: {
-        wide: '0.01875em'
+      transitionDuration: {
+        250: '250ms',
+      },
+      transitionTimingFunction: {
+        'ease-out': 'ease-out',
       },
     },
   },

@@ -2,7 +2,6 @@
 
 {% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, include_icon = false) %}
     {% set background = 'bg-blue-400 hover:bg-blue-950' %}
-    {% set text_color = 'text-blue-950 hover:text-white' %}
 
     {% set padding = '' %}
     {% set rounding = '' %}
@@ -47,15 +46,12 @@
         {% set background = 'bg-cyan-50 hover:bg-blue-400' %}
     {% endif %}
 
-    {# TODO: Add animation/transition #}
-    {# TODO: Add on-click UI change #}
-
-    {% set code_for_copying = "{{ link_button(\'address\', \'Label\', \'" ~ size ~ "\', " ~ primary ~ ", " ~ include_icon ~ ") }}" %}
+    {% set code_for_copying = "{{ link_button(\'address\', \'Label\', \'" ~ size ~ "\', " ~ wide ~ ", " ~ primary ~ ", " ~ include_icon ~ ") }}" %}
 
     <a x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
         {# TODO: Uncomment the following line for the production code (leaving it commented for now allows the link-buttons to be clicked for copying their usage code) #}
         {# href="{{ address }}" #}
-        class="flex items-center no-underline tracking-wide stroke-blue-950 hover:stroke-white {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
+        class="flex items-center tracking-wide no-underline text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
     >
         <span>{{ text }}</span>
         {% if include_icon %}
