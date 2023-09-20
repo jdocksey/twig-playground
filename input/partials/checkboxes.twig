@@ -1,0 +1,12 @@
+{% import '@macros/section.twig' as section %}
+
+{{ section.start(gray_background, first, last) }}
+    {% for i in 1..5 %}
+    <input
+      type="checkbox"
+      id="subscribeNews"
+      name="subscribe"
+      value="newsletter"
+    />
+    {% endfor %}
+{{ section.end() }}

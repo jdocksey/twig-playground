@@ -1,4 +1,5 @@
 {% from '@macros/production.twig' import link_button %}
+{% import '@macros/code.twig' as code %}
 {% import '@macros/section.twig' as section %}
 
 {% set buttons = [
@@ -23,8 +24,11 @@
 ] %}
 
 {{ section.start(gray_background, first, last) }}
-{# TODO: Add a code block for `{% from '@macros/pproduction.twig' import link_button %}` #}
-<div class="flex flex-wrap gap-8">
+<div>
+    {{ code.simple("{% from '@macros/production.twig' import link_button %}") }}
+</div>
+
+<div class="flex flex-wrap gap-8 mt-8">
     {% for button in buttons %}
     <div class="cursor-pointer">
         {{ link_button('https://example.com', button.text, button.size, button.wide, button.primary, button.new_tab) }}
