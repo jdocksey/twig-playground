@@ -1,3 +1,4 @@
+{% from '@macros/production.twig' import link_button %}
 {% import '@macros/section.twig' as section %}
 
 {% set buttons = [
@@ -24,10 +25,11 @@ button_wide(
 #}
 
 {{ section.start(gray_background, first, last) }}
+{# TODO: Add a code block for `{% from '@macros/pproduction.twig' import link_button %}` #}
 <div class="flex flex-wrap gap-8">
     {% for button in buttons %}
     <div>
-        {% include '@partials/link-button.twig' with { text: button.text, size: button.size, primary: button.primary, icon: button.icon, address: 'https://example.com'} %}
+        {{ link_button('https://example.com', button.text, button.size, button.primary, button.icon) }}
     </div>
     {% endfor %}
 </div>
