@@ -1,3 +1,5 @@
+{# TODO: Add parameter docs #}
+
 {# The default values are for small, primary buttons #}
 {% set background = 'bg-blue-400 hover:bg-blue-950' %}
 {% set padding = 'py-4 px-10' %}
@@ -35,11 +37,12 @@
 
 {% set code_for_copying = "{% include \'@partials/button.twig\' with { text: \'abc\', size: \'" ~ size ~ "\', primary: " ~ primary ~ ", icon: " ~ icon ~ " } %}" %}
 
-<button x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
-    class="flex items-center stroke-blue-950 hover:stroke-white {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }}"
+<a x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
+    href="{{ address }}"
+    class="flex items-center no-underline stroke-blue-950 hover:stroke-white {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }}"
 >
     <span>{{ text }}</span>
     {% if icon %}
         {% include '@assets/link-icon.svg' with { class: icon_position ~ ' ' ~ icon_scale } %}
     {% endif %}
-</button>
+</a>
