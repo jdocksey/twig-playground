@@ -1,0 +1,9 @@
+{% import '@macros/code.twig' as code %}
+{% import '@macros/section.twig' as section %}
+
+{{ section.start(gray_background, first, last) }}
+<div class="flex flex-col gap-4">
+    <h3>Macro imports</h3>
+    {{ code.simple("{% from '@macros/production.twig' import link_button, link_emphasized_text, checkbox, label %}") }}
+</div>
+{{ section.end() }}

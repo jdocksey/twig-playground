@@ -3,12 +3,11 @@
 {% import '@macros/section.twig' as section %}
 
 {{ section.start(gray_background, first, last) }}
-<div>
-    {{ code.simple("{% from '@macros/production.twig' import link_emphasized_text %}") }}
-</div>
-
-<div class="flex flex-col gap-8 mt-8">
-    {{ link_emphasized_text('https://example.com', 'Arrow to the left', 'l') }}
-    {{ link_emphasized_text('https://example.com', 'Arrow to the right', 'r') }}
-</div>
+    <div class="flex gap-12 items-center">
+        <div class="flex flex-col gap-8">
+            {{ link_emphasized_text('https://example.com', 'Arrow to the left', 'l') }}
+            {{ link_emphasized_text('https://example.com', 'Arrow to the right', 'r') }}
+        </div>
+        {{ code.simple("{{ link_emphasized_text('url', 'Label', 'r') }}") }}
+    </div>
 {{ section.end() }}

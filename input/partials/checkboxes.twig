@@ -11,7 +11,7 @@
 ] %}
 
 {{ section.start(gray_background, first, last) }}
-    <div class="flex gap-12">
+    <div class="flex gap-12 items-center">
         <div class="flex flex-col gap-4">
             {% for label in checkbox_labels %}
                 {% set id = 'checkbox-' ~ loop.index0 %}
@@ -19,9 +19,6 @@
                 {{ checkbox(label, checked, label, label, id) }}
             {% endfor %}
         </div>
-        <div class="flex flex-col gap-4">
-            {{ code.simple("{% from '@macros/production.twig' import checkbox %}") }}
-            {{ code.simple("{{ checkbox('Label', false, 'name', 'value', 'id') }}") }}
-        </div>
+        {{ code.simple("{{ checkbox('Label', false, 'name', 'value', 'id') }}") }}
     </div>
 {{ section.end() }}
