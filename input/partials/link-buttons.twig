@@ -27,7 +27,7 @@ button_wide(
 <div class="flex flex-wrap gap-8">
     {% for button in buttons %}
     <div>
-        {% include '@partials/button.twig' with { text: button.text, size: button.size, primary: button.primary, icon: button.icon } %}
+        {% include '@partials/link-button.twig' with { text: button.text, size: button.size, primary: button.primary, icon: button.icon } %}
     </div>
     {% endfor %}
 </div>
