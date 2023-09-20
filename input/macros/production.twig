@@ -1,5 +1,12 @@
 {# Macros for production code #}
 
+{% macro checkbox(label = '', checked = false, name = '', value = '', id = '') %}
+    <div class="flex items-center gap-2.5">
+        <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="{{ id }}" name="{{ name }}" value="{{ value }}" {{ checked ? 'checked' }}/>
+        <label for="{{ id }}">{{ label }}</label>
+    </div>
+{% endmacro %}
+
 {% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, new_tab = false) %}
     {% set background = 'bg-blue-400 hover:bg-blue-950' %}
 

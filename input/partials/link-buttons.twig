@@ -30,9 +30,9 @@
 
 <div class="flex flex-wrap gap-8 mt-8">
     {% for button in buttons %}
-    <div class="cursor-pointer">
-        {{ link_button('https://example.com', button.text, button.size, button.wide, button.primary, button.new_tab) }}
-    </div>
+        <div class="cursor-pointer">
+            {{ link_button('https://example.com', button.text, button.size, button.wide, button.primary, button.new_tab) }}
+        </div>
     {% endfor %}
 </div>
 {{ section.end() }}

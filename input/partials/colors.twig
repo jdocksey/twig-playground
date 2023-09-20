@@ -12,13 +12,13 @@
 {{ section.start(gray_background, first, last) }}
 <div class="flex gap-2 justify-stretch">
     {% for color in background_colors %}
-    {% set border_classes = color.include_border ? 'border-4 border-gray-600' : '' %}
-    <button x-data @click="() => navigator.clipboard.writeText('{{ color.class }}')"
-        class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
-    >
-        <div class="{{ color.class }} {{ border_classes }} w-full aspect-square rounded-full"></div>
-        <div>{{ color.class }}</div>
-    </button>
+        {% set border_classes = color.include_border ? 'border-4 border-gray-600' : '' %}
+        <button x-data @click="() => navigator.clipboard.writeText('{{ color.class }}')"
+            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        >
+            <div class="{{ color.class }} {{ border_classes }} w-full aspect-square rounded-full"></div>
+            <div>{{ color.class }}</div>
+        </button>
     {% endfor %}
 </div>
 {{ section.end() }}

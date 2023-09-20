@@ -1,12 +1,20 @@
+{% from '@macros/production.twig' import checkbox %}
 {% import '@macros/section.twig' as section %}
 
+{% set checkbox_labels = [
+    'All',
+    'Articles',
+    'Stories',
+    'Conferences',
+    'Opportunities',
+] %}
+
 {{ section.start(gray_background, first, last) }}
-    {% for i in 1..5 %}
-    <input
-      type="checkbox"
-      id="subscribeNews"
-      name="subscribe"
-      value="newsletter"
-    />
-    {% endfor %}
+    <div class="flex flex-col gap-4">
+        {% for label in checkbox_labels %}
+            {% set id = 'checkbox-' ~ loop.index0 %}
+            {% set checked = loop.index0 % 3 == 1 %}
+            {{ checkbox(label, checked, label, label, id) }}
+        {% endfor %}
+    </div>
 {{ section.end() }}
