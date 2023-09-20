@@ -1,6 +1,6 @@
 {# Macros for production code #}
 
-{% macro link_button(address = '', text = '', size = 's', primary = true, include_icon = false) %}
+{% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, include_icon = false) %}
     {% set background = 'bg-blue-400 hover:bg-blue-950' %}
     {% set text_color = 'text-blue-950 hover:text-white' %}
 
@@ -11,31 +11,36 @@
     {% set icon_gap = '' %}
     {% set icon_position = '' %}
     {% set icon_scale = '' %}
+    {% set width = '' %}
 
     {% if size == 's' %}
         {% set padding = 'py-4 px-10' %}
         {% set rounding = 'rounded-3xl' %}
-        {% set text_size = 'text-sm leading-tight' %}
+        {% set text_size = wide ? 'text-xl leading-match' : 'text-sm leading-tight' %}
         {% set font_weight = 'font-bold' %}
         {% set icon_gap = 'gap-2' %}
         {% set icon_position = 'relative bottom-0.25' %}
         {% set icon_scale = '' %}
     {% elseif size == 'm' %}
-        {% set padding = 'py-4 px-15' %}
+        {% set padding = wide ? 'py-4.5 px-15' : 'py-4 px-15' %}
         {% set rounding = 'rounded-3xl' %}
-        {% set text_size = 'text-xl leading-tight' %}
-        {% set font_weight = 'font-semibold' %}
+        {% set text_size = wide ? 'text-xl leading-match' : 'text-xl leading-tight' %}
+        {% set font_weight = wide ? 'font-bold' : 'font-semibold' %}
         {% set icon_gap = 'gap-3' %}
         {% set icon_position = 'relative bottom-0.5' %}
         {% set icon_scale = 'scale-125' %}
     {% elseif size == 'l' %}
-        {% set padding = 'py-5 px-15' %}
+        {% set padding = wide ? 'py-7.25 px-15' : 'py-5 px-15' %}
         {% set rounding = 'rounded-6xl' %}
         {% set text_size = 'text-6xl leading-tight' %}
         {% set font_weight = 'font-semibold' %}
         {% set icon_gap = 'gap-8' %}
         {% set icon_position = 'relative bottom-0.5' %}
         {% set icon_scale = 'scale-250' %}
+    {% endif %}
+
+    {% if wide %}
+        {% set width = 'w-full' %}
     {% endif %}
 
     {% if not primary %}
@@ -50,7 +55,7 @@
     <a x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
         {# TODO: Uncomment the following line for the production code (leaving it commented for now allows the link-buttons to be clicked for copying their usage code) #}
         {# href="{{ address }}" #}
-        class="flex items-center no-underline stroke-blue-950 hover:stroke-white {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }}"
+        class="flex items-center no-underline tracking-wide stroke-blue-950 hover:stroke-white {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
     >
         <span>{{ text }}</span>
         {% if include_icon %}

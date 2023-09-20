@@ -2,20 +2,24 @@
 {% import '@macros/section.twig' as section %}
 
 {% set buttons = [
-    { size: 's', primary: true,  icon: false, text: 'Small' },
-    { size: 's', primary: true,  icon: true,  text: 'Small' },
-    { size: 's', primary: false, icon: false, text: 'Small' },
-    { size: 's', primary: false, icon: true,  text: 'Small' },
+    { size: 's', wide: false, primary: true,  icon: false, text: 'Small' },
+    { size: 's', wide: false, primary: true,  icon: true,  text: 'Small' },
+    { size: 's', wide: false, primary: false, icon: false, text: 'Small' },
+    { size: 's', wide: false, primary: false, icon: true,  text: 'Small' },
 
-    { size: 'm', primary: true,  icon: false, text: 'Medium' },
-    { size: 'm', primary: true,  icon: true,  text: 'Medium' },
-    { size: 'm', primary: false, icon: false, text: 'Medium' },
-    { size: 'm', primary: false, icon: true,  text: 'Medium' },
+    { size: 'm', wide: false, primary: true,  icon: false, text: 'Medium' },
+    { size: 'm', wide: false, primary: true,  icon: true,  text: 'Medium' },
+    { size: 'm', wide: false, primary: false, icon: false, text: 'Medium' },
+    { size: 'm', wide: false, primary: false, icon: true,  text: 'Medium' },
 
-    { size: 'l', primary: true,  icon: false, text: 'Large' },
-    { size: 'l', primary: true,  icon: true,  text: 'Large' },
-    { size: 'l', primary: false, icon: false, text: 'Large' },
-    { size: 'l', primary: false, icon: true,  text: 'Large' },
+    { size: 'l', wide: false, primary: true,  icon: false, text: 'Large' },
+    { size: 'l', wide: false, primary: true,  icon: true,  text: 'Large' },
+    { size: 'l', wide: false, primary: false, icon: false, text: 'Large' },
+    { size: 'l', wide: false, primary: false, icon: true,  text: 'Large' },
+
+    { size: 's', wide: true,  primary: true,  icon: false, text: 'Small (Wide)' },
+    { size: 'm', wide: true,  primary: true,  icon: false, text: 'Medium (Wide)' },
+    { size: 'l', wide: true,  primary: true,  icon: false, text: 'Large (Wide)' },
 ] %}
 
 {#
@@ -28,8 +32,8 @@ button_wide(
 {# TODO: Add a code block for `{% from '@macros/pproduction.twig' import link_button %}` #}
 <div class="flex flex-wrap gap-8">
     {% for button in buttons %}
-    <div>
-        {{ link_button('https://example.com', button.text, button.size, button.primary, button.icon) }}
+    <div class="cursor-pointer">
+        {{ link_button('https://example.com', button.text, button.size, button.wide, button.primary, button.icon) }}
     </div>
     {% endfor %}
 </div>

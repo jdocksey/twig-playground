@@ -28,20 +28,21 @@ tailwind.config = {
       ],
     },
     fontSize: {
-      'xs':    ['0.8125rem', 'normal'],
-      'sm':    ['0.875rem',  '1.42857'],
-      'base':  ['1rem',      '1.5625'],
-      'lg':    ['1.0625',    'normal'],
-      'xl':    ['1.125rem',  'normal'],
-      '2xl':   ['1.25rem',   'normal'],
-      '3xl':   ['1.5625rem', 'normal'],
-      '4xl':   ['1.8125rem', 'normal'],
-      '5xl':   ['1.875rem',  'normal'],
-      '6xl':   ['2.1875rem',    'normal'],
-      '7xl':   ['2.8125rem', 'normal'],
+      'xs':    ['0.8125rem', 'normal'],  // 13px
+      'sm':    ['0.875rem',  '1.42857'], // 14px, 20px
+      'base':  ['1rem',      '1.5625'],  // 16px, 25px
+      'lg':    ['1.0625rem', 'normal'],  // 17px
+      'xl':    ['1.125rem',  'normal'],  // 18px
+      '2xl':   ['1.25rem',   'normal'],  // 20px
+      '3xl':   ['1.5625rem', 'normal'],  // 25px
+      '4xl':   ['1.8125rem', 'normal'],  // 29px
+      '5xl':   ['1.875rem',  'normal'],  // 30px
+      '6xl':   ['2.1875rem', 'normal'],  // 35px
+      '7xl':   ['2.8125rem', 'normal'],  // 45px
     },
     lineHeight: {
       normal:   'normal',
+      match:    '1',
       tight:    '1.11111',
       snug:     '1.42857',
       standard: '1.4375',
@@ -77,19 +78,24 @@ tailwind.config = {
         },
         white: '#ffffff',
       },
+      maxWidth: {
+        // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
+        'content-container-limit': '1248px',
+      },
       scale: {
         250: '2.5',
       },
       spacing: {
         0.25: '0.0625rem',
+        4.5: '1.125rem',
+        7.25: '1.8125rem',
         8.75: '2.1875rem',
         15: '3.75rem',
         17.5: '4.375rem',
         17.5: '4.375rem',
       },
-      maxWidth: {
-      // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
-      'content-container-limit': '1248px',
+      letterSpacing: {
+        wide: '0.01875em'
       },
     },
   },
