@@ -1,6 +1,6 @@
 {# Macros for production code #}
 
-{% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, include_icon = false) %}
+{% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, new_tab = false) %}
     {% set background = 'bg-blue-400 hover:bg-blue-950' %}
 
     {% set padding = '' %}
@@ -46,15 +46,16 @@
         {% set background = 'bg-cyan-50 hover:bg-blue-400' %}
     {% endif %}
 
-    {% set code_for_copying = "{{ link_button(\'address\', \'Label\', \'" ~ size ~ "\', " ~ wide ~ ", " ~ primary ~ ", " ~ include_icon ~ ") }}" %}
+    {% set code_for_copying = "{{ link_button(\'address\', \'Label\', \'" ~ size ~ "\', " ~ wide ~ ", " ~ primary ~ ", " ~ new_tab ~ ") }}" %}
 
     <a x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
         {# TODO: Uncomment the following line for the production code (leaving it commented for now allows the link-buttons to be clicked for copying their usage code) #}
         {# href="{{ address }}" #}
+        {{ new_tab ? 'target="_blank"' }}
         class="flex items-center tracking-wide no-underline text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
     >
         <span>{{ text }}</span>
-        {% if include_icon %}
+        {% if new_tab %}
             {% include '@assets/link-icon.svg' with { class: icon_position ~ ' ' ~ icon_scale } %}
         {% endif %}
     </a>
