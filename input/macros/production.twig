@@ -7,6 +7,10 @@
     </div>
 {% endmacro %}
 
+{% macro label(text = '') %}
+    <div class="bg-green-500 h-fit py-2 px-13 font-bold">{{ text }}</div>
+{% endmacro %}
+
 {% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, new_tab = false) %}
     {% set background = 'bg-blue-400 hover:bg-blue-950' %}
 

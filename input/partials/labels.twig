@@ -1,0 +1,13 @@
+{% from '@macros/production.twig' import label %}
+{% import '@macros/code.twig' as code %}
+{% import '@macros/section.twig' as section %}
+
+{{ section.start(gray_background, first, last) }}
+    <div class="flex gap-12">
+        {{ label('Label for News') }}
+        <div class="flex flex-col gap-4">
+            {{ code.simple("{% from '@macros/production.twig' import label %}") }}
+            {{ code.simple("{{ label('Label for News') }}") }}
+        </div>
+    </div>
+{{ section.end() }}
