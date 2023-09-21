@@ -1,0 +1,13 @@
+{% from '@macros/production.twig' import link_block %}
+{% import '@macros/code.twig' as code %}
+{% import '@macros/section.twig' as section %}
+
+{{ section.start(gray_background, first, last) }}
+    <div class="flex gap-12 items-center">
+        <div class="flex flex-col gap-8">
+            {{ link_block('https://example.com', 'Arrow to the left', 'l') }}
+            {{ link_block('https://example.com', 'Arrow to the right', 'r') }}
+        </div>
+        {{ code.simple("{{ link_block('url', 'Label', 'r') }}") }}
+    </div>
+{{ section.end() }}

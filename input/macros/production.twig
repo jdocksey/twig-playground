@@ -11,7 +11,7 @@
     <div class="bg-green-500 h-fit py-2 px-13 font-bold">{{ text }}</div>
 {% endmacro %}
 
-{% macro link_emphasized_text(address = '', text = '', arrow = 'r') %}
+{% macro link_block(address = '', text = '', arrow = 'r') %}
     <div>
         <a href="{{ address }}" class="flex items-end gap-3 text-black font-bold underline underline-offset-[10px] decoration-2 decoration-blue-800">
             {% if arrow == 'l' %}
