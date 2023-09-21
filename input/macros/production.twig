@@ -34,9 +34,9 @@
 {% macro chevron_icon(direction, size = 's') %}
     <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
         {% if direction == 'l' %}
-            {% include '@partials/chevron-left-small.twig' with { alt_text: 'left arrow' } only %}
+            {% include '@partials/chevron-left-small.twig' with { alt_text: '' } only %}
         {% elseif direction == 'r' %}
-            {% include '@partials/chevron-right-small.twig' with { alt_text: 'right arrow' } only %}
+            {% include '@partials/chevron-right-small.twig' with { alt_text: '' } only %}
         {% endif %}
     </span>
 {% endmacro %}
