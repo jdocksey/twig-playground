@@ -27,12 +27,16 @@
     </div>
 {% endmacro %}
 
+{% macro link_inline(address = '', text = '') %}
+    {# TODO: Implement #}
+{% endmacro %}
+
 {% macro chevron_icon(direction, size = 's') %}
     <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
         {% if direction == 'l' %}
-            {% include '@assets/chevron-left-small.svg' with { alt_text: 'left arrow' } only %}
+            {% include '@partials/chevron-left-small.twig' with { alt_text: 'left arrow' } only %}
         {% elseif direction == 'r' %}
-            {% include '@assets/chevron-right-small.svg' with { alt_text: 'right arrow' } only %}
+            {% include '@partials/chevron-right-small.twig' with { alt_text: 'right arrow' } only %}
         {% endif %}
     </span>
 {% endmacro %}
@@ -93,7 +97,7 @@
     >
         <span>{{ text }}</span>
         {% if new_tab %}
-            {% include '@assets/link-icon.svg' with { class: icon_position ~ ' ' ~ icon_scale } %}
+            {% include '@partials/link-icon.twig' with { class: icon_position ~ ' ' ~ icon_scale } %}
         {% endif %}
     </a>
 {% endmacro %}
