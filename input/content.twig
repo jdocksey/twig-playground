@@ -14,7 +14,9 @@
 
 {# Demos #}
 {% for partial in partials %}
-    {% include '@partials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } %}
+    <div id="{{ partial }}">
+        {% include '@partials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } %}
+    </div>
 {% endfor %}
 
 <div class="fixed bottom-12 right-12 flex flex-col items-end gap-4">
@@ -24,7 +26,7 @@
     </button>
     <div class="hidden 2xl:flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md">
         {% for partial in partials %}
-            <button class="py-4 px-4 hover:bg-gray-100 first:pt-6 last:pb-6 first:rounded-t-md last:rounded-b-md">{{ partial }}</button>
+            <a href="#{{ partial }}" class="py-4 px-4 hover:bg-gray-100 first:pt-6 last:pb-6 first:rounded-t-md last:rounded-b-md">{{ partial }}</a>
         {% endfor %}
     </div>
 
