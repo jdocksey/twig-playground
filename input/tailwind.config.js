@@ -9,6 +9,8 @@ tailwind.config = {
       'md': '768px',
       'lg': '991px',
       'xl': '1200px',
+      // TODO: Remove for production
+      '2xl': '1600px',
     },
     fontFamily: {
       sans: [
