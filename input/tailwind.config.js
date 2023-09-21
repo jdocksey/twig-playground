@@ -64,7 +64,7 @@ tailwind.config = {
         blue: {
           400: '#0abbe8',
           800: '#0052a5', // links
-          950: '#001b3f',
+          950: '#001b3f', // background color
         },
         cyan: {
           50: '#e5f7fa',
@@ -77,7 +77,7 @@ tailwind.config = {
         green: {
           500: '#b6c42c',
         },
-        white: '#ffffff',
+        white: '#ffffff', // background color
       },
       letterSpacing: {
         wide: '0.01875em'

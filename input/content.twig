@@ -11,9 +11,20 @@
     'headers',
     'text-samples',
 ] %}
+
+{# Demos #}
 {% for partial in partials %}
     {% include '@partials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } %}
 {% endfor %}
+
+{# Table of contents #}
+{#
+<div class="sticky bottom-0 flex justify-center gap-4 py-4 text-white bg-blue-950 bg-opacity-10 blur-sm hover:bg-opacity-50 hover:blur-none transition">
+    {% for partial in partials %}
+        <button class="p-2">{{ partial }}</button>
+    {% endfor %}
+</div>
+#}
 
 {# Breakpoint indicator #}
 <div inert class="fixed bottom-12 right-12 bg-white opacity-50 flex flex-col items-center gap-2 p-4 md:p-6 lg:p-8 font-mono border border-black rounded-md">
