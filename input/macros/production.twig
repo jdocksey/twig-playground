@@ -27,8 +27,17 @@
     </div>
 {% endmacro %}
 
-{% macro link_inline(address = '', text = '') %}
-    {# TODO: Implement #}
+{% macro link_inline(address = '', text = '', new_tab = false) %}
+    <a
+        href="{{ address }}"
+        class="flex items-center gap-1 text-blue-800 stroke-blue-800 underline"
+        {{ new_tab ? 'target="_blank"' }}
+    >
+        <span>{{ text }}</span>
+        {% if new_tab %}
+            {% include '@partials/link-icon.twig' with { class: 'relative bottom-0.25 scale-75' } %}
+        {% endif %}
+    </a>
 {% endmacro %}
 
 {% macro chevron_icon(direction, size = 's') %}
@@ -93,7 +102,7 @@
         {# TODO: Uncomment the following line for the production code (leaving it commented for now allows the link-buttons to be clicked for copying their usage code) #}
         {# href="{{ address }}" #}
         {{ new_tab ? 'target="_blank"' }}
-        class="flex items-center tracking-wide no-underline text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
+        class="flex items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
     >
         <span>{{ text }}</span>
         {% if new_tab %}

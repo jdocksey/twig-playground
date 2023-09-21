@@ -1,4 +1,4 @@
-{% from '@macros/production.twig' import link_block %}
+{% from '@macros/production.twig' import link_block, link_inline %}
 {% import '@macros/code.twig' as code %}
 {% import '@macros/section.twig' as section %}
 
@@ -7,6 +7,8 @@
         <div class="flex flex-col gap-8">
             {{ link_block('https://example.com', 'Arrow to the left', 'l') }}
             {{ link_block('https://example.com', 'Arrow to the right', 'r') }}
+            {{ link_inline('https://example.com', 'a regular inline link', false) }}
+            {{ link_inline('https://example.com', 'a regular inline link', true) }}
         </div>
         {{ code.simple("{{ link_block('url', 'Label', 'r') }}") }}
     </div>
