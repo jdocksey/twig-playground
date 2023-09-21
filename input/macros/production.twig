@@ -30,9 +30,9 @@
 {% macro chevron_icon(direction, size = 's') %}
     <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
         {% if direction == 'l' %}
-            <img src="./assets/chevron-left-small.svg" alt="left arrow">
+            {% include '@assets/chevron-left-small.svg' with { alt_text: 'left arrow' } only %}
         {% elseif direction == 'r' %}
-            <img src="./assets/chevron-right-small.svg" alt="right arrow">
+            {% include '@assets/chevron-right-small.svg' with { alt_text: 'right arrow' } only %}
         {% endif %}
     </span>
 {% endmacro %}
