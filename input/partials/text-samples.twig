@@ -2,52 +2,33 @@
 {% from '@macros/production.twig' import link_inline %}
 {% import '@macros/section.twig' as section %}
 
+{% set text_types = [
+    { title: 'Paragraph',    class: '',                 short_sample: false },
+    { title: 'Article',      class: 'text-article',     short_sample: false },
+    { title: 'Widget Text',  class: 'text-widget',      short_sample: true },
+    { title: 'Widget Links', class: 'text-widget-link', short_sample: true },
+    { title: 'Large Links',  class: 'text-link-large',  short_sample: true },
+    { title: 'Subtitles',    class: 'text-subtitle',    short_sample: true },
+    { title: 'Details',      class: 'text-detail',      short_sample: true },
+    { title: 'Eyebrows',     class: 'text-eyebrow',     short_sample: true },
+    { title: 'Impact Text',  class: 'text-impact',      short_sample: true },
+
+] %}
+
 {{ section.start(gray_background, first, last) }}
-<div class="space-y-12">
-    <div class="space-y-2">
-        {{ code.title_with_classes('Paragraph', 'p', '') }}
-        <p>An example paragraph. {{ link_inline('https://example.com', 'an internal inline link', false) }} lorem ipsum {{ link_inline('https://example.com', 'an external link', true) }} lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-    </div>
+<div class="flex flex-col gap-12">
+    {% for type in text_types %}
+        <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+                {{ code.title_with_classes(type.title, 'p', type.class) }}
+            </div>
 
-    <div class="space-y-2">
-        {{ code.title_with_classes('Article', 'p', 'text-article') }}
-        <p class="text-article">An example article. {{ link_inline('https://example.com', 'An internal inline link', false) }} lorem ipsum {{ link_inline('https://example.com', 'an external link', true) }} lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-    </div>
-
-    <div class="space-y-2">
-        {{ code.title_with_classes('Widget Text', 'p', 'text-widget') }}
-        <p class="text-widget">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-
-    <div class="space-y-2">
-        {{ code.title_with_classes('Widget Links', 'p', 'text-widget-link') }}
-        <p class="text-widget-link">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-
-    <div class="space-y-2">
-        {{ code.title_with_classes('Large Links', 'p', 'text-link-large') }}
-        <p class="text-link-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-
-    <div class="space-y-2">
-        {{ code.title_with_classes('Subtitles', 'p', 'text-subtitle') }}
-        <p class="text-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-
-    <div class="space-y-2">
-        {{ code.title_with_classes('Details', 'p', 'text-detail') }}
-        <p class="text-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-
-    <div class="space-y-2">
-        {{ code.title_with_classes('Eyebrows', 'p', 'text-eyebrow') }}
-        <p class="text-eyebrow">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-
-    <div class="space-y-2">
-        {{ code.title_with_classes('Impact Text', 'p', 'text-impact') }}
-        <p class="text-impact">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
+            {% if type.short_sample %}
+                <p class="{{ type.class }}">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            {% else %}
+                <p class="{{ type.class }}">Lots of example text. {{ link_inline('https://example.com', 'an internal inline link', false) }} lorem ipsum {{ link_inline('https://example.com', 'an external link', true) }} lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+            {% endif %}
+        </div>
+    {% endfor %}
 </div>
-
 {{ section.end() }}

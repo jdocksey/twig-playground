@@ -7,12 +7,18 @@
 {% endmacro %}
 
 {% macro title_with_classes(title, element, classes) %}
-    <div class="flex gap-2 items-center">
+    {% set code_element_opening = classes
+        ? '&lt;' ~ element ~ ' class=&quot;' ~ classes ~ '&quot;&gt;'
+        : '&lt;' ~ element ~ '&gt;'
+    %}
+    {% set code_element_closing = '&lt;/' ~ element ~ '&gt;' %}
+
+    <button x-data @click="() => navigator.clipboard.writeText('{{ code_element_opening ~ code_element_closing }}')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
         <h3>{{ title }}</h3>
-        <button x-data @click="() => navigator.clipboard.writeText('{{ classes }}')"
-            class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
-        >
-            {{ '&lt;' ~ element ~ ' class="' ~ classes ~ '"&gt;' }}
-        </button>
-    </div>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            {{ code_element_opening }}
+        </div>
+    </button>
 {% endmacro %}
