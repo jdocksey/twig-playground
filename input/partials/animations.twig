@@ -1,42 +1,28 @@
 {% from '@macros/production.twig' import label %}
 {% import '@macros/section.twig' as section %}
 
+{% set items = [
+    'Apples',
+    'Bananas',
+    'Cashews',
+    'Spinach',
+    'Zucchini',
+] %}
+
+{# Reference:
+    https://www.experian.com/corporate/experian-corporate-social-responsibility/
+ #}
+
 {{ section.start(gray_background, first, last) }}
-    <h2>Animations</h2>
-    <div x-data="{ visible: false }" class="w-64 flex flex-col mt-8">
-        {% set items = [
-            'Apples',
-            'Bananas',
-            'Cashews',
-            'Spinach',
-            'Zucchini',
-        ] %}
-        {% for item in items %}
-            {% set delay = (loop.index0 * 150) ~ 'ms' %}
-            <h5 class="py-6 border-b-2 opacity-0 animate-fade-in-right [animation-delay:{{delay}}]">{{ item }}</h5>
-        {% endfor %}
+    {# TODO: Fix this #}
+    <div x-data="{ sectionVisible: false }" class="space-y-8"></div>
+        <h2>Animations</h2>
+        <div x-text="sectionVisible ? 'false' : 'true'"></div>
+        <div x-intersect="sectionVisible = true" x-intersect:leave="sectionVisible = false" class="w-64 flex flex-col">
+            {% for item in items %}
+                {% set delay = (loop.index0 * 150) ~ 'ms' %}
+                <h5 :class="sectionVisible ? 'animate-fade-in-right' : ''" class="opacity-0 [animation-delay:{{delay}}] py-6 border-b-2">{{ item }}</h5>
+            {% endfor %}
+        </div>
     </div>
 {{ section.end() }}
-
-{#
-<div x-data="{
-    test1: 'initial',
-    test2: false
-}">
-    <div class="fixed p-8 text-2xl text-gray-800 m-12 top-24 left-24 rounded-3xl bg-gray-50 bg-opacity-90" x-text="test1">
-    </div>
-
-    <div class="fixed p-8 text-2xl text-gray-800 m-12 top-64 left-24 rounded-3xl bg-gray-50 bg-opacity-90" x-text="test2" :class="test2 ? 'animate-ping' : ''">
-    </div>
-
-    <div class="h-[120vh] bg-sky-800 text-white text-7xl font-mono flex justify-center items-center">
-        <div>One</div>
-    </div>
-    <div class="h-[120vh] bg-cyan-700 text-white text-7xl font-mono flex justify-center items-center" x-intersect="test1 = 'updated'; test2 = true" x-intersect:leave="test2 = false">
-        <div>Two</div>
-    </div>
-    <div class="h-[120vh] bg-teal-800 text-white text-7xl font-mono flex justify-center items-center">
-        <div>Three</div>
-    </div>
-</div>
-#}
