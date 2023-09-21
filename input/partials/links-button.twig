@@ -2,7 +2,7 @@
 {% import '@macros/code.twig' as code %}
 {% import '@macros/section.twig' as section %}
 
-{% set buttons = [
+{% set buttons_regular = [
     { size: 's', wide: false, primary: true,  new_tab: false, text: 'Small' },
     { size: 's', wide: false, primary: true,  new_tab: true,  text: 'Small' },
     { size: 's', wide: false, primary: false, new_tab: false, text: 'Small' },
@@ -17,15 +17,24 @@
     { size: 'l', wide: false, primary: true,  new_tab: true,  text: 'Large' },
     { size: 'l', wide: false, primary: false, new_tab: false, text: 'Large' },
     { size: 'l', wide: false, primary: false, new_tab: true,  text: 'Large' },
+] %}
 
-    { size: 's', wide: true,  primary: true,  new_tab: false, text: 'Small (Wide)' },
-    { size: 'm', wide: true,  primary: true,  new_tab: false, text: 'Medium (Wide)' },
-    { size: 'l', wide: true,  primary: true,  new_tab: false, text: 'Large (Wide)' },
+{% set buttons_wide = [
+    { size: 's', wide: true,  primary: true,  new_tab: false, text: 'Wide: Small' },
+    { size: 'm', wide: true,  primary: true,  new_tab: false, text: 'Wide: Medium' },
+    { size: 'l', wide: true,  primary: true,  new_tab: false, text: 'Wide: Large' },
 ] %}
 
 {{ section.start(gray_background, first, last) }}
-<div class="flex flex-wrap gap-8">
-    {% for button in buttons %}
+<div class="grid grid-cols-[repeat(4,_max-content)] gap-8">
+    {% for button in buttons_regular %}
+        <div class="w-fit cursor-pointer">
+            {{ link_button('https://example.com', button.text, button.size, button.wide, button.primary, button.new_tab) }}
+        </div>
+    {% endfor %}
+</div>
+<div class="flex flex-col gap-8 mt-12">
+    {% for button in buttons_wide %}
         <div class="cursor-pointer">
             {{ link_button('https://example.com', button.text, button.size, button.wide, button.primary, button.new_tab) }}
         </div>

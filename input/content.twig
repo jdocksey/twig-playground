@@ -1,19 +1,5 @@
 {% import '@macros/section.twig' as section %}
 
-{{ section.start(true, true, true) }}
-    {% set todos = [
-        'ensure "wide" link-buttons take up 100% of the width available to them',
-        'improve link-buttons demo'
-    ] %}
-    <div>To do:</div>
-    <ol class="list-disc list-inside">
-        {% for task in todos %}
-            <li>{{ task }}</li>
-        {% endfor %}
-    </ol>
-{{ section.end() }}
-
-
 {% set partials = [
     'breakpoints',
     'colors',
