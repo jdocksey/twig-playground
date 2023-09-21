@@ -1,15 +1,15 @@
 {% import '@macros/section.twig' as section %}
 
 {{ section.start(true, true, true) }}
-    {% set list = [
+    {% set todos = [
         'use inline-Twig functionality for the chevron images',
         'add external-link icon to inline links (will seemingly require a new macro)',
         'ensure "wide" link-buttons take up 100% of the width available to them',
     ] %}
     <div>To do:</div>
     <ol class="list-disc list-inside">
-        {% for l in list %}
-            <li>{{ l }}</li>
+        {% for task in todos %}
+            <li>{{ task }}</li>
         {% endfor %}
     </ol>
 {{ section.end() }}
