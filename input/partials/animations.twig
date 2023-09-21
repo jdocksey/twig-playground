@@ -12,7 +12,8 @@
             'Zucchini',
         ] %}
         {% for item in items %}
-            <h5 class="py-6 border-b-2">{{ item }}</h5>
+            {% set delay = (loop.index0 * 150) ~ 'ms' %}
+            <h5 class="py-6 border-b-2 opacity-0 animate-fade-in-right [animation-delay:{{delay}}]">{{ item }}</h5>
         {% endfor %}
     </div>
 {{ section.end() }}

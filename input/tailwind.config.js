@@ -56,6 +56,21 @@ tailwind.config = {
       semibold: 600,
       bold: 700,
     },
+    animation: {
+      'fade-in-right': 'fade-in-right 0.6s ease forwards',
+    },
+    keyframes: {
+      'fade-in-right': {
+        'from': {
+          opacity: 0,
+          transform: 'translateX(-20px)',
+        },
+        'to': {
+          opacity: 1,
+          transform: 'translateX(0)',
+        },
+      },
+    },
     extend: {
       borderRadius: {
         '6xl': '3.125rem',
