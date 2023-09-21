@@ -13,7 +13,7 @@
 
 {% macro link_block(address = '', text = '', arrow = 'r') %}
     <div>
-        <a href="{{ address }}" class="flex items-end gap-3 text-black font-bold underline underline-offset-[10px] decoration-2 decoration-blue-800">
+        <a href="{{ address }}" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
             {% if arrow == 'l' %}
             {{ _self.chevron_icon('l') }}
             {% endif %}

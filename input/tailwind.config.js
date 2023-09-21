@@ -108,6 +108,9 @@ tailwind.config = {
       transitionTimingFunction: {
         'ease-out': 'ease-out',
       },
+      textUnderlineOffset: {
+        10: '10px',
+      }
     },
   },
 };
