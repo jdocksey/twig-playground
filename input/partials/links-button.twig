@@ -1,0 +1,34 @@
+{% from '@macros/production.twig' import link_button %}
+{% import '@macros/code.twig' as code %}
+{% import '@macros/section.twig' as section %}
+
+{% set buttons = [
+    { size: 's', wide: false, primary: true,  new_tab: false, text: 'Small' },
+    { size: 's', wide: false, primary: true,  new_tab: true,  text: 'Small' },
+    { size: 's', wide: false, primary: false, new_tab: false, text: 'Small' },
+    { size: 's', wide: false, primary: false, new_tab: true,  text: 'Small' },
+
+    { size: 'm', wide: false, primary: true,  new_tab: false, text: 'Medium' },
+    { size: 'm', wide: false, primary: true,  new_tab: true,  text: 'Medium' },
+    { size: 'm', wide: false, primary: false, new_tab: false, text: 'Medium' },
+    { size: 'm', wide: false, primary: false, new_tab: true,  text: 'Medium' },
+
+    { size: 'l', wide: false, primary: true,  new_tab: false, text: 'Large' },
+    { size: 'l', wide: false, primary: true,  new_tab: true,  text: 'Large' },
+    { size: 'l', wide: false, primary: false, new_tab: false, text: 'Large' },
+    { size: 'l', wide: false, primary: false, new_tab: true,  text: 'Large' },
+
+    { size: 's', wide: true,  primary: true,  new_tab: false, text: 'Small (Wide)' },
+    { size: 'm', wide: true,  primary: true,  new_tab: false, text: 'Medium (Wide)' },
+    { size: 'l', wide: true,  primary: true,  new_tab: false, text: 'Large (Wide)' },
+] %}
+
+{{ section.start(gray_background, first, last) }}
+<div class="flex flex-wrap gap-8">
+    {% for button in buttons %}
+        <div class="cursor-pointer">
+            {{ link_button('https://example.com', button.text, button.size, button.wide, button.primary, button.new_tab) }}
+        </div>
+    {% endfor %}
+</div>
+{{ section.end() }}

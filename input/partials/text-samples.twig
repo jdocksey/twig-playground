@@ -1,18 +1,17 @@
-{% import '@macros/section.twig' as section %}
 {% import '@macros/code.twig' as code %}
+{% from '@macros/production.twig' import link_inline %}
+{% import '@macros/section.twig' as section %}
 
 {{ section.start(gray_background, first, last) }}
 <div class="space-y-12">
     <div class="space-y-2">
         {{ code.title_with_classes('Paragraph', 'p', '') }}
-        {# TODO: Use the new macro instead #}
-        <p>An example paragraph. <a href="https://www.example.com" target="_blank">a link going somewhere</a> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+        <p>An example paragraph. {{ link_inline('https://example.com', 'an internal inline link', false) }} lorem ipsum {{ link_inline('https://example.com', 'an external link', true) }} lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
     </div>
 
     <div class="space-y-2">
         {{ code.title_with_classes('Article', 'p', 'text-article') }}
-        {# TODO: Use the new macro instead #}
-        <p class="text-article">An example article. <a href="https://www.example.com" target="_blank">a link going somewhere</a> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+        <p class="text-article">An example article. {{ link_inline('https://example.com', 'An internal inline link', false) }} lorem ipsum {{ link_inline('https://example.com', 'an external link', true) }} lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
     </div>
 
     <div class="space-y-2">
