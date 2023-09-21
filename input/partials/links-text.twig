@@ -3,13 +3,17 @@
 {% import '@macros/section.twig' as section %}
 
 {{ section.start(gray_background, first, last) }}
-    <div class="flex gap-12 items-center">
-        <div class="flex flex-col gap-8">
-            {{ link_block('https://example.com', 'Arrow to the left', 'l') }}
-            {{ link_block('https://example.com', 'Arrow to the right', 'r') }}
-            {{ link_inline('https://example.com', 'a regular inline link', false) }}
-            {{ link_inline('https://example.com', 'a regular inline link', true) }}
-        </div>
+    <div class="grid grid-cols-[max-content_1fr] items-center gap-x-12 gap-y-4 w-fit">
+        {{ link_block('https://example.com', 'Arrow to the left', 'l') }}
+        {{ code.simple("{{ link_block('url', 'Label', 'l') }}") }}
+
+        {{ link_block('https://example.com', 'Arrow to the right', 'r') }}
         {{ code.simple("{{ link_block('url', 'Label', 'r') }}") }}
+
+        {{ link_inline('https://example.com', 'internal inline link', false) }}
+        {{ code.simple("{{ link_inline('url', 'Label', false) }}") }}
+
+        {{ link_inline('https://example.com', 'external inline link', true) }}
+        {{ code.simple("{{ link_inline('url', 'Label', true) }}") }}
     </div>
 {{ section.end() }}
