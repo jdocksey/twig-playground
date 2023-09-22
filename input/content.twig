@@ -29,7 +29,6 @@
         x-cloak
         x-show="showMenu"
         @click.outside="showMenu = keepOpen"
-        :class="showMenu && 'opacity-100'"
         class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
     >
         {% for partial in partials %}
