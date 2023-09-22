@@ -20,13 +20,22 @@
     </div>
 {% endfor %}
 
-<div x-data="{ showToc: false }" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
+<div x-data="{ showMenu: false }" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
     {# Table of contents #}
-    <div class="h-16 w-[4.5rem] md:w-[5.5rem] lg:w-28 hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-clip flex flex-col bg-white opacity-50 hover:opacity-100 2xl:opacity-50 transition-opacity text-sm font-mono border border-black rounded-md">
-        {% set common_classes = 'py-4 px-4 first:pt-6 last:pb-6 first:rounded-t-md last:rounded-b-md' %}
-        <div class="text-center border-b {{ common_classes }}">TOC</div>
+    <div x-show="!showMenu"
+        @click="showMenu = !showMenu"
+        class="text-center p-4 w-[4.5rem] md:w-[5.5rem] lg:w-28 bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+    >...</div>
+
+    <div x-collapse
+        x-cloak
+        x-show="showMenu"
+        @click.outside="showMenu = false"
+        :class="showMenu && 'opacity-100'"
+        class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+    >
         {% for partial in partials %}
-            <a href="#{{ partial }}" class="hover:bg-gray-100 {{ common_classes }}">{{ partial }}</a>
+            <a @click="showMenu = false" href="#{{ partial }}" class="py-4 px-4 first:pt-6 last:pb-6 first:rounded-t-md last:rounded-b-md hover:bg-gray-100">{{ partial }}</a>
         {% endfor %}
     </div>
 
