@@ -15,16 +15,9 @@
 
 {{ section.start(gray_background, first, last) }}
     <h2>Animations</h2>
-    <div class="w-64 flex flex-col mt-12">
+    <div x-data="{ visible: false }" x-intersect.half.once="visible = true" class="w-64 flex flex-col mt-12">
         {% for item in items %}
-            {% set delay = (loop.index0 * 150) ~ 'ms' %}
-            <h5
-                x-data="{ visible: false }"
-                x-intersect.once="visible = true"
-                x-intersect:leave="visible = false"
-                :class="visible ? 'animate-fade-in-right' : ''"
-                class="opacity-0 [animation-delay:{{delay}}] py-6 border-b-2"
-            >
+            <h5 :class="visible ? 'animate-fade-in-right' : ''" class="opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms] py-6 border-b-2">
                 {{ item }}
             </h5>
         {% endfor %}
