@@ -14,14 +14,19 @@
  #}
 
 {{ section.start(gray_background, first, last) }}
-    <div x-data="{ sectionVisible: false }" class="space-y-8">
-        <h2>Animations</h2>
-        <div x-text="sectionVisible ? 'false' : 'true'"></div>
-        <div x-intersect="sectionVisible = true" x-intersect:leave="sectionVisible = false" class="w-64 flex flex-col">
-            {% for item in items %}
-                {% set delay = (loop.index0 * 150) ~ 'ms' %}
-                <h5 :class="sectionVisible ? 'animate-fade-in-right' : ''" class="opacity-0 [animation-delay:{{delay}}] py-6 border-b-2">{{ item }}</h5>
-            {% endfor %}
-        </div>
+    <h2>Animations</h2>
+    <div class="w-64 flex flex-col mt-12">
+        {% for item in items %}
+            {% set delay = (loop.index0 * 150) ~ 'ms' %}
+            <h5
+                x-data="{ visible: false }"
+                x-intersect.once="visible = true"
+                x-intersect:leave="visible = false"
+                :class="visible ? 'animate-fade-in-right' : ''"
+                class="opacity-0 [animation-delay:{{delay}}] py-6 border-b-2"
+            >
+                {{ item }}
+            </h5>
+        {% endfor %}
     </div>
 {{ section.end() }}
