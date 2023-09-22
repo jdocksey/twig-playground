@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Alpine.js https://alpinejs.dev/essentials/installation#from-a-script-tag -->
+  <!-- "Collapse" plugin (see https://alpinejs.dev/plugins/collapse) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- "Intersect" plugin (see https://alpinejs.dev/plugins/intersect) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- core -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Tailwind 3 playground CDN https://tailwindcss.com/docs/installation/play-cdn -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+  <script>
+    // deno-fmt-ignore-file
+// deno-lint-ignore-file
+
+// https://tailwindcss.com/docs/configuration
+tailwind.config = {
+  theme: {
+    screens: {
+      'sm': '374px',
+      'md': '768px',
+      'lg': '991px',
+      'xl': '1200px',
+      // TODO: Remove for production
+      '2xl': '1600px',
+    },
+    fontFamily: {
+      sans: [
+        'proxima-nova',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'sans-serif',
+      ],
+      // TODO: Remove for production
+      mono: [
+        'JetBrains Mono',
+        'Fira Code',
+        'ui-monospace',
+        'Courier New',
+        'monospace',
+      ],
+    },
+    fontSize: {
+      'xs':    ['0.8125rem', 'normal'],  // 13px
+      'sm':    ['0.875rem',  '1.42857'], // 14px, 20px
+      'base':  ['1rem',      '1.5625'],  // 16px, 25px
+      'lg':    ['1.0625rem', 'normal'],  // 17px
+      'xl':    ['1.125rem',  'normal'],  // 18px
+      '2xl':   ['1.25rem',   'normal'],  // 20px
+      '3xl':   ['1.5625rem', 'normal'],  // 25px
+      '4xl':   ['1.8125rem', 'normal'],  // 29px
+      '5xl':   ['1.875rem',  'normal'],  // 30px
+      '6xl':   ['2.1875rem', 'normal'],  // 35px
+      '7xl':   ['2.8125rem', 'normal'],  // 45px
+    },
+    lineHeight: {
+      normal:   'normal',
+      match:    '1',
+      tight:    '1.11111',
+      snug:     '1.42857',
+      standard: '1.4375',
+      relaxed:  '1.5625',
+      loose:    '1.66666',
+    },
+    fontWeight: {
+      normal: 400,
+      semibold: 600,
+      bold: 700,
+    },
+    animation: {
+      'fade-in': 'fade-in 0.6s ease forwards',
+      'fade-in-left': 'fade-in-left 0.6s ease forwards',
+      'fade-in-right': 'fade-in-right 0.6s ease forwards',
+      'fade-in-up': 'fade-in-up 0.6s ease forwards',
+    },
+    keyframes: {
+      'fade-in': {
+        'from': { opacity: 0 },
+        'to': { opacity: 1 },
+      },
+      'fade-in-left': {
+        'from': { opacity: 0, transform: 'translateX(20px)' },
+        'to': { opacity: 1, transform: 'translateX(0)' },
+      },
+      'fade-in-right': {
+        'from': { opacity: 0, transform: 'translateX(-20px)' },
+        'to': { opacity: 1, transform: 'translateX(0)' },
+      },
+      'fade-in-up': {
+        'from': { opacity: 0, transform: 'translateY(20px)' },
+        'to': { opacity: 1, transform: 'translateY(0)' },
+      },
+    },
+    extend: {
+      borderRadius: {
+        '6xl': '3.125rem',
+      },
+      // TODO: Move this out of `extend` when moving into the production code base
+      colors: {
+        black: '#000000',
+        blue: {
+          400: '#0abbe8',
+          800: '#0052a5', // links
+          950: '#001b3f', // background color
+        },
+        cyan: {
+          50: '#e5f7fa',
+        },
+        gray: {
+          50: '#fafafa', // background color
+          300: '#c3cbcd',
+          600: '#555555',
+        },
+        green: {
+          500: '#b6c42c',
+        },
+        white: '#ffffff', // background color
+      },
+      letterSpacing: {
+        wide: '0.01875em'
+      },
+      maxWidth: {
+        // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
+        'content-container-limit': '1248px',
+      },
+      scale: {
+        250: '2.5',
+      },
+      spacing: {
+        0.25: '0.0625rem',
+        1.25: '0.3125rem',
+        4.5: '1.125rem',
+        7.25: '1.8125rem',
+        8.75: '2.1875rem',
+        13: '3.25rem',
+        15: '3.75rem',
+        17.5: '4.375rem',
+        17.5: '4.375rem',
+      },
+      transitionDuration: {
+        250: '250ms',
+      },
+      transitionTimingFunction: {
+        'ease-out': 'ease-out',
+      },
+      textUnderlineOffset: {
+        10: '10px',
+      }
+    },
+  },
+};
+
+  </script>
+
+  <style type="text/tailwindcss">
+    /* For Alpine.js (see https://alpinejs.dev/directives/cloak) */
+    [x-cloak] {
+      display: none !important;
+    }
+
+    :root {
+      scroll-behavior: smooth;
+    }
+
+    /* Tailwind styles */
+    body {
+      @apply text-base;
+    }
+
+    h1 {
+      @apply text-3xl;
+      @apply md:text-7xl;
+    }
+
+    h2 {
+      @apply text-3xl;
+      @apply md:text-5xl;
+    }
+
+    h3 {
+      @apply text-xl;
+      @apply md:text-2xl;
+      @apply font-bold;
+    }
+
+    h4 {
+      @apply text-xl;
+      @apply md:text-2xl;
+      @apply font-bold;
+    }
+
+    h5 {
+      @apply text-lg;
+      @apply md:text-xl;
+    }
+
+    h6 {
+      @apply text-base;
+      @apply leading-normal;
+      @apply font-bold;
+    }
+
+    .text-article {
+      @apply text-xl;
+      @apply leading-loose;
+    }
+
+    .text-detail {
+      @apply text-sm;
+      @apply leading-snug;
+      @apply font-bold;
+      @apply text-gray-600;
+    }
+
+    .text-eyebrow {
+      @apply text-xs;
+      @apply font-bold;
+      @apply text-green-500;
+    }
+
+    .text-impact {
+      @apply text-xs;
+      @apply font-bold;
+    }
+
+    .text-link-large {
+      @apply text-xl;
+      @apply leading-tight;
+      @apply text-blue-800;
+    }
+
+    .text-subtitle {
+      @apply text-4xl;
+      @apply leading-normal;
+    }
+
+    .text-widget {
+      @apply leading-relaxed;
+      @apply text-gray-600;
+    }
+
+    .text-widget-link {
+      @apply leading-standard;
+      @apply text-blue-800;
+    }
+  </style>
+</head>
+
+<body>
+
+
+    <div id="breakpoints">
+
+<div x-data class="bg-blue-950 py-17.5 mb-8.75 flex flex-col items-center gap-6 overflow-x-auto">
+	        <button
+            @click="() => navigator.clipboard.writeText('max-w-content-container-limit')"
+            class="w-[1248px] flex flex-col items-center gap-2 py-3 px-12 rounded font-mono text-white bg-blue-400 bg-opacity-50 hover:bg-opacity-80 active:bg-opacity-100"
+        >
+            <span class="text-2xl">content-container-limit (accounts for 3rem of padding)</span>
+            <span class="opacity-80">1248px</span>
+        </button>
+	        <button
+            @click="() => navigator.clipboard.writeText('max-w-screen-xl')"
+            class="w-[1200px] flex flex-col items-center gap-2 py-3 px-12 rounded font-mono text-white bg-blue-400 bg-opacity-50 hover:bg-opacity-80 active:bg-opacity-100"
+        >
+            <span class="text-2xl">xl</span>
+            <span class="opacity-80">1200px</span>
+        </button>
+	        <button
+            @click="() => navigator.clipboard.writeText('max-w-screen-lg')"
+            class="w-[991px] flex flex-col items-center gap-2 py-3 px-12 rounded font-mono text-white bg-blue-400 bg-opacity-50 hover:bg-opacity-80 active:bg-opacity-100"
+        >
+            <span class="text-2xl">lg</span>
+            <span class="opacity-80">991px</span>
+        </button>
+	        <button
+            @click="() => navigator.clipboard.writeText('max-w-screen-md')"
+            class="w-[768px] flex flex-col items-center gap-2 py-3 px-12 rounded font-mono text-white bg-blue-400 bg-opacity-50 hover:bg-opacity-80 active:bg-opacity-100"
+        >
+            <span class="text-2xl">md</span>
+            <span class="opacity-80">768px</span>
+        </button>
+	        <button
+            @click="() => navigator.clipboard.writeText('max-w-screen-sm')"
+            class="w-[374px] flex flex-col items-center gap-2 py-3 px-12 rounded font-mono text-white bg-blue-400 bg-opacity-50 hover:bg-opacity-80 active:bg-opacity-100"
+        >
+            <span class="text-2xl">sm</span>
+            <span class="opacity-80">374px</span>
+        </button>
+	</div>
+    </div>
+    <div id="colors">
+
+
+
+
+
+    <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-6 mx-auto flex gap-2 justify-stretch">
+
+                    <button x-data @click="() => navigator.clipboard.writeText('bg-blue-950')"
+            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        >
+            <div class="bg-blue-950  w-full aspect-square rounded-full"></div>
+            <div>bg-blue-950</div>
+        </button>
+                    <button x-data @click="() => navigator.clipboard.writeText('bg-blue-400')"
+            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        >
+            <div class="bg-blue-400  w-full aspect-square rounded-full"></div>
+            <div>bg-blue-400</div>
+        </button>
+                    <button x-data @click="() => navigator.clipboard.writeText('bg-blue-800')"
+            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        >
+            <div class="bg-blue-800  w-full aspect-square rounded-full"></div>
+            <div>bg-blue-800</div>
+        </button>
+                    <button x-data @click="() => navigator.clipboard.writeText('bg-green-500')"
+            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        >
+            <div class="bg-green-500  w-full aspect-square rounded-full"></div>
+            <div>bg-green-500</div>
+        </button>
+                    <button x-data @click="() => navigator.clipboard.writeText('bg-cyan-50')"
+            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        >
+            <div class="bg-cyan-50 border-4 border-gray-600 w-full aspect-square rounded-full"></div>
+            <div>bg-cyan-50</div>
+        </button>
+                    <button x-data @click="() => navigator.clipboard.writeText('bg-gray-50')"
+            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        >
+            <div class="bg-gray-50 border-4 border-gray-600 w-full aspect-square rounded-full"></div>
+            <div>bg-gray-50</div>
+        </button>
+            </div>
+    </div>
+
+    </div>
+    <div id="macro-imports">
+
+
+
+
+
+    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit px-6 mx-auto flex flex-col gap-4">
+
+    <h3>Macro imports</h3>
+        <button x-data @click="() => navigator.clipboard.writeText(`{% from '@macros/production.twig' import checkbox, label, link_button, link_block, link_inline %}`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">{% from '@macros/production.twig' import checkbox, label, link_button, link_block, link_inline %}</pre>
+    </button>
+
+        </div>
+    </div>
+
+    </div>
+    <div id="links-button">
+
+
+
+
+
+
+    <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-6 mx-auto ">
+
+    <div class="grid grid-cols-[max-content] sm:grid-cols-[repeat(2,_max-content)] xl:grid-cols-[repeat(4,_max-content)] gap-8">
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-10 rounded-3xl text-sm leading-tight  font-bold gap-2 "
+    >
+        <span>Small</span>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-10 rounded-3xl text-sm leading-tight  font-bold gap-2 "
+    >
+        <span>Small</span>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, true) }}`)"
+
+
+        target="_blank"
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-10 rounded-3xl text-sm leading-tight  font-bold gap-2 "
+    >
+        <span>Small</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 ">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, true) }}`)"
+
+
+        target="_blank"
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-10 rounded-3xl text-sm leading-tight  font-bold gap-2 "
+    >
+        <span>Small</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 ">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-15 rounded-3xl text-xl leading-tight  font-semibold gap-3 "
+    >
+        <span>Medium</span>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-15 rounded-3xl text-xl leading-tight  font-semibold gap-3 "
+    >
+        <span>Medium</span>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, true) }}`)"
+
+
+        target="_blank"
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-15 rounded-3xl text-xl leading-tight  font-semibold gap-3 "
+    >
+        <span>Medium</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, true) }}`)"
+
+
+        target="_blank"
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-15 rounded-3xl text-xl leading-tight  font-semibold gap-3 "
+    >
+        <span>Medium</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-5 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 "
+    >
+        <span>Large</span>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-5 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 "
+    >
+        <span>Large</span>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, true) }}`)"
+
+
+        target="_blank"
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-5 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 "
+    >
+        <span>Large</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-250">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+            </div>
+                    <div class="w-fit cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, true) }}`)"
+
+
+        target="_blank"
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-5 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 "
+    >
+        <span>Large</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-250">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+            </div>
+            </div>
+    <div class="flex flex-col gap-8 mt-12">
+                    <div class="cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-10 rounded-3xl text-xl leading-match  font-bold gap-2 w-full"
+    >
+        <span>Wide: Small</span>
+            </a>
+
+            </div>
+                    <div class="cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4.5 px-15 rounded-3xl text-xl leading-match  font-bold gap-3 w-full"
+    >
+        <span>Wide: Medium</span>
+            </a>
+
+            </div>
+                    <div class="cursor-pointer">
+
+
+
+
+
+
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', true, true, false) }}`)"
+
+
+
+        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-7.25 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 w-full"
+    >
+        <span>Wide: Large</span>
+            </a>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div id="links-text">
+
+
+
+
+
+    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit px-6 mx-auto ">
+
+    <div class="grid grid-cols-[max-content_1fr] items-center gap-x-12 gap-y-4 w-fit">
+            <div>
+        <a href="https://example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
+                            <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+                    <svg width="8" height="9" viewbox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title></title>
+	<g clip-path="url(#clip0_675_26589)">
+		<path d="M1.06956 4.43068C1.06956 4.29791 1.12025 4.16515 1.22143 4.06392L4.40685 0.878537C4.60948 0.675904 4.93802 0.675904 5.14057 0.878537C5.34312 1.08109 5.34312 1.40955 5.14057 1.6122L2.32193 4.43068L5.14047 7.24917C5.34302 7.4518 5.34302 7.78023 5.14047 7.98277C4.93792 8.1855 4.60939 8.1855 4.40675 7.98277L1.22133 4.79743C1.12014 4.69615 1.06956 4.5634 1.06956 4.43068Z" fill="#0052A5"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_675_26589">
+			<rect width="7.40827" height="7.40827" fill="white" transform="translate(7.88525 0.726562) rotate(90)"/>
+		</clipPath>
+	</defs>
+</svg>
+            </span>
+
+
+            <span>Arrow to the left</span>
+
+                    </a>
+    </div>
+
+            <button x-data @click="() => navigator.clipboard.writeText(`{{ link_block('url', 'Label', 'l') }}`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">{{ link_block('url', 'Label', 'l') }}</pre>
+    </button>
+
+
+            <div>
+        <a href="https://example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
+
+            <span>Arrow to the right</span>
+
+                            <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+                    <svg width="8" height="9" viewbox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title></title>
+	<g clip-path="url(#clip0_675_26598)">
+		<path d="M7.0364 4.45409C7.0364 4.58686 6.9857 4.71961 6.88453 4.82084L3.69911 8.00623C3.49647 8.20886 3.16794 8.20886 2.96539 8.00623C2.76284 7.80368 2.76284 7.47521 2.96539 7.27256L5.78403 4.45409L2.96549 1.6356C2.76294 1.43297 2.76294 1.10453 2.96549 0.901999C3.16804 0.699269 3.49657 0.699269 3.6992 0.901999L6.88462 4.08734C6.98582 4.18861 7.0364 4.32137 7.0364 4.45409Z" fill="#0052A5"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_675_26598">
+			<rect width="7.40827" height="7.40827" fill="white" transform="matrix(0 -1 1 0 0.220703 8.1582)"/>
+		</clipPath>
+	</defs>
+</svg>
+            </span>
+
+                    </a>
+    </div>
+
+            <button x-data @click="() => navigator.clipboard.writeText(`{{ link_block('url', 'Label', 'r') }}`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">{{ link_block('url', 'Label', 'r') }}</pre>
+    </button>
+
+
+            <a
+        href="https://example.com"
+        class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
+
+    >
+        <span>internal inline link</span>
+            </a>
+
+            <button x-data @click="() => navigator.clipboard.writeText(`{{ link_inline('url', 'Label', false) }}`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">{{ link_inline('url', 'Label', false) }}</pre>
+    </button>
+
+
+            <a
+        href="https://example.com"
+        class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
+        target="_blank"
+    >
+        <span>external inline link</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+            <button x-data @click="() => navigator.clipboard.writeText(`{{ link_inline('url', 'Label', true) }}`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">{{ link_inline('url', 'Label', true) }}</pre>
+    </button>
+
+    </div>
+        </div>
+    </div>
+
+    </div>
+    <div id="checkboxes">
+
+
+
+
+
+    <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-6 mx-auto flex gap-12 items-center">
+
+    <div class="flex flex-col gap-4">
+                                                <div class="flex items-center gap-2.5">
+        <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-0" name="All" value="All" checked/>
+        <label for="checkbox-0">All</label>
+    </div>
+
+                                                <div class="flex items-center gap-2.5">
+        <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-1" name="Articles" value="Articles" checked/>
+        <label for="checkbox-1">Articles</label>
+    </div>
+
+                                                <div class="flex items-center gap-2.5">
+        <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-2" name="Stories" value="Stories" />
+        <label for="checkbox-2">Stories</label>
+    </div>
+
+                                                <div class="flex items-center gap-2.5">
+        <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-3" name="Conferences" value="Conferences" />
+        <label for="checkbox-3">Conferences</label>
+    </div>
+
+                                                <div class="flex items-center gap-2.5">
+        <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-4" name="Opportunities" value="Opportunities" checked/>
+        <label for="checkbox-4">Opportunities</label>
+    </div>
+
+            </div>
+        <button x-data @click="() => navigator.clipboard.writeText(`{{ checkbox('Label', false, 'name', 'value', 'id') }}`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">{{ checkbox('Label', false, 'name', 'value', 'id') }}</pre>
+    </button>
+
+        </div>
+    </div>
+
+    </div>
+    <div id="labels">
+
+
+
+
+
+    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit px-6 mx-auto flex gap-12 items-center">
+
+        <div class="bg-green-500 h-fit py-2 px-13 font-bold">Label for News</div>
+
+        <button x-data @click="() => navigator.clipboard.writeText(`{{ label('Label') }}`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">{{ label('Label') }}</pre>
+    </button>
+
+        </div>
+    </div>
+
+    </div>
+    <div id="animations">
+
+
+
+
+
+
+    <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-6 mx-auto space-y-8">
+
+    <h2>Animations</h2>
+    <div class="flex gap-16">
+
+        <div x-data="{ shown: false }" x-intersect.half.once="shown = true" class="w-64 mt-4">
+                            <h5 :class="shown && 'animate-fade-in-right'" class="opacity-0 [animation-delay:0ms] border-b-2 pb-2 pt-6 first:pt-0">
+                    Apples
+                </h5>
+                            <h5 :class="shown && 'animate-fade-in-right'" class="opacity-0 [animation-delay:150ms] border-b-2 pb-2 pt-6 first:pt-0">
+                    Bananas
+                </h5>
+                            <h5 :class="shown && 'animate-fade-in-right'" class="opacity-0 [animation-delay:300ms] border-b-2 pb-2 pt-6 first:pt-0">
+                    Cashews
+                </h5>
+                            <h5 :class="shown && 'animate-fade-in-right'" class="opacity-0 [animation-delay:450ms] border-b-2 pb-2 pt-6 first:pt-0">
+                    Spinach
+                </h5>
+                            <h5 :class="shown && 'animate-fade-in-right'" class="opacity-0 [animation-delay:600ms] border-b-2 pb-2 pt-6 first:pt-0">
+                    Zucchini
+                </h5>
+
+            <ol class="list-disc mt-12">
+                <li>
+                        <a
+        href="https://www.experian.com/corporate/experian-corporate-social-responsibility/"
+        class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
+        target="_blank"
+    >
+        <span>examples</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+                </li>
+                <li>
+                        <a
+        href="https://snowdonia.gov.wales/discover/landscapes-and-wildlife/"
+        class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
+        target="_blank"
+    >
+        <span>examples for menus</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+
+                </li>
+            </ol>
+        </div>
+
+        <div class="space-y-8">
+            <div class="space-y-2">
+                <h3>Single item</h3>
+                    <button x-data @click="() => navigator.clipboard.writeText(`&lt;div x-data=&quot;{ shown: false }&quot;
+    x-intersect.half.once=&quot;shown = true&quot;
+    :class=&quot;shown && 'animate-fade-in-right'&quot;
+    class=&quot;opacity-0 [animation-delay:150ms]&quot;
+&gt;
+    content
+&lt;/div&gt;`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">&lt;div x-data=&quot;{ shown: false }&quot;
+    x-intersect.half.once=&quot;shown = true&quot;
+    :class=&quot;shown && 'animate-fade-in-right'&quot;
+    class=&quot;opacity-0 [animation-delay:150ms]&quot;
+&gt;
+    content
+&lt;/div&gt;</pre>
+    </button>
+
+            </div>
+            <div class="space-y-2">
+                <h3>List of items</h3>
+                    <button x-data @click="() => navigator.clipboard.writeText(`&lt;div x-data=&quot;{ shown: false }&quot;
+    x-intersect.half.once=&quot;shown = true&quot;
+&gt;
+    {% for item in items %}
+        &lt;div :class=&quot;shown && 'animate-fade-in-right'&quot;
+            class=&quot;opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms]&quot;
+        &gt;
+            {{ item }}
+        &lt;/div&gt;
+    {% endfor %}
+&lt;/div&gt;`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">&lt;div x-data=&quot;{ shown: false }&quot;
+    x-intersect.half.once=&quot;shown = true&quot;
+&gt;
+    {% for item in items %}
+        &lt;div :class=&quot;shown && 'animate-fade-in-right'&quot;
+            class=&quot;opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms]&quot;
+        &gt;
+            {{ item }}
+        &lt;/div&gt;
+    {% endfor %}
+&lt;/div&gt;</pre>
+    </button>
+
+            </div>
+        </div>
+
+    </div>
+        </div>
+    </div>
+
+    </div>
+    <div id="text-samples">
+
+
+
+
+
+
+    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit px-6 mx-auto flex flex-col gap-12">
+
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Paragraph</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="">Lots of example text.     <a
+        href="https://example.com"
+        class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
+
+    >
+        <span>an internal inline link</span>
+            </a>
+ lorem ipsum     <a
+        href="https://example.com"
+        class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
+        target="_blank"
+    >
+        <span>an external link</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+ lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+                    </div>
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-article&quot;&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Article</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p class=&quot;text-article&quot;&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="text-article">Lots of example text.     <a
+        href="https://example.com"
+        class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
+
+    >
+        <span>an internal inline link</span>
+            </a>
+ lorem ipsum     <a
+        href="https://example.com"
+        class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
+        target="_blank"
+    >
+        <span>an external link</span>
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+    <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </a>
+ lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+                    </div>
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-widget&quot;&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Widget Text</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p class=&quot;text-widget&quot;&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="text-widget">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-widget-link&quot;&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Widget Links</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p class=&quot;text-widget-link&quot;&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="text-widget-link">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-link-large&quot;&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Large Links</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p class=&quot;text-link-large&quot;&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="text-link-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-subtitle&quot;&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Subtitles</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p class=&quot;text-subtitle&quot;&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="text-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-detail&quot;&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Details</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p class=&quot;text-detail&quot;&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="text-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-eyebrow&quot;&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Eyebrows</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p class=&quot;text-eyebrow&quot;&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="text-eyebrow">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+            <div class="flex flex-col gap-1">
+            <div class="-ml-8">
+
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-impact&quot;&gt;&lt;/p&gt;')"
+        class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <h3>Impact Text</h3>
+        <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
+            &lt;p class=&quot;text-impact&quot;&gt;
+        </div>
+    </button>
+
+            </div>
+
+                            <p class="text-impact">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+            </div>
+    </div>
+
+    </div>
+    <div id="headers">
+
+
+
+
+    <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-6 mx-auto space-y-6">
+
+    <h1>H1 | This is a very large header</h1>
+    <h2>H2 | This is a large header</h2>
+    <h3>H3 | This is a medium header</h3>
+    <h4>H4 | This is a medium header</h4>
+    <h5>H5 | This is a small header</h5>
+    <h6>H6 | This is a tiny header</h6>
+        </div>
+    </div>
+
+    </div>
+
+<div x-data="{ showMenu: false, keepOpen: false }" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
+
+    <div x-show="!showMenu"
+        @click="showMenu = !showMenu"
+        class="cursor-pointer text-center p-4 w-[4.5rem] md:w-[5.5rem] lg:w-28 bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+    >...</div>
+
+    <div x-collapse
+        x-cloak
+        x-show="showMenu"
+        @click.outside="showMenu = keepOpen"
+
+        class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+    >
+                    <a @click="showMenu = keepOpen" href="#breakpoints" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">breakpoints</a>
+                    <a @click="showMenu = keepOpen" href="#colors" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">colors</a>
+                    <a @click="showMenu = keepOpen" href="#macro-imports" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">macro-imports</a>
+                    <a @click="showMenu = keepOpen" href="#links-button" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">links-button</a>
+                    <a @click="showMenu = keepOpen" href="#links-text" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">links-text</a>
+                    <a @click="showMenu = keepOpen" href="#checkboxes" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">checkboxes</a>
+                    <a @click="showMenu = keepOpen" href="#labels" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">labels</a>
+                    <a @click="showMenu = keepOpen" href="#animations" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">animations</a>
+                    <a @click="showMenu = keepOpen" href="#text-samples" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">text-samples</a>
+                    <a @click="showMenu = keepOpen" href="#headers" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">headers</a>
+                <button @click="keepOpen = !keepOpen" :class="keepOpen ? 'bg-cyan-50 text-black' : 'bg-white text-black/60'" class="p-4 border-t rounded-b-md hover:text-black hover:bg-gray-100">Keep Open</button>
+    </div>
+
+
+    <div inert class="w-fit bg-white opacity-50 flex flex-col items-center gap-2 p-4 md:p-6 lg:p-8 font-mono border border-black rounded-md">
+        <div class="text-xs lg:text-sm">size:</div>
+        <div class="h-0 w-8 md:w-10 lg:w-12 opacity-50 border-t border-black"></div>
+        <div class="text-xl md:text-2xl lg:text-4xl">
+            <span class="sm:hidden">XS</span>
+            <span class="hidden sm:max-md:inline">SM</span>
+            <span class="hidden md:max-lg:inline">MD</span>
+            <span class="hidden lg:max-xl:inline">LG</span>
+            <span class="hidden xl:inline">XL</span>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
