@@ -1,4 +1,5 @@
-{% from '@macros/production.twig' import label %}
+{% from '@macros/production.twig' import label, link_inline %}
+{% import '@macros/code.twig' as code %}
 {% import '@macros/section.twig' as section %}
 
 {% set items = [
@@ -9,18 +10,24 @@
     'Zucchini',
 ] %}
 
-{# References:
-    https://snowdonia.gov.wales/discover/landscapes-and-wildlife/
-    https://www.experian.com/corporate/experian-corporate-social-responsibility/
- #}
-
-{{ section.start(gray_background, first, last) }}
+{{ section.start(gray_background, first, last, 'space-y-4') }}
     <h2>Animations</h2>
-    <div x-data="{ visible: false }" x-intersect.half.once="visible = true" class="w-64 flex flex-col mt-12">
-        {% for item in items %}
-            <h5 :class="visible ? 'animate-fade-in-right' : ''" class="opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms] py-6 border-b-2">
-                {{ item }}
-            </h5>
-        {% endfor %}
+    <ol class="list-disc">
+        <li>
+            {{ link_inline('https://www.experian.com/corporate/experian-corporate-social-responsibility/', 'examples', true) }}
+        </li>
+        <li>
+            {{ link_inline('https://snowdonia.gov.wales/discover/landscapes-and-wildlife/', 'examples for menus', true) }}
+        </li>
+    </ol>
+    <div class="flex items-center gap-12 mt-12">
+        <div x-data="{ visible: false }" x-intersect.half.once="visible = true" class="w-64 flex flex-col mt-4">
+            {% for item in items %}
+                <h5 :class="visible ? 'animate-fade-in-right' : ''" class="opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms] border-b-2 pb-2 pt-6 first:pt-0 ">
+                    {{ item }}
+                </h5>
+            {% endfor %}
+        </div>
+        {{ code.simple('abc\ndef') }}
     </div>
 {{ section.end() }}

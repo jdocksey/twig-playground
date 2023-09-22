@@ -10,15 +10,13 @@
     'Opportunities',
 ] %}
 
-{{ section.start(gray_background, first, last) }}
-    <div class="flex gap-12 items-center">
-        <div class="flex flex-col gap-4">
-            {% for label in checkbox_labels %}
-                {% set id = 'checkbox-' ~ loop.index0 %}
-                {% set checked = loop.index0 in [0, 1, 4] %}
-                {{ checkbox(label, checked, label, label, id) }}
-            {% endfor %}
-        </div>
-        {{ code.simple("{{ checkbox('Label', false, 'name', 'value', 'id') }}") }}
+{{ section.start(gray_background, first, last, 'flex gap-12 items-center') }}
+    <div class="flex flex-col gap-4">
+        {% for label in checkbox_labels %}
+            {% set id = 'checkbox-' ~ loop.index0 %}
+            {% set checked = loop.index0 in [0, 1, 4] %}
+            {{ checkbox(label, checked, label, label, id) }}
+        {% endfor %}
     </div>
+    {{ code.simple("{{ checkbox('Label', false, 'name', 'value', 'id') }}") }}
 {{ section.end() }}

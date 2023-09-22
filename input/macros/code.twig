@@ -2,7 +2,7 @@
     <button x-data @click="() => navigator.clipboard.writeText(`{{ code }}`)"
         class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
     >
-        {{ code }}
+        <pre>{{ code }}</pre>
     </button>
 {% endmacro %}
 

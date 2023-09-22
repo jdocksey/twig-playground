@@ -1,4 +1,4 @@
-{% macro start(gray_background, first, last) %}
+{% macro start(gray_background, first, last, class = '') %}
     {% set background = gray_background ? 'bg-gray-50' : 'bg-white' %}
 
     {% set padding = '' %}
@@ -19,7 +19,7 @@
     {% endif %}
 
     <div class="{{ background }} {{ padding }} {{ margin_top }} {{ margin_bottom }}">
-        <div class="max-w-content-container-limit px-6 mx-auto">
+        <div class="max-w-content-container-limit px-6 mx-auto {{ class }}">
 {% endmacro %}
 
 {% macro end() %}

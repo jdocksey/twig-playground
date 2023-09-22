@@ -2,9 +2,7 @@
 {% import '@macros/code.twig' as code %}
 {% import '@macros/section.twig' as section %}
 
-{{ section.start(gray_background, first, last) }}
-    <div class="flex gap-12 items-center">
-        {{ label('Label for News') }}
-        {{ code.simple("{{ label('Label') }}") }}
-    </div>
+{{ section.start(gray_background, first, last, 'flex gap-12 items-center') }}
+    {{ label('Label for News') }}
+    {{ code.simple("{{ label('Label') }}") }}
 {{ section.end() }}
