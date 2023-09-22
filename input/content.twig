@@ -20,7 +20,7 @@
     </div>
 {% endfor %}
 
-<div x-data="{ showToc: false }" class="fixed bottom-12 right-12 flex flex-col items-end gap-4">
+<div x-data="{ showToc: false }" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
     {# Table of contents #}
     <div class="h-16 w-28 hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-clip flex flex-col bg-white opacity-10 hover:opacity-100 2xl:opacity-50 transition-opacity text-sm font-mono border border-black rounded-md">
         {% set common_classes = 'py-4 px-4 first:pt-6 last:pb-6 first:rounded-t-md last:rounded-b-md' %}

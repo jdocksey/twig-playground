@@ -14,8 +14,7 @@
  #}
 
 {{ section.start(gray_background, first, last) }}
-    {# TODO: Fix this #}
-    <div x-data="{ sectionVisible: false }" class="space-y-8"></div>
+    <div x-data="{ sectionVisible: false }" class="space-y-8">
         <h2>Animations</h2>
         <div x-text="sectionVisible ? 'false' : 'true'"></div>
         <div x-intersect="sectionVisible = true" x-intersect:leave="sectionVisible = false" class="w-64 flex flex-col">
