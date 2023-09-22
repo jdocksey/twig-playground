@@ -26,7 +26,7 @@
 ] %}
 
 {{ section.start(gray_background, first, last) }}
-    <div class="grid grid-cols-[repeat(4,_max-content)] gap-8">
+    <div class="grid grid-cols-[max-content] sm:grid-cols-[repeat(2,_max-content)] xl:grid-cols-[repeat(4,_max-content)] gap-8">
         {% for button in buttons_regular %}
             <div class="w-fit cursor-pointer">
                 {{ link_button('https://example.com', button.text, button.size, button.wide, button.primary, button.new_tab) }}
