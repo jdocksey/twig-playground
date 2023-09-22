@@ -21,13 +21,24 @@
         </li>
     </ol>
     <div class="flex items-center gap-12 mt-12">
-        <div x-data="{ visible: false }" x-intersect.half.once="visible = true" class="w-64 flex flex-col mt-4">
+        <div x-data="{ shown: false }" x-intersect.half.once="shown = true" class="w-64 flex flex-col mt-4">
             {% for item in items %}
-                <h5 :class="visible ? 'animate-fade-in-right' : ''" class="opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms] border-b-2 pb-2 pt-6 first:pt-0 ">
+                <h5 :class="shown && 'animate-fade-in-right'" class="opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms] border-b-2 pb-2 pt-6 first:pt-0">
                     {{ item }}
                 </h5>
             {% endfor %}
         </div>
-        {{ code.simple('abc\ndef') }}
+
+
+
+        {{ code.simple(
+"&lt;div x-data=&quot;{ shown: false }&quot;
+    x-intersect.half.once=&quot;shown = true&quot;
+    :class=&quot;shown && 'animate-fade-in-right'&quot;
+    class=&quot;opacity-0 [animation-delay:150ms]&quot;
+&gt;
+    content
+&lt;/div&gt;"
+        ) }}
     </div>
 {{ section.end() }}
