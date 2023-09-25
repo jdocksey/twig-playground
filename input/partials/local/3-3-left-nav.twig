@@ -14,7 +14,7 @@
 {{ section.start() }}
     {{ section.left_channel_start() }}
         {# Navigation menu (mobile) #}
-        <div x-data="{ open: false }" class="md:hidden border">
+        <div x-data="{ open: false }" class="md:hidden bg-gray-50">
             <button @click="open = !open">
                 <span x-show="!open">
                     {% include '@localPartials/menu.twig' with { alt_text: 'open intra-page navigation' } only %}
@@ -26,21 +26,30 @@
                     on this page
                 </span>
             </button>
-            <nav x-cloak x-show="open" x-collapse>
-                <ol>
-                    {% for item in items %}
-                        <li>
-                            <a href="#3-3-left-nav-{{ loop.index0 }}">
-                                {{ item }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ol>
-            </nav>
+            <div class="relative" border border-black>
+                <nav x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 bg-gray-50">
+                    <ol>
+                        {% for item in items %}
+                            <li>
+                                <a href="#3-3-left-nav-{{ loop.index0 }}">
+                                    {{ item }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                </nav>
+            </div>
         </div>
     {{ section.left_channel_end() }}
 
     {{ section.main_content_start() }}
-        <div class="my-48">( Main Content )</div>
+        <div>
+            ( Main Content )
+            <div class="flex flex-col gap-4 m-4">
+                {% for i in 1..10 %}
+                    <div>Item {{ i }}</div>
+                {% endfor %}
+            </div>
+        </div>
     {{ section.main_content_end() }}
 {{ section.end() }}
