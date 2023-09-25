@@ -14,6 +14,8 @@ tailwind.config = {
     },
     fontFamily: {
       sans: [
+        // TODO: Remove the demo typeface
+        '"FONTSPRING DEMO - Proxima Nova"',
         'proxima-nova',
         'Helvetica Neue',
         'Helvetica',

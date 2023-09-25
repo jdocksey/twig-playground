@@ -1,16 +1,18 @@
 {% import '@macros/section-with-left-channel.twig' as section %}
 
 {% set items = [
-    'Purpose',
-    'Eligibility',
-    'Nature of Grant',
-    'General Information',
-    'Apply',
-    'Other Opportunities',
-    'Timeline',
+    { id: 1, text: 'Purpose' },
+    { id: 2, text: 'Eligibility' },
+    { id: 3, text: 'Nature of Grant' },
+    { id: 4, text: 'General Information' },
+    { id: 5, text: 'Apply' },
+    { id: 6, text: 'Other Opportunities' },
+    { id: 7, text: 'Timeline' },
 ] %}
 
-{% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
+<div class="md:mb-24">
+    {% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
+</div>
 {{ section.start() }}
     {{ section.left_channel_start() }}
 
@@ -21,8 +23,7 @@
                     this.open = false;
                 }
             }"
-            class="md:hidden bg-gray-50"
-        >
+            class="md:hidden bg-gray-50">
             {# The z-index of the button is set higher than the menu dropdown so that the button's box-shadow will overlap the dropdown #}
             <button @click="open = !open" :class="!open && 'shadow-md-heavy'" class="relative z-20 flex items-center gap-5 w-full py-4 px-5">
                 {# The height and width are set so that there are no minor size changes when the icon being displayed changes #}
@@ -43,8 +44,8 @@
                         <ol>
                             {% for item in items %}
                                 <li>
-                                    <a @click="goToContent()" href="#3-3-left-nav-{{ loop.index0 }}" class="block text-sm py-3 px-5">
-                                        {{ item }}
+                                    <a @click="goToContent()" href="#3-3-left-nav-{{ item.id }}" class="block text-sm py-3 px-5">
+                                        {{ item.text }}
                                     </a>
                                     {% if not loop.last %}
                                         <span class="block h-px mx-5 bg-gray-200"></span>
@@ -56,12 +57,34 @@
                 </div>
             </div>
         </div>
+
+        {# Navigation menu (desktop) #}
+        <div x-data="{
+                selectedItemID: null,
+                selectItem(id) {
+                    this.selectedItemID = id;
+                }
+            }"
+            class="hidden md:block">
+            <nav class="border-r-2 border-gray-300">
+                <ol>
+                    {% for item in items %}
+                        <li>
+                            <a @click="selectItem({{ item.id }})" href="#3-3-left-nav-{{ item.id }}" :class="selectedItemID === {{ item.id }} && 'bg-cyan-50'" class="block py-3 px-6">
+                                {{ item.text }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </nav>
+        </div>
+
     {{ section.left_channel_end() }}
 
     {{ section.main_content_start() }}
-        <div>
-            ( Main Content )
-            <div class="flex flex-col gap-4 m-4">
+        <div class="bg-blue-100 p-4">
+            Main Content
+            <div class="flex flex-col gap-4">
                 {% for i in 1..10 %}
                     <div>Item {{ i }}</div>
                 {% endfor %}
