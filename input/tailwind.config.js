@@ -84,6 +84,9 @@ tailwind.config = {
       borderRadius: {
         '6xl': '3.125rem',
       },
+      boxShadow: {
+        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
+      },
       // TODO: Move this out of `extend` when moving into the production code base
       colors: {
         black: '#000000',
