@@ -1,9 +1,43 @@
 {% import '@macros/section-with-left-channel.twig' as section %}
 
+{% set items = [
+    'Purpose',
+    'Eligibility',
+    'Nature of Grant',
+    'General Information',
+    'Apply',
+    'Other Opportunities',
+    'Timeline',
+] %}
+
 {% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
 {{ section.start() }}
     {{ section.left_channel_start() }}
-        <nav class="my-4">( navigation )</nav>
+        {# Navigation menu (mobile) #}
+        <div x-data="{ open: false }" class="md:hidden border">
+            <button @click="open = !open">
+                <span x-show="!open">
+                    {% include '@localPartials/menu.twig' with { alt_text: 'open intra-page navigation' } only %}
+                </span>
+                <span x-show="open">
+                    {% include '@localPartials/cross.twig' with { alt_text: 'close intra-page navigation' } only %}
+                </span>
+                <span>
+                    on this page
+                </span>
+            </button>
+            <nav x-cloak x-show="open" x-collapse>
+                <ol>
+                    {% for item in items %}
+                        <li>
+                            <a href="#3-3-left-nav-{{ loop.index0 }}">
+                                {{ item }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </nav>
+        </div>
     {{ section.left_channel_end() }}
 
     {{ section.main_content_start() }}
