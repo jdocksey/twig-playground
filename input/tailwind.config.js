@@ -97,7 +97,7 @@ tailwind.config = {
         },
         gray: {
           50: '#fafafa', // background color
-          300: '#c3cbcd',
+          350: '#c3cbcd',
           600: '#555555',
         },
         green: {

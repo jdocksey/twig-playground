@@ -13,8 +13,10 @@
 {% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
 {{ section.start() }}
     {{ section.left_channel_start() }}
+
         {# Navigation menu (mobile) #}
-        <div x-data="{ open: false }" class="md:hidden bg-gray-50">
+        {# TODO: Revert `open` to `false` #}
+        <div x-data="{ open: true }" class="md:hidden bg-gray-50">
             <button @click="open = !open" class="flex items-center gap-5 w-full py-4 px-5">
                 {# The height and width are set so that there are no minor size changes when the icon being displayed changes #}
                 <span class="h-5 w-8">
@@ -28,11 +30,12 @@
                 <span class="text-sm font-bold">on this page</span>
             </button>
             <div class="relative">
-                <nav x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 bg-gray-50 px-5">
+                {# TODO: Remove the border #}
+                <nav x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 bg-gray-50 px-5    border-b-4 border-black">
                     <ol>
                         {% for item in items %}
                             <li>
-                                <a href="#3-3-left-nav-{{ loop.index0 }}">
+                                <a href="#3-3-left-nav-{{ loop.index0 }}" class="text-sm">
                                     {{ item }}
                                 </a>
                             </li>
