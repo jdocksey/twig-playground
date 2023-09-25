@@ -3,7 +3,7 @@
 {% macro checkbox(label = '', checked = false, name = '', value = '', id = '') %}
     <div class="flex items-center gap-2.5">
         <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="{{ id }}" name="{{ name }}" value="{{ value }}" {{ checked ? 'checked' }}/>
-        <label for="{{ id }}">{{ label }}</label>
+        <label for="{{ id }}" class="relative top-0.5">{{ label }}</label>
     </div>
 {% endmacro %}
 
@@ -35,7 +35,7 @@
     >
         <span>{{ text }}</span>
         {% if new_tab %}
-            {% include '@globalPartials/link-icon.twig' with { class: 'relative bottom-0.25 scale-75' } %}
+            {% include '@globalPartials/link-icon.twig' with { class: 'relative bottom-0.5 scale-75' } %}
         {% endif %}
     </a>
 {% endmacro %}
@@ -44,7 +44,6 @@
     {% set background = 'bg-blue-400 hover:bg-blue-950' %}
 
     {% set padding = '' %}
-    {% set rounding = '' %}
     {% set text_size = '' %}
     {% set font_weight = '' %}
     {% set icon_gap = '' %}
@@ -53,28 +52,25 @@
     {% set width = '' %}
 
     {% if size == 's' %}
-        {% set padding = 'py-4 px-10' %}
-        {% set rounding = 'rounded-3xl' %}
+        {% set padding = wide ? 'py-3.75 px-10' : 'py-4.5 px-10' %}
         {% set text_size = wide ? 'text-xl leading-match' : 'text-sm leading-tight' %}
         {% set font_weight = 'font-bold' %}
         {% set icon_gap = 'gap-2' %}
-        {% set icon_position = 'relative bottom-0.25' %}
+        {% set icon_position = 'relative bottom-0.5' %}
         {% set icon_scale = '' %}
     {% elseif size == 'm' %}
         {% set padding = wide ? 'py-4.5 px-15' : 'py-4 px-15' %}
-        {% set rounding = 'rounded-3xl' %}
         {% set text_size = wide ? 'text-xl leading-match' : 'text-xl leading-tight' %}
         {% set font_weight = wide ? 'font-bold' : 'font-semibold' %}
         {% set icon_gap = 'gap-3' %}
         {% set icon_position = 'relative bottom-0.5' %}
         {% set icon_scale = 'scale-125' %}
     {% elseif size == 'l' %}
-        {% set padding = wide ? 'py-7.25 px-15' : 'py-5 px-15' %}
-        {% set rounding = 'rounded-6xl' %}
+        {% set padding = wide ? 'py-7.5 px-15' : 'py-5 px-15' %}
         {% set text_size = 'text-6xl leading-tight' %}
         {% set font_weight = 'font-semibold' %}
         {% set icon_gap = 'gap-8' %}
-        {% set icon_position = 'relative bottom-0.5' %}
+        {% set icon_position = 'relative bottom-1' %}
         {% set icon_scale = 'scale-250' %}
     {% endif %}
 
@@ -92,7 +88,7 @@
         {# TODO: Uncomment the following line for the production code (leaving it commented for now allows the link-buttons to be clicked for copying their usage code) #}
         {# href="{{ address }}" #}
         {{ new_tab ? 'target="_blank"' }}
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
     >
         <span>{{ text }}</span>
         {% if new_tab %}

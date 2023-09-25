@@ -14,9 +14,9 @@ tailwind.config = {
     },
     fontFamily: {
       sans: [
+        'proxima-nova',
         // TODO: Remove the demo typeface
         '"FONTSPRING DEMO - Proxima Nova"',
-        'proxima-nova',
         'Helvetica Neue',
         'Helvetica',
         'Arial',
@@ -122,10 +122,10 @@ tailwind.config = {
         250: '2.5',
       },
       spacing: {
-        0.25: '0.0625rem',
         1.25: '0.3125rem',
+        3.75: '0.9375rem',
         4.5: '1.125rem',
-        7.25: '1.8125rem',
+        7.5: '1.875rem',
         8.75: '2.1875rem',
         13: '3.25rem',
         15: '3.75rem',
