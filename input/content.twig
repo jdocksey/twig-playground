@@ -7,7 +7,7 @@
 ] %}
 
 <div x-data="{
-    selectedPage: '{{ pages[0] }}',
+    selectedPage: $persist('{{ pages[0] }}'),
     menu: {
         show: false,
         keepOpen: false
@@ -34,7 +34,7 @@
         'text-samples',
         'headers',
     ] %}
-    <div x-show="selectedPage === '{{ global_page }}'">
+    <div x-cloak x-show="selectedPage === '{{ global_page }}'">
         {% for partial in global_partials %}
             <div id="{{ global_page ~ '-' ~ partial }}">
                 {% include '@globalPartials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } %}
