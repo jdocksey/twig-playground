@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Alpine.js https://alpinejs.dev/essentials/installation#from-a-script-tag -->
+  <!-- "Persist" plugin (see https://alpinejs.dev/plugins/persist) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
   <!-- "Collapse" plugin (see https://alpinejs.dev/plugins/collapse) -->
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-
   <!-- "Intersect" plugin (see https://alpinejs.dev/plugins/intersect) -->
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-
   <!-- core -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -36,6 +36,8 @@ tailwind.config = {
     fontFamily: {
       sans: [
         'proxima-nova',
+        // TODO: Remove the demo typeface
+        '"FONTSPRING DEMO - Proxima Nova"',
         'Helvetica Neue',
         'Helvetica',
         'Arial',
@@ -105,6 +107,9 @@ tailwind.config = {
       borderRadius: {
         '6xl': '3.125rem',
       },
+      boxShadow: {
+        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
+      },
       // TODO: Move this out of `extend` when moving into the production code base
       colors: {
         black: '#000000',
@@ -118,6 +123,7 @@ tailwind.config = {
         },
         gray: {
           50: '#fafafa', // background color
+          200: '#ececec',
           300: '#c3cbcd',
           600: '#555555',
         },
@@ -137,10 +143,10 @@ tailwind.config = {
         250: '2.5',
       },
       spacing: {
-        0.25: '0.0625rem',
         1.25: '0.3125rem',
+        3.75: '0.9375rem',
         4.5: '1.125rem',
-        7.25: '1.8125rem',
+        7.5: '1.875rem',
         8.75: '2.1875rem',
         13: '3.25rem',
         15: '3.75rem',
@@ -257,10 +263,27 @@ tailwind.config = {
 </head>
 
 <body>
+  
 
+<div x-data="{
+    selectedPage: $persist('global'),
+    menu: {
+        show: false,
+        keepOpen: false
+    },
+    closeMenu() {
+        this.menu.show = this.menu.keepOpen;
+    },
+    switchPage(page) {
+        this.selectedPage = page;
+        this.closeMenu();
+    }
+}">
 
-    <div id="breakpoints">
-
+    
+        <div x-cloak x-show="selectedPage === 'global'">
+                    <div id="global-breakpoints">
+                
 <div x-data class="bg-blue-950 py-17.5 mb-8.75 flex flex-col items-center gap-6 overflow-x-auto">
 	        <button
             @click="() => navigator.clipboard.writeText('max-w-content-container-limit')"
@@ -298,15 +321,15 @@ tailwind.config = {
             <span class="opacity-80">374px</span>
         </button>
 	</div>
-    </div>
-    <div id="colors">
+            </div>
+                    <div id="global-colors">
+                
 
-
-
-
-
+    
+            
+                
     <div class="bg-white py-8.75  ">
-        <div class="max-w-content-container-limit px-6 mx-auto flex gap-2 justify-stretch">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex gap-2 justify-stretch">
 
                     <button x-data @click="() => navigator.clipboard.writeText('bg-blue-950')"
             class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
@@ -347,15 +370,15 @@ tailwind.config = {
             </div>
     </div>
 
-    </div>
-    <div id="macro-imports">
-
-
-
-
-
+            </div>
+                    <div id="global-macro-imports">
+                
+    
+            
+                                                            
+            
     <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
-        <div class="max-w-content-container-limit px-6 mx-auto flex flex-col gap-4">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex flex-col gap-4">
 
     <h3>Macro imports</h3>
         <button x-data @click="() => navigator.clipboard.writeText(`{% from '@macros/production.twig' import checkbox, label, link_button, link_block, link_inline %}`)"
@@ -367,67 +390,67 @@ tailwind.config = {
         </div>
     </div>
 
-    </div>
-    <div id="links-button">
+            </div>
+                    <div id="global-links-button">
+                
 
 
-
-
-
-
+    
+            
+                
     <div class="bg-white py-8.75  ">
-        <div class="max-w-content-container-limit px-6 mx-auto ">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto ">
 
     <div class="grid grid-cols-[max-content] sm:grid-cols-[repeat(2,_max-content)] xl:grid-cols-[repeat(4,_max-content)] gap-8">
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-10 rounded-3xl text-sm leading-tight  font-bold gap-2 "
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 "
     >
         <span>Small</span>
             </a>
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+                
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-10 rounded-3xl text-sm leading-tight  font-bold gap-2 "
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 "
     >
         <span>Small</span>
             </a>
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, true) }}`)"
-
-
+        
+        
         target="_blank"
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-10 rounded-3xl text-sm leading-tight  font-bold gap-2 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 "
     >
         <span>Small</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 ">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 ">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -436,20 +459,20 @@ tailwind.config = {
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+                
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, true) }}`)"
-
-
+        
+        
         target="_blank"
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-10 rounded-3xl text-sm leading-tight  font-bold gap-2 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 "
     >
         <span>Small</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 ">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 ">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -458,51 +481,51 @@ tailwind.config = {
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-15 rounded-3xl text-xl leading-tight  font-semibold gap-3 "
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 "
     >
         <span>Medium</span>
             </a>
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+                
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-15 rounded-3xl text-xl leading-tight  font-semibold gap-3 "
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 "
     >
         <span>Medium</span>
             </a>
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, true) }}`)"
-
-
+        
+        
         target="_blank"
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-15 rounded-3xl text-xl leading-tight  font-semibold gap-3 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 "
     >
         <span>Medium</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
@@ -514,17 +537,17 @@ tailwind.config = {
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+                
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, true) }}`)"
-
-
+        
+        
         target="_blank"
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-15 rounded-3xl text-xl leading-tight  font-semibold gap-3 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 "
     >
         <span>Medium</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
@@ -536,54 +559,54 @@ tailwind.config = {
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-5 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 "
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 "
     >
         <span>Large</span>
             </a>
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+                
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-5 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 "
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 "
     >
         <span>Large</span>
             </a>
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, true) }}`)"
-
-
+        
+        
         target="_blank"
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-5 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 "
     >
         <span>Large</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-250">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -592,20 +615,20 @@ tailwind.config = {
 
             </div>
                     <div class="w-fit cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+    
+                
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, true) }}`)"
-
-
+        
+        
         target="_blank"
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-5 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 "
     >
         <span>Large</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-250">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -616,51 +639,51 @@ tailwind.config = {
             </div>
     <div class="flex flex-col gap-8 mt-12">
                     <div class="cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+                
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-10 rounded-3xl text-xl leading-match  font-bold gap-2 w-full"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
     >
         <span>Wide: Small</span>
             </a>
 
             </div>
                     <div class="cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+                
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4.5 px-15 rounded-3xl text-xl leading-match  font-bold gap-3 w-full"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
     >
         <span>Wide: Medium</span>
             </a>
 
             </div>
                     <div class="cursor-pointer">
-
-
-
-
-
-
+                    
+                            
+                                                        
+                
+    
+    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', true, true, false) }}`)"
-
-
-
-        class="flex justify-center items-center tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-7.25 px-15 rounded-6xl text-6xl leading-tight  font-semibold gap-8 w-full"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-7.5 px-15  text-6xl leading-tight  font-semibold gap-8 w-full"
     >
         <span>Wide: Large</span>
             </a>
@@ -670,15 +693,15 @@ tailwind.config = {
         </div>
     </div>
 
-    </div>
-    <div id="links-text">
-
-
-
-
-
+            </div>
+                    <div id="global-links-text">
+                
+    
+            
+                                                            
+            
     <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
-        <div class="max-w-content-container-limit px-6 mx-auto ">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto ">
 
     <div class="grid grid-cols-[max-content_1fr] items-center gap-x-12 gap-y-4 w-fit">
             <div>
@@ -697,7 +720,7 @@ tailwind.config = {
 </svg>
             </span>
 
-
+            
             <span>Arrow to the left</span>
 
                     </a>
@@ -712,7 +735,7 @@ tailwind.config = {
 
             <div>
         <a href="https://example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
-
+            
             <span>Arrow to the right</span>
 
                             <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
@@ -742,7 +765,7 @@ tailwind.config = {
             <a
         href="https://example.com"
         class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
-
+        
     >
         <span>internal inline link</span>
             </a>
@@ -760,7 +783,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>external inline link</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -777,40 +800,40 @@ tailwind.config = {
         </div>
     </div>
 
-    </div>
-    <div id="checkboxes">
+            </div>
+                    <div id="global-checkboxes">
+                
 
-
-
-
-
+    
+            
+                
     <div class="bg-white py-8.75  ">
-        <div class="max-w-content-container-limit px-6 mx-auto flex gap-12 items-center">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex gap-12 items-center">
 
     <div class="flex flex-col gap-4">
                                                 <div class="flex items-center gap-2.5">
         <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-0" name="All" value="All" checked/>
-        <label for="checkbox-0">All</label>
+        <label for="checkbox-0" class="relative top-0.5">All</label>
     </div>
 
                                                 <div class="flex items-center gap-2.5">
         <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-1" name="Articles" value="Articles" checked/>
-        <label for="checkbox-1">Articles</label>
+        <label for="checkbox-1" class="relative top-0.5">Articles</label>
     </div>
 
                                                 <div class="flex items-center gap-2.5">
         <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-2" name="Stories" value="Stories" />
-        <label for="checkbox-2">Stories</label>
+        <label for="checkbox-2" class="relative top-0.5">Stories</label>
     </div>
 
                                                 <div class="flex items-center gap-2.5">
         <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-3" name="Conferences" value="Conferences" />
-        <label for="checkbox-3">Conferences</label>
+        <label for="checkbox-3" class="relative top-0.5">Conferences</label>
     </div>
 
                                                 <div class="flex items-center gap-2.5">
         <input class="text-blue-400 p-2 border-2 border-gray-300" type="checkbox" id="checkbox-4" name="Opportunities" value="Opportunities" checked/>
-        <label for="checkbox-4">Opportunities</label>
+        <label for="checkbox-4" class="relative top-0.5">Opportunities</label>
     </div>
 
             </div>
@@ -823,15 +846,15 @@ tailwind.config = {
         </div>
     </div>
 
-    </div>
-    <div id="labels">
-
-
-
-
-
+            </div>
+                    <div id="global-labels">
+                
+    
+            
+                                                            
+            
     <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
-        <div class="max-w-content-container-limit px-6 mx-auto flex gap-12 items-center">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex gap-12 items-center">
 
         <div class="bg-green-500 h-fit py-2 px-13 font-bold">Label for News</div>
 
@@ -844,16 +867,16 @@ tailwind.config = {
         </div>
     </div>
 
-    </div>
-    <div id="animations">
+            </div>
+                    <div id="global-animations">
+                
 
 
-
-
-
-
+    
+            
+                
     <div class="bg-white py-8.75  ">
-        <div class="max-w-content-container-limit px-6 mx-auto space-y-8">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto space-y-8">
 
     <h2>Animations</h2>
     <div class="flex gap-16">
@@ -874,7 +897,7 @@ tailwind.config = {
                             <h5 :class="shown && 'animate-fade-in-right'" class="opacity-0 [animation-delay:600ms] border-b-2 pb-2 pt-6 first:pt-0">
                     Zucchini
                 </h5>
-
+            
             <ol class="list-disc mt-12">
                 <li>
                         <a
@@ -883,7 +906,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>examples</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -898,7 +921,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>examples for menus</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -966,20 +989,20 @@ tailwind.config = {
         </div>
     </div>
 
-    </div>
-    <div id="text-samples">
+            </div>
+                    <div id="global-text-samples">
+                
 
-
-
-
-
-
+    
+            
+                                                            
+            
     <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
-        <div class="max-w-content-container-limit px-6 mx-auto flex flex-col gap-12">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex flex-col gap-12">
 
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -994,7 +1017,7 @@ tailwind.config = {
                             <p class="">Lots of example text.     <a
         href="https://example.com"
         class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
-
+        
     >
         <span>an internal inline link</span>
             </a>
@@ -1004,7 +1027,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>an external link</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1014,7 +1037,7 @@ tailwind.config = {
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-article&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -1029,7 +1052,7 @@ tailwind.config = {
                             <p class="text-article">Lots of example text.     <a
         href="https://example.com"
         class="inline-flex items-center gap-0.5 text-blue-800 stroke-blue-800 underline"
-
+        
     >
         <span>an internal inline link</span>
             </a>
@@ -1039,7 +1062,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>an external link</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1049,7 +1072,7 @@ tailwind.config = {
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-widget&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -1065,7 +1088,7 @@ tailwind.config = {
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-widget-link&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -1081,7 +1104,7 @@ tailwind.config = {
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-link-large&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -1097,7 +1120,7 @@ tailwind.config = {
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-subtitle&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -1113,7 +1136,7 @@ tailwind.config = {
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-detail&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -1129,7 +1152,7 @@ tailwind.config = {
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-eyebrow&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -1145,7 +1168,7 @@ tailwind.config = {
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
-
+                        
     <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-impact&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
@@ -1162,63 +1185,260 @@ tailwind.config = {
             </div>
     </div>
 
-    </div>
-    <div id="headers">
-
-
-
-
+            </div>
+                    <div id="global-headers">
+                
+    
+            
+                
     <div class="bg-white py-8.75  ">
-        <div class="max-w-content-container-limit px-6 mx-auto space-y-6">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto space-y-6">
 
-    <h1>H1 | This is a very large header</h1>
-    <h2>H2 | This is a large header</h2>
-    <h3>H3 | This is a medium header</h3>
-    <h4>H4 | This is a medium header</h4>
-    <h5>H5 | This is a small header</h5>
-    <h6>H6 | This is a tiny header</h6>
+    <h1>H1 This is a very large header</h1>
+    <h2>H2 This is a large header</h2>
+    <h3>H3 This is a medium header</h3>
+    <h4>H4 This is a medium header</h4>
+    <h5>H5 This is a small header</h5>
+    <h6>H6 This is a tiny header</h6>
         </div>
     </div>
 
+            </div>
+            </div>
+
+    
+        <div x-cloak x-show="selectedPage === 'local'">
+                    <div id="local-3-3-left-nav">
+                
+
+<div class="md:mb-24">
+    <div class="bg-blue-950">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white py-4">3.3 Left Nav</h2>
+    </div>
+</div>
+</div>
+    <div>
+        <div class="
+            max-w-content-container-limit mx-auto
+            md:px-6
+            grid
+            max-md:grid-flow-row
+            md:grid-cols-[17rem_1fr]
+            md:gap-16
+        ">
+
+        <div>
+
+
+        
+        <div x-data="{
+                open: false,
+                goToContent() {
+                    this.open = false;
+                }
+            }"
+            class="md:hidden bg-gray-50">
+            
+            <button @click="open = !open" :class="!open && 'shadow-md-heavy'" class="relative z-20 flex items-center gap-4 w-full py-4 px-5">
+                
+                <span class="h-6 w-8">
+                    <span x-show="!open">
+                        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>open intra-page navigation</title>
+    <path d="M0.427734 2.08646C0.427734 1.20031 1.38489 0.484375 2.56962 0.484375H28.2722C29.4569 0.484375 30.4141 1.20031 30.4141 2.08646C30.4141 2.97261 29.4569 3.68854 28.2722 3.68854H2.56962C1.38489 3.68854 0.427734 2.97261 0.427734 2.08646ZM0.427734 10.0969C0.427734 9.21072 1.38489 8.49479 2.56962 8.49479H28.2722C29.4569 8.49479 30.4141 9.21072 30.4141 10.0969C30.4141 10.983 29.4569 11.699 28.2722 11.699H2.56962C1.38489 11.699 0.427734 10.983 0.427734 10.0969ZM30.4141 18.1073C30.4141 18.9934 29.4569 19.7094 28.2722 19.7094H2.56962C1.38489 19.7094 0.427734 18.9934 0.427734 18.1073C0.427734 17.2211 1.38489 16.5052 2.56962 16.5052H28.2722C29.4569 16.5052 30.4141 17.2211 30.4141 18.1073Z" fill="#001B3F"/>
+</svg>
+                    </span>
+                    <span x-show="open">
+                        <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>close intra-page navigation</title>
+    <path d="M20.846 2.81618L18.7485 0.757812L10.4328 8.91831L2.11706 0.757812L0.0195312 2.81618L8.33526 10.9767L0.0195312 19.1372L2.11706 21.1956L10.4328 13.0351L18.7485 21.1956L20.846 19.1372L12.5303 10.9767L20.846 2.81618Z" fill="black"/>
+</svg>
+                    </span>
+                </span>
+                <span class="text-sm font-bold">on this page</span>
+            </button>
+            <div class="relative">
+                <div x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 z-10 overflow-hidden pb-4">
+                    
+                    <nav class="bg-gray-50 pb-2 shadow-md-heavy">
+                        <ol>
+                                                            <li>
+                                    <a @click="goToContent()" href="#3-3-left-nav-1" class="block text-sm py-3 px-5">
+                                        Purpose
+                                    </a>
+                                                                            <span class="block h-px mx-5 bg-gray-200"></span>
+                                                                    </li>
+                                                            <li>
+                                    <a @click="goToContent()" href="#3-3-left-nav-2" class="block text-sm py-3 px-5">
+                                        Eligibility
+                                    </a>
+                                                                            <span class="block h-px mx-5 bg-gray-200"></span>
+                                                                    </li>
+                                                            <li>
+                                    <a @click="goToContent()" href="#3-3-left-nav-3" class="block text-sm py-3 px-5">
+                                        Nature of Grant
+                                    </a>
+                                                                            <span class="block h-px mx-5 bg-gray-200"></span>
+                                                                    </li>
+                                                            <li>
+                                    <a @click="goToContent()" href="#3-3-left-nav-4" class="block text-sm py-3 px-5">
+                                        General Information
+                                    </a>
+                                                                            <span class="block h-px mx-5 bg-gray-200"></span>
+                                                                    </li>
+                                                            <li>
+                                    <a @click="goToContent()" href="#3-3-left-nav-5" class="block text-sm py-3 px-5">
+                                        Apply
+                                    </a>
+                                                                            <span class="block h-px mx-5 bg-gray-200"></span>
+                                                                    </li>
+                                                            <li>
+                                    <a @click="goToContent()" href="#3-3-left-nav-6" class="block text-sm py-3 px-5">
+                                        Other Opportunities
+                                    </a>
+                                                                            <span class="block h-px mx-5 bg-gray-200"></span>
+                                                                    </li>
+                                                            <li>
+                                    <a @click="goToContent()" href="#3-3-left-nav-7" class="block text-sm py-3 px-5">
+                                        Timeline
+                                    </a>
+                                                                    </li>
+                                                    </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        
+        <div x-data="{
+                selectedItemID: 1,
+                selectItem(id) {
+                    this.selectedItemID = id;
+                }
+            }"
+            class="hidden md:block">
+            <nav class="border-r-2 border-gray-300">
+                <ol>
+                                            <li>
+                            <a @click="selectItem(1)" href="#3-3-left-nav-1" :class="selectedItemID === 1 && 'bg-cyan-50'" class="block py-3 px-6">
+                                Purpose
+                            </a>
+                        </li>
+                                            <li>
+                            <a @click="selectItem(2)" href="#3-3-left-nav-2" :class="selectedItemID === 2 && 'bg-cyan-50'" class="block py-3 px-6">
+                                Eligibility
+                            </a>
+                        </li>
+                                            <li>
+                            <a @click="selectItem(3)" href="#3-3-left-nav-3" :class="selectedItemID === 3 && 'bg-cyan-50'" class="block py-3 px-6">
+                                Nature of Grant
+                            </a>
+                        </li>
+                                            <li>
+                            <a @click="selectItem(4)" href="#3-3-left-nav-4" :class="selectedItemID === 4 && 'bg-cyan-50'" class="block py-3 px-6">
+                                General Information
+                            </a>
+                        </li>
+                                            <li>
+                            <a @click="selectItem(5)" href="#3-3-left-nav-5" :class="selectedItemID === 5 && 'bg-cyan-50'" class="block py-3 px-6">
+                                Apply
+                            </a>
+                        </li>
+                                            <li>
+                            <a @click="selectItem(6)" href="#3-3-left-nav-6" :class="selectedItemID === 6 && 'bg-cyan-50'" class="block py-3 px-6">
+                                Other Opportunities
+                            </a>
+                        </li>
+                                            <li>
+                            <a @click="selectItem(7)" href="#3-3-left-nav-7" :class="selectedItemID === 7 && 'bg-cyan-50'" class="block py-3 px-6">
+                                Timeline
+                            </a>
+                        </li>
+                                    </ol>
+            </nav>
+        </div>
+
+        </div>
+
+
+        <div class="px-5 md:px-0">
+
+        <div class="bg-blue-100 p-4">
+            Main Content
+            <div class="flex flex-col gap-4">
+                                    <div>Item 1</div>
+                                    <div>Item 2</div>
+                                    <div>Item 3</div>
+                                    <div>Item 4</div>
+                                    <div>Item 5</div>
+                                    <div>Item 6</div>
+                                    <div>Item 7</div>
+                                    <div>Item 8</div>
+                                    <div>Item 9</div>
+                                    <div>Item 10</div>
+                            </div>
+        </div>
+        </div>
+
+        </div>
     </div>
 
-<div x-data="{ showMenu: false, keepOpen: false }" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
+            </div>
+            </div>
 
-    <div x-show="!showMenu"
-        @click="showMenu = !showMenu"
-        class="cursor-pointer text-center p-4 w-[4.5rem] md:w-[5.5rem] lg:w-28 bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
-    >...</div>
+    
+    <div class="fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
+        
+        <div x-show="!menu.show"
+            @click="menu.show = !menu.show"
+            class="cursor-pointer text-center p-4 w-[4.5rem] md:w-[5.5rem] lg:w-28 bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+        >...</div>
 
-    <div x-collapse
-        x-cloak
-        x-show="showMenu"
-        @click.outside="showMenu = keepOpen"
+        <div x-collapse
+            x-cloak
+            x-show="menu.show"
+            @click.outside="closeMenu()"
+            class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto min-w-[4.5rem] md:min-w-[5.5rem] lg:min-w-[7rem] flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+        >
+                        
+            <div x-show="selectedPage === 'global'" class="contents">
+                                    <a @click="closeMenu()" href="#global-breakpoints" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">breakpoints</a>
+                                    <a @click="closeMenu()" href="#global-colors" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">colors</a>
+                                    <a @click="closeMenu()" href="#global-macro-imports" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">macro-imports</a>
+                                    <a @click="closeMenu()" href="#global-links-button" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">links-button</a>
+                                    <a @click="closeMenu()" href="#global-links-text" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">links-text</a>
+                                    <a @click="closeMenu()" href="#global-checkboxes" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">checkboxes</a>
+                                    <a @click="closeMenu()" href="#global-labels" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">labels</a>
+                                    <a @click="closeMenu()" href="#global-animations" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">animations</a>
+                                    <a @click="closeMenu()" href="#global-text-samples" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">text-samples</a>
+                                    <a @click="closeMenu()" href="#global-headers" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">headers</a>
+                            </div>
+            
+            <div x-show="selectedPage === 'local'" class="contents">
+                                    <a @click="closeMenu()" href="#local-3-3-left-nav" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-3-left-nav</a>
+                            </div>
 
-        class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
-    >
-                    <a @click="showMenu = keepOpen" href="#breakpoints" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">breakpoints</a>
-                    <a @click="showMenu = keepOpen" href="#colors" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">colors</a>
-                    <a @click="showMenu = keepOpen" href="#macro-imports" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">macro-imports</a>
-                    <a @click="showMenu = keepOpen" href="#links-button" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">links-button</a>
-                    <a @click="showMenu = keepOpen" href="#links-text" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">links-text</a>
-                    <a @click="showMenu = keepOpen" href="#checkboxes" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">checkboxes</a>
-                    <a @click="showMenu = keepOpen" href="#labels" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">labels</a>
-                    <a @click="showMenu = keepOpen" href="#animations" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">animations</a>
-                    <a @click="showMenu = keepOpen" href="#text-samples" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">text-samples</a>
-                    <a @click="showMenu = keepOpen" href="#headers" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">headers</a>
-                <button @click="keepOpen = !keepOpen" :class="keepOpen ? 'bg-cyan-50 text-black' : 'bg-white text-black/60'" class="p-4 border-t rounded-b-md hover:text-black hover:bg-gray-100">Keep Open</button>
-    </div>
+            
+            <div class="contents">
+                                    <button @click="switchPage('global')" :class="selectedPage === 'global' ? 'bg-cyan-50' : 'bg-white'" class="text-black capitalize p-4 first:border-t hover:bg-gray-100">global</button>
+                                    <button @click="switchPage('local')" :class="selectedPage === 'local' ? 'bg-cyan-50' : 'bg-white'" class="text-black capitalize p-4 first:border-t hover:bg-gray-100">local</button>
+                            </div>
 
+            <button @click="menu.keepOpen = !menu.keepOpen" :class="menu.keepOpen ? 'bg-cyan-50 text-black' : 'bg-white text-black/60'" class="p-4 border-t rounded-b-md hover:text-black hover:bg-gray-100">Keep Open</button>
+        </div>
 
-    <div inert class="w-fit bg-white opacity-50 flex flex-col items-center gap-2 p-4 md:p-6 lg:p-8 font-mono border border-black rounded-md">
-        <div class="text-xs lg:text-sm">size:</div>
-        <div class="h-0 w-8 md:w-10 lg:w-12 opacity-50 border-t border-black"></div>
-        <div class="text-xl md:text-2xl lg:text-4xl">
-            <span class="sm:hidden">XS</span>
-            <span class="hidden sm:max-md:inline">SM</span>
-            <span class="hidden md:max-lg:inline">MD</span>
-            <span class="hidden lg:max-xl:inline">LG</span>
-            <span class="hidden xl:inline">XL</span>
+        
+        <div inert class="w-fit bg-white opacity-50 flex flex-col items-center gap-2 p-4 md:p-6 lg:p-8 font-mono border border-black rounded-md">
+            <div class="text-xs lg:text-sm">size:</div>
+            <div class="h-0 w-8 md:w-10 lg:w-12 opacity-50 border-t border-black"></div>
+            <div class="text-xl md:text-2xl lg:text-4xl">
+                <span class="sm:hidden">XS</span>
+                <span class="hidden sm:max-md:inline">SM</span>
+                <span class="hidden md:max-lg:inline">MD</span>
+                <span class="hidden lg:max-xl:inline">LG</span>
+                <span class="hidden xl:inline">XL</span>
+            </div>
         </div>
     </div>
 </div>
