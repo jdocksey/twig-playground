@@ -1,0 +1,36 @@
+{# top-level macros #}
+{% macro start() %}
+    <div class="bg-white py-8.75">
+        <div class="
+            max-w-content-container-limit px-6 mx-auto
+            grid
+            max-md:grid-flow-row
+            md:grid-cols-2
+        ">
+{% endmacro %}
+
+{% macro end() %}
+        </div>
+    </div>
+{% endmacro %}
+{# [END] top-level macros #}
+
+{# left-channel macros #}
+{% macro left_channel_start() %}
+    <div class="bg-stone-200">
+{% endmacro %}
+
+{% macro left_channel_end() %}
+    </div>
+{% endmacro %}
+{# [END] left-channel macros #}
+
+{# main-content macros #}
+{% macro main_content_start() %}
+    <div class="bg-blue-200">
+{% endmacro %}
+
+{% macro main_content_end() %}
+    </div>
+{% endmacro %}
+{# [END] main-content macros #}

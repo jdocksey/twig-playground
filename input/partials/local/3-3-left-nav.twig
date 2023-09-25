@@ -1,0 +1,12 @@
+{% import '@macros/section-with-left-channel.twig' as section %}
+
+{% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
+{{ section.start() }}
+    {{ section.left_channel_start() }}
+        <nav class="my-4">( navigation )</nav>
+    {{ section.left_channel_end() }}
+
+    {{ section.main_content_start() }}
+        <div class="my-48">( Main Content )</div>
+    {{ section.main_content_end() }}
+{{ section.end() }}
