@@ -15,9 +15,8 @@
     {{ section.left_channel_start() }}
 
         {# Navigation menu (mobile) #}
-        {# TODO: Revert `open` to `false` #}
         <div x-data="{
-                open: true,
+                open: false,
                 goToContent() {
                     this.open = false;
                 }
