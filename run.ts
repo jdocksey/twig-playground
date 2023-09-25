@@ -70,7 +70,6 @@ function render(): void {
         .replace('{{ content }}', renderedTemplate);
 
     emptyDirSync(Config.output);
-    copySync('./input/assets', Config.output + '/assets', { overwrite: true });
     Deno.writeTextFile(Config.output + '/index.html', output);
 
     console.log(`updated at ${new Date().toLocaleTimeString()}`);
