@@ -15,12 +15,14 @@
     {{ section.left_channel_start() }}
         {# Navigation menu (mobile) #}
         <div x-data="{ open: false }" class="md:hidden bg-gray-50">
-            <button @click="open = !open">
-                <span x-show="!open">
-                    {% include '@localPartials/menu.twig' with { alt_text: 'open intra-page navigation' } only %}
-                </span>
-                <span x-show="open">
-                    {% include '@localPartials/cross.twig' with { alt_text: 'close intra-page navigation' } only %}
+            <button @click="open = !open" class="flex items-center gap-5 w-full py-4 px-5">
+                <span class="w-8">
+                    <span x-show="!open">
+                        {% include '@localPartials/menu.twig' with { alt_text: 'open intra-page navigation' } only %}
+                    </span>
+                    <span x-show="open">
+                        {% include '@localPartials/cross.twig' with { alt_text: 'close intra-page navigation' } only %}
+                    </span>
                 </span>
                 <span>
                     on this page
