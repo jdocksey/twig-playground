@@ -30,14 +30,16 @@
                 <span class="text-sm font-bold">on this page</span>
             </button>
             <div class="relative">
-                {# TODO: Remove the border #}
-                <nav x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 bg-gray-50 px-5    border-b-4 border-black">
-                    <ol>
+                <nav x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 bg-gray-50">
+                    <ol class="mt-2">
                         {% for item in items %}
                             <li>
-                                <a href="#3-3-left-nav-{{ loop.index0 }}" class="text-sm">
+                                <a href="#3-3-left-nav-{{ loop.index0 }}" class="block text-sm py-3 px-5">
                                     {{ item }}
                                 </a>
+                                {% if not loop.last %}
+                                    <span class="block h-px mx-5 bg-gray-200"></span>
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ol>
