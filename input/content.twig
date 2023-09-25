@@ -1,52 +1,108 @@
-{% set partials = [
-    'breakpoints',
-    'colors',
-    'macro-imports',
-    'links-button',
-    'links-text',
-    'checkboxes',
-    'labels',
-    'animations',
-    'text-samples',
-    'headers',
+{% set global_page = 'global' %}
+{% set local_page = 'local' %}
+
+{% set pages = [
+    global_page,
+    local_page,
 ] %}
 
-{# Demos #}
-{% for partial in partials %}
-    <div id="{{ partial }}">
-        {% include '@partials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } %}
-    </div>
-{% endfor %}
+<div x-data="{
+    selectedPage: '{{ pages[0] }}',
+    menu: {
+        show: false,
+        keepOpen: false
+    },
+    closeMenu() {
+        this.menu.show = this.menu.keepOpen;
+    },
+    switchPage(page) {
+        this.selectedPage = page;
+        this.closeMenu();
+    }
+}">
 
-<div x-data="{ showMenu: false, keepOpen: false }" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
-    {# Table of contents #}
-    <div x-show="!showMenu"
-        @click="showMenu = !showMenu"
-        class="cursor-pointer text-center p-4 w-[4.5rem] md:w-[5.5rem] lg:w-28 bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
-    >...</div>
-
-    <div x-collapse
-        x-cloak
-        x-show="showMenu"
-        @click.outside="showMenu = keepOpen"
-        class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
-    >
-        {% for partial in partials %}
-            <a @click="showMenu = keepOpen" href="#{{ partial }}" class="p-4 first:pt-6 last:pb-6 first:rounded-t-md hover:bg-gray-100">{{ partial }}</a>
+    {# "Global" demos #}
+    {% set global_partials = [
+        'breakpoints',
+        'colors',
+        'macro-imports',
+        'links-button',
+        'links-text',
+        'checkboxes',
+        'labels',
+        'animations',
+        'text-samples',
+        'headers',
+    ] %}
+    <div x-show="selectedPage === '{{ global_page }}'">
+        {% for partial in global_partials %}
+            <div id="{{ global_page ~ '-' ~ partial }}">
+                {% include '@globalPartials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } %}
+            </div>
         {% endfor %}
-        <button @click="keepOpen = !keepOpen" :class="keepOpen ? 'bg-cyan-50 text-black' : 'bg-white text-black/60'" class="p-4 border-t rounded-b-md hover:text-black hover:bg-gray-100">Keep Open</button>
     </div>
 
-    {# Breakpoint indicator #}
-    <div inert class="w-fit bg-white opacity-50 flex flex-col items-center gap-2 p-4 md:p-6 lg:p-8 font-mono border border-black rounded-md">
-        <div class="text-xs lg:text-sm">size:</div>
-        <div class="h-0 w-8 md:w-10 lg:w-12 opacity-50 border-t border-black"></div>
-        <div class="text-xl md:text-2xl lg:text-4xl">
-            <span class="sm:hidden">XS</span>
-            <span class="hidden sm:max-md:inline">SM</span>
-            <span class="hidden md:max-lg:inline">MD</span>
-            <span class="hidden lg:max-xl:inline">LG</span>
-            <span class="hidden xl:inline">XL</span>
+    {# "Local" demos #}
+    {% set local_partials = [
+        'left-nav'
+    ] %}
+    <div x-cloak x-show="selectedPage === '{{ local_page }}'">
+        {% for partial in local_partials %}
+            <div id="{{ local_page ~ '-' ~ partial }}">
+                {% include '@localPartials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {# Table of Contents and Breakpoint Indicator #}
+    <div class="fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
+        {# Table of contents #}
+        <div x-show="!menu.show"
+            @click="menu.show = !menu.show"
+            class="cursor-pointer text-center p-4 w-[4.5rem] md:w-[5.5rem] lg:w-28 bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+        >...</div>
+
+        <div x-collapse
+            x-cloak
+            x-show="menu.show"
+            @click.outside="closeMenu()"
+            class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto min-w-[4.5rem] md:min-w-[5.5rem] lg:min-w-[7rem] flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+        >
+            {% set link_classes = 'p-4 first:pt-6 first:rounded-t-md last:pb-6 hover:bg-gray-100' %}
+            {# 'global' links #}
+            <div x-show="selectedPage === '{{ global_page }}'" class="contents">
+                {% for partial in global_partials %}
+                    <a @click="closeMenu()" href="#{{ global_page ~ '-' ~ partial }}" class="{{ link_classes }}">{{ partial }}</a>
+                {% endfor %}
+            </div>
+            {# 'local' links #}
+            <div x-show="selectedPage === '{{ local_page }}'" class="contents">
+                {% for partial in local_partials %}
+                    <a @click="closeMenu()" href="#{{ local_page ~ '-' ~ partial }}" class="{{ link_classes }}">{{ partial }}</a>
+                {% endfor %}
+            </div>
+
+            {# Page selector #}
+            <div class="contents">
+                {% for page in pages %}
+                    <button @click="switchPage('{{ page }}')" :class="selectedPage === '{{ page }}' ? 'bg-cyan-50' : 'bg-white'" class="text-black capitalize p-4 first:border-t hover:bg-gray-100">{{ page }}</button>
+                {% endfor %}
+            </div>
+
+            <button @click="menu.keepOpen = !menu.keepOpen" :class="menu.keepOpen ? 'bg-cyan-50 text-black' : 'bg-white text-black/60'" class="p-4 border-t rounded-b-md hover:text-black hover:bg-gray-100">Keep Open</button>
+        </div>
+
+        {# Breakpoint indicator #}
+        <div inert class="w-fit bg-white opacity-50 flex flex-col items-center gap-2 p-4 md:p-6 lg:p-8 font-mono border border-black rounded-md">
+            <div class="text-xs lg:text-sm">size:</div>
+            <div class="h-0 w-8 md:w-10 lg:w-12 opacity-50 border-t border-black"></div>
+            <div class="text-xl md:text-2xl lg:text-4xl">
+                <span class="sm:hidden">XS</span>
+                <span class="hidden sm:max-md:inline">SM</span>
+                <span class="hidden md:max-lg:inline">MD</span>
+                <span class="hidden lg:max-xl:inline">LG</span>
+                <span class="hidden xl:inline">XL</span>
+            </div>
         </div>
     </div>
 </div>
