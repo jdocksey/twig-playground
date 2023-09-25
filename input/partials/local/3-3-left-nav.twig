@@ -16,7 +16,14 @@
 
         {# Navigation menu (mobile) #}
         {# TODO: Revert `open` to `false` #}
-        <div x-data="{ open: true }" class="md:hidden bg-gray-50">
+        <div x-data="{
+                open: true,
+                goToContent() {
+                    this.open = false;
+                }
+            }"
+            class="md:hidden bg-gray-50"
+        >
             <button @click="open = !open" class="flex items-center gap-5 w-full py-4 px-5">
                 {# The height and width are set so that there are no minor size changes when the icon being displayed changes #}
                 <span class="h-5 w-8">
@@ -34,7 +41,7 @@
                     <ol class="mt-2">
                         {% for item in items %}
                             <li>
-                                <a href="#3-3-left-nav-{{ loop.index0 }}" class="block text-sm py-3 px-5">
+                                <a @click="goToContent()" href="#3-3-left-nav-{{ loop.index0 }}" class="block text-sm py-3 px-5">
                                     {{ item }}
                                 </a>
                                 {% if not loop.last %}
