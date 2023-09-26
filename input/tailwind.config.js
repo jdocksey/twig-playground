@@ -27,8 +27,8 @@ tailwind.config = {
         'JetBrains Mono',
         'Fira Code',
         'ui-monospace',
-        'Courier New',
         'monospace',
+        'Courier New',
       ],
     },
     fontSize: {
