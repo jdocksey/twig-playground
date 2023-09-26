@@ -44,13 +44,13 @@
 
     {# "Local" demos #}
     {% set local_partials = [
-        '3-3-left-nav',
         '4-4-testimonial',
+        '3-3-left-nav',
     ] %}
     <div x-cloak x-show="selectedPage === '{{ local_page }}'">
         {% for partial in local_partials %}
             <div id="{{ local_page ~ '-' ~ partial }}" class="{{ not loop.first ? 'mt-24' }}">
-                {% include '@localPartials/' ~ partial ~ '.twig' with { gray_background: loop.index0 % 2 == 0,  first: loop.first,  last: loop.last } only %}
+                {% include '@localPartials/' ~ partial ~ '.twig' with { gray_background: false,  first: loop.first,  last: loop.last } only %}
             </div>
         {% endfor %}
     </div>

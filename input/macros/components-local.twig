@@ -2,16 +2,14 @@
 
 {% macro testimonial(quote = '', source_line_1 = '', source_line_2 = '') %}
     {# TODO: Implement responsive behavior according to @container width #}
-    <div class="flex justify-center items-center bg-blue-800 p-24 min-h-86">
-            <div class="relative     border border-white">
-                <span class="text-white text-2xl font-bold">{{ quote }}</span>
-                <div class="absolute -top-28 -left-32 text-super text-green-500      border border-white">“</div>
-            </div>
-            {#
-            <div class="absolute flex flex-col gap-4 text-blue-400 font-semibold">
-                <div>{{ source_line_1 }}</div>
-                <div>{{ source_line_2 }}</div>
-            </div>
-            #}
+    <div class="relative flex justify-center items-center bg-blue-800 px-8 md:px-11 h-86">
+        <div class="relative pl-19">
+            <div class="absolute -top-20 -left-4 text-super text-green-500">“</div>
+            <div class="text-white text-2xl font-bold">{{ quote }}</div>
+        </div>
+        <div class="absolute bottom-8 right-24 flex flex-col text-blue-400 font-semibold leading-snug">
+            <div>{{ source_line_1 }}</div>
+            <div>{{ source_line_2 }}</div>
+        </div>
     </div>
 {% endmacro %}

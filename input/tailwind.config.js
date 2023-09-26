@@ -119,9 +119,6 @@ tailwind.config = {
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
       },
-      minHeight: {
-        86: '21.5rem',
-      },
       scale: {
         250: '2.5',
       },
@@ -134,7 +131,8 @@ tailwind.config = {
         13: '3.25rem',
         15: '3.75rem',
         17.5: '4.375rem',
-        17.5: '4.375rem',
+        19: '4.75rem',
+        86: '21.5rem',
       },
       transitionDuration: {
         250: '250ms',
