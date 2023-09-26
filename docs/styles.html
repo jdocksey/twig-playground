@@ -48,8 +48,8 @@ tailwind.config = {
         'JetBrains Mono',
         'Fira Code',
         'ui-monospace',
-        'Courier New',
         'monospace',
+        'Courier New',
       ],
     },
     fontSize: {
@@ -64,6 +64,7 @@ tailwind.config = {
       '5xl':   ['1.875rem',  'normal'],  // 30px
       '6xl':   ['2.1875rem', 'normal'],  // 35px
       '7xl':   ['2.8125rem', 'normal'],  // 45px
+      'super': ['12.5rem',   'normal'],  // 200px
     },
     lineHeight: {
       normal:   'normal',
@@ -151,7 +152,10 @@ tailwind.config = {
         13: '3.25rem',
         15: '3.75rem',
         17.5: '4.375rem',
-        17.5: '4.375rem',
+        19: '4.75rem',
+        21: '5.25rem',
+        26: '6.5rem',
+        86: '21.5rem',
       },
       transitionDuration: {
         250: '250ms',
@@ -381,10 +385,10 @@ tailwind.config = {
         <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex flex-col gap-4">
 
     <h3>Macro imports</h3>
-        <button x-data @click="() => navigator.clipboard.writeText(`{% from '@macros/production.twig' import checkbox, label, link_button, link_block, link_inline %}`)"
+        <button x-data @click="() => navigator.clipboard.writeText(`{% from '@macros/components-global.twig' import checkbox, label, link_button, link_block, link_inline %}`)"
         class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
     >
-        <pre class="text-left">{% from '@macros/production.twig' import checkbox, label, link_button, link_block, link_inline %}</pre>
+        <pre class="text-left">{% from '@macros/components-global.twig' import checkbox, label, link_button, link_block, link_inline %}</pre>
     </button>
 
         </div>
@@ -1208,13 +1212,44 @@ tailwind.config = {
 
     
         <div x-cloak x-show="selectedPage === 'local'">
-                    <div id="local-3-3-left-nav">
+                    <div id="local-4-4-testimonial" class=" ">
+                
+<div class="xl:mb-12">
+    <div class="bg-blue-950">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.4 Testimonial</h2>
+    </div>
+</div>
+</div>
+    
+            
+                
+    <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto ">
+
+        
+    <div class="relative flex justify-center items-center h-86 bg-blue-800 pl-13 pr-16 md:pl-12 md:pr-16 lg:pl-16 lg:pr-21 overflow-hidden">
+        <div class="relative z-10 pl-19">
+            <div class="absolute -top-20 -left-4 text-super text-green-500">“</div>
+            <div class="text-white text-xl lg:text-2xl font-bold">Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet prompta reformidans.</div>
+        </div>
+        <div class="absolute bottom-12 right-21 md:right-26 lg:right-48 flex flex-col text-blue-400 font-semibold leading-snug">
+            <div>Companyname</div>
+            <div>Founder & CEO</div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+            </div>
+                    <div id="local-3-3-left-nav" class="mt-24 mb-12">
                 
 
 <div class="md:mb-24">
     <div class="bg-blue-950">
     <div class="max-w-content-container-limit px-6 mx-auto ">
-        <h2 class="text-white py-4">3.3 Left Nav</h2>
+        <h2 class="text-white font-mono py-4">3.3 Left Nav</h2>
     </div>
 </div>
 </div>
@@ -1238,7 +1273,7 @@ tailwind.config = {
                     this.open = false;
                 }
             }"
-            class="md:hidden bg-gray-50">
+            class="md:hidden relative z-20 bg-gray-50">
             
             <button @click="open = !open" :class="!open && 'shadow-md-heavy'" class="relative z-20 flex items-center gap-4 w-full py-4 px-5">
                 
@@ -1259,7 +1294,7 @@ tailwind.config = {
                 <span class="text-sm font-bold">on this page</span>
             </button>
             <div class="relative">
-                <div x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 z-10 overflow-hidden pb-4">
+                <div x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 z-20 overflow-hidden pb-4">
                     
                     <nav class="bg-gray-50 pb-2 shadow-md-heavy">
                         <ol>
@@ -1321,37 +1356,37 @@ tailwind.config = {
             <nav class="border-r-2 border-gray-300">
                 <ol>
                                             <li>
-                            <a @click="selectItem(1)" href="#3-3-left-nav-1" :class="selectedItemID === 1 && 'bg-cyan-50'" class="block py-3 px-6">
+                            <a @click="selectItem(1)" href="#3-3-left-nav-1" :class="selectedItemID === 1 && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 Purpose
                             </a>
                         </li>
                                             <li>
-                            <a @click="selectItem(2)" href="#3-3-left-nav-2" :class="selectedItemID === 2 && 'bg-cyan-50'" class="block py-3 px-6">
+                            <a @click="selectItem(2)" href="#3-3-left-nav-2" :class="selectedItemID === 2 && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 Eligibility
                             </a>
                         </li>
                                             <li>
-                            <a @click="selectItem(3)" href="#3-3-left-nav-3" :class="selectedItemID === 3 && 'bg-cyan-50'" class="block py-3 px-6">
+                            <a @click="selectItem(3)" href="#3-3-left-nav-3" :class="selectedItemID === 3 && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 Nature of Grant
                             </a>
                         </li>
                                             <li>
-                            <a @click="selectItem(4)" href="#3-3-left-nav-4" :class="selectedItemID === 4 && 'bg-cyan-50'" class="block py-3 px-6">
+                            <a @click="selectItem(4)" href="#3-3-left-nav-4" :class="selectedItemID === 4 && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 General Information
                             </a>
                         </li>
                                             <li>
-                            <a @click="selectItem(5)" href="#3-3-left-nav-5" :class="selectedItemID === 5 && 'bg-cyan-50'" class="block py-3 px-6">
+                            <a @click="selectItem(5)" href="#3-3-left-nav-5" :class="selectedItemID === 5 && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 Apply
                             </a>
                         </li>
                                             <li>
-                            <a @click="selectItem(6)" href="#3-3-left-nav-6" :class="selectedItemID === 6 && 'bg-cyan-50'" class="block py-3 px-6">
+                            <a @click="selectItem(6)" href="#3-3-left-nav-6" :class="selectedItemID === 6 && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 Other Opportunities
                             </a>
                         </li>
                                             <li>
-                            <a @click="selectItem(7)" href="#3-3-left-nav-7" :class="selectedItemID === 7 && 'bg-cyan-50'" class="block py-3 px-6">
+                            <a @click="selectItem(7)" href="#3-3-left-nav-7" :class="selectedItemID === 7 && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 Timeline
                             </a>
                         </li>
@@ -1364,21 +1399,18 @@ tailwind.config = {
 
         <div class="px-5 md:px-0">
 
-        <div class="bg-blue-100 p-4">
-            Main Content
-            <div class="flex flex-col gap-4">
-                                    <div>Item 1</div>
-                                    <div>Item 2</div>
-                                    <div>Item 3</div>
-                                    <div>Item 4</div>
-                                    <div>Item 5</div>
-                                    <div>Item 6</div>
-                                    <div>Item 7</div>
-                                    <div>Item 8</div>
-                                    <div>Item 9</div>
-                                    <div>Item 10</div>
-                            </div>
+            
+    <div class="relative flex justify-center items-center h-86 bg-blue-800 pl-13 pr-16 md:pl-12 md:pr-16 lg:pl-16 lg:pr-21 overflow-hidden">
+        <div class="relative z-10 pl-19">
+            <div class="absolute -top-20 -left-4 text-super text-green-500">“</div>
+            <div class="text-white text-xl lg:text-2xl font-bold">Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet prompta reformidans.</div>
         </div>
+        <div class="absolute bottom-12 right-21 md:right-26 lg:right-48 flex flex-col text-blue-400 font-semibold leading-snug">
+            <div>Companyname</div>
+            <div>Founder & CEO</div>
+        </div>
+    </div>
+
         </div>
 
         </div>
@@ -1416,6 +1448,7 @@ tailwind.config = {
                             </div>
             
             <div x-show="selectedPage === 'local'" class="contents">
+                                    <a @click="closeMenu()" href="#local-4-4-testimonial" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-4-testimonial</a>
                                     <a @click="closeMenu()" href="#local-3-3-left-nav" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-3-left-nav</a>
                             </div>
 
