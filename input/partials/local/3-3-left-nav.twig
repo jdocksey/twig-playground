@@ -71,7 +71,7 @@
                 <ol>
                     {% for item in items %}
                         <li>
-                            <a @click="selectItem({{ item.id }})" href="#3-3-left-nav-{{ item.id }}" :class="selectedItemID === {{ item.id }} && 'bg-cyan-50'" class="block py-3 px-6">
+                            <a @click="selectItem({{ item.id }})" href="#3-3-left-nav-{{ item.id }}" :class="selectedItemID === {{ item.id }} && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 {{ item.text }}
                             </a>
                         </li>
