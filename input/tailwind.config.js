@@ -43,6 +43,7 @@ tailwind.config = {
       '5xl':   ['1.875rem',  'normal'],  // 30px
       '6xl':   ['2.1875rem', 'normal'],  // 35px
       '7xl':   ['2.8125rem', 'normal'],  // 45px
+      'super': ['12.5rem',   'normal'],  // 200px
     },
     lineHeight: {
       normal:   'normal',
@@ -99,6 +100,7 @@ tailwind.config = {
         },
         cyan: {
           50: '#e5f7fa',
+          500: '#14A8D2',
         },
         gray: {
           50: '#fafafa', // background color

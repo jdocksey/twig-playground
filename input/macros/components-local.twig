@@ -1,1 +1,16 @@
 {# "Local" macros for production code #}
+
+{% macro testimonial(quote = '', source_line_1 = '', source_line_2 = '') %}
+    <div class="bg-blue-800">
+        {#
+            TODO: It's not clear if the large quote mark is meant to be blue, green, or if the user gets to choose (response from Kristin pending).
+            If `cyan-500` isn't used here (or anywhere else), then it should be removed from the Tailwind config.
+        #}
+        <div class="text-super text-cyan-500">“</div>
+        <div class="text-white text-2xl font-bold">{{ quote }}</div>
+        <div class="flex flex-col gap-4 text-blue-400 font-semibold">
+            <div>{{ source_line_1 }}</div>
+            <div>{{ source_line_2 }}</div>
+        </div>
+    </div>
+{% endmacro %}
