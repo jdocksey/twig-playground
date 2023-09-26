@@ -132,6 +132,8 @@ tailwind.config = {
         15: '3.75rem',
         17.5: '4.375rem',
         19: '4.75rem',
+        21: '5.25rem',
+        26: '6.5rem',
         86: '21.5rem',
       },
       transitionDuration: {
