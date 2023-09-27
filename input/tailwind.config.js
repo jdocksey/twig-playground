@@ -119,9 +119,15 @@ tailwind.config = {
       scale: {
         250: '2.5',
       },
+      height: {
+        116: '29rem',
+      },
       minHeight: {
         60: '15rem',
         72: '18rem',
+      },
+      maxHeight: {
+        116: '29rem',
       },
       maxWidth: {
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
