@@ -1,22 +1,23 @@
 {% import '@macros/section.twig' as section %}
 
 {% set background_colors = [
-    { class: 'bg-blue-950', include_border: false },
-    { class: 'bg-blue-400', include_border: false },
-    { class: 'bg-blue-800', include_border: false },
-    { class: 'bg-green-500', include_border: false },
-    { class: 'bg-cyan-50', include_border: true },
-    { class: 'bg-gray-50', include_border: true },
+    { class: 'bg-blue-950',  hex_value: '#001b3f', include_border: false },
+    { class: 'bg-blue-400',  hex_value: '#0abbe8', include_border: false },
+    { class: 'bg-blue-800',  hex_value: '#0052a5', include_border: false },
+    { class: 'bg-green-500', hex_value: '#b6c42c', include_border: false },
+    { class: 'bg-cyan-50',   hex_value: '#e5f7fa', include_border: true },
+    { class: 'bg-gray-50',   hex_value: '#fafafa', include_border: true },
 ] %}
 
 {{ section.start(gray_background, first, last, 'flex gap-2 justify-stretch') }}
     {% for color in background_colors %}
         {% set border_classes = color.include_border ? 'border-4 border-gray-600' : '' %}
         <button x-data @click="() => navigator.clipboard.writeText('{{ color.class }}')"
-            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="{{ color.class }} {{ border_classes }} w-full aspect-square rounded-full"></div>
-            <div>{{ color.class }}</div>
+            <div class="text-lg">{{ color.class }}</div>
+            <div class="text-gray-500 text-lg tracking-wide">{{ color.hex_value }}</div>
         </button>
     {% endfor %}
 {{ section.end() }}
