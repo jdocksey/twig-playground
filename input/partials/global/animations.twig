@@ -18,6 +18,10 @@
 &gt;
     {% for item in items %}
         &lt;div :class=&quot;shown && 'animate-fade-in-right'&quot;
+            {#
+                Note that this class-construction logic will only work if
+                the Tailwind mechanism is configured to generate classes dynamically
+            #}
             class=&quot;opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms]&quot;
         &gt;
             {{ item }}
