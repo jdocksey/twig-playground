@@ -5,9 +5,9 @@
 tailwind.config = {
   theme: {
     screens: {
-      'sm': '374px',
+      'sm': '375px',
       'md': '768px',
-      'lg': '991px',
+      'lg': '992px',
       'xl': '1200px',
       // TODO: Remove for production
       '2xl': '1600px',
@@ -84,12 +84,6 @@ tailwind.config = {
       },
     },
     extend: {
-      borderRadius: {
-        '6xl': '3.125rem',
-      },
-      boxShadow: {
-        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
-      },
       // TODO: Move this out of `extend` when moving into the production code base
       colors: {
         black: '#000000',
@@ -112,9 +106,24 @@ tailwind.config = {
         },
         white: '#ffffff', // background color
       },
+      borderRadius: {
+        '6xl': '3.125rem',
+      },
+      boxShadow: {
+        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
+      },
+      transitionDuration: {
+        250: '250ms',
+      },
+      transitionTimingFunction: {
+        'ease-out': 'ease-out',
+      },
       letterSpacing: {
         wide: '0.01875em',
         wider: '0.0875em',
+      },
+      textUnderlineOffset: {
+        10: '10px',
       },
       scale: {
         250: '2.5',
@@ -130,7 +139,7 @@ tailwind.config = {
         116: '29rem',
       },
       maxWidth: {
-        // This value is 24px greater than half of the content limit of 1200px to account for the 1.5rem (24px) of horizontal padding on just one of the sides
+        // This value is 24px greater than half of the content limit of 1200px to account for the 1.5rem (24px) of horizontal padding on just one side
         'content-container-limit-1/2': '624px',
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
@@ -152,15 +161,6 @@ tailwind.config = {
         30: '7.5rem',
         86: '21.5rem',
       },
-      transitionDuration: {
-        250: '250ms',
-      },
-      transitionTimingFunction: {
-        'ease-out': 'ease-out',
-      },
-      textUnderlineOffset: {
-        10: '10px',
-      }
     },
   },
 };
