@@ -1,0 +1,81 @@
+{% import '@macros/code.twig' as code %}
+{% from '@macros/components-global.twig' import link_inline %}
+{% import '@macros/section.twig' as section %}
+
+{#
+    fontSize: {
+      'xs':    ['0.8125rem', 'normal'],  // 13px
+      'sm':    ['0.875rem',  '1.42857'], // 14px, 20px
+      'base':  ['1rem',      '1.5625'],  // 16px, 25px
+      'lg':    ['1.0625rem', 'normal'],  // 17px
+      'xl':    ['1.125rem',  'normal'],  // 18px
+      '2xl':   ['1.25rem',   'normal'],  // 20px
+      '3xl':   ['1.5625rem', 'normal'],  // 25px
+      '4xl':   ['1.8125rem', 'normal'],  // 29px
+      '5xl':   ['1.875rem',  'normal'],  // 30px
+      '6xl':   ['2.1875rem', 'normal'],  // 35px
+      '7xl':   ['2.8125rem', 'normal'],  // 45px
+      'super': ['12.5rem',   'normal'],  // 200px
+    },
+    lineHeight: {
+      normal:   'normal',
+      match:    '1',
+      tight:    '1.11111',
+      snug:     '1.42857',
+      standard: '1.4375',
+      relaxed:  '1.5625',
+      loose:    '1.66666',
+    },
+    fontWeight: {
+      normal: 400,
+      semibold: 600,
+      bold: 700,
+    },
+
+    letterSpacing: {
+        wide: '0.01875em',
+        wider: '0.0875em',
+      },
+#}
+
+{% set text_sizes = [
+    { class: 'xs',    size_rem: '0.8125rem', size_px: '13px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: 'sm',    size_rem: '0.875rem',  size_px: '14px', line_height_relative: '1.42857', line_height_px: '20px' },
+    { class: 'base',  size_rem: '1rem',      size_px: '16px', line_height_relative: '1.5625',  line_height_px: '25px' },
+    { class: 'lg',    size_rem: '1.0625rem', size_px: '17px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: 'xl',    size_rem: '1.125rem',  size_px: '18px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: '2xl',   size_rem: '1.25rem',   size_px: '20px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: '3xl',   size_rem: '1.5625rem', size_px: '25px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: '4xl',   size_rem: '1.8125rem', size_px: '29px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: '5xl',   size_rem: '1.875rem',  size_px: '30px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: '6xl',   size_rem: '2.1875rem', size_px: '35px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: '7xl',   size_rem: '2.8125rem', size_px: '45px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: 'super', size_rem: '12.5rem',   size_px: '200px', line_height_relative: 'normal', line_height_px: null   },
+] %}
+
+
+{{ section.start(gray_background, first, last, 'flex flex-col gap-12') }}
+    <div x-data class="w-fit grid grid-cols-5 grid-rows-auto font-mono">
+        {% set header_cell_class = 'border-b border-b-gray-200 py-2 px-4' %}
+
+        <div class="contents font-bold text-sm text-gray-950">
+            <div class="{{ header_cell_class }} text-left">designation</div>
+            <div class="{{ header_cell_class }} text-right">size</div>
+            <div class="{{ header_cell_class }} text-right">size</div>
+            <div class="{{ header_cell_class }} text-right">line height</div>
+            <div class="{{ header_cell_class }} text-right">line height</div>
+        </div>
+
+        {% set body_cell_class = 'pt-4 first:pt-6 pb-2 px-4 border-b border-b-gray-200 text-gray-900 hover:bg-gray-100 active:bg-gray-200' ~ common_cell_class %}
+        {% for text in text_sizes %}
+            {% set copy_text = 'text-' ~ text.class %}
+            <div class="contents">
+                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-left">{{ text.class }}</button>
+                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-right">{{ text.size_rem }}</button>
+                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-right">{{ text.size_px }}</button>
+                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-right">{{ text.line_height_relative }}</button>
+                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-right">{{ text.line_height_px }}</button>
+            </div>
+        {% endfor %}
+    </div>
+{{ section.end() }}
