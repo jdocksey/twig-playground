@@ -41,7 +41,7 @@
 {% endmacro %}
 
 {% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, new_tab = false) %}
-    {% set background = 'bg-blue-400 hover:bg-blue-950' %}
+    {% set background = primary ? 'bg-blue-400 hover:bg-blue-950' : 'bg-cyan-50 hover:bg-blue-400' %}
 
     {% set padding = '' %}
     {% set text_size = '' %}
@@ -49,7 +49,7 @@
     {% set icon_gap = '' %}
     {% set icon_position = '' %}
     {% set icon_scale = '' %}
-    {% set width = '' %}
+    {% set width = wide ? 'w-full' : 'w-fit' %}
 
     {% if size == 's' %}
         {% set padding = wide ? 'py-3.75 px-10' : 'py-4.5 px-10' %}
@@ -74,21 +74,13 @@
         {% set icon_scale = 'scale-250' %}
     {% endif %}
 
-    {% if wide %}
-        {% set width = 'w-full' %}
-    {% endif %}
-
-    {% if not primary %}
-        {% set background = 'bg-cyan-50 hover:bg-blue-400' %}
-    {% endif %}
-
     {% set code_for_copying = "{{ link_button(\'address\', \'Label\', \'" ~ size ~ "\', " ~ wide ~ ", " ~ primary ~ ", " ~ new_tab ~ ") }}" %}
 
     <a x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
         {# TODO: Uncomment the following line for the production code (leaving it commented for now allows the link-buttons to be clicked for copying their usage code) #}
         {# href="{{ address }}" #}
         {{ new_tab ? 'target="_blank"' }}
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out {{ width }} {{ background }} {{ padding }} {{ rounding }} {{ text_size }} {{ text_color }} {{ font_weight }} {{ icon_gap }} {{ width }}"
     >
         <span>{{ text }}</span>
         {% if new_tab %}

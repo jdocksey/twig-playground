@@ -1,4 +1,5 @@
 {# "Local" macros for production code #}
+{% from '@macros/components-global.twig' import link_button %}
 
 {% macro hero_1(title = '', subtitle = '', label = '', alt_text = '') %}
     <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
@@ -14,11 +15,13 @@
 {% endmacro %}
 
 {% macro featured_content(text = '', link_text = '', link_url = '') %}
-<div class="flex">
-    <div class="grow-0 w-2 bg-blue-950"></div>
-    <div class="bg-cyan-50 flex items-center gap-8 p-24">
-        <div class="">{{ text }}</div>
-        <div class="grow-0"></div>
+<div class="w-full flex">
+    <div class="grow-0 w-2 bg-blue-800"></div>
+    <div class="w-full flex justify-between items-center gap-8 py-8 md:py-10 lg:py-14 xl:py-17 sm:px-12 md:px-16 lg:px-20 xl:px-24 bg-cyan-50">
+        <div>{{ text }}</div>
+        <div class="flex-none">
+            {{ link_button('https://www.example.com', 'Donate Now', 'm', false, true, false) }}
+        </div>
     </div>
 </div>
 {% endmacro %}
