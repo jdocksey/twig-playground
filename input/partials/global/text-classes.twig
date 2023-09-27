@@ -2,42 +2,6 @@
 {% from '@macros/components-global.twig' import link_inline %}
 {% import '@macros/section.twig' as section %}
 
-{#
-    fontSize: {
-      'xs':    ['0.8125rem', 'normal'],  // 13px
-      'sm':    ['0.875rem',  '1.42857'], // 14px, 20px
-      'base':  ['1rem',      '1.5625'],  // 16px, 25px
-      'lg':    ['1.0625rem', 'normal'],  // 17px
-      'xl':    ['1.125rem',  'normal'],  // 18px
-      '2xl':   ['1.25rem',   'normal'],  // 20px
-      '3xl':   ['1.5625rem', 'normal'],  // 25px
-      '4xl':   ['1.8125rem', 'normal'],  // 29px
-      '5xl':   ['1.875rem',  'normal'],  // 30px
-      '6xl':   ['2.1875rem', 'normal'],  // 35px
-      '7xl':   ['2.8125rem', 'normal'],  // 45px
-      'super': ['12.5rem',   'normal'],  // 200px
-    },
-    lineHeight: {
-      normal:   'normal',
-      match:    '1',
-      tight:    '1.11111',
-      snug:     '1.42857',
-      standard: '1.4375',
-      relaxed:  '1.5625',
-      loose:    '1.66666',
-    },
-    fontWeight: {
-      normal: 400,
-      semibold: 600,
-      bold: 700,
-    },
-
-    letterSpacing: {
-        wide: '0.01875em',
-        wider: '0.0875em',
-      },
-#}
-
 {% set text_sizes = [
     { class: 'xs',    size_rem: '0.8125rem', size_px: '13px', line_height_relative: 'normal',  line_height_px: null   },
     { class: 'sm',    size_rem: '0.875rem',  size_px: '14px', line_height_relative: '1.42857', line_height_px: '20px' },
@@ -53,23 +17,97 @@
     { class: 'super', size_rem: '12.5rem',   size_px: '200px', line_height_relative: 'normal', line_height_px: null   },
 ] %}
 
-{{ section.start(gray_background, first, last, 'flex flex-col gap-12') }}
-    <div x-data class="flex flex-col divide-y w-fit">
-        <div class="flex font-mono font-bold text-sm text-gray-950 py-6">
-            <div class="w-[15rem]">designation</div>
-            <div class="w-[13rem]">size</div>
-            <div class="w-">height</div>
-        </div>
+{% set line_heights = [
+    { class: 'normal',   value: 'normal' },
+    { class: 'match',    value: '1' },
+    { class: 'tight',    value: '1.11111' },
+    { class: 'snug',     value: '1.42857' },
+    { class: 'standard', value: '1.4375' },
+    { class: 'relaxed',  value: '1.5625' },
+    { class: 'loose',    value: '1.66666' },
+] %}
 
-        {% for text in text_sizes %}
+{% set font_weights = [
+    { class: 'normal',   value: '400' },
+    { class: 'semibold', value: '600' },
+    { class: 'bold',     value: '700' },
+] %}
+
+{% set letter_spacings = [
+    { class: 'wide',  value: '0.01875em' },
+    { class: 'wider', value: '0.0875em' },
+] %}
+
+{{ section.start(gray_background, first, last, 'flex flex-col gap-12') }}
+    {% set header_classes = 'font-mono font-bold text-sm text-gray-950' %}
+    {% set interactive_classes = 'font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer' %}
+
+    <div x-data class="flex flex-wrap gap-y-8 gap-x-16 xl:justify-between">
+        {# Text #}
+        <div class="flex flex-col divide-y w-fit">
+            <div class="flex py-6 {{ header_classes }}">
+                <div class="w-[15rem]">Text Classes</div>
+                <div class="w-[13rem]">size</div>
+                <div class="w-">height</div>
+            </div>
+
+            {% for text in text_sizes %}
             {% set copy_text = 'text-' ~ text.class %}
-            <div @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+            <div @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="flex {{ interactive_classes }}">
                 <div class="w-24 text-left">{{ text.class }}</div>
                 <div class="w-32 text-right">{{ text.size_rem }}</div>
                 <div class="w-20 text-right">{{ text.size_px }}</div>
                 <div class="w-32 text-right">{{ text.line_height_relative }}</div>
                 <div class="w-24 text-right">{{ text.line_height_px }}</div>
             </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
+
+
+        {# Line heights #}
+        <div class="flex flex-col divide-y w-fit">
+            <div class="flex py-6 {{ header_classes }}">
+                <div>Line Heights</div>
+            </div>
+
+            {% for line_height in line_heights %}
+            {% set copy_text = 'leading-' ~ line_height.class %}
+            <div @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="flex {{ interactive_classes }}">
+                <div class="w-20 text-left">{{ line_height.class }}</div>
+                <div class="w-20 text-right">{{ line_height.value }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {# Font weights #}
+        <div class="flex flex-col divide-y w-fit">
+            <div class="flex py-6 {{ header_classes }}">
+                <div>Font Weights</div>
+            </div>
+
+            {% for font_weight in font_weights %}
+            {% set copy_text = 'font-' ~ font_weight.class %}
+            <div @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="flex {{ interactive_classes }}">
+                <div class="w-16 text-left">{{ font_weight.class }}</div>
+                <div class="w-16 text-right">{{ font_weight.value }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {# Letter spacing #}
+        <div class="flex flex-col divide-y w-fit">
+            <div class="flex py-6 {{ header_classes }}">
+                <div>Letter Spacings</div>
+            </div>
+
+            {% for letter_spacing in letter_spacings %}
+            {% set copy_text = 'tracking-' ~ letter_spacing.class %}
+            <div @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="flex {{ interactive_classes }}">
+                <div class="w-16 text-left">{{ letter_spacing.class }}</div>
+                <div class="w-20 text-right">{{ letter_spacing.value }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
     </div>
 {{ section.end() }}
