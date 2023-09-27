@@ -113,19 +113,25 @@ tailwind.config = {
         white: '#ffffff', // background color
       },
       letterSpacing: {
-        wide: '0.01875em'
+        wide: '0.01875em',
+        wider: '0.0875em',
+      },
+      scale: {
+        250: '2.5',
+      },
+      minHeight: {
+        60: '15rem',
+        72: '18rem',
       },
       maxWidth: {
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
       },
-      scale: {
-        250: '2.5',
-      },
       spacing: {
         1.25: '0.3125rem',
         3.75: '0.9375rem',
         4.5: '1.125rem',
+        6.5: '1.625rem',
         7.5: '1.875rem',
         8.75: '2.1875rem',
         13: '3.25rem',
