@@ -1,13 +1,13 @@
 {# "Local" macros for production code #}
 
-{% macro hero_1(title = '', subtitle = '', label = '', alt_text_small = '', alt_text_medium = '', alt_text_large = '') %}
+{% macro hero_1(title = '', subtitle = '', label = '', alt_text = '') %}
     <div>
         <div class="min-h-60 md:min-h-72 bg-blue-950 flex flex-col gap-2 py-12 px-6.5 md:px-14">
             <div class="text-green-500 text-small leading-normal font-bold tracking-wider uppercase">{{ label }}</div>
             <h1 class="text-white">{{ title }}</h1>
             <h3 class="hidden md:block text-white">{{ subtitle }}</h3>
         </div>
-        <img class="w-full" src="./assets/hero-1-lg.png" alt="{{ alt_text_small }}">
+        <img class="w-full" src="./assets/hero-1-lg.png" alt="{{ alt_text }}">
     </div>
 {% endmacro %}
 
