@@ -26,9 +26,9 @@
 tailwind.config = {
   theme: {
     screens: {
-      'sm': '374px',
+      'sm': '375px',
       'md': '768px',
-      'lg': '991px',
+      'lg': '992px',
       'xl': '1200px',
       // TODO: Remove for production
       '2xl': '1600px',
@@ -105,12 +105,6 @@ tailwind.config = {
       },
     },
     extend: {
-      borderRadius: {
-        '6xl': '3.125rem',
-      },
-      boxShadow: {
-        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
-      },
       // TODO: Move this out of `extend` when moving into the production code base
       colors: {
         black: '#000000',
@@ -133,29 +127,11 @@ tailwind.config = {
         },
         white: '#ffffff', // background color
       },
-      letterSpacing: {
-        wide: '0.01875em'
+      borderRadius: {
+        '6xl': '3.125rem',
       },
-      maxWidth: {
-        // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
-        'content-container-limit': '1248px',
-      },
-      scale: {
-        250: '2.5',
-      },
-      spacing: {
-        1.25: '0.3125rem',
-        3.75: '0.9375rem',
-        4.5: '1.125rem',
-        7.5: '1.875rem',
-        8.75: '2.1875rem',
-        13: '3.25rem',
-        15: '3.75rem',
-        17.5: '4.375rem',
-        19: '4.75rem',
-        21: '5.25rem',
-        26: '6.5rem',
-        86: '21.5rem',
+      boxShadow: {
+        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
       },
       transitionDuration: {
         250: '250ms',
@@ -163,9 +139,50 @@ tailwind.config = {
       transitionTimingFunction: {
         'ease-out': 'ease-out',
       },
+      letterSpacing: {
+        wide: '0.01875em',
+        wider: '0.0875em',
+      },
       textUnderlineOffset: {
         10: '10px',
-      }
+      },
+      scale: {
+        250: '2.5',
+      },
+      height: {
+        116: '29rem',
+      },
+      minHeight: {
+        60: '15rem',
+        72: '18rem',
+      },
+      maxHeight: {
+        116: '29rem',
+      },
+      maxWidth: {
+        // This value is 24px greater than half of the content limit of 1200px to account for the 1.5rem (24px) of horizontal padding on just one side
+        'content-container-limit-1/2': '624px',
+        // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
+        'content-container-limit': '1248px',
+      },
+      spacing: {
+        1.25: '0.3125rem',
+        3.75: '0.9375rem',
+        4.5: '1.125rem',
+        6.5: '1.625rem',
+        7.5: '1.875rem',
+        8.75: '2.1875rem',
+        13: '3.25rem',
+        15: '3.75rem',
+        17: '4.25rem',
+        17.5: '4.375rem',
+        19: '4.75rem',
+        21: '5.25rem',
+        26: '6.5rem',
+        29: '7.25rem',
+        30: '7.5rem',
+        86: '21.5rem',
+      },
     },
   },
 };
@@ -336,40 +353,46 @@ tailwind.config = {
         <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex gap-2 justify-stretch">
 
                     <button x-data @click="() => navigator.clipboard.writeText('bg-blue-950')"
-            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-blue-950  w-full aspect-square rounded-full"></div>
-            <div>bg-blue-950</div>
+            <div class="text-lg">bg-blue-950</div>
+            <div class="text-gray-500 text-lg tracking-wide">#001b3f</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-blue-400')"
-            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-blue-400  w-full aspect-square rounded-full"></div>
-            <div>bg-blue-400</div>
+            <div class="text-lg">bg-blue-400</div>
+            <div class="text-gray-500 text-lg tracking-wide">#0abbe8</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-blue-800')"
-            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-blue-800  w-full aspect-square rounded-full"></div>
-            <div>bg-blue-800</div>
+            <div class="text-lg">bg-blue-800</div>
+            <div class="text-gray-500 text-lg tracking-wide">#0052a5</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-green-500')"
-            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-green-500  w-full aspect-square rounded-full"></div>
-            <div>bg-green-500</div>
+            <div class="text-lg">bg-green-500</div>
+            <div class="text-gray-500 text-lg tracking-wide">#b6c42c</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-cyan-50')"
-            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-cyan-50 border-4 border-gray-600 w-full aspect-square rounded-full"></div>
-            <div>bg-cyan-50</div>
+            <div class="text-lg">bg-cyan-50</div>
+            <div class="text-gray-500 text-lg tracking-wide">#e5f7fa</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-gray-50')"
-            class="flex flex-col items-center gap-4 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-gray-50 border-4 border-gray-600 w-full aspect-square rounded-full"></div>
-            <div>bg-gray-50</div>
+            <div class="text-lg">bg-gray-50</div>
+            <div class="text-gray-500 text-lg tracking-wide">#fafafa</div>
         </button>
             </div>
     </div>
@@ -411,13 +434,11 @@ tailwind.config = {
                             
                                                         
     
-    
-    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
     >
         <span>Small</span>
             </a>
@@ -427,14 +448,12 @@ tailwind.config = {
                     
                             
                                                         
-    
-                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
     >
         <span>Small</span>
             </a>
@@ -444,14 +463,12 @@ tailwind.config = {
                     
                             
                                                         
-    
-    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, true) }}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
     >
         <span>Small</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 ">
@@ -466,14 +483,12 @@ tailwind.config = {
                     
                             
                                                         
-    
-                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, true) }}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
     >
         <span>Small</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 ">
@@ -489,13 +504,11 @@ tailwind.config = {
                             
                                                         
     
-    
-    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Medium</span>
             </a>
@@ -505,14 +518,12 @@ tailwind.config = {
                     
                             
                                                         
-    
-                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Medium</span>
             </a>
@@ -522,14 +533,12 @@ tailwind.config = {
                     
                             
                                                         
-    
-    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, true) }}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Medium</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
@@ -544,14 +553,12 @@ tailwind.config = {
                     
                             
                                                         
-    
-                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, true) }}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Medium</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
@@ -567,13 +574,11 @@ tailwind.config = {
                             
                                                         
     
-    
-    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
     >
         <span>Large</span>
             </a>
@@ -583,14 +588,12 @@ tailwind.config = {
                     
                             
                                                         
-    
-                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
     >
         <span>Large</span>
             </a>
@@ -601,13 +604,11 @@ tailwind.config = {
                             
                                                         
     
-    
-    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, true) }}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
     >
         <span>Large</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
@@ -623,13 +624,11 @@ tailwind.config = {
                             
                                                         
     
-                
-    
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, true) }}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 "
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
     >
         <span>Large</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
@@ -646,14 +645,12 @@ tailwind.config = {
                     
                             
                                                         
-                
-    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
     >
         <span>Wide: Small</span>
             </a>
@@ -663,14 +660,12 @@ tailwind.config = {
                     
                             
                                                         
-                
-    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
     >
         <span>Wide: Medium</span>
             </a>
@@ -680,14 +675,12 @@ tailwind.config = {
                     
                             
                                                         
-                
-    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', true, true, false) }}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out bg-blue-400 hover:bg-blue-950 py-7.5 px-15  text-6xl leading-tight  font-semibold gap-8 w-full"
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-7.5 px-15  text-6xl leading-tight  font-semibold gap-8 w-full"
     >
         <span>Wide: Large</span>
             </a>
@@ -965,6 +958,10 @@ tailwind.config = {
 &gt;
     {% for item in items %}
         &lt;div :class=&quot;shown && 'animate-fade-in-right'&quot;
+            {#
+                Note that this class-construction logic will only work if
+                the Tailwind mechanism is configured to generate classes dynamically
+            #}
             class=&quot;opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms]&quot;
         &gt;
             {{ item }}
@@ -978,6 +975,10 @@ tailwind.config = {
 &gt;
     {% for item in items %}
         &lt;div :class=&quot;shown && 'animate-fade-in-right'&quot;
+            {#
+                Note that this class-construction logic will only work if
+                the Tailwind mechanism is configured to generate classes dynamically
+            #}
             class=&quot;opacity-0 [animation-delay:{{ 150 * loop.index0 }}ms]&quot;
         &gt;
             {{ item }}
@@ -994,7 +995,7 @@ tailwind.config = {
     </div>
 
             </div>
-                    <div id="global-text-samples">
+                    <div id="global-text-types">
                 
 
     
@@ -1190,12 +1191,199 @@ tailwind.config = {
     </div>
 
             </div>
-                    <div id="global-headers">
+                    <div id="global-text-classes">
                 
+
+
+
+
     
             
                 
     <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex flex-col gap-12">
+
+        
+    <div x-data class="flex flex-wrap gap-y-8 gap-x-16 xl:justify-between">
+        
+        <div class="flex flex-col divide-y w-fit">
+            <div class="flex py-6 font-mono font-bold text-sm text-gray-950">
+                <div class="w-[15rem]">Text Classes</div>
+                <div class="w-[13rem]">size</div>
+                <div class="w-">height</div>
+            </div>
+
+                                    <div @click="() => navigator.clipboard.writeText(`text-xs`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">xs</div>
+                <div class="w-32 text-right">0.8125rem</div>
+                <div class="w-20 text-right">13px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-sm`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">sm</div>
+                <div class="w-32 text-right">0.875rem</div>
+                <div class="w-20 text-right">14px</div>
+                <div class="w-32 text-right">1.42857</div>
+                <div class="w-24 text-right">20px</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-base`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">base</div>
+                <div class="w-32 text-right">1rem</div>
+                <div class="w-20 text-right">16px</div>
+                <div class="w-32 text-right">1.5625</div>
+                <div class="w-24 text-right">25px</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-lg`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">lg</div>
+                <div class="w-32 text-right">1.0625rem</div>
+                <div class="w-20 text-right">17px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-xl`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">xl</div>
+                <div class="w-32 text-right">1.125rem</div>
+                <div class="w-20 text-right">18px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-2xl`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">2xl</div>
+                <div class="w-32 text-right">1.25rem</div>
+                <div class="w-20 text-right">20px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-3xl`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">3xl</div>
+                <div class="w-32 text-right">1.5625rem</div>
+                <div class="w-20 text-right">25px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-4xl`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">4xl</div>
+                <div class="w-32 text-right">1.8125rem</div>
+                <div class="w-20 text-right">29px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-5xl`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">5xl</div>
+                <div class="w-32 text-right">1.875rem</div>
+                <div class="w-20 text-right">30px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-6xl`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">6xl</div>
+                <div class="w-32 text-right">2.1875rem</div>
+                <div class="w-20 text-right">35px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-7xl`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">7xl</div>
+                <div class="w-32 text-right">2.8125rem</div>
+                <div class="w-20 text-right">45px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`text-super`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">super</div>
+                <div class="w-32 text-right">12.5rem</div>
+                <div class="w-20 text-right">200px</div>
+                <div class="w-32 text-right">normal</div>
+                <div class="w-24 text-right"></div>
+            </div>
+                    </div>
+
+
+        
+        <div class="flex flex-col divide-y w-fit">
+            <div class="flex py-6 font-mono font-bold text-sm text-gray-950">
+                <div>Line Heights</div>
+            </div>
+
+                                    <div @click="() => navigator.clipboard.writeText(`leading-normal`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">normal</div>
+                <div class="w-20 text-right">normal</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`leading-match`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">match</div>
+                <div class="w-20 text-right">1</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`leading-tight`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">tight</div>
+                <div class="w-20 text-right">1.11111</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`leading-snug`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">snug</div>
+                <div class="w-20 text-right">1.42857</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`leading-standard`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">standard</div>
+                <div class="w-20 text-right">1.4375</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`leading-relaxed`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">relaxed</div>
+                <div class="w-20 text-right">1.5625</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`leading-loose`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">loose</div>
+                <div class="w-20 text-right">1.66666</div>
+            </div>
+                    </div>
+
+        
+        <div class="flex flex-col divide-y w-fit">
+            <div class="flex py-6 font-mono font-bold text-sm text-gray-950">
+                <div>Font Weights</div>
+            </div>
+
+                                    <div @click="() => navigator.clipboard.writeText(`font-normal`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-16 text-left">normal</div>
+                <div class="w-16 text-right">400</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`font-semibold`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-16 text-left">semibold</div>
+                <div class="w-16 text-right">600</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`font-bold`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-16 text-left">bold</div>
+                <div class="w-16 text-right">700</div>
+            </div>
+                    </div>
+
+        
+        <div class="flex flex-col divide-y w-fit">
+            <div class="flex py-6 font-mono font-bold text-sm text-gray-950">
+                <div>Letter Spacings</div>
+            </div>
+
+                                    <div @click="() => navigator.clipboard.writeText(`tracking-wide`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-16 text-left">wide</div>
+                <div class="w-20 text-right">0.01875em</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`tracking-wider`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-16 text-left">wider</div>
+                <div class="w-20 text-right">0.0875em</div>
+            </div>
+                    </div>
+
+    </div>
+        </div>
+    </div>
+
+            </div>
+                    <div id="global-headers">
+                
+    
+            
+                                        
+            
+    <div class="bg-gray-50 py-17.5 mt-8.75 ">
         <div class="max-w-content-container-limit px-5 md:px-6 mx-auto space-y-6">
 
     <h1>H1 This is a very large header</h1>
@@ -1212,10 +1400,65 @@ tailwind.config = {
 
     
         <div x-cloak x-show="selectedPage === 'local'">
-                    <div id="local-4-4-testimonial" class=" ">
+                    <div id="local-4-1-hero-1" class=" ">
                 
 <div class="xl:mb-12">
-    <div class="bg-blue-950">
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.1 Hero #1</h2>
+    </div>
+</div>
+</div>
+    <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
+        <div class="bg-blue-950 min-h-60 md:min-h-72 py-12 px-6.5 md:px-14 lg:py-29 lg:px-12 xl:px-0 xl:flex xl:justify-end">
+            <div class="max-lg:contents space-y-2.5 xl:space-y-3 xl:px-6 xl:max-w-content-container-limit-1/2">
+                <div class="text-green-500 text-sm leading-normal font-bold tracking-wider uppercase">Philanthropic Pillar</div>
+                <h1 class="text-white">Scholarships & Grants</h1>
+                <h3 class="hidden md:block text-white lg:pt-1.5">We award scholarships and grants to the next generation of professionals.</h3>
+            </div>
+        </div>
+        <img class="max-lg:w-full lg:h-full lg:max-h-116 lg:w-full lg:object-cover lg:object-center" src="./assets/hero-1.jpeg" alt="alt text goes here">
+    </div>
+
+            </div>
+                    <div id="local-4-1-featured-content" class="mt-24 ">
+                
+<div class="mb-12">
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.1 Featured Content with Button Link</h2>
+    </div>
+</div>
+</div>
+<div class="max-w-content-container-limit px-5 md:px-6 mx-auto">
+    <div class="w-full flex">
+    <div class="grow-0 w-2 bg-blue-800"></div>
+    <div class="w-full flex justify-between items-center gap-8 py-8 md:py-10 lg:py-14 xl:py-17 sm:px-12 md:px-16 lg:px-20 xl:px-24 bg-cyan-50">
+        <div>ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.</div>
+        <div class="flex-none">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+    >
+        <span>Donate Now</span>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+</div>
+            </div>
+                    <div id="local-4-4-testimonial" class="mt-24 ">
+                
+<div class="xl:mb-12">
+    <div class="bg-blue-950/80">
     <div class="max-w-content-container-limit px-6 mx-auto ">
         <h2 class="text-white font-mono py-4">4.4 Testimonial</h2>
     </div>
@@ -1247,7 +1490,7 @@ tailwind.config = {
                 
 
 <div class="md:mb-24">
-    <div class="bg-blue-950">
+    <div class="bg-blue-950/80">
     <div class="max-w-content-container-limit px-6 mx-auto ">
         <h2 class="text-white font-mono py-4">3.3 Left Nav</h2>
     </div>
@@ -1443,11 +1686,14 @@ tailwind.config = {
                                     <a @click="closeMenu()" href="#global-checkboxes" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">checkboxes</a>
                                     <a @click="closeMenu()" href="#global-labels" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">labels</a>
                                     <a @click="closeMenu()" href="#global-animations" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">animations</a>
-                                    <a @click="closeMenu()" href="#global-text-samples" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">text-samples</a>
+                                    <a @click="closeMenu()" href="#global-text-types" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">text-types</a>
+                                    <a @click="closeMenu()" href="#global-text-classes" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">text-classes</a>
                                     <a @click="closeMenu()" href="#global-headers" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">headers</a>
                             </div>
             
             <div x-show="selectedPage === 'local'" class="contents">
+                                    <a @click="closeMenu()" href="#local-4-1-hero-1" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-hero-1</a>
+                                    <a @click="closeMenu()" href="#local-4-1-featured-content" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-featured-content</a>
                                     <a @click="closeMenu()" href="#local-4-4-testimonial" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-4-testimonial</a>
                                     <a @click="closeMenu()" href="#local-3-3-left-nav" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-3-left-nav</a>
                             </div>
