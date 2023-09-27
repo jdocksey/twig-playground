@@ -53,28 +53,22 @@
     { class: 'super', size_rem: '12.5rem',   size_px: '200px', line_height_relative: 'normal', line_height_px: null   },
 ] %}
 
-
 {{ section.start(gray_background, first, last, 'flex flex-col gap-12') }}
-    <div x-data class="w-fit grid grid-cols-5 grid-rows-auto font-mono">
-        {% set header_cell_class = 'border-b border-b-gray-200 py-2 px-4' %}
-
-        <div class="contents font-bold text-sm text-gray-950">
-            <div class="{{ header_cell_class }} text-left">designation</div>
-            <div class="{{ header_cell_class }} text-right">size</div>
-            <div class="{{ header_cell_class }} text-right">size</div>
-            <div class="{{ header_cell_class }} text-right">line height</div>
-            <div class="{{ header_cell_class }} text-right">line height</div>
+    <div x-data class="flex flex-col divide-y w-fit">
+        <div class="flex font-mono font-bold text-sm text-gray-950 py-6">
+            <div class="w-[15rem]">designation</div>
+            <div class="w-[13rem]">size</div>
+            <div class="w-">height</div>
         </div>
 
-        {% set body_cell_class = 'pt-4 first:pt-6 pb-2 px-4 border-b border-b-gray-200 text-gray-900 hover:bg-gray-100 active:bg-gray-200' ~ common_cell_class %}
         {% for text in text_sizes %}
             {% set copy_text = 'text-' ~ text.class %}
-            <div class="contents">
-                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-left">{{ text.class }}</button>
-                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-right">{{ text.size_rem }}</button>
-                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-right">{{ text.size_px }}</button>
-                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-right">{{ text.line_height_relative }}</button>
-                <button @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="{{ body_cell_class }} text-right">{{ text.line_height_px }}</button>
+            <div @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-24 text-left">{{ text.class }}</div>
+                <div class="w-32 text-right">{{ text.size_rem }}</div>
+                <div class="w-20 text-right">{{ text.size_px }}</div>
+                <div class="w-32 text-right">{{ text.line_height_relative }}</div>
+                <div class="w-24 text-right">{{ text.line_height_px }}</div>
             </div>
         {% endfor %}
     </div>
