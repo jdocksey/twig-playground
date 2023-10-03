@@ -1,5 +1,5 @@
 {# "Local" macros for production code #}
-{% from '@macros/components-global.twig' import link_button %}
+{% from '@macros/components-global.twig' import label, link_button %}
 
 {% macro hero_1(title = '', subtitle = '', label = '', alt_text = '') %}
     <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
@@ -27,7 +27,9 @@
 {% endmacro %}
 
 {% macro news_header() %}
-    <div class="p-12 m-12 border border-black">News</div>
+    <div class="flex flex-col items-center">
+
+    </div>
 {% endmacro %}
 
 {% macro stacked_block(title = '', body_text = '', highlights = [], link_url = '', link_text = '', reverse = false) %}

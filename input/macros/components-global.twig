@@ -8,7 +8,11 @@
 {% endmacro %}
 
 {% macro label(text = '') %}
-    <div class="bg-green-500 h-fit py-2 px-13 font-bold">{{ text }}</div>
+    <div class="bg-green-500 h-fit w-fit py-1.5 px-5 rounded-ex text-impact">{{ text }}</div>
+{% endmacro %}
+
+{% macro label_news(text = '') %}
+    <div class="bg-green-500 h-fit w-fit py-2 px-13 font-bold">{{ text }}</div>
 {% endmacro %}
 
 {% macro link_block(address = '', text = '', arrow = 'r') %}

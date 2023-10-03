@@ -107,6 +107,7 @@ tailwind.config = {
         white: '#ffffff', // background color
       },
       borderRadius: {
+        'ex': '.3125rem',
         '6xl': '3.125rem',
       },
       boxShadow: {

@@ -1,8 +1,18 @@
-{% from '@macros/components-global.twig' import label %}
+{% from '@macros/components-global.twig' import label, label_news %}
 {% import '@macros/code.twig' as code %}
 {% import '@macros/section.twig' as section %}
 
-{{ section.start(gray_background, first, last, 'flex gap-12 items-center') }}
-    {{ label('Label for News') }}
-    {{ code.simple("{{ label('Label') }}") }}
+{{ section.start(gray_background, first, last, 'grid grid-cols-[repeat(2,_fit-content(100%))] items-center gap-12') }}
+    <div>
+        {{ label('Impact Label') }}
+    </div>
+    <div>
+        {{ code.simple("{{ label('Label') }}") }}
+    </div>
+    <div>
+        {{ label_news('Label for News') }}
+    </div>
+    <div>
+        {{ code.simple("{{ label_news('Label') }}") }}
+    </div>
 {{ section.end() }}
