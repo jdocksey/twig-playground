@@ -26,6 +26,10 @@
 </div>
 {% endmacro %}
 
+{% macro stacked_block(title = '', body_text = '', highlights = [], link_url = '', link_text = '') %}
+    <div class="p-12 m-12 border border-black">Stacked Block</div>
+{% endmacro %}
+
 {% macro testimonial(quote = '', source_line_1 = '', source_line_2 = '') %}
     {# TODO: Implement responsive behavior according to @container width #}
     <div class="relative flex justify-center items-center h-86 bg-blue-800 pl-13 pr-16 md:pl-12 md:pr-16 lg:pl-16 lg:pr-21 overflow-hidden">
