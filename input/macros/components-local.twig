@@ -26,10 +26,13 @@
 </div>
 {% endmacro %}
 
-{% macro stacked_block(title = '', body_text = '', highlights = [], link_url = '', link_text = '') %}
+{% macro stacked_block(title = '', body_text = '', highlights = [], link_url = '', link_text = '', reverse = false) %}
+    {% set order_image = reverse ? 'order-2' : 'order-1' %}
+    {% set order_text = reverse ? 'order-1' : 'order-2' %}
+
     <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
-        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full">
-        <div class="flex flex-col gap-4">
+        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full {{ order_image }}">
+        <div class="flex flex-col gap-4 {{ order_text }}">
             <h2>{{ title }}</h2>
             <p>{{ body_text }}</p>
             <div class="flex flex-col gap-2 md:gap-4">
