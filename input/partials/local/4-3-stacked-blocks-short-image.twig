@@ -4,7 +4,7 @@
 <div class="xl:mb-12">
     {% include '@localPartials/component-title.twig' with { text: '4.3 Stacked Blocks with Short Image' } only %}
 </div>
-{{ section.start(gray_background, first, last, '') }}
+{{ section.start(gray_background, first, last, 'flex flex-col gap-24 lg:gap-30') }}
     {{ stacked_block(
         'Share Your Story',
         'Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel.',
@@ -15,5 +15,11 @@
         'https://www.example.com',
         'Share My Story'
     ) }}
-    {# TODO: Add another Stacked Block component #}
+    {{ stacked_block(
+        'Campaign Opportunities',
+        'Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel, vero erat doming cu cum.',
+        [],
+        'https://www.example.com',
+        'CTA Here'
+    ) }}
 {{ section.end() }}

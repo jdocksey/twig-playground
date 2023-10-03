@@ -40,7 +40,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="mt-2 md:mt-3">
+            <div class="{{ highlights.length > 0 ? 'mt-2 md:mt-3' }}">
                 {{ link_button(link_url, link_text, 's', true, true, false) }}
             </div>
         </div>
