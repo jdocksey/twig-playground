@@ -26,6 +26,10 @@
 </div>
 {% endmacro %}
 
+{% macro news_header() %}
+    <div class="p-12 m-12 border border-black">News</div>
+{% endmacro %}
+
 {% macro stacked_block(title = '', body_text = '', highlights = [], link_url = '', link_text = '', reverse = false) %}
     {% set order_image = reverse ? 'order-2' : 'order-1' %}
     {% set order_text = reverse ? 'order-1' : 'order-2' %}

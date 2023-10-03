@@ -45,11 +45,12 @@
 
     {# "Local" demos #}
     {% set local_partials = [
-        '4-3-stacked-blocks-short-image',
+        '3-3-left-nav',
+        '3-6-news-header',
         '4-1-hero-1',
         '4-1-featured-content',
+        '4-3-stacked-blocks-short-image',
         '4-4-testimonial',
-        '3-3-left-nav',
     ] %}
     <div x-cloak x-show="selectedPage === '{{ local_page }}'">
         {% for partial in local_partials %}
