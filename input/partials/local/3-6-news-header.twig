@@ -1,9 +1,10 @@
-{% from '@macros/components-local.twig' import news_header %}
-{% import '@macros/section.twig' as section %}
+{% from '@macros/components-global.twig' import label %}
+{% from '@macros/components-local.twig' import article_header %}
 
 <div class="xl:mb-12">
-    {% include '@localPartials/component-title.twig' with { text: '3.6 News Header' } only %}
+    {% include '@localPartials/component-title.twig' with { text: '3.6 News Header (Articles)' } only %}
 </div>
-{{ section.start(gray_background, first, last, '') }}
-    {{ news_header() }}
-{{ section.end() }}
+<div>
+    {# TODO: Use an image with a width larger than 1200px to ensure that width limits and pading are properly implemented #}
+    {{ article_header('News', 'Max of Sixty Character Header Article Title Goes Here', '13 July, 2023', './assets/TODO.png', 'people smiling while playing golf') }}
+</div>
