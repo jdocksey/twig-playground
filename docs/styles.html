@@ -128,6 +128,7 @@ tailwind.config = {
         white: '#ffffff', // background color
       },
       borderRadius: {
+        'ex': '.3125rem',
         '6xl': '3.125rem',
       },
       boxShadow: {
@@ -169,10 +170,12 @@ tailwind.config = {
         1.25: '0.3125rem',
         3.75: '0.9375rem',
         4.5: '1.125rem',
+        5.5: '1.375rem',
         6.5: '1.625rem',
         7.5: '1.875rem',
         8.75: '2.1875rem',
         13: '3.25rem',
+        13.5: '3.375rem',
         15: '3.75rem',
         17: '4.25rem',
         17.5: '4.375rem',
@@ -258,6 +261,7 @@ tailwind.config = {
     .text-impact {
       @apply text-xs;
       @apply font-bold;
+      @apply uppercase;
     }
 
     .text-link-large {
@@ -851,16 +855,32 @@ tailwind.config = {
                                                             
             
     <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
-        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex gap-12 items-center">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto grid grid-cols-[repeat(2,_fit-content(100%))] items-center gap-12">
 
-        <div class="bg-green-500 h-fit py-2 px-13 font-bold">Label for News</div>
+    <div>
+            <div class="bg-green-500 h-fit w-fit py-1.5 px-5 rounded-ex text-impact">Impact Label</div>
 
-        <button x-data @click="() => navigator.clipboard.writeText(`{{ label('Label') }}`)"
+    </div>
+    <div>
+            <button x-data @click="() => navigator.clipboard.writeText(`{{ label('Label') }}`)"
         class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
     >
         <pre class="text-left">{{ label('Label') }}</pre>
     </button>
 
+    </div>
+    <div>
+            <div class="bg-green-500 h-fit w-fit py-2 px-13 font-bold">Label for News</div>
+
+    </div>
+    <div>
+            <button x-data @click="() => navigator.clipboard.writeText(`{{ label_news('Label') }}`)"
+        class="font-mono text-xs h-fit py-4 px-8 rounded w-fit border border-gray-300 text-gray-900 bg-gray-100 hover:bg-gray-200 active:bg-gray-300"
+    >
+        <pre class="text-left">{{ label_news('Label') }}</pre>
+    </button>
+
+    </div>
         </div>
     </div>
 
@@ -1400,178 +1420,7 @@ tailwind.config = {
 
     
         <div x-cloak x-show="selectedPage === 'local'">
-                    <div id="local-4-3-stacked-blocks-short-image" class=" ">
-                
-<div class="xl:mb-12">
-    <div class="bg-blue-950/80">
-    <div class="max-w-content-container-limit px-6 mx-auto ">
-        <h2 class="text-white font-mono py-4">4.3 Stacked Blocks with Short Image</h2>
-    </div>
-</div>
-</div>
-    
-            
-                
-    <div class="bg-white py-8.75  ">
-        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex flex-col gap-24 lg:gap-30">
-
-            
-    <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
-        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full order-1">
-        <div class="flex flex-col gap-4 order-2">
-            <h2>Share Your Story</h2>
-            <p>Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel.</p>
-            <div class="flex flex-col gap-2 md:gap-4">
-                                    <div class="flex items-center gap-4 md:gap-5 text-blue-800 stroke-blue-800">
-                        
-<svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5">
-    <path d="M12.4651 0.986328L3.58796 10.9863L0.924805 7.98933" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                        At nam minimum ponderum.
-                    </div>
-                                    <div class="flex items-center gap-4 md:gap-5 text-blue-800 stroke-blue-800">
-                        
-<svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5">
-    <path d="M12.4651 0.986328L3.58796 10.9863L0.924805 7.98933" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                        At nam minimum ponderum.
-                    </div>
-                            </div>
-            <div class="mt-2 md:mt-3">
-                    
-                            
-                                                        
-    
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
-        
-        
-        
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
-    >
-        <span>Share My Story</span>
-            </a>
-
-            </div>
-        </div>
-    </div>
-
-            
-    <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
-        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full order-2">
-        <div class="flex flex-col gap-4 order-1">
-            <h2>Campaign Opportunities</h2>
-            <p>Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel, vero erat doming cu cum.</p>
-            <div class="flex flex-col gap-2 md:gap-4">
-                            </div>
-            <div class="">
-                    
-                            
-                                                        
-    
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
-        
-        
-        
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
-    >
-        <span>CTA Here</span>
-            </a>
-
-            </div>
-        </div>
-    </div>
-
-        </div>
-    </div>
-
-            </div>
-                    <div id="local-4-1-hero-1" class="mt-24 ">
-                
-<div class="xl:mb-12">
-    <div class="bg-blue-950/80">
-    <div class="max-w-content-container-limit px-6 mx-auto ">
-        <h2 class="text-white font-mono py-4">4.1 Hero #1</h2>
-    </div>
-</div>
-</div>
-    <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
-        <div class="bg-blue-950 min-h-60 md:min-h-72 py-12 px-6.5 md:px-14 lg:py-29 lg:px-12 xl:px-0 xl:flex xl:justify-end">
-            <div class="max-lg:contents space-y-2.5 xl:space-y-3 xl:px-6 xl:max-w-content-container-limit-1/2">
-                <div class="text-green-500 text-sm leading-normal font-bold tracking-wider uppercase">Philanthropic Pillar</div>
-                <h1 class="text-white">Scholarships & Grants</h1>
-                <h3 class="hidden md:block text-white lg:pt-1.5">We award scholarships and grants to the next generation of professionals.</h3>
-            </div>
-        </div>
-        <img class="max-lg:w-full lg:h-full lg:max-h-116 lg:w-full lg:object-cover lg:object-center" src="./assets/hero-1.jpeg" alt="alt text goes here">
-    </div>
-
-            </div>
-                    <div id="local-4-1-featured-content" class="mt-24 ">
-                
-<div class="mb-12">
-    <div class="bg-blue-950/80">
-    <div class="max-w-content-container-limit px-6 mx-auto ">
-        <h2 class="text-white font-mono py-4">4.1 Featured Content with Button Link</h2>
-    </div>
-</div>
-</div>
-<div class="max-w-content-container-limit px-5 md:px-6 mx-auto">
-    <div class="w-full flex">
-    <div class="grow-0 w-2 bg-blue-800"></div>
-    <div class="w-full flex justify-between items-center gap-8 py-8 md:py-10 lg:py-14 xl:py-17 sm:px-12 md:px-16 lg:px-20 xl:px-24 bg-cyan-50">
-        <div>ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.</div>
-        <div class="flex-none">
-                
-                            
-                                                        
-    
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
-        
-        
-        
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
-    >
-        <span>Donate Now</span>
-            </a>
-
-        </div>
-    </div>
-</div>
-
-</div>
-            </div>
-                    <div id="local-4-4-testimonial" class="mt-24 ">
-                
-<div class="xl:mb-12">
-    <div class="bg-blue-950/80">
-    <div class="max-w-content-container-limit px-6 mx-auto ">
-        <h2 class="text-white font-mono py-4">4.4 Testimonial</h2>
-    </div>
-</div>
-</div>
-    
-            
-                
-    <div class="bg-white py-8.75  ">
-        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto ">
-
-        
-    <div class="relative flex justify-center items-center h-86 bg-blue-800 pl-13 pr-16 md:pl-12 md:pr-16 lg:pl-16 lg:pr-21 overflow-hidden">
-        <div class="relative z-10 pl-19">
-            <div class="absolute -top-20 -left-4 text-super text-green-500">“</div>
-            <div class="text-white text-xl lg:text-2xl font-bold">Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet prompta reformidans.</div>
-        </div>
-        <div class="absolute bottom-12 right-21 md:right-26 lg:right-48 flex flex-col text-blue-400 font-semibold leading-snug">
-            <div>Companyname</div>
-            <div>Founder & CEO</div>
-        </div>
-    </div>
-
-        </div>
-    </div>
-
-            </div>
-                    <div id="local-3-3-left-nav" class="mt-24 mb-12">
+                    <div id="local-3-3-left-nav" class=" ">
                 
 
 <div class="md:mb-24">
@@ -1745,6 +1594,202 @@ tailwind.config = {
     </div>
 
             </div>
+                    <div id="local-3-6-news-header" class="mt-24 ">
+                
+<div class="mb-12 xl:mb-24">
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">3.6 News Header (Articles)</h2>
+    </div>
+</div>
+</div>
+<div>
+        <div class="max-w-screen-xl mx-auto flex flex-col items-center gap-6 md:gap-13.5">
+        <div class="flex flex-col items-center px-5 md:px-6">
+                <div class="bg-green-500 h-fit w-fit py-1.5 px-5 rounded-ex text-impact">News</div>
+
+            <h1 class="text-center mt-3.5 md:mt-5.5">Max of Sixty Character Header Article Title Goes Here</h1>
+            <div class="flex items-center gap-5 mt-4 md:mt-5">
+                <img src="./assets/calendar-icon.png" alt="" class="relative bottom-0.5">
+                <div>13 July, 2023</div>
+            </div>
+        </div>
+        <img src="./assets/yosemite.jpeg" alt="people smiling while playing golf">
+    </div>
+
+</div>
+            </div>
+                    <div id="local-4-1-hero-1" class="mt-24 ">
+                
+<div class="xl:mb-12">
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.1 Hero #1</h2>
+    </div>
+</div>
+</div>
+    <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
+        <div class="bg-blue-950 min-h-60 md:min-h-72 py-12 px-6.5 md:px-14 lg:py-29 lg:px-12 xl:px-0 xl:flex xl:justify-end">
+            <div class="max-lg:contents space-y-2.5 xl:space-y-3 xl:px-6 xl:max-w-content-container-limit-1/2">
+                <div class="text-green-500 text-sm leading-normal font-bold tracking-wider uppercase">Philanthropic Pillar</div>
+                <h1 class="text-white">Scholarships & Grants</h1>
+                <h3 class="hidden md:block text-white lg:pt-1.5">We award scholarships and grants to the next generation of professionals.</h3>
+            </div>
+        </div>
+        <img class="max-lg:w-full lg:h-full lg:max-h-116 lg:w-full lg:object-cover lg:object-center" src="./assets/hero-1.jpeg" alt="alt text goes here">
+    </div>
+
+            </div>
+                    <div id="local-4-1-featured-content" class="mt-24 ">
+                
+<div class="mb-12">
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.1 Featured Content with Button Link</h2>
+    </div>
+</div>
+</div>
+<div class="max-w-content-container-limit px-5 md:px-6 mx-auto">
+    <div class="w-full flex">
+    <div class="grow-0 w-2 bg-blue-800"></div>
+    <div class="w-full flex justify-between items-center gap-8 py-8 md:py-10 lg:py-14 xl:py-17 sm:px-12 md:px-16 lg:px-20 xl:px-24 bg-cyan-50">
+        <div>ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.</div>
+        <div class="flex-none">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+    >
+        <span>Donate Now</span>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+</div>
+            </div>
+                    <div id="local-4-3-stacked-blocks-short-image" class="mt-24 ">
+                
+<div class="xl:mb-12">
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.3 Stacked Blocks with Short Image</h2>
+    </div>
+</div>
+</div>
+    
+            
+                
+    <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto flex flex-col gap-24 lg:gap-30">
+
+            
+    <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
+        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full order-1">
+        <div class="flex flex-col gap-4 order-2">
+            <h2>Share Your Story</h2>
+            <p>Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel.</p>
+            <div class="flex flex-col gap-2 md:gap-4">
+                                    <div class="flex items-center gap-4 md:gap-5 text-blue-800 stroke-blue-800">
+                        
+<svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5">
+    <path d="M12.4651 0.986328L3.58796 10.9863L0.924805 7.98933" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                        At nam minimum ponderum.
+                    </div>
+                                    <div class="flex items-center gap-4 md:gap-5 text-blue-800 stroke-blue-800">
+                        
+<svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5">
+    <path d="M12.4651 0.986328L3.58796 10.9863L0.924805 7.98933" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                        At nam minimum ponderum.
+                    </div>
+                            </div>
+            <div class="mt-2 md:mt-3">
+                    
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+    >
+        <span>Share My Story</span>
+            </a>
+
+            </div>
+        </div>
+    </div>
+
+            
+    <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
+        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full order-2">
+        <div class="flex flex-col gap-4 order-1">
+            <h2>Campaign Opportunities</h2>
+            <p>Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel, vero erat doming cu cum.</p>
+            <div class="flex flex-col gap-2 md:gap-4">
+                            </div>
+            <div class="">
+                    
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+    >
+        <span>CTA Here</span>
+            </a>
+
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+            </div>
+                    <div id="local-4-4-testimonial" class="mt-24 mb-12">
+                
+<div class="xl:mb-12">
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.4 Testimonial</h2>
+    </div>
+</div>
+</div>
+    
+            
+                
+    <div class="bg-white py-8.75  ">
+        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto ">
+
+        
+    <div class="relative flex justify-center items-center h-86 bg-blue-800 pl-13 pr-16 md:pl-12 md:pr-16 lg:pl-16 lg:pr-21 overflow-hidden">
+        <div class="relative z-10 pl-19">
+            <div class="absolute -top-20 -left-4 text-super text-green-500">“</div>
+            <div class="text-white text-xl lg:text-2xl font-bold">Est tation latine aliquip id, mea ad tale illud definitiones. Periculis omittantur necessitatibus eum ad, pro eripuit minimum comprehensam ne, usu cu stet prompta reformidans.</div>
+        </div>
+        <div class="absolute bottom-12 right-21 md:right-26 lg:right-48 flex flex-col text-blue-400 font-semibold leading-snug">
+            <div>Companyname</div>
+            <div>Founder & CEO</div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+            </div>
             </div>
 
     
@@ -1777,11 +1822,12 @@ tailwind.config = {
                             </div>
             
             <div x-show="selectedPage === 'local'" class="contents">
-                                    <a @click="closeMenu()" href="#local-4-3-stacked-blocks-short-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-3-stacked-blocks-short-image</a>
+                                    <a @click="closeMenu()" href="#local-3-3-left-nav" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-3-left-nav</a>
+                                    <a @click="closeMenu()" href="#local-3-6-news-header" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-6-news-header</a>
                                     <a @click="closeMenu()" href="#local-4-1-hero-1" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-hero-1</a>
                                     <a @click="closeMenu()" href="#local-4-1-featured-content" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-featured-content</a>
+                                    <a @click="closeMenu()" href="#local-4-3-stacked-blocks-short-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-3-stacked-blocks-short-image</a>
                                     <a @click="closeMenu()" href="#local-4-4-testimonial" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-4-testimonial</a>
-                                    <a @click="closeMenu()" href="#local-3-3-left-nav" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-3-left-nav</a>
                             </div>
 
             
