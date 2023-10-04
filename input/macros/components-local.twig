@@ -79,7 +79,7 @@
             <div>
                 {% for tag in tags %}
                     <div class="p-12 bg-gray-100">
-                        {{ tag.icon }}
+                        {% include '@icons/' ~ tag.icon ~ '.twig' with { class: 'fill-blue-950' } only %}
                         <span>{{ tag.text }}</span>
                     </div>
                 {% endfor %}
