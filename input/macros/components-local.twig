@@ -40,9 +40,9 @@
     </div>
 {% endmacro %}
 
-{% macro stacked_block(title = '', body_text = '', highlights = [], link_url = '', link_text = '', reverse = false) %}
-    {% set order_image = reverse ? 'order-2' : 'order-1' %}
-    {% set order_text = reverse ? 'order-1' : 'order-2' %}
+{% macro stacked_block(title = '', body_text = '', highlights = [], link_url = '', link_text = '', order_flag = true) %}
+    {% set order_image = order_flag ? 'order-1' : 'order-2' %}
+    {% set order_text = order_flag ? 'order-2' : 'order-1' %}
 
     <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
         <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full {{ order_image }}">
@@ -62,6 +62,10 @@
             </div>
         </div>
     </div>
+{% endmacro %}
+
+{% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  link_url = '', link_text = '', order_flag = true) %}
+    <div class="p-12">SBC</div>
 {% endmacro %}
 
 {% macro testimonial(quote = '', source_line_1 = '', source_line_2 = '') %}
