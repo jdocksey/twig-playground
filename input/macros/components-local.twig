@@ -65,7 +65,7 @@
 {% endmacro %}
 
 {% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  cta_url = '', cta_text = '', img_src = '', img_alt_text = '', img_link_url = '', img_link_text = '', order_flag = true) %}
-    <div class="md:grid grid-cols-2 grid-rows-2">
+    <div class="md:grid md:grid-cols-2 md:grid-rows-2">
         <div class="max-md:order-1 md:row-start-1 md:col-start-2 px-content-container">
             <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">{{ label }}</div>
             <h2 class="text-5xl mt-4">{{ title }}</h2>
