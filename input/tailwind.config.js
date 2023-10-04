@@ -108,8 +108,8 @@ tailwind.config = {
         white: '#ffffff', // background color
       },
       borderRadius: {
-        'ex': '.3125rem',
-        '6xl': '3.125rem',
+        '5':  '.3125rem', // 5px (between `rounded` and `rounded-md`)
+        '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
       },
       boxShadow: {
         'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',

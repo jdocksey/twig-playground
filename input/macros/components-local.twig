@@ -1,5 +1,5 @@
 {# "Local" macros for production code #}
-{% from '@macros/components-global.twig' import label, link_button %}
+{% from '@macros/components-global.twig' import label, link_block, link_button %}
 
 {% macro hero_1(title = '', subtitle = '', label = '', alt_text = '') %}
     <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
@@ -64,27 +64,33 @@
     </div>
 {% endmacro %}
 
-{% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  cta_url = '', cta_text = '', img_link_url = '', img_link_text = '', order_flag = true) %}
+{% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  cta_url = '', cta_text = '', img_src = '', img_alt_text = '', img_link_url = '', img_link_text = '', order_flag = true) %}
     <div class="md:grid grid-cols-2 grid-rows-2">
-        <div class="max-md:order-1 md:row-start-1 md:col-start-2">
+        <div class="max-md:order-1 md:row-start-1 md:col-start-2 px-content-container">
             <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">{{ label }}</div>
-            <h2>{{ title }}</h2>
+            <h2 class="text-5xl mt-4">{{ title }}</h2>
         </div>
-        <div class="max-md:order-2 md:row-start-1 md:row-end-3 md:col-start-1">
-            {# image #}
-            {# link_block (add conditional arrow-direction logic (based on `order_flag`)) #}
+        <div class="max-md:order-2 md:row-start-1 md:row-end-3 md:col-start-1 flex flex-col items-center gap-6 mt-4.5">
+            <img src="{{ img_src }}" alt="{{ img_alt_text }}">
+            {% if img_link_url and img_link_text %}
+                {{ link_block(img_link_url, img_link_text, 'r') }}
+            {% endif %}
         </div>
-        <div class="max-md:order-3 md:row-start-2 md:col-start-2">
+        <div class="max-md:order-3 md:row-start-2 md:col-start-2 px-content-container mt-8.75">
             <p>{{ body_text }}</p>
-            <div>
-                {% for tag in tags %}
-                    <div class="p-12 bg-gray-100">
-                        {% include '@icons/' ~ tag.icon ~ '.twig' with { class: 'fill-blue-950' } only %}
-                        <span>{{ tag.text }}</span>
-                    </div>
-                {% endfor %}
+            {% if tags.length > 0 %}
+                <div class="flex flex-col gap-3 mt-6.5">
+                    {% for tag in tags %}
+                        <div class="flex flex-col items-center gap-4 bg-gray-100 p-6 rounded-10">
+                            {% include '@icons/' ~ tag.icon ~ '.twig' with { class: 'fill-blue-950' } only %}
+                            <h5 class="text-xl">{{ tag.text }}</h5>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="mt-6">
+                {{ link_button(link_url, cta_text, 'm', true, true, false) }}
             </div>
-            {{ link_button(link_url, cta_text, 'm', true, true, false) }}
         </div>
     </div>
 {% endmacro %}
