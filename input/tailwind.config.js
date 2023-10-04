@@ -115,7 +115,7 @@ tailwind.config = {
         'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
       },
       gridTemplateRows: {
-        '2-min-content': 'repeat(2, min-content)',
+        '2-min-content-1fr': 'min-content 1fr',
       },
       transitionDuration: {
         250: '250ms',
