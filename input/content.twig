@@ -54,7 +54,7 @@
     ] %}
     <div x-cloak x-show="selectedPage === '{{ local_page }}'">
         {% for partial in local_partials %}
-            <div id="{{ local_page ~ '-' ~ partial }}" class="{{ not loop.first ? 'mt-24' }} {{ loop.last ? 'mb-12' }}">
+            <div id="{{ local_page ~ '-' ~ partial }}">
                 {% include '@localPartials/' ~ partial ~ '.twig' with { gray_background: false,  first: loop.first,  last: loop.last } only %}
             </div>
         {% endfor %}

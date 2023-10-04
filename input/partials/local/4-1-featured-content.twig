@@ -1,9 +1,9 @@
 {% from '@macros/components-local.twig' import featured_content %}
 {% from '@macros/components-global.twig' import link_button %}
 
-<div class="mb-12">
+<div>
     {% include '@localPartials/component-title.twig' with { text: '4.1 Featured Content with Button Link' } only %}
 </div>
-<div class="max-w-content-container-limit px-5 md:px-6 mx-auto">
+<div class="max-w-content-container-limit py-12 px-5 md:px-6 mx-auto">
     {{ featured_content('ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.', 'https://www.example.com') }}
 </div>
