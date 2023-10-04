@@ -4,7 +4,7 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.3 Stacked Blocks with Short Image' } only %}
 </div>
-{{ section.start(true, true, false, '') }}
+{{ section.start(true, true, false, '', false) }}
     {{ stacked_block_complex(
         'Philanthropic Pillar',
         'Greatest Needs',
@@ -18,7 +18,7 @@
     ) }}
 {{ section.end() }}
 
-{{ section.start(false, true, false, '') }}
+{{ section.start(false, true, false, '', false) }}
     {{ stacked_block_complex(
         'Philanthropic Pillar',
         'ISPE Knowledge Without Borders',
@@ -35,7 +35,7 @@
     ) }}
 {{ section.end() }}
 
-{{ section.start(true, false, false, '') }}
+{{ section.start(true, false, false, '', false) }}
     {{ stacked_block_complex(
         'Philanthropic Pillar',
         'Scholarships and Grants',
@@ -52,7 +52,7 @@
     ) }}
 {{ section.end() }}
 
-{{ section.start(false, false, true, '') }}
+{{ section.start(false, false, true, '', false) }}
         {{ stacked_block_complex(
         'Philanthropic Pillar',
         'Workforce Diversity',

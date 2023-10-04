@@ -1,5 +1,7 @@
-{% macro start(gray_background, first, last, class = '') %}
+{% macro start(gray_background, first, last, class = '', include_padding_x = true) %}
     {% set background = gray_background ? 'bg-gray-50' : 'bg-white' %}
+    {% set width_limit = include_padding_x ? 'max-w-content-container-limit' : 'max-w-screen-xl' %}
+    {% set padding_x = include_padding_x ? 'px-content-container' : '' %}
 
     {% set padding = '' %}
     {% set margin_top = '' %}
@@ -19,7 +21,7 @@
     {% endif %}
 
     <div class="{{ background }} {{ padding }} {{ margin_top }} {{ margin_bottom }}">
-        <div class="max-w-content-container-limit px-5 md:px-6 mx-auto {{ class }}">
+        <div class="mx-auto {{ width_limit }} {{ padding_x }} {{ class }}">
 {% endmacro %}
 
 {% macro end() %}
