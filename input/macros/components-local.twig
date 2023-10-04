@@ -40,7 +40,7 @@
     </div>
 {% endmacro %}
 
-{% macro stacked_block(title = '', body_text = '', highlights = [], link_url = '', link_text = '', order_flag = true) %}
+{% macro stacked_block(title = '', body_text = '', highlights = [], cta_url = '', cta_text = '', order_flag = true) %}
     {% set order_image = order_flag ? 'order-1' : 'order-2' %}
     {% set order_text = order_flag ? 'order-2' : 'order-1' %}
 
@@ -58,14 +58,35 @@
                 {% endfor %}
             </div>
             <div class="{{ highlights.length > 0 ? 'mt-2 md:mt-3' }}">
-                {{ link_button(link_url, link_text, 's', true, true, false) }}
+                {{ link_button(cta_url, cta_text, 's', true, true, false) }}
             </div>
         </div>
     </div>
 {% endmacro %}
 
-{% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  link_url = '', link_text = '', order_flag = true) %}
-    <div class="p-12">SBC</div>
+{% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  cta_url = '', cta_text = '', img_link_url = '', img_link_text = '', order_flag = true) %}
+    <div class="md:grid grid-cols-2 grid-rows-2">
+        <div class="max-md:order-1 md:row-start-1 md:col-start-2">
+            <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">{{ label }}</div>
+            <h2>{{ title }}</h2>
+        </div>
+        <div class="max-md:order-2 md:row-start-1 md:row-end-3 md:col-start-1">
+            {# image #}
+            {# link_block (add conditional arrow-direction logic (based on `order_flag`)) #}
+        </div>
+        <div class="max-md:order-3 md:row-start-2 md:col-start-2">
+            <p>{{ body_text }}</p>
+            <div>
+                {% for tag in tags %}
+                    <div class="p-12 bg-gray-100">
+                        {{ tag.icon }}
+                        <span>{{ tag.text }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+            {{ link_button(link_url, cta_text, 'm', true, true, false) }}
+        </div>
+    </div>
 {% endmacro %}
 
 {% macro testimonial(quote = '', source_line_1 = '', source_line_2 = '') %}
