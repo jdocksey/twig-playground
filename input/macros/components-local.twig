@@ -32,7 +32,7 @@
             {{ label(label_text) }}
             <h1 class="text-center mt-3.5 md:mt-5.5">{{ title }}</h1>
             <div class="flex items-center gap-5 mt-4 md:mt-5">
-                <img src="./assets/calendar-icon.png" alt="" class="relative bottom-0.5">
+                {% include '@icons/calendar.twig' with { class: 'relative bottom-0.25' } only %}
                 <div>{{ date_text }}</div>
             </div>
         </div>

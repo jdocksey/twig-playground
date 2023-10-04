@@ -150,6 +150,7 @@ tailwind.config = {
         'content-container-limit': '1248px',
       },
       spacing: {
+        0.25: '0.0625rem',
         1.25: '0.3125rem',
         3.75: '0.9375rem',
         4.5: '1.125rem',
