@@ -114,6 +114,9 @@ tailwind.config = {
       boxShadow: {
         'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
       },
+      gridTemplateRows: {
+        '2-min-content': 'repeat(2, min-content)',
+      },
       transitionDuration: {
         250: '250ms',
       },
