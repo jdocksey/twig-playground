@@ -4,6 +4,14 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.14 Accordion' } only %}
 </div>
-{{ section.start(gray_background, true, true, '') }}
-    {{ accordion() }}
+{{ section.start(true, true, true, '') }}
+    {% set titles = [
+        'View Donor History',
+        'Favorite Restaurants',
+        'Types of Trees',
+    ] %}
+    {{ accordion(titles) }}
+
+    {# TODO: Remove #}
+    <div class="py-96"></div>
 {{ section.end() }}

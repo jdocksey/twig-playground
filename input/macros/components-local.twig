@@ -1,8 +1,24 @@
 {# "Local" macros for production code #}
 {% from '@macros/components-global.twig' import label, link_block, link_button %}
 
-{% macro accordion() %}
-    <div class="p-24">accordion</div>
+{% macro accordion(titles = []) %}
+    <div class="flex flex-col gap-2 bg-white">
+        {% for title in titles %}
+            <div class="border border-gray-250">
+                <div class="flex justify-between items-center py-6 pl-14 pr-9">
+                    <h3>{{ title }}</h3>
+                    <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
+                        {% include '@icons/arrow-down.twig' with { class: 'fill-blue-950' } only %}
+                    </div>
+                </div>
+                {#
+                <div>
+                    content
+                </div>
+                #}
+            </div>
+        {% endfor %}
+    </div>
 {% endmacro %}
 
 {% macro article_header(label_text = '', title = '', date_text = '', img_src = '', img_alt_text = '') %}
