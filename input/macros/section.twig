@@ -16,7 +16,7 @@
 
         {% set padding = 'py-17.5' %}
     {% else %}
-        {% set padding = 'py-8.75' %}
+        {% set padding = last ? 'pt-8.75 pb-17.5' : 'py-8.75' %}
     {% endif %}
 
     <div class="{{ background }} {{ padding }} {{ margin_top }} {{ margin_bottom }}">
