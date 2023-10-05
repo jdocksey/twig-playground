@@ -2,7 +2,8 @@
     {% set background = gray_background ? 'bg-gray-50' : 'bg-white' %}
     {% set padding_x = include_padding_x ? 'px-content-container' : '' %}
 
-    {% set padding = '' %}
+    {% set padding_top = '' %}
+    {% set padding_bottom = '' %}
     {% set margin_top = '' %}
     {% set margin_bottom = '' %}
 
@@ -14,12 +15,14 @@
             {% set margin_bottom = 'mb-8.75' %}
         {% endif %}
 
-        {% set padding = 'py-17.5' %}
+        {% set padding_top = 'pt-17.5' %}
+        {% set padding_bottom = 'pb-17.5' %}
     {% else %}
-        {% set padding = last ? 'pt-8.75 pb-17.5' : 'py-8.75' %}
+        {% set padding_top = first ? 'pt-17.5' : 'pt-8.75' %}
+        {% set padding_bottom = last ? 'pb-17.5' : 'pb-8.75' %}
     {% endif %}
 
-    <div class="{{ background }} {{ padding }} {{ margin_top }} {{ margin_bottom }}">
+    <div class="{{ background }} {{ padding_top }} {{ padding_bottom }} {{ margin_top }} {{ margin_bottom }}">
         <div class="max-w-content-container-limit mx-auto {{ padding_x }} {{ class }}">
 {% endmacro %}
 
