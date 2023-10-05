@@ -65,23 +65,24 @@
 {% endmacro %}
 
 {% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  cta_url = '', cta_text = '', img_src = '', img_alt_text = '', img_link_url = '', img_link_text = '', order_flag = true) %}
-    {# TODO: Implement L/R swapping #}
+    {% set md_image_col = order_flag ? 'md:col-start-1' : 'md:col-start-2' %}
+    {% set md_text_col = order_flag ? 'md:col-start-2' : 'md:col-start-1' %}
 
     <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 md:grid-rows-2-min-content-1fr md:gap-x-12 md:px-content-container">
 
-        <div class="max-md:order-1 md:col-start-2 px-content-container md:px-0">
+        <div class="max-md:order-1 {{ md_text_col }} px-content-container md:px-0">
             <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">{{ label }}</div>
             <h2 class="text-5xl mt-4 md:mt-2.5">{{ title }}</h2>
         </div>
 
-        <div class="max-md:order-2 md:col-start-1 md:row-start-1 md:row-span-full flex flex-col items-center gap-6 mt-4.5 md:gap-6.5 md:mt-0">
+        <div class="max-md:order-2 md:row-start-1 md:row-span-full {{ md_image_col }} flex flex-col items-center gap-6 mt-4.5 md:gap-6.5 md:mt-0">
             <img src="{{ img_src }}" alt="{{ img_alt_text }}" class="h-full max-md:max-h-105 w-full object-cover">
             {% if img_link_url and img_link_text %}
                 {{ link_block(img_link_url, img_link_text, 'r') }}
             {% endif %}
         </div>
 
-        <div class="max-md:order-3 md:col-start-2 px-content-container md:px-0 mt-8.75 md:mt-3.75">
+        <div class="max-md:order-3 {{ md_text_col }} px-content-container md:px-0 mt-8.75 md:mt-3.75">
             <p>{{ body_text }}</p>
             {% if tags.length > 0 %}
                 <div class="flex flex-col md:grid md:grid-cols-2 gap-3 mt-6.5 md:gap-5 md:mt-3">
