@@ -141,6 +141,7 @@ tailwind.config = {
         72: '18rem',
       },
       maxHeight: {
+        105: '26.26rem',
         116: '29rem',
       },
       maxWidth: {

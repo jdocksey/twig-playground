@@ -65,6 +65,8 @@
 {% endmacro %}
 
 {% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  cta_url = '', cta_text = '', img_src = '', img_alt_text = '', img_link_url = '', img_link_text = '', order_flag = true) %}
+    {# TODO: Implement L/R swapping #}
+
     <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 md:grid-rows-2-min-content-1fr md:gap-x-12 md:px-content-container">
 
         <div class="max-md:order-1 md:col-start-2 px-content-container md:px-0">
@@ -73,9 +75,7 @@
         </div>
 
         <div class="max-md:order-2 md:col-start-1 md:row-start-1 md:row-span-full flex flex-col items-center gap-6 mt-4.5 md:gap-6.5 md:mt-0">
-            {# TODO: Implement max-height limitation according to Kristin's comments #}
-            {# TODO: Use an image in accord with the size specified by Kristin #}
-            <img src="{{ img_src }}" alt="{{ img_alt_text }}">
+            <img src="{{ img_src }}" alt="{{ img_alt_text }}" class="h-full max-md:max-h-105 w-full object-cover">
             {% if img_link_url and img_link_text %}
                 {{ link_block(img_link_url, img_link_text, 'r') }}
             {% endif %}
