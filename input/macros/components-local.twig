@@ -2,20 +2,32 @@
 {% from '@macros/components-global.twig' import label, link_block, link_button %}
 
 {% macro accordion(titles = []) %}
-    <div class="flex flex-col gap-2 bg-white">
+    <div x-data="{
+        statuses: new Array( {{ titles|length }} ).fill(false),
+        toggleSection(index) {
+            this.statuses.forEach((status, i) => {
+                if (i !== index) {
+                    this.statuses[i] = false;
+                }
+            })
+            this.statuses[index] = !this.statuses[index];
+        }
+    }"
+        class="flex flex-col gap-2 bg-white"
+    >
         {% for title in titles %}
             <div class="border border-gray-250">
-                <div class="flex justify-between items-center py-6 pl-14 pr-9">
-                    <h3>{{ title }}</h3>
+                <button @click="toggleSection({{ loop.index0 }})" class="flex justify-between items-center w-full py-6 pl-14 pr-9">
+                    <h3>{{ title }}
+                        <span x-text="statuses[{{loop.index0}}] ? 'open' : 'closed'"></span>
+                    </h3>
                     <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
                         {% include '@icons/arrow-down.twig' with { class: 'fill-blue-950' } only %}
                     </div>
-                </div>
-                {#
-                <div>
+                </button>
+                <div class="py-4 px-14">
                     content
                 </div>
-                #}
             </div>
         {% endfor %}
     </div>
