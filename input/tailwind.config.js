@@ -101,6 +101,7 @@ tailwind.config = {
           200: '#ececec',
           250: '#d9d9d9',
           300: '#c3cbcd',
+          500: '#737373',
           600: '#555555',
         },
         green: {
@@ -135,6 +136,7 @@ tailwind.config = {
         250: '2.5',
       },
       height: {
+        75: '18.75rem',
         116: '29rem',
       },
       minHeight: {

@@ -47,6 +47,17 @@
     </div>
 {% endmacro %}
 
+{% macro card_slider(eyebrow = '', title = '', description = '', cta_url = '', cta_text = '') %}
+    <div class="relative bg-white h-75 py-8 px-10">
+        <div class="text-eyebrow text-gray-500">{{ eyebrow }}</div>
+        <h3>{{ title }}</h3>
+        <p>{{ description }}</p>
+        <div class="absolute bottom-7 inset-x-10">
+            {{ link_button(cta_url, cta_text, 's', true, false, false) }}
+        </div>
+    </div>
+{% endmacro %}
+
 {% macro featured_content(text = '', link_text = '', link_url = '') %}
 <div class="w-full flex">
     <div class="grow-0 w-2 bg-blue-800"></div>

@@ -1,0 +1,24 @@
+{% from '@macros/components-local.twig' import card_slider %}
+{% import '@macros/section.twig' as section %}
+
+{% set slider_cards = [
+    { eyebrow: 'Workforce Diversity', title: 'Women in Pharma', description: 'Learn more about internship opportunities. This is placeholder text. Link to ISPE.org or the foundation webpage.', cta_url: 'https://www.example.com', cta_text: 'Call to Action' },
+    { eyebrow: 'Scholarships & Grants', title: 'ISPE Student/Recent Graduate Grant Program', description: 'A unique opportunity for students and recent graduates to experience an ISPE conference.', cta_url: 'https://www.example.com', cta_text: 'Call to Action' },
+    { eyebrow: 'Events', title: 'ISPE Foundation 2nd Annual Charity Golf Tournament', description: 'These blocks will have a strict character limit. We suggest manually managing these to ensure ideal presentation.', cta_url: 'https://www.example.com', cta_text: 'Call to Action' },
+    { eyebrow: 'Scholarships & Grants', title: 'Attend Biotech Conference', description: 'Apply for the 2023 ISPE Biotechnology Conference Student and Recent Graduate Attendance Grant.', cta_url: 'https://www.example.com', cta_text: 'Call to Action' },
+] %}
+
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '4.17 Cards' } only %}
+</div>
+{{ section.start(true, true, true, '') }}
+    <div class="grid grid-cols-3 gap-5">
+        {% for card in slider_cards|slice(0, 3) %}
+            {{ card_slider(card.eyebrow, card.title, card.description, card.cta_url, card.cta_text) }}
+        {% endfor %}
+    </div>
+
+    {# TODO: Remove #}
+    <div class="pt-[80vh]"></div>
+{{ section.end() }}
