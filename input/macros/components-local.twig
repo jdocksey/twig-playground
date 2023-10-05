@@ -73,6 +73,8 @@
         </div>
 
         <div class="max-md:order-2 md:col-start-1 md:row-start-1 md:row-span-full flex flex-col items-center gap-6 mt-4.5 md:gap-6.5 md:mt-0">
+            {# TODO: Implement max-height limitation according to Kristin's comments #}
+            {# TODO: Use an image in accord with the size specified by Kristin #}
             <img src="{{ img_src }}" alt="{{ img_alt_text }}">
             {% if img_link_url and img_link_text %}
                 {{ link_block(img_link_url, img_link_text, 'r') }}
