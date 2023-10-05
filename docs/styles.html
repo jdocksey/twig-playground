@@ -366,9 +366,9 @@ tailwind.config = {
                 
 
         
-            
                 
-    <div class="bg-white py-8.75  ">
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
         <div class="max-w-content-container-limit mx-auto px-content-container flex gap-2 justify-stretch">
 
                     <button x-data @click="() => navigator.clipboard.writeText('bg-blue-950')"
@@ -420,10 +420,10 @@ tailwind.config = {
                     <div id="global-macro-imports">
                 
         
-            
+                
                                                             
-            
-    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
         <div class="max-w-content-container-limit mx-auto px-content-container flex flex-col gap-4">
 
     <h3>Macro imports</h3>
@@ -442,9 +442,9 @@ tailwind.config = {
 
 
         
-            
                 
-    <div class="bg-white py-8.75  ">
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
         <div class="max-w-content-container-limit mx-auto px-content-container ">
 
     <div class="grid grid-cols-[max-content] sm:grid-cols-[repeat(2,_max-content)] xl:grid-cols-[repeat(4,_max-content)] gap-8">
@@ -713,10 +713,10 @@ tailwind.config = {
                     <div id="global-links-text">
                 
         
-            
+                
                                                             
-            
-    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
         <div class="max-w-content-container-limit mx-auto px-content-container ">
 
     <div class="grid grid-cols-[max-content_1fr] items-center gap-x-12 gap-y-4 w-fit">
@@ -821,9 +821,9 @@ tailwind.config = {
                 
 
         
-            
                 
-    <div class="bg-white py-8.75  ">
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
         <div class="max-w-content-container-limit mx-auto px-content-container flex gap-12 items-center">
 
     <div class="flex flex-col gap-4">
@@ -866,10 +866,10 @@ tailwind.config = {
                     <div id="global-labels">
                 
         
-            
+                
                                                             
-            
-    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
         <div class="max-w-content-container-limit mx-auto px-content-container grid grid-cols-[repeat(2,_fit-content(100%))] items-center gap-12">
 
     <div>
@@ -905,9 +905,9 @@ tailwind.config = {
 
 
         
-            
                 
-    <div class="bg-white py-8.75  ">
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
         <div class="max-w-content-container-limit mx-auto px-content-container space-y-8">
 
     <h2>Animations</h2>
@@ -1034,10 +1034,10 @@ tailwind.config = {
                 
 
         
-            
+                
                                                             
-            
-    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
         <div class="max-w-content-container-limit mx-auto px-content-container flex flex-col gap-12">
 
             <div class="flex flex-col gap-1">
@@ -1233,9 +1233,9 @@ tailwind.config = {
 
 
         
-            
                 
-    <div class="bg-white py-8.75  ">
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
         <div class="max-w-content-container-limit mx-auto px-content-container flex flex-col gap-12">
 
         
@@ -1417,10 +1417,10 @@ tailwind.config = {
                     <div id="global-headers">
                 
         
-            
+                
                                         
-            
-    <div class="bg-gray-50 py-17.5 mt-8.75 ">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 ">
         <div class="max-w-content-container-limit mx-auto px-content-container space-y-6">
 
     <h1>H1 This is a very large header</h1>
@@ -1640,6 +1640,40 @@ tailwind.config = {
 
 </div>
             </div>
+                    <div id="local-4-1-featured-content">
+                
+<div>
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.1 Featured Content with Button Link</h2>
+    </div>
+</div>
+</div>
+<div class="max-w-content-container-limit py-12 px-content-container mx-auto">
+    <div class="w-full flex">
+    <div class="grow-0 w-2 bg-blue-800"></div>
+    <div class="w-full flex justify-between items-center gap-8 py-8 md:py-10 lg:py-14 xl:py-17 sm:px-12 md:px-16 lg:px-20 xl:px-24 bg-cyan-50">
+        <div>ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.</div>
+        <div class="flex-none">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+    >
+        <span>Donate Now</span>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+</div>
+            </div>
                     <div id="local-4-1-hero-1">
                 
 <div>
@@ -1666,15 +1700,15 @@ tailwind.config = {
 <div>
     <div class="bg-blue-950/80">
     <div class="max-w-content-container-limit px-6 mx-auto ">
-        <h2 class="text-white font-mono py-4">4.3 Stacked Blocks with Short Image</h2>
+        <h2 class="text-white font-mono py-4">4.2 Image/Video L-R and Text + Button</h2>
     </div>
 </div>
 </div>
         
-            
+                
                                         
-            
-    <div class="bg-gray-50 py-17.5  mb-8.75">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5  mb-8.75">
         <div class="max-w-content-container-limit mx-auto  ">
 
             
@@ -1714,9 +1748,9 @@ tailwind.config = {
 
 
         
-            
                 
-    <div class="bg-white py-8.75  ">
+                        
+    <div class="bg-white pt-17.5 pb-8.75  ">
         <div class="max-w-content-container-limit mx-auto  ">
 
             
@@ -1797,10 +1831,10 @@ tailwind.config = {
 
 
         
-            
+                
                                                             
-            
-    <div class="bg-gray-50 py-17.5 mt-8.75 mb-8.75">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
         <div class="max-w-content-container-limit mx-auto  ">
 
             
@@ -1885,8 +1919,8 @@ tailwind.config = {
 
 
         
-            
                 
+                        
     <div class="bg-white pt-8.75 pb-17.5  ">
         <div class="max-w-content-container-limit mx-auto  ">
 
@@ -1973,40 +2007,6 @@ tailwind.config = {
     </div>
 
             </div>
-                    <div id="local-4-1-featured-content">
-                
-<div>
-    <div class="bg-blue-950/80">
-    <div class="max-w-content-container-limit px-6 mx-auto ">
-        <h2 class="text-white font-mono py-4">4.1 Featured Content with Button Link</h2>
-    </div>
-</div>
-</div>
-<div class="max-w-content-container-limit py-12 px-content-container mx-auto">
-    <div class="w-full flex">
-    <div class="grow-0 w-2 bg-blue-800"></div>
-    <div class="w-full flex justify-between items-center gap-8 py-8 md:py-10 lg:py-14 xl:py-17 sm:px-12 md:px-16 lg:px-20 xl:px-24 bg-cyan-50">
-        <div>ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.</div>
-        <div class="flex-none">
-                
-                            
-                                                        
-    
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
-        
-        
-        
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
-    >
-        <span>Donate Now</span>
-            </a>
-
-        </div>
-    </div>
-</div>
-
-</div>
-            </div>
                     <div id="local-4-3-stacked-blocks-short-image">
                 
 <div>
@@ -2017,10 +2017,10 @@ tailwind.config = {
 </div>
 </div>
         
-            
+                
                                         
-            
-    <div class="bg-gray-50 py-17.5  mb-8.75">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5  mb-8.75">
         <div class="max-w-content-container-limit mx-auto px-content-container ">
 
             
@@ -2067,9 +2067,9 @@ tailwind.config = {
     </div>
 
         
-            
                 
-    <div class="bg-white py-8.75  ">
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
         <div class="max-w-content-container-limit mx-auto px-content-container ">
 
             
@@ -2102,10 +2102,10 @@ tailwind.config = {
     </div>
 
         
-            
+                
                                         
-            
-    <div class="bg-gray-50 py-17.5 mt-8.75 ">
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 ">
         <div class="max-w-content-container-limit mx-auto px-content-container ">
 
             
@@ -2162,9 +2162,9 @@ tailwind.config = {
 </div>
 </div>
         
-            
                 
-    <div class="bg-white pt-8.75 pb-17.5  ">
+                        
+    <div class="bg-white pt-17.5 pb-17.5  ">
         <div class="max-w-content-container-limit mx-auto px-content-container ">
 
         
@@ -2217,9 +2217,9 @@ tailwind.config = {
             <div x-show="selectedPage === 'local'" class="contents">
                                     <a @click="closeMenu()" href="#local-3-3-left-nav" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-3-left-nav</a>
                                     <a @click="closeMenu()" href="#local-3-6-news-header" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-6-news-header</a>
+                                    <a @click="closeMenu()" href="#local-4-1-featured-content" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-featured-content</a>
                                     <a @click="closeMenu()" href="#local-4-1-hero-1" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-hero-1</a>
                                     <a @click="closeMenu()" href="#local-4-2-image-video-left-right" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-2-image-video-left-right</a>
-                                    <a @click="closeMenu()" href="#local-4-1-featured-content" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-featured-content</a>
                                     <a @click="closeMenu()" href="#local-4-3-stacked-blocks-short-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-3-stacked-blocks-short-image</a>
                                     <a @click="closeMenu()" href="#local-4-4-testimonial" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-4-testimonial</a>
                             </div>
