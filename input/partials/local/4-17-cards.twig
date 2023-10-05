@@ -13,10 +13,12 @@
     {% include '@localPartials/component-title.twig' with { text: '4.17 Cards' } only %}
 </div>
 {{ section.start(true, true, true, '') }}
-    <div class="grid grid-cols-3 gap-5">
-        {% for card in slider_cards|slice(0, 3) %}
-            {{ card_slider(card.eyebrow, card.title, card.description, card.cta_url, card.cta_text) }}
-        {% endfor %}
+    <div class="overflow-x-auto p-4 -ml-4 -mr-4.5 md:-mr-6">
+        <div class="w-[1200px] grid grid-cols-3 gap-5">
+            {% for card in slider_cards|slice(0, 3) %}
+                {{ card_slider(card.eyebrow, card.title, card.description, card.cta_url, card.cta_text) }}
+            {% endfor %}
+        </div>
     </div>
 
     {# TODO: Remove #}

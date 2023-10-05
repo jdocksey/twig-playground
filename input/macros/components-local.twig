@@ -48,7 +48,8 @@
 {% endmacro %}
 
 {% macro card_slider(eyebrow = '', title = '', description = '', cta_url = '', cta_text = '') %}
-    <div class="relative bg-white h-75 py-8 px-10">
+    {# TODO: Use a new shadow class for precise spec-matching #}
+    <div class="relative bg-white h-75 py-8 px-10 shadow-md-heavy">
         <div class="text-eyebrow text-gray-500">{{ eyebrow }}</div>
         <h3>{{ title }}</h3>
         <p>{{ description }}</p>
