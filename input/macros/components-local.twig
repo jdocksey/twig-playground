@@ -13,10 +13,10 @@
             this.statuses[index] = !this.statuses[index];
         }
     }"
-        class="flex flex-col gap-2 bg-white"
+        class="flex flex-col gap-2"
     >
         {% for title in titles %}
-            <div class="border border-gray-250">
+            <div class="bg-white border border-gray-250">
                 <button @click="toggleSection({{ loop.index0 }})" class="flex justify-between items-center w-full py-6 pl-14 pr-9">
                     <h3>{{ title }}</h3>
                     <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
