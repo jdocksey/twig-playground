@@ -1,0 +1,9 @@
+{% from '@macros/components-local.twig' import accordion %}
+{% import '@macros/section.twig' as section %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '4.14 Accordion' } only %}
+</div>
+{{ section.start(gray_background, true, true, '') }}
+    {{ accordion() }}
+{{ section.end() }}

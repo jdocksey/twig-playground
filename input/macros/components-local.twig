@@ -1,6 +1,10 @@
 {# "Local" macros for production code #}
 {% from '@macros/components-global.twig' import label, link_block, link_button %}
 
+{% macro accordion() %}
+    <div class="p-24">accordion</div>
+{% endmacro %}
+
 {% macro article_header(label_text = '', title = '', date_text = '', img_src = '', img_alt_text = '') %}
     <div class="max-w-screen-xl mx-auto flex flex-col items-center gap-6 md:gap-13.5">
         <div class="flex flex-col items-center px-content-container">
