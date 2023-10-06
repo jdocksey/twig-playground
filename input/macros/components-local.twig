@@ -47,12 +47,35 @@
     </div>
 {% endmacro %}
 
-{% macro card_slider(eyebrow = '', title = '', description = '', cta_url = '', cta_text = '') %}
-    <div class="relative bg-white h-75 py-8 px-10 shadow-md-heavy">
+{# TODO: Remove the `size` parameter, as this is just a work-around for this code which doesn't have access to the Tailwind `container-queries` plugin (it isn't available for use with the CDN) #}
+{% macro card_slider(eyebrow = '', title = '', description = '', cta_url = '', cta_text = '', size = 's') %}
+
+    {# padding #}
+    {% set pt = '' %}
+    {% set pb = '' %}
+    {% set pl = '' %}
+    {% set pr = '' %}
+    {% set cta_y = '' %}
+    {% set cta_x = '' %}
+
+    {% if size == 's' %}
+        {% set pt = 'pt-10' %}
+        {% set pb = 'pb-7' %}
+        {% set pl = 'pl-7.5' %}
+        {% set pr = 'pr-7.5' %}
+        {% set cta_y = 'bottom-7' %}
+        {% set cta_x = 'inset-x-10' %}
+    {% elseif size == 'm' %}
+    {% elseif size == 'l' %}
+    {% endif %}
+
+    {% set padding = [pt, pb, pl, pr]|join(' ') %}
+
+    <div class="relative bg-white h-75 shadow-md-heavy {{ padding }}">
         <div class="text-eyebrow text-gray-500">{{ eyebrow }}</div>
         <h3>{{ title }}</h3>
         <p>{{ description }}</p>
-        <div class="absolute bottom-7 inset-x-10">
+        <div class="absolute {{ cta_y }} {{ cta_x }}">
             {{ link_button(cta_url, cta_text, 's', true, false, false) }}
         </div>
     </div>
