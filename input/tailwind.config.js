@@ -114,7 +114,7 @@ tailwind.config = {
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
       },
       boxShadow: {
-        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
+        'md-heavy': '1px 4px 4px 0px rgba(0, 0, 0, 0.25)',
       },
       gridTemplateRows: {
         '2-min-content-1fr': 'min-content 1fr',
