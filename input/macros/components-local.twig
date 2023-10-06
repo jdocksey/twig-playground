@@ -50,7 +50,7 @@
 {# TODO: Remove the `size` parameter, as this is just a work-around for this code which doesn't have access to the Tailwind `container-queries` plugin (it isn't available for use with the CDN) #}
 {% macro card_slider(eyebrow = '', title = '', description = '', cta_url = '', cta_text = '', size = 's') %}
 
-    {# padding #}
+    {# This is to be replaced with container-query classes in production #}
     {% set pt = '' %}
     {% set pb = '' %}
     {% set pl = '' %}
@@ -61,19 +61,22 @@
     {% if size == 's' %}
         {% set pt = 'pt-9' %}
         {% set pb = 'pb-7' %}
-        {% set px = 'px-7.5' %}
+        {% set px = 'px-10' %}
         {% set cta_y = 'bottom-7' %}
-        {% set cta_x = 'inset-x-7.5' %}
+        {% set cta_x = 'inset-x-10' %}
     {% elseif size == 'm' %}
     {% elseif size == 'l' %}
     {% endif %}
 
     {% set padding = [pt, pb, px]|join(' ') %}
 
+
+
+
     <div class="relative bg-white h-75 shadow-md-heavy {{ padding }}">
         <div class="text-eyebrow text-gray-500 tracking-wide">{{ eyebrow }}</div>
-        <h3>{{ title }}</h3>
-        <p>{{ description }}</p>
+        <h3 class="mt-3.5">{{ title }}</h3>
+        <p class="mt-3">{{ description }}</p>
         <div class="absolute {{ cta_y }} {{ cta_x }}">
             {{ link_button(cta_url, cta_text, 's', true, false, false) }}
         </div>
