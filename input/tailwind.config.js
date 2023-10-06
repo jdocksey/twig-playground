@@ -154,6 +154,10 @@ tailwind.config = {
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
       },
+      gap: {
+        10.5: '2.625rem',
+        19.5: '4.875rem'
+      },
       spacing: {
         0.25: '0.0625rem',
         1.25: '0.3125rem',

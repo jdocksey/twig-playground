@@ -48,7 +48,7 @@
 {% endmacro %}
 
 {# TODO: Remove the `size` parameter, as this is just a work-around for this code which doesn't have access to the Tailwind `container-queries` plugin (it isn't available for use with the CDN) #}
-{% macro card(title = '', description = '', centered_text = false, links = [], main_link_url = '', main_link_text = '', main_link_style = 'block', img_url = '', size = 's') %}
+{% macro card_regular(title = '', description = '', links = [], main_link_url = '', main_link_text = '', main_link_style = 'block', img_url = '', impact = false, size = 's') %}
     <div>
         <img src="{{ img_url }}" alt="">
         <div>{{ title }}</div>

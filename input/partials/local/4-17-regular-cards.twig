@@ -1,28 +1,26 @@
-{% from '@macros/components-local.twig' import card %}
+{% from '@macros/components-local.twig' import card_regular %}
 {% import '@macros/section.twig' as section %}
 
 {% set our_impact_cards = [
     {
         title: 'Impact Story Here',
         description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.',
-        centered_text: true,
         links: [],
         main_link_url: '',
         main_link_text: '',
         main_link_style: '',
         img_url: '',
-        size: 'm',
+        impact: true,
     },
     {
         title: 'Impact Story Here',
         description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.',
-        centered_text: true,
         links: [],
         main_link_url: '',
         main_link_text: '',
         main_link_style: '',
         img_url: '',
-        size: 'm',
+        impact: true,
     },
 ] %}
 
@@ -30,31 +28,192 @@
     {
         title: 'Max of Sixty Character Header Article Title Goes Here',
         description: 'Max of 220 character count description goes here. The description should be brief, interesting, and entice the user to click and read more. This content is dynamically generated from the News section.',
-        centered_text: false,
         links: [],
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read more',
         main_link_style: 'block',
         img_url: '',
-        size: 'm',
+        impact: false,
     },
     {
         title: 'Max of Sixty Character Header Article Title Goes Here',
         description: 'Max of 220 character count description goes here. The description should be brief, interesting, and entice the user to click and read more. This content is dynamically generated from the News section.',
-        centered_text: false,
         links: [],
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read more',
         main_link_style: 'block',
         img_url: '',
-        size: 'm',
+        impact: false,
     },
 ] %}
 
-{% set related_programs_1_cards = [] %}
-{% set related_programs_2_cards = [] %}
-{% set donor_spotlight_cards = [] %}
-{% set miscellaneous_cards = [] %}
+{% set related_programs_1_cards = [
+    {
+        title: 'ISPE Academic Scholarship Fund',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read More',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+    {
+        title: 'Professional Development Grants',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read More',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+    {
+        title: 'ISPE Academic Scholarship Fund',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read More',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+] %}
+
+{% set related_programs_2_cards = [
+    {
+        title: 'Program Title Here',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Optional Button',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+    {
+        title: 'ISPE Academic Scholarship Fund',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read More',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+    {
+        title: 'Program Title Here',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Optional Button',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+    {
+        title: 'ISPE Academic Scholarship Fund',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read More',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+    {
+        title: 'Program Title Here',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Optional Button',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+    {
+        title: 'ISPE Academic Scholarship Fund',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read More',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+] %}
+
+{% set donor_spotlight_cards = [
+    {
+        title: 'Donar Name Here',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read more',
+        main_link_style: 'blockkkzzzzz',
+        img_url: '',
+        impact: false,
+    },
+    {
+        title: 'ISPE Academic Scholarship Fund',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.',
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read More',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+] %}
+
+{% set miscellaneous_cards = [
+    {
+        title: 'Max of Sixty Chracter Header Artlce Title Goes Here',
+        description: 'count'
+        links: [
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+            { url: 'https://www.example.com', text: 'This is a sample link' },
+        ],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read More',
+        main_link_style: 'button',
+        img_url: '',
+        impact: false,
+    },
+] %}
 
 {% set card_sets = [
     our_impact_cards,
@@ -68,20 +227,23 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.17 Regular Cards' } only %}
 </div>
-{# TODO: Iterate over `card_sets` instead of manually creating all the sections #}
-{{ section.start(true, true, false, '') }}
-    <div class="grid grid-cols-2">
-        {% for card in our_impact_cards %}
-            {{ card(card.title, card.description, card.centered_text, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_url, card.size) }}
-        {% endfor %}
-    </div>
-{{ section.end() }}
-{{ section.start(false, false, false, '') }}
-    <div class="grid grid-cols-2">
-        {% for card in whats_happening_cards %}
-            {{ card(card.title, card.description, card.centered_text, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_url, card.size) }}
-        {% endfor %}
-    </div>
-{{ section.end() }}
+{% for cards in card_sets %}
+    {{ section.start(loop.index0 % 2 == 0, loop.first, loop.last, false) }}
+        {% set size = 'l' %}
+        {% if cards.length > 1 %}
+            {% set size = cards.length == 2 ? 'm' : 's' %}
+        {% endif %}
+
+         {% set grid_cols = 'grid-cols-' ~ cards.length %}
+         {% set gap = card.impact ? 'gap-19.5' : 'gap-10.5' %}
+        <div class="grid {{ grid_cols }} {{ gap }}">
+            {% for card in cards %}
+                {# TODO: Something with "links" somewhere in this file appears to be causing a rendering error #}
+                {{ card_regular(card.title, card.description, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_url, card.impact, size) }}
+            {% endfor %}
+        </div>
+    {{ section.end() }}
+{% endfor %}
+
 {# TODO: Remove #}
 <div class="pt-[80vh]"></div>
