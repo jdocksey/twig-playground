@@ -72,7 +72,7 @@
     {% set padding = [pt, pb, pl, pr]|join(' ') %}
 
     <div class="relative bg-white h-75 shadow-md-heavy {{ padding }}">
-        <div class="text-eyebrow text-gray-500">{{ eyebrow }}</div>
+        <div class="text-eyebrow text-gray-500 tracking-wide">{{ eyebrow }}</div>
         <h3>{{ title }}</h3>
         <p>{{ description }}</p>
         <div class="absolute {{ cta_y }} {{ cta_x }}">
@@ -97,7 +97,7 @@
     <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
         <div class="bg-blue-950 min-h-60 md:min-h-72 py-12 px-6.5 md:px-14 lg:py-29 lg:px-12 xl:px-0 xl:flex xl:justify-end">
             <div class="max-lg:contents space-y-2.5 xl:space-y-3 xl:px-6 xl:max-w-content-container-limit-1/2">
-                <div class="text-green-500 text-sm leading-normal font-bold tracking-wider uppercase">{{ label }}</div>
+                <div class="text-green-500 text-sm leading-normal font-bold tracking-widest uppercase">{{ label }}</div>
                 <h1 class="text-white">{{ title }}</h1>
                 <h3 class="hidden md:block text-white lg:pt-1.5">{{ subtitle }}</h3>
             </div>
@@ -137,7 +137,7 @@
     <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 md:grid-rows-2-min-content-1fr md:gap-x-12 md:px-content-container">
 
         <div class="max-md:order-1 {{ md_text_col }} px-content-container md:px-0">
-            <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">{{ label }}</div>
+            <div class="text-green-500 text-sm font-bold leading-normal tracking-widest uppercase">{{ label }}</div>
             <h2 class="text-5xl mt-4 md:mt-2.5">{{ title }}</h2>
         </div>
 

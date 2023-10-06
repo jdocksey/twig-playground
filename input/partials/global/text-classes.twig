@@ -34,8 +34,9 @@
 ] %}
 
 {% set letter_spacings = [
-    { class: 'wide',  size_em: '0.01875em', size_px: '0.3px' },
-    { class: 'wider', size_em: '0.0875em', size_px: '1.4px' },
+    { class: 'wide',  value: '0.00769em' },
+    { class: 'wider',  value: '0.01875em' },
+    { class: 'widest', value: '0.0875em' },
 ] %}
 
 {{ section.start(gray_background, first, last, 'flex flex-col gap-12') }}
@@ -103,9 +104,8 @@
             {% for letter_spacing in letter_spacings %}
             {% set copy_text = 'tracking-' ~ letter_spacing.class %}
             <div @click="() => navigator.clipboard.writeText(`{{ copy_text }}`)" class="flex {{ interactive_classes }}">
-                <div class="w-16 text-left">{{ letter_spacing.class }}</div>
-                <div class="w-16 text-right">{{ letter_spacing.size_em }}</div>
-                <div class="w-20 text-right">{{ letter_spacing.size_px }}</div>
+                <div class="w-20 text-left">{{ letter_spacing.class }}</div>
+                <div class="w-20 text-right">{{ letter_spacing.value }}</div>
             </div>
             {% endfor %}
         </div>

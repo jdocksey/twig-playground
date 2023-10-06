@@ -59,6 +59,11 @@ tailwind.config = {
       semibold: 600,
       bold: 700,
     },
+    letterSpacing: {
+      wide: '0.00769em',
+      wider: '0.01875em',
+      widest: '0.0875em',
+    },
     animation: {
       'fade-in': 'fade-in 0.6s ease forwards',
       'fade-in-left': 'fade-in-left 0.6s ease forwards',
@@ -124,10 +129,6 @@ tailwind.config = {
       },
       transitionTimingFunction: {
         'ease-out': 'ease-out',
-      },
-      letterSpacing: {
-        wide: '0.01875em',
-        wider: '0.0875em',
       },
       textUnderlineOffset: {
         10: '10px',
