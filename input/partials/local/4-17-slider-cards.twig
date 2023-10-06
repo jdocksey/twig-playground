@@ -10,7 +10,7 @@
 
 
 <div>
-    {% include '@localPartials/component-title.twig' with { text: '4.17 Cards' } only %}
+    {% include '@localPartials/component-title.twig' with { text: '4.17 Slider Cards' } only %}
 </div>
 {{ section.start(true, true, true, '') }}
     <div class="flex flex-col gap-16">
@@ -34,7 +34,4 @@
             {% endfor %}
         </div>
     </div>
-
-    {# TODO: Remove #}
-    <div class="pt-[80vh]"></div>
 {{ section.end() }}

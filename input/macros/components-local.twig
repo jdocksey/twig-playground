@@ -48,6 +48,32 @@
 {% endmacro %}
 
 {# TODO: Remove the `size` parameter, as this is just a work-around for this code which doesn't have access to the Tailwind `container-queries` plugin (it isn't available for use with the CDN) #}
+{% macro card(title = '', description = '', centered_text = false, links = [], main_link_url = '', main_link_text = '', main_link_style = 'block', img_url = '', size = 's') %}
+    <div>
+        <img src="{{ img_url }}" alt="">
+        <div>{{ title }}</div>
+        <div>{{ description }}</div>
+
+        {% if links.length > 0 %}
+            <div>
+            {% for link in links %}
+                <a href="{{ link.url }}">{{ link.text }}</a>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+        {# TODO: Verify this treats empty strings as `false` #}
+        {% if main_link_url and main_link_text %}
+            {% if main_link_style == 'block' %}
+                {{ link_block(main_link_url, main_link_text) }}
+            {% elseif main_link_style == 'button' %}
+                {{ link_button(main_link_url, main_link_text, 's', false, true, false) }}
+            {% endif %}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{# TODO: Remove the `size` parameter, as this is just a work-around for this code which doesn't have access to the Tailwind `container-queries` plugin (it isn't available for use with the CDN) #}
 {% macro card_slider(eyebrow = '', title = '', description = '', cta_url = '', cta_text = '', size = 's') %}
 
     {# This is to be replaced with container-query classes in production #}

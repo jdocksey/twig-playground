@@ -1,0 +1,87 @@
+{% from '@macros/components-local.twig' import card %}
+{% import '@macros/section.twig' as section %}
+
+{% set our_impact_cards = [
+    {
+        title: 'Impact Story Here',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.',
+        centered_text: true,
+        links: [],
+        main_link_url: '',
+        main_link_text: '',
+        main_link_style: '',
+        img_url: '',
+        size: 'm',
+    },
+    {
+        title: 'Impact Story Here',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.',
+        centered_text: true,
+        links: [],
+        main_link_url: '',
+        main_link_text: '',
+        main_link_style: '',
+        img_url: '',
+        size: 'm',
+    },
+] %}
+
+{% set whats_happening_cards = [
+    {
+        title: 'Max of Sixty Character Header Article Title Goes Here',
+        description: 'Max of 220 character count description goes here. The description should be brief, interesting, and entice the user to click and read more. This content is dynamically generated from the News section.',
+        centered_text: false,
+        links: [],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read more',
+        main_link_style: 'block',
+        img_url: '',
+        size: 'm',
+    },
+    {
+        title: 'Max of Sixty Character Header Article Title Goes Here',
+        description: 'Max of 220 character count description goes here. The description should be brief, interesting, and entice the user to click and read more. This content is dynamically generated from the News section.',
+        centered_text: false,
+        links: [],
+        main_link_url: 'https://www.example.com',
+        main_link_text: 'Read more',
+        main_link_style: 'block',
+        img_url: '',
+        size: 'm',
+    },
+] %}
+
+{% set related_programs_1_cards = [] %}
+{% set related_programs_2_cards = [] %}
+{% set donor_spotlight_cards = [] %}
+{% set miscellaneous_cards = [] %}
+
+{% set card_sets = [
+    our_impact_cards,
+    whats_happening_cards,
+    related_programs_1_cards,
+    related_programs_2_cards,
+    donor_spotlight_cards,
+    miscellaneous_cards,
+] %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '4.17 Regular Cards' } only %}
+</div>
+{# TODO: Iterate over `card_sets` instead of manually creating all the sections #}
+{{ section.start(true, true, false, '') }}
+    <div class="grid grid-cols-2">
+        {% for card in our_impact_cards %}
+            {{ card(card.title, card.description, card.centered_text, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_url, card.size) }}
+        {% endfor %}
+    </div>
+{{ section.end() }}
+{{ section.start(false, false, false, '') }}
+    <div class="grid grid-cols-2">
+        {% for card in whats_happening_cards %}
+            {{ card(card.title, card.description, card.centered_text, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_url, card.size) }}
+        {% endfor %}
+    </div>
+{{ section.end() }}
+{# TODO: Remove #}
+<div class="pt-[80vh]"></div>
