@@ -22,13 +22,13 @@
             </div>
         </div>
 
-        <div class="w-full grid grid-cols-2 gap-5">
+        <div class="w-full grid grid-cols-2 gap-7.5">
             {% for card in slider_cards|slice(0, 2) %}
                 {{ card_slider(card.eyebrow, card.title, card.description, card.cta_url, card.cta_text, 'm') }}
             {% endfor %}
         </div>
 
-        <div class="w-full grid grid-cols-1 gap-5">
+        <div class="w-full grid grid-cols-1">
             {% for card in slider_cards|slice(0, 1) %}
                 {{ card_slider(card.eyebrow, card.title, card.description, card.cta_url, card.cta_text, 'l') }}
             {% endfor %}
