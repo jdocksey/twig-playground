@@ -254,7 +254,10 @@
         {% set grid_cols = 'md:grid-cols-' ~ cards.length %}
         {% set grid_rows = 'grid-rows-min' %}
 
-        {% set gap = cards[0].impact ? 'gap-6 md:gap-12 lg:gap-19.5' : 'gap-10 md:gap-7' %}
+        {% set gap = 'gap-10 md:gap-7 lg:gap-10' %}
+        {% if cards[0].impact %}
+            {% set gap = 'gap-6 md:gap-12 lg:gap-19.5' %}
+        {% endif %}
 
         <div class="grid {{ grid_cols }} {{ grid_rows }} {{ gap }} md:px-content-container">
             {% for card in cards %}
