@@ -112,12 +112,12 @@
 
 
 
-    <div class="relative bg-white h-75 shadow-md-heavy {{ padding }}">
+    <div class="flex flex-col overflow-y-hidden bg-white h-75 shadow-md-heavy {{ padding }}">
         {# TODO: This needs to be `tracking-[0.08em]` #}
         <div class="text-eyebrow text-gray-500 tracking-wide">{{ eyebrow }}</div>
         <h3 class="mt-3.5">{{ title }}</h3>
-        <p class="mt-3">{{ description }}</p>
-        <div class="absolute {{ cta_y }} {{ cta_x }}">
+        <p class="grow pb-4 mt-3">{{ description }}</p>
+        <div {{ cta_y }} {{ cta_x }}">
             {{ link_button(cta_url, cta_text, 'm', true, false, false) }}
         </div>
     </div>
