@@ -80,6 +80,13 @@ tailwind.config = {
       semibold: 600,
       bold: 700,
     },
+    letterSpacing: {
+      // TODO: Update these values:
+      wide: '0.00769em', // probably not needed after the `0.08em` updates
+      wider: '0.01875em',
+      // TODO: Add `0.04em` (for eyebrow text)
+      widest: '0.0875em', // can probably change to `0.08em`
+    },
     animation: {
       'fade-in': 'fade-in 0.6s ease forwards',
       'fade-in-left': 'fade-in-left 0.6s ease forwards',
@@ -122,6 +129,7 @@ tailwind.config = {
           200: '#ececec',
           250: '#d9d9d9',
           300: '#c3cbcd',
+          500: '#737373',
           600: '#555555',
         },
         green: {
@@ -134,7 +142,7 @@ tailwind.config = {
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
       },
       boxShadow: {
-        'md-heavy': '0 3px 5px 1px rgb(0 0 0 / 0.3)',
+        'md-heavy': '1px 4px 4px 0px rgba(0, 0, 0, 0.25)',
       },
       gridTemplateRows: {
         '2-min-content-1fr': 'min-content 1fr',
@@ -145,10 +153,6 @@ tailwind.config = {
       transitionTimingFunction: {
         'ease-out': 'ease-out',
       },
-      letterSpacing: {
-        wide: '0.01875em',
-        wider: '0.0875em',
-      },
       textUnderlineOffset: {
         10: '10px',
       },
@@ -156,6 +160,7 @@ tailwind.config = {
         250: '2.5',
       },
       height: {
+        75: '18.75rem',
         116: '29rem',
       },
       minHeight: {
@@ -172,6 +177,10 @@ tailwind.config = {
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
       },
+      gap: {
+        10.5: '2.625rem',
+        19.5: '4.875rem'
+      },
       spacing: {
         0.25: '0.0625rem',
         1.25: '0.3125rem',
@@ -181,6 +190,8 @@ tailwind.config = {
         6.5: '1.625rem',
         7.5: '1.875rem',
         8.75: '2.1875rem',
+        9.5: '2.375rem',
+        12.5: '3.125rem',
         13: '3.25rem',
         13.5: '3.375rem',
         15: '3.75rem',
@@ -262,7 +273,7 @@ tailwind.config = {
     .text-eyebrow {
       @apply text-xs;
       @apply font-bold;
-      @apply text-green-500;
+      @apply uppercase;
     }
 
     .text-impact {
@@ -377,42 +388,42 @@ tailwind.config = {
         >
             <div class="bg-blue-950  w-full aspect-square rounded-full"></div>
             <div class="text-lg">bg-blue-950</div>
-            <div class="text-gray-500 text-lg tracking-wide">#001b3f</div>
+            <div class="text-gray-500 text-lg tracking-wider">#001b3f</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-blue-400')"
             class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-blue-400  w-full aspect-square rounded-full"></div>
             <div class="text-lg">bg-blue-400</div>
-            <div class="text-gray-500 text-lg tracking-wide">#0abbe8</div>
+            <div class="text-gray-500 text-lg tracking-wider">#0abbe8</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-blue-800')"
             class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-blue-800  w-full aspect-square rounded-full"></div>
             <div class="text-lg">bg-blue-800</div>
-            <div class="text-gray-500 text-lg tracking-wide">#0052a5</div>
+            <div class="text-gray-500 text-lg tracking-wider">#0052a5</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-green-500')"
             class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-green-500  w-full aspect-square rounded-full"></div>
             <div class="text-lg">bg-green-500</div>
-            <div class="text-gray-500 text-lg tracking-wide">#b6c42c</div>
+            <div class="text-gray-500 text-lg tracking-wider">#b6c42c</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-cyan-50')"
             class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-cyan-50 border-4 border-gray-600 w-full aspect-square rounded-full"></div>
             <div class="text-lg">bg-cyan-50</div>
-            <div class="text-gray-500 text-lg tracking-wide">#e5f7fa</div>
+            <div class="text-gray-500 text-lg tracking-wider">#e5f7fa</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-gray-50')"
             class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-gray-50 border-4 border-gray-600 w-full aspect-square rounded-full"></div>
             <div class="text-lg">bg-gray-50</div>
-            <div class="text-gray-500 text-lg tracking-wide">#fafafa</div>
+            <div class="text-gray-500 text-lg tracking-wider">#fafafa</div>
         </button>
             </div>
     </div>
@@ -458,7 +469,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
     >
         <span>Small</span>
             </a>
@@ -473,7 +484,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
     >
         <span>Small</span>
             </a>
@@ -488,7 +499,7 @@ tailwind.config = {
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
     >
         <span>Small</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 ">
@@ -508,7 +519,7 @@ tailwind.config = {
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
     >
         <span>Small</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 ">
@@ -528,7 +539,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Medium</span>
             </a>
@@ -543,7 +554,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Medium</span>
             </a>
@@ -558,7 +569,7 @@ tailwind.config = {
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Medium</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
@@ -578,7 +589,7 @@ tailwind.config = {
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Medium</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
@@ -598,7 +609,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
     >
         <span>Large</span>
             </a>
@@ -613,7 +624,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
     >
         <span>Large</span>
             </a>
@@ -628,7 +639,7 @@ tailwind.config = {
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
     >
         <span>Large</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
@@ -648,7 +659,7 @@ tailwind.config = {
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
     >
         <span>Large</span>
                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
@@ -670,7 +681,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
     >
         <span>Wide: Small</span>
             </a>
@@ -685,7 +696,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
     >
         <span>Wide: Medium</span>
             </a>
@@ -700,7 +711,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-7.5 px-15  text-6xl leading-tight  font-semibold gap-8 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-7.5 px-15  text-6xl leading-tight  font-semibold gap-8 w-full"
     >
         <span>Wide: Large</span>
             </a>
@@ -1194,18 +1205,18 @@ tailwind.config = {
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
                         
-    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-eyebrow&quot;&gt;&lt;/p&gt;')"
+    <button x-data @click="() => navigator.clipboard.writeText('&lt;p class=&quot;text-eyebrow text-green-500&quot;&gt;&lt;/p&gt;')"
         class="w-full flex gap-2 items-center py-4 px-8 rounded w-fit border border-transparent border-gray-200 hover:border-solid hover:border-gray-300 hover:bg-gray-200 active:bg-gray-300"
     >
         <h3>Eyebrows</h3>
         <div class="font-mono text-xs py-1.5 px-4 rounded w-fit border border-gray-200 text-gray-900 bg-gray-100">
-            &lt;p class=&quot;text-eyebrow&quot;&gt;
+            &lt;p class=&quot;text-eyebrow text-green-500&quot;&gt;
         </div>
     </button>
 
             </div>
 
-                            <p class="text-eyebrow">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="text-eyebrow text-green-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
             <div class="flex flex-col gap-1">
             <div class="-ml-8">
@@ -1399,14 +1410,16 @@ tailwind.config = {
             </div>
 
                                     <div @click="() => navigator.clipboard.writeText(`tracking-wide`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
-                <div class="w-16 text-left">wide</div>
-                <div class="w-16 text-right">0.01875em</div>
-                <div class="w-20 text-right">0.3px</div>
+                <div class="w-20 text-left">wide</div>
+                <div class="w-20 text-right">0.00769em</div>
             </div>
                                     <div @click="() => navigator.clipboard.writeText(`tracking-wider`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
-                <div class="w-16 text-left">wider</div>
-                <div class="w-16 text-right">0.0875em</div>
-                <div class="w-20 text-right">1.4px</div>
+                <div class="w-20 text-left">wider</div>
+                <div class="w-20 text-right">0.01875em</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`tracking-widest`)" class="flex font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">widest</div>
+                <div class="w-20 text-right">0.0875em</div>
             </div>
                     </div>
 
@@ -1636,7 +1649,7 @@ tailwind.config = {
                 <div>13 July, 2023</div>
             </div>
         </div>
-        <img src="./assets/yosemite.jpeg" alt="people smiling while playing golf">
+        <img src="./assets/yosemite.png" alt="people smiling while playing golf">
     </div>
 
 </div>
@@ -1664,7 +1677,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
     >
         <span>Donate Now</span>
             </a>
@@ -1687,12 +1700,12 @@ tailwind.config = {
     <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
         <div class="bg-blue-950 min-h-60 md:min-h-72 py-12 px-6.5 md:px-14 lg:py-29 lg:px-12 xl:px-0 xl:flex xl:justify-end">
             <div class="max-lg:contents space-y-2.5 xl:space-y-3 xl:px-6 xl:max-w-content-container-limit-1/2">
-                <div class="text-green-500 text-sm leading-normal font-bold tracking-wider uppercase">Philanthropic Pillar</div>
+                <div class="text-green-500 text-sm leading-normal font-bold tracking-widest uppercase">Philanthropic Pillar</div>
                 <h1 class="text-white">Scholarships & Grants</h1>
                 <h3 class="hidden md:block text-white lg:pt-1.5">We award scholarships and grants to the next generation of professionals.</h3>
             </div>
         </div>
-        <img class="max-lg:w-full lg:h-full lg:max-h-116 lg:w-full lg:object-cover lg:object-center" src="./assets/hero-1.jpeg" alt="alt text goes here">
+        <img class="max-lg:w-full lg:h-full lg:max-h-116 lg:w-full lg:object-cover lg:object-center" src="./assets/hero-1.png" alt="alt text goes here">
     </div>
 
             </div>
@@ -1716,12 +1729,12 @@ tailwind.config = {
     <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 md:grid-rows-2-min-content-1fr md:gap-x-12 md:px-content-container">
 
         <div class="max-md:order-1 md:col-start-1 px-content-container md:px-0">
-            <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">Philanthropic Pillar</div>
+            <div class="text-green-500 text-sm font-bold leading-normal tracking-widest uppercase">Philanthropic Pillar</div>
             <h2 class="text-5xl mt-4 md:mt-2.5">Greatest Needs</h2>
         </div>
 
         <div class="max-md:order-2 md:row-start-1 md:row-span-full md:col-start-2 flex flex-col items-center gap-6 mt-4.5 md:gap-6.5 md:mt-0">
-            <img src="./assets/content-750-420.png" alt="" class="h-full max-md:max-h-105 w-full object-cover">
+            <img src="./assets/content-750-420-1.png" alt="" class="h-full max-md:max-h-105 w-full object-cover">
                     </div>
 
         <div class="max-md:order-3 md:col-start-1 px-content-container md:px-0 mt-8.75 md:mt-3.75">
@@ -1735,7 +1748,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
     >
         <span>Learn More</span>
             </a>
@@ -1758,12 +1771,12 @@ tailwind.config = {
     <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 md:grid-rows-2-min-content-1fr md:gap-x-12 md:px-content-container">
 
         <div class="max-md:order-1 md:col-start-2 px-content-container md:px-0">
-            <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">Philanthropic Pillar</div>
+            <div class="text-green-500 text-sm font-bold leading-normal tracking-widest uppercase">Philanthropic Pillar</div>
             <h2 class="text-5xl mt-4 md:mt-2.5">ISPE Knowledge Without Borders</h2>
         </div>
 
         <div class="max-md:order-2 md:row-start-1 md:row-span-full md:col-start-1 flex flex-col items-center gap-6 mt-4.5 md:gap-6.5 md:mt-0">
-            <img src="./assets/content-750-420.png" alt="" class="h-full max-md:max-h-105 w-full object-cover">
+            <img src="./assets/content-750-420-1.png" alt="" class="h-full max-md:max-h-105 w-full object-cover">
                     </div>
 
         <div class="max-md:order-3 md:col-start-2 px-content-container md:px-0 mt-8.75 md:mt-3.75">
@@ -1818,7 +1831,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
     >
         <span>Learn More</span>
             </a>
@@ -1842,12 +1855,12 @@ tailwind.config = {
     <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 md:grid-rows-2-min-content-1fr md:gap-x-12 md:px-content-container">
 
         <div class="max-md:order-1 md:col-start-1 px-content-container md:px-0">
-            <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">Philanthropic Pillar</div>
+            <div class="text-green-500 text-sm font-bold leading-normal tracking-widest uppercase">Philanthropic Pillar</div>
             <h2 class="text-5xl mt-4 md:mt-2.5">Scholarships and Grants</h2>
         </div>
 
         <div class="max-md:order-2 md:row-start-1 md:row-span-full md:col-start-2 flex flex-col items-center gap-6 mt-4.5 md:gap-6.5 md:mt-0">
-            <img src="./assets/content-750-420.png" alt="" class="h-full max-md:max-h-105 w-full object-cover">
+            <img src="./assets/content-750-420-1.png" alt="" class="h-full max-md:max-h-105 w-full object-cover">
                                 <div>
         <a href="https://www.example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
             
@@ -1906,7 +1919,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
     >
         <span>Learn More</span>
             </a>
@@ -1929,12 +1942,12 @@ tailwind.config = {
     <div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 md:grid-rows-2-min-content-1fr md:gap-x-12 md:px-content-container">
 
         <div class="max-md:order-1 md:col-start-2 px-content-container md:px-0">
-            <div class="text-green-500 text-sm font-bold leading-normal tracking-wider uppercase">Philanthropic Pillar</div>
+            <div class="text-green-500 text-sm font-bold leading-normal tracking-widest uppercase">Philanthropic Pillar</div>
             <h2 class="text-5xl mt-4 md:mt-2.5">Workforce Diversity</h2>
         </div>
 
         <div class="max-md:order-2 md:row-start-1 md:row-span-full md:col-start-1 flex flex-col items-center gap-6 mt-4.5 md:gap-6.5 md:mt-0">
-            <img src="./assets/content-750-420.png" alt="" class="h-full max-md:max-h-105 w-full object-cover">
+            <img src="./assets/content-750-420-1.png" alt="" class="h-full max-md:max-h-105 w-full object-cover">
                     </div>
 
         <div class="max-md:order-3 md:col-start-2 px-content-container md:px-0 mt-8.75 md:mt-3.75">
@@ -1995,7 +2008,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
     >
         <span>Learn More</span>
             </a>
@@ -2026,7 +2039,7 @@ tailwind.config = {
 
             
     <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
-        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full order-2">
+        <img src="./assets/content-750-420-2.png" alt="TODO: Add alt text" class="w-full order-2">
         <div class="flex flex-col gap-4 order-1">
             <h2>Share Your Story</h2>
             <p>Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel.</p>
@@ -2055,7 +2068,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
     >
         <span>Share My Story</span>
             </a>
@@ -2075,7 +2088,7 @@ tailwind.config = {
 
             
     <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
-        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full order-1">
+        <img src="./assets/content-750-420-2.png" alt="TODO: Add alt text" class="w-full order-1">
         <div class="flex flex-col gap-4 order-2">
             <h2>Campaign Opportunities</h2>
             <p>Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel, vero erat doming cu cum.</p>
@@ -2090,7 +2103,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
     >
         <span>CTA Here</span>
             </a>
@@ -2111,7 +2124,7 @@ tailwind.config = {
 
             
     <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
-        <img src="./assets/content-1.png" alt="TODO: Add alt text" class="w-full order-2">
+        <img src="./assets/content-750-420-2.png" alt="TODO: Add alt text" class="w-full order-2">
         <div class="flex flex-col gap-4 order-1">
             <h2>Share Your Story</h2>
             <p>Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum. At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum. Assum suavitate ea vel.</p>
@@ -2140,7 +2153,7 @@ tailwind.config = {
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
     >
         <span>Share My Story</span>
             </a>
@@ -2264,6 +2277,736 @@ tailwind.config = {
     </div>
 
             </div>
+                    <div id="local-4-17-slider-cards">
+                
+
+
+<div>
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.17 Slider Cards</h2>
+    </div>
+</div>
+</div>
+        
+                
+                    
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+    <div class="flex flex-col gap-16">
+        <div class="overflow-x-auto p-4 -ml-4 -mr-4.5 md:-mr-6">
+            <div class="w-[1200px] grid grid-cols-3 gap-5">
+                                    
+    
+                    
+                                                
+    
+
+
+
+    <div class="relative bg-white h-75 shadow-md-heavy pt-9 pb-7 px-10">
+        
+        <div class="text-eyebrow text-gray-500 tracking-wide">Workforce Diversity</div>
+        <h3 class="mt-3.5">Women in Pharma</h3>
+        <p class="mt-3">Learn more about internship opportunities. This is placeholder text. Link to ISPE.org or the foundation webpage.</p>
+        <div class="absolute bottom-7 inset-x-10">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+    >
+        <span>Call to Action</span>
+            </a>
+
+        </div>
+    </div>
+
+                                    
+    
+                    
+                                                
+    
+
+
+
+    <div class="relative bg-white h-75 shadow-md-heavy pt-9 pb-7 px-10">
+        
+        <div class="text-eyebrow text-gray-500 tracking-wide">Scholarships & Grants</div>
+        <h3 class="mt-3.5">ISPE Student/Recent Graduate Grant Program</h3>
+        <p class="mt-3">A unique opportunity for students and recent graduates to experience an ISPE conference.</p>
+        <div class="absolute bottom-7 inset-x-10">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+    >
+        <span>Call to Action</span>
+            </a>
+
+        </div>
+    </div>
+
+                                    
+    
+                    
+                                                
+    
+
+
+
+    <div class="relative bg-white h-75 shadow-md-heavy pt-9 pb-7 px-10">
+        
+        <div class="text-eyebrow text-gray-500 tracking-wide">Events</div>
+        <h3 class="mt-3.5">ISPE Foundation 2nd Annual Charity Golf Tournament</h3>
+        <p class="mt-3">These blocks will have a strict character limit. We suggest manually managing these to ensure ideal presentation.</p>
+        <div class="absolute bottom-7 inset-x-10">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+    >
+        <span>Call to Action</span>
+            </a>
+
+        </div>
+    </div>
+
+                            </div>
+        </div>
+
+        <div class="w-full grid grid-cols-2 gap-7.5">
+                            
+    
+                    
+                                                
+    
+
+
+
+    <div class="relative bg-white h-75 shadow-md-heavy pt-9 pb-9.5 px-15">
+        
+        <div class="text-eyebrow text-gray-500 tracking-wide">Workforce Diversity</div>
+        <h3 class="mt-3.5">Women in Pharma</h3>
+        <p class="mt-3">Learn more about internship opportunities. This is placeholder text. Link to ISPE.org or the foundation webpage.</p>
+        <div class="absolute bottom-9.5 inset-x-15">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+    >
+        <span>Call to Action</span>
+            </a>
+
+        </div>
+    </div>
+
+                            
+    
+                    
+                                                
+    
+
+
+
+    <div class="relative bg-white h-75 shadow-md-heavy pt-9 pb-9.5 px-15">
+        
+        <div class="text-eyebrow text-gray-500 tracking-wide">Scholarships & Grants</div>
+        <h3 class="mt-3.5">ISPE Student/Recent Graduate Grant Program</h3>
+        <p class="mt-3">A unique opportunity for students and recent graduates to experience an ISPE conference.</p>
+        <div class="absolute bottom-9.5 inset-x-15">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+    >
+        <span>Call to Action</span>
+            </a>
+
+        </div>
+    </div>
+
+                    </div>
+
+        <div class="w-full grid grid-cols-1">
+                            
+    
+                    
+                                                
+    
+
+
+
+    <div class="relative bg-white h-75 shadow-md-heavy pt-21 pb-12.5 px-15">
+        
+        <div class="text-eyebrow text-gray-500 tracking-wide">Workforce Diversity</div>
+        <h3 class="mt-3.5">Women in Pharma</h3>
+        <p class="mt-3">Learn more about internship opportunities. This is placeholder text. Link to ISPE.org or the foundation webpage.</p>
+        <div class="absolute bottom-12.5 inset-x-15">
+                
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+    >
+        <span>Call to Action</span>
+            </a>
+
+        </div>
+    </div>
+
+                    </div>
+    </div>
+        </div>
+    </div>
+
+            </div>
+                    <div id="local-4-17-regular-cards">
+                
+
+
+
+
+
+
+
+
+<div>
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.17 Regular Cards</h2>
+    </div>
+</div>
+</div>
+            
+                
+                                        
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5  mb-8.75">
+        <div class="max-w-content-container-limit mx-auto  ">
+
+        
+                
+                                    
+        <div class="grid md:grid-cols-1 grid-rows-min gap-6 md:gap-12 lg:gap-19.5 md:px-content-container">
+                                
+    <div class="flex flex-col items-center">
+        <img src="./assets/content-1500-840-1.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-8">Impact Story Here</h3>
+        <div class="px-content-container md:px-0 text-center mt-4">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.</div>
+
+        
+            </div>
+
+                    </div>
+            </div>
+    </div>
+
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto  ">
+
+        
+                
+                                    
+        <div class="grid md:grid-cols-2 grid-rows-min gap-6 md:gap-12 lg:gap-19.5 md:px-content-container">
+                                
+    <div class="flex flex-col items-center">
+        <img src="./assets/content-750-420-1.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-8">Impact Story Here</h3>
+        <div class="px-content-container md:px-0 text-center mt-4">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.</div>
+
+        
+            </div>
+
+                                
+    <div class="flex flex-col items-center">
+        <img src="./assets/content-750-420-1.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-8">Impact Story Here</h3>
+        <div class="px-content-container md:px-0 text-center mt-4">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.</div>
+
+        
+            </div>
+
+                    </div>
+            </div>
+    </div>
+
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto  ">
+
+        
+                
+                
+        <div class="grid md:grid-cols-2 grid-rows-min gap-10 md:gap-7 lg:gap-10 md:px-content-container">
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-2.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Max of Sixty Character Header Article Title Goes Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">Max of 220 character count description goes here. The description should be brief, interesting, and entice the user to click and read more. This content is dynamically generated from the News section.</div>
+
+        
+                                    <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-4.5 px-content-container md:px-0">
+                        <div>
+        <a href="https://www.example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
+            
+            <span>Read more</span>
+
+                            <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+                    <svg width="8" height="9" viewbox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title></title>
+	<g clip-path="url(#clip0_675_26598)">
+		<path d="M7.0364 4.45409C7.0364 4.58686 6.9857 4.71961 6.88453 4.82084L3.69911 8.00623C3.49647 8.20886 3.16794 8.20886 2.96539 8.00623C2.76284 7.80368 2.76284 7.47521 2.96539 7.27256L5.78403 4.45409L2.96549 1.6356C2.76294 1.43297 2.76294 1.10453 2.96549 0.901999C3.16804 0.699269 3.49657 0.699269 3.6992 0.901999L6.88462 4.08734C6.98582 4.18861 7.0364 4.32137 7.0364 4.45409Z" fill="#0052A5"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_675_26598">
+			<rect width="7.40827" height="7.40827" fill="white" transform="matrix(0 -1 1 0 0.220703 8.1582)"/>
+		</clipPath>
+	</defs>
+</svg>
+            </span>
+
+                    </a>
+    </div>
+
+                </div>
+                        </div>
+
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-2.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Max of Sixty Character Header Article Title Goes Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">Max of 220 character count description goes here. The description should be brief, interesting, and entice the user to click and read more. This content is dynamically generated from the News section.</div>
+
+        
+                                    <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-4.5 px-content-container md:px-0">
+                        <div>
+        <a href="https://www.example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
+            
+            <span>Read more</span>
+
+                            <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+                    <svg width="8" height="9" viewbox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title></title>
+	<g clip-path="url(#clip0_675_26598)">
+		<path d="M7.0364 4.45409C7.0364 4.58686 6.9857 4.71961 6.88453 4.82084L3.69911 8.00623C3.49647 8.20886 3.16794 8.20886 2.96539 8.00623C2.76284 7.80368 2.76284 7.47521 2.96539 7.27256L5.78403 4.45409L2.96549 1.6356C2.76294 1.43297 2.76294 1.10453 2.96549 0.901999C3.16804 0.699269 3.49657 0.699269 3.6992 0.901999L6.88462 4.08734C6.98582 4.18861 7.0364 4.32137 7.0364 4.45409Z" fill="#0052A5"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_675_26598">
+			<rect width="7.40827" height="7.40827" fill="white" transform="matrix(0 -1 1 0 0.220703 8.1582)"/>
+		</clipPath>
+	</defs>
+</svg>
+            </span>
+
+                    </a>
+    </div>
+
+                </div>
+                        </div>
+
+                    </div>
+            </div>
+    </div>
+
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto  ">
+
+        
+                
+                
+        <div class="grid md:grid-cols-3 grid-rows-min gap-10 md:gap-7 lg:gap-10 md:px-content-container">
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-3.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">ISPE Academic Scholarship Fund</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+                    <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-3.5 px-content-container md:px-0 flex flex-col gap-3.5">
+                            <a href="https://www.example.com" class="text-blue-800 text-sm font-bold tracking-wider">This is a sample link</a>
+                            <a href="https://www.example.com" class="text-blue-800 text-sm font-bold tracking-wider">This is a sample link</a>
+                        </div>
+        
+                                    <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Read More</span>
+            </a>
+
+                </div>
+                        </div>
+
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-4.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Professional Development Grants</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+                    <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-3.5 px-content-container md:px-0 flex flex-col gap-3.5">
+                            <a href="https://www.example.com" class="text-blue-800 text-sm font-bold tracking-wider">This is a sample link</a>
+                            <a href="https://www.example.com" class="text-blue-800 text-sm font-bold tracking-wider">This is a sample link</a>
+                        </div>
+        
+                                    <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Read More</span>
+            </a>
+
+                </div>
+                        </div>
+
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-5.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">ISPE Academic Scholarship Fund</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+                    <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-3.5 px-content-container md:px-0 flex flex-col gap-3.5">
+                            <a href="https://www.example.com" class="text-blue-800 text-sm font-bold tracking-wider">This is a sample link</a>
+                            <a href="https://www.example.com" class="text-blue-800 text-sm font-bold tracking-wider">This is a sample link</a>
+                        </div>
+        
+                                    <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Read More</span>
+            </a>
+
+                </div>
+                        </div>
+
+                    </div>
+            </div>
+    </div>
+
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto  ">
+
+        
+                
+                
+        <div class="grid md:grid-cols-3 grid-rows-min gap-10 md:gap-7 lg:gap-10 md:px-content-container">
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-1.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Program Title Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+        
+                                    <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Optional Button</span>
+            </a>
+
+                </div>
+                        </div>
+
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-2.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Program Title Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+        
+                                    <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Optional Button</span>
+            </a>
+
+                </div>
+                        </div>
+
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-3.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Program Title Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+        
+                                    <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Optional Button</span>
+            </a>
+
+                </div>
+                        </div>
+
+                    </div>
+            </div>
+    </div>
+
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto  ">
+
+        
+                
+                
+        <div class="grid md:grid-cols-3 grid-rows-min gap-10 md:gap-7 lg:gap-10 md:px-content-container">
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-3.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Donar Name Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+        
+                                    <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-4.5 px-content-container md:px-0">
+                        <div>
+        <a href="https://www.example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
+            
+            <span>Read more</span>
+
+                            <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+                    <svg width="8" height="9" viewbox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title></title>
+	<g clip-path="url(#clip0_675_26598)">
+		<path d="M7.0364 4.45409C7.0364 4.58686 6.9857 4.71961 6.88453 4.82084L3.69911 8.00623C3.49647 8.20886 3.16794 8.20886 2.96539 8.00623C2.76284 7.80368 2.76284 7.47521 2.96539 7.27256L5.78403 4.45409L2.96549 1.6356C2.76294 1.43297 2.76294 1.10453 2.96549 0.901999C3.16804 0.699269 3.49657 0.699269 3.6992 0.901999L6.88462 4.08734C6.98582 4.18861 7.0364 4.32137 7.0364 4.45409Z" fill="#0052A5"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_675_26598">
+			<rect width="7.40827" height="7.40827" fill="white" transform="matrix(0 -1 1 0 0.220703 8.1582)"/>
+		</clipPath>
+	</defs>
+</svg>
+            </span>
+
+                    </a>
+    </div>
+
+                </div>
+                        </div>
+
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-4.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Donar Name Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+        
+                                    <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-4.5 px-content-container md:px-0">
+                        <div>
+        <a href="https://www.example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
+            
+            <span>Read more</span>
+
+                            <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+                    <svg width="8" height="9" viewbox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title></title>
+	<g clip-path="url(#clip0_675_26598)">
+		<path d="M7.0364 4.45409C7.0364 4.58686 6.9857 4.71961 6.88453 4.82084L3.69911 8.00623C3.49647 8.20886 3.16794 8.20886 2.96539 8.00623C2.76284 7.80368 2.76284 7.47521 2.96539 7.27256L5.78403 4.45409L2.96549 1.6356C2.76294 1.43297 2.76294 1.10453 2.96549 0.901999C3.16804 0.699269 3.49657 0.699269 3.6992 0.901999L6.88462 4.08734C6.98582 4.18861 7.0364 4.32137 7.0364 4.45409Z" fill="#0052A5"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_675_26598">
+			<rect width="7.40827" height="7.40827" fill="white" transform="matrix(0 -1 1 0 0.220703 8.1582)"/>
+		</clipPath>
+	</defs>
+</svg>
+            </span>
+
+                    </a>
+    </div>
+
+                </div>
+                        </div>
+
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-5.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Donar Name Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</div>
+
+        
+                                    <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-4.5 px-content-container md:px-0">
+                        <div>
+        <a href="https://www.example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
+            
+            <span>Read more</span>
+
+                            <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+                    <svg width="8" height="9" viewbox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title></title>
+	<g clip-path="url(#clip0_675_26598)">
+		<path d="M7.0364 4.45409C7.0364 4.58686 6.9857 4.71961 6.88453 4.82084L3.69911 8.00623C3.49647 8.20886 3.16794 8.20886 2.96539 8.00623C2.76284 7.80368 2.76284 7.47521 2.96539 7.27256L5.78403 4.45409L2.96549 1.6356C2.76294 1.43297 2.76294 1.10453 2.96549 0.901999C3.16804 0.699269 3.49657 0.699269 3.6992 0.901999L6.88462 4.08734C6.98582 4.18861 7.0364 4.32137 7.0364 4.45409Z" fill="#0052A5"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_675_26598">
+			<rect width="7.40827" height="7.40827" fill="white" transform="matrix(0 -1 1 0 0.220703 8.1582)"/>
+		</clipPath>
+	</defs>
+</svg>
+            </span>
+
+                    </a>
+    </div>
+
+                </div>
+                        </div>
+
+                    </div>
+            </div>
+    </div>
+
+            
+                
+                                        
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 ">
+        <div class="max-w-content-container-limit mx-auto  ">
+
+        
+                
+                
+        <div class="grid md:grid-cols-2 grid-rows-min gap-10 md:gap-7 lg:gap-10 md:px-content-container">
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-1.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Max of Sixty Chracter Header Artlce Title Goes Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">Max of 220 character count description goes here. The description should be brief, interesting, and entice the user to click and read more. This content is dynamically generated from the News section.</div>
+
+        
+                                    <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Read More</span>
+            </a>
+
+                </div>
+                        </div>
+
+                                
+    <div class="flex flex-col ">
+        <img src="./assets/content-750-420-2.png" alt="" class="max-h-105 w-full object-cover">
+        <h3 class="px-content-container md:px-0 mt-6.5 md:mt-4 lg:mt-6.5">Max of Sixty Chracter Header Artlce Title Goes Here</h3>
+        <div class="px-content-container md:px-0 mt-3 lg:mt-1.5">Max of 220 character count description goes here. The description should be brief, interesting, and entice the user to click and read more. This content is dynamically generated from the News section.</div>
+
+        
+                                    <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-sm leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Read More</span>
+            </a>
+
+                </div>
+                        </div>
+
+                    </div>
+            </div>
+    </div>
+
+            </div>
             </div>
 
     
@@ -2304,6 +3047,8 @@ tailwind.config = {
                                     <a @click="closeMenu()" href="#local-4-3-stacked-blocks-short-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-3-stacked-blocks-short-image</a>
                                     <a @click="closeMenu()" href="#local-4-4-testimonial" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-4-testimonial</a>
                                     <a @click="closeMenu()" href="#local-4-14-accordion" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-14-accordion</a>
+                                    <a @click="closeMenu()" href="#local-4-17-slider-cards" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-17-slider-cards</a>
+                                    <a @click="closeMenu()" href="#local-4-17-regular-cards" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-17-regular-cards</a>
                             </div>
 
             
