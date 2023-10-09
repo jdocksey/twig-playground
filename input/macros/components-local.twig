@@ -51,8 +51,8 @@
 {% macro card_regular(title = '', description = '', links = [], main_link_url = '', main_link_text = '', main_link_style = 'block', img_file = '', impact = false, size = 's') %}
     <div class="flex flex-col {{ impact ? 'items-center' }}">
         <img src="./assets/{{ img_file }}" alt="">
-        <h3 class="mt-8">{{ title }}</h3>
-        <div class="mt-4">{{ description }}</div>
+        <h3 class="{{ impact ? 'mt-8' : 'mt-6.5' }}">{{ title }}</h3>
+        <div class="{{ impact ? 'mt-4' : 'mt-3' }}">{{ description }}</div>
 
         {% if links.length > 0 %}
             <div>
@@ -65,7 +65,9 @@
         {# TODO: Verify this treats empty strings as `false` #}
         {% if main_link_url and main_link_text %}
             {% if main_link_style == 'block' %}
-                {{ link_block(main_link_url, main_link_text) }}
+                <div class="w-fit mt-6.5">
+                    {{ link_block(main_link_url, main_link_text) }}
+                </div>
             {% elseif main_link_style == 'button' %}
                 {{ link_button(main_link_url, main_link_text, 's', false, true, false) }}
             {% endif %}
