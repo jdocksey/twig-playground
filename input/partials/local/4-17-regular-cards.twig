@@ -229,9 +229,9 @@
 
 {% set card_sets = [
     our_impact_cards_single,
+    our_impact_cards_double,
 ] %}
 {#
-    our_impact_cards_double,
     whats_happening_cards,
     related_programs_1_cards,
     related_programs_2_cards,
@@ -249,9 +249,11 @@
             {% set size = cards.length == 2 ? 'm' : 's' %}
         {% endif %}
 
-         {% set grid_cols = 'grid-cols-' ~ cards.length %}
-         {% set gap = card.impact ? 'gap-19.5' : 'gap-10.5' %}
-        <div class="grid {{ grid_cols }} {{ gap }}">
+        {# TODO: Remember that dynamically-constructed classes will not work in production #}
+        {% set grid_cols = 'md:grid-cols-' ~ cards.length %}
+        {% set grid_rows = 'grid-rows-min' %}
+        {% set gap = cards[0].impact ? 'gap-7 gap-12 lg:gap-19.5' : 'gap-10.5' %}
+        <div class="grid {{ grid_cols }} {{ grid_rows }} {{ gap }}">
             {% for card in cards %}
                 {{ card_regular(card.title, card.description, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_file, card.impact, size) }}
             {% endfor %}
