@@ -47,8 +47,7 @@
     </div>
 {% endmacro %}
 
-{# TODO: Remove the `size` parameter, as this is just a work-around for this code which doesn't have access to the Tailwind `container-queries` plugin (it isn't available for use with the CDN) #}
-{% macro card_regular(title = '', description = '', links = [], main_link_url = '', main_link_text = '', main_link_style = 'block', img_file = '', impact = false, size = 's') %}
+{% macro card_regular(title = '', description = '', links = [], main_link_url = '', main_link_text = '', main_link_style = 'block', img_file = '', impact = false) %}
     {% set content_padding = 'px-content-container md:px-0' %}
 
     <div class="flex flex-col {{ impact ? 'items-center' }}">
