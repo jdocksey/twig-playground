@@ -110,6 +110,7 @@
 
 
     <div class="relative bg-white h-75 shadow-md-heavy {{ padding }}">
+        {# TODO: This needs to be `tracking-[0.08em]` #}
         <div class="text-eyebrow text-gray-500 tracking-wide">{{ eyebrow }}</div>
         <h3 class="mt-3.5">{{ title }}</h3>
         <p class="mt-3">{{ description }}</p>
@@ -144,6 +145,8 @@
     </div>
 {% endmacro %}
 
+{# TODO: Enforce a max-height of 420px on the image #}
+{# TODO: Read through and respond to Kristin's Figma comments: https://www.figma.com/file/LvVTEhpoWhY7oIGzmzSkPx?node-id=551:10734&mode=design#575144728 #}
 {% macro stacked_block(title = '', body_text = '', highlights = [], cta_url = '', cta_text = '', order_flag = true) %}
     {% set order_image = order_flag ? 'order-1' : 'order-2' %}
     {% set order_text = order_flag ? 'order-2' : 'order-1' %}
@@ -168,6 +171,8 @@
     </div>
 {% endmacro %}
 
+{# TODO: Enforce a max-height of 420px on the image #}
+{# TODO: Read through and respond to Kristin's Figma comments: https://www.figma.com/file/LvVTEhpoWhY7oIGzmzSkPx?node-id=551:10734&mode=design#575144728 #}
 {% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  cta_url = '', cta_text = '', img_src = '', img_alt_text = '', img_link_url = '', img_link_text = '', order_flag = true) %}
     {% set md_image_col = order_flag ? 'md:col-start-1' : 'md:col-start-2' %}
     {% set md_text_col = order_flag ? 'md:col-start-2' : 'md:col-start-1' %}
