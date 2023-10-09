@@ -52,7 +52,7 @@
     {% set content_padding = 'px-content-container md:px-0' %}
 
     <div class="flex flex-col {{ impact ? 'items-center' }}">
-        <img src="./assets/{{ img_file }}" alt="" class="h-full max-h-105 w-full object-cover">
+        <img src="./assets/{{ img_file }}" alt="" class="max-h-105 w-full object-cover">
         <h3 class="{{ content_padding }} {{ impact ? 'mt-8' : 'mt-6.5 md:mt-4 lg:mt-6.5' }}">{{ title }}</h3>
         <div class="{{ content_padding }} {{ impact ? 'text-center mt-4' : 'mt-3 lg:mt-1.5' }}">{{ description }}</div>
 
