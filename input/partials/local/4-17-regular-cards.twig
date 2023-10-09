@@ -252,7 +252,7 @@
         {# TODO: Remember that dynamically-constructed classes will not work in production #}
         {% set grid_cols = 'md:grid-cols-' ~ cards.length %}
         {% set grid_rows = 'grid-rows-min' %}
-        {% set gap = cards[0].impact ? 'gap-6 md:gap-12 lg:gap-19.5' : 'md:gap-7' %}
+        {% set gap = cards[0].impact ? 'gap-6 md:gap-12 lg:gap-19.5' : 'gap-10 md:gap-7' %}
         <div class="grid {{ grid_cols }} {{ grid_rows }} {{ gap }} md:px-content-container">
             {% for card in cards %}
                 {{ card_regular(card.title, card.description, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_file, card.impact, size) }}

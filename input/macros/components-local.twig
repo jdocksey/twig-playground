@@ -53,8 +53,8 @@
 
     <div class="flex flex-col {{ impact ? 'items-center' }}">
         <img src="./assets/{{ img_file }}" alt="" class="h-full max-h-105 w-full object-cover">
-        <h3 class="{{ content_padding }} {{ impact ? 'mt-8' : 'mt-6.5 lg:mt-4' }}">{{ title }}</h3>
-        <div class="{{ content_padding }} {{ impact ? 'text-center mt-4' : 'mt-3' }}">{{ description }}</div>
+        <h3 class="{{ content_padding }} {{ impact ? 'mt-8' : 'mt-6.5 md:mt-4 lg:mt-6.5' }}">{{ title }}</h3>
+        <div class="{{ content_padding }} {{ impact ? 'text-center mt-4' : 'mt-3 lg:mt-1.5' }}">{{ description }}</div>
 
         {% if links.length > 0 %}
             <div>
@@ -67,7 +67,7 @@
         {# TODO: Verify this treats empty strings as `false` #}
         {% if main_link_url and main_link_text %}
             {% if main_link_style == 'block' %}
-                <div class="w-fit mt-4 lg:mt-6.5 {{ content_padding }}">
+                <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-4.5 {{ content_padding }}">
                     {{ link_block(main_link_url, main_link_text) }}
                 </div>
             {% elseif main_link_style == 'button' %}
