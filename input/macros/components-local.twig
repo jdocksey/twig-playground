@@ -57,21 +57,22 @@
         <div class="{{ content_padding }} {{ impact ? 'text-center mt-4' : 'mt-3 lg:mt-1.5' }}">{{ description }}</div>
 
         {% if links.length > 0 %}
-            <div>
+            <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-3.5 {{ content_padding }} flex flex-col gap-3.5">
             {% for link in links %}
-                <a href="{{ link.url }}">{{ link.text }}</a>
+                <a href="{{ link.url }}" class="text-blue-800 text-sm font-bold tracking-wider">{{ link.text }}</a>
             {% endfor %}
             </div>
         {% endif %}
 
-        {# TODO: Verify this treats empty strings as `false` #}
         {% if main_link_url and main_link_text %}
             {% if main_link_style == 'block' %}
                 <div class="w-fit mt-5.5 md:mt-3.5 lg:mt-4.5 {{ content_padding }}">
                     {{ link_block(main_link_url, main_link_text) }}
                 </div>
             {% elseif main_link_style == 'button' %}
-                {{ link_button(main_link_url, main_link_text, 's', false, true, false) }}
+                <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 {{ content_padding }}">
+                    {{ link_button(main_link_url, main_link_text, 's', false, true, false) }}
+                </div>
             {% endif %}
         {% endif %}
     </div>
