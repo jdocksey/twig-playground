@@ -1,7 +1,7 @@
 {% from '@macros/components-local.twig' import card_regular %}
 {% import '@macros/section.twig' as section %}
 
-{% set our_impact_cards = [
+{% set our_impact_cards_single = [
     {
         title: 'Impact Story Here',
         description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.',
@@ -9,7 +9,19 @@
         main_link_url: '',
         main_link_text: '',
         main_link_style: '',
-        img_url: '',
+        img_file: 'content-1500-840-1.jpeg',
+        impact: true,
+    },
+] %}
+{% set our_impact_cards_double = [
+    {
+        title: 'Impact Story Here',
+        description: 'At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputat. At eripuit signiferumque sea, vel ad mucius molestie.',
+        links: [],
+        main_link_url: '',
+        main_link_text: '',
+        main_link_style: '',
+        img_file: 'content-750-420-1.png',
         impact: true,
     },
     {
@@ -19,7 +31,7 @@
         main_link_url: '',
         main_link_text: '',
         main_link_style: '',
-        img_url: '',
+        img_file: 'content-750-420-1.png',
         impact: true,
     },
 ] %}
@@ -32,7 +44,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read more',
         main_link_style: 'block',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -42,7 +54,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read more',
         main_link_style: 'block',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
 ] %}
@@ -58,7 +70,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read More',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -71,7 +83,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read More',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -84,7 +96,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read More',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
 ] %}
@@ -100,7 +112,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Optional Button',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -113,7 +125,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read More',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -126,7 +138,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Optional Button',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -139,7 +151,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read More',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -152,7 +164,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Optional Button',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -165,7 +177,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read More',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
 ] %}
@@ -181,7 +193,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read more',
         main_link_style: 'blockkkzzzzz',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
     {
@@ -194,7 +206,7 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read More',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
 ] %}
@@ -202,7 +214,7 @@
 {% set miscellaneous_cards = [
     {
         title: 'Max of Sixty Chracter Header Artlce Title Goes Here',
-        description: 'count'
+        description: 'count',
         links: [
             { url: 'https://www.example.com', text: 'This is a sample link' },
             { url: 'https://www.example.com', text: 'This is a sample link' },
@@ -210,19 +222,22 @@
         main_link_url: 'https://www.example.com',
         main_link_text: 'Read More',
         main_link_style: 'button',
-        img_url: '',
+        img_file: '',
         impact: false,
     },
 ] %}
 
 {% set card_sets = [
-    our_impact_cards,
+    our_impact_cards_single,
+] %}
+{#
+    our_impact_cards_double,
     whats_happening_cards,
     related_programs_1_cards,
     related_programs_2_cards,
     donor_spotlight_cards,
     miscellaneous_cards,
-] %}
+#}
 
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.17 Regular Cards' } only %}
@@ -238,8 +253,7 @@
          {% set gap = card.impact ? 'gap-19.5' : 'gap-10.5' %}
         <div class="grid {{ grid_cols }} {{ gap }}">
             {% for card in cards %}
-                {# TODO: Something with "links" somewhere in this file appears to be causing a rendering error #}
-                {{ card_regular(card.title, card.description, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_url, card.impact, size) }}
+                {{ card_regular(card.title, card.description, card.links, card.main_link_url, card.main_link_text, card.main_link_style, card.img_file, card.impact, size) }}
             {% endfor %}
         </div>
     {{ section.end() }}
