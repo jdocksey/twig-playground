@@ -1,0 +1,16 @@
+{% from '@macros/components-local.twig' import counter %}
+{% import '@macros/section.twig' as section %}
+
+{% set textGroups = [
+    { numberText: '641+', description: 'Number of Grants' },
+    { numberText: '$75k', description: 'Charitable Support' },
+    { numberText: '500+', description: 'Grantees' },
+    { numberText: '14+',  description: 'Initiatives & Campaigns' },
+] %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '4.12 Counter' } only %}
+</div>
+{{ section.start(true, true, true, '') }}
+    {{ counter(textGroups) }}
+{{ section.end() }}

@@ -123,6 +123,21 @@
     </div>
 {% endmacro %}
 
+{% macro counter(textGroups = []) %}
+    <div class="flex">
+        {% for textGroup in textGroups %}
+            <div class="flex flex-col items-center">
+                <div>{{ textGroup.numberText }}</div>
+                <div>{{ textGroup.description }}</div>
+            </div>
+            {% if not loop.last %}
+                {# TODO: Use the correct color #}
+                <div class="h-24 border border-white"></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
 {% macro featured_content(text = '', link_text = '', link_url = '') %}
 <div class="w-full flex">
     <div class="grow-0 w-2 bg-blue-800"></div>
