@@ -34,6 +34,10 @@ tailwind.config = {
     fontSize: {
       'xs':    ['0.8125rem', 'normal'],  // 13px
       'sm':    ['0.875rem',  '1.42857'], // 14px, 20px
+      // TODO: Rename this util and the preceding ones
+      // TODO: Update the ISPE repo
+      // TODO: Update the dev-helper page
+      'sm-new': ['0.9375rem', 'normal'], // 15px
       'base':  ['1rem',      '1.5625'],  // 16px, 25px
       'lg':    ['1.0625rem', 'normal'],  // 17px
       'xl':    ['1.125rem',  'normal'],  // 18px
@@ -43,6 +47,7 @@ tailwind.config = {
       '5xl':   ['1.875rem',  'normal'],  // 30px
       '6xl':   ['2.1875rem', 'normal'],  // 35px
       '7xl':   ['2.8125rem', 'normal'],  // 45px
+      '8xl':   ['3.75rem',   'normal'],  // 60px
       'super': ['12.5rem',   'normal'],  // 200px
     },
     lineHeight: {
@@ -181,6 +186,7 @@ tailwind.config = {
         26: '6.5rem',
         29: '7.25rem',
         30: '7.5rem',
+        43.5: '10.875rem',
         86: '21.5rem',
       },
     },
