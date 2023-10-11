@@ -96,7 +96,6 @@ tailwind.config = {
       },
     },
     extend: {
-      // TODO: Move this out of `extend` when moving into the production code base
       colors: {
         black: '#000000',
         blue: {
@@ -162,7 +161,6 @@ tailwind.config = {
         'content-container-limit': '1248px',
       },
       gap: {
-        10.5: '2.625rem',
         19.5: '4.875rem'
       },
       spacing: {
