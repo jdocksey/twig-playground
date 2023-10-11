@@ -1,5 +1,5 @@
 {% from '@macros/components-local.twig' import counter %}
-{% import '@macros/section.twig' as section %}
+{% import '@macros/section-simple.twig' as section_simple %}
 
 {% set textGroups = [
     { numberText: '641+', description: 'Number of Grants' },
@@ -11,4 +11,6 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.12 Counter' } only %}
 </div>
-{{ counter(textGroups) }}
+{{ section_simple.start('bg-blue-400') }}
+    {{ counter(textGroups) }}
+{{ section_simple.end() }}
