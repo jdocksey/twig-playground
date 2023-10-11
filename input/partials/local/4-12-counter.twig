@@ -2,10 +2,10 @@
 {% import '@macros/section-simple.twig' as section_simple %}
 
 {% set textGroups = [
-    { numberText: '641+', description: 'Number of Grants' },
-    { numberText: '$75k', description: 'Charitable Support' },
-    { numberText: '500+', description: 'Grantees' },
-    { numberText: '14+',  description: 'Initiatives & Campaigns' },
+    { target: 641, prefix: '',  postfix: '+', label: 'Number of Grants' },
+    { target: 75,  prefix: '$', postfix: 'k', label: 'Charitable Support' },
+    { target: 500, prefix: '',  postfix: '+', label: 'Grantees' },
+    { target: 14,  prefix: '',  postfix: '+', label: 'Initiatives & Campaigns' },
 ] %}
 
 <div>

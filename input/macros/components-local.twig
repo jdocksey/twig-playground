@@ -129,11 +129,33 @@
         md:grid md:grid-cols-2 md:grid-rows-2 md:gap-y-10vw md:py-5.75vw md:px-20
         lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-0 lg:pt-17.5 lg:pb-20 lg:px-14
     ">
-        {% for textGroup in textGroups %}
-            {# TODO: Vertically-center the "+" text #}
-            <div class="flex flex-col items-center gap-1 md:gap-0 px-4 md:px-0">
-                <div class="text-8xl text-blue-800 text-center">{{ textGroup.numberText }}</div>
-                <div class="text-sm text-white font-bold text-center uppercase">{{ textGroup.description }}</div>
+        {% for t in textGroups %}
+            {% set postfix_class = t.postfix == '+' ? 'relative bottom-1.25' %}
+            {# Code for the count-up functionality copied from: https://stackoverflow.com/a/76659064 #}
+            <div class="flex flex-col items-center gap-1 md:gap-0 px-4 md:px-0"
+                x-data="{ visible: false, start: 0, target: {{ t.target }}, duration: 3000 }"
+                x-intersect:enter.full="visible = true" x-intersect:leave="visible = false; start = 0"
+                x-init="$watch('visible', value => {
+                    const $el = $refs.el;
+                    const step = (timestamp) => {
+                        if (!start) {
+                            start = timestamp;
+                        }
+                        const progress = timestamp - start;
+                        const percentage = Math.min(progress / duration, 1);
+                        const value = Math.floor(percentage * target);
+                        $el.innerHTML = value.toLocaleString();
+                        if (progress < duration) {
+                            window.requestAnimationFrame(step);
+                        }
+                    };
+                    window.requestAnimationFrame(step);
+                })"
+            >
+                <div class="text-8xl text-blue-800 text-center">
+                    <span>{{ t.prefix }}</span><span x-ref="el">{{ t.start }}</span><span class="{{ postfix_class }}">{{ t.postfix }}</span>
+                </div>
+                <div class="text-sm text-white font-bold text-center uppercase">{{ t.label }}</div>
             </div>
             {% if not loop.last %}
                 <div class="hidden lg:block h-43.5 border-l border-white"></div>
