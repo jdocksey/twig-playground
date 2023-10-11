@@ -70,14 +70,14 @@
         {# Table of contents #}
         <div x-show="!menu.show"
             @click="menu.show = !menu.show"
-            class="cursor-pointer text-center p-4 w-[4.5rem] md:w-[5.5rem] lg:w-28 bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+            class="cursor-pointer text-center p-4 w-[4.5rem] md:w-[5.5rem] lg:w-28 bg-white opacity-50 hover:opacity-100 transition-opacity text-xs font-mono border border-black rounded-md"
         >...</div>
 
         <div x-collapse
             x-cloak
             x-show="menu.show"
             @click.outside="closeMenu()"
-            class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto min-w-[4.5rem] md:min-w-[5.5rem] lg:min-w-[7rem] flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-sm font-mono border border-black rounded-md"
+            class="hover:h-full hover:w-fit 2xl:h-full 2xl:w-fit overflow-y-auto min-w-[4.5rem] md:min-w-[5.5rem] lg:min-w-[7rem] flex flex-col bg-white opacity-50 hover:opacity-100 transition-opacity text-xs font-mono border border-black rounded-md"
         >
             {% set link_classes = 'p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100' %}
             {# 'global' links #}
@@ -105,7 +105,7 @@
 
         {# Breakpoint indicator #}
         <div inert class="w-fit bg-white opacity-50 flex flex-col items-center gap-2 p-4 md:p-6 lg:p-8 font-mono border border-black rounded-md">
-            <div class="text-xs lg:text-sm">size:</div>
+            <div class="text-2xs lg:text-xs">size:</div>
             <div class="h-0 w-8 md:w-10 lg:w-12 opacity-50 border-t border-black"></div>
             <div class="text-xl md:text-2xl lg:text-4xl">
                 <span class="sm:hidden">XS</span>

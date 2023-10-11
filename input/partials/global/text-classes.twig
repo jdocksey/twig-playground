@@ -3,8 +3,9 @@
 {% import '@macros/section.twig' as section %}
 
 {% set text_sizes = [
-    { class: 'xs',    size_rem: '0.8125rem', size_px: '13px', line_height_relative: 'normal',  line_height_px: null   },
-    { class: 'sm',    size_rem: '0.875rem',  size_px: '14px', line_height_relative: '1.42857', line_height_px: '20px' },
+    { class: '2xs',   size_rem: '0.8125rem', size_px: '13px', line_height_relative: 'normal',  line_height_px: null   },
+    { class: 'xs',    size_rem: '0.875rem',  size_px: '14px', line_height_relative: '1.42857', line_height_px: '20px' },
+    { class: 'sm',    size_rem: '0.9375rem', size_px: '15px', line_height_relative: 'nomral',  line_height_px: null   },
     { class: 'base',  size_rem: '1rem',      size_px: '16px', line_height_relative: '1.5625',  line_height_px: '25px' },
     { class: 'lg',    size_rem: '1.0625rem', size_px: '17px', line_height_relative: 'normal',  line_height_px: null   },
     { class: 'xl',    size_rem: '1.125rem',  size_px: '18px', line_height_relative: 'normal',  line_height_px: null   },
@@ -40,8 +41,8 @@
 ] %}
 
 {{ section.start(gray_background, first, last, 'flex flex-col gap-12') }}
-    {% set header_classes = 'font-mono font-bold text-sm text-gray-950' %}
-    {% set interactive_classes = 'font-mono text-sm py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer' %}
+    {% set header_classes = 'font-mono font-bold text-xs text-gray-950' %}
+    {% set interactive_classes = 'font-mono text-xs py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer' %}
 
     <div x-data class="flex flex-wrap gap-y-8 gap-x-16 xl:justify-between">
         {# Text #}

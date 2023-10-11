@@ -37,7 +37,7 @@
                             {% include '@icons/cross.twig' with { alt_text: 'close intra-page navigation' } only %}
                         </span>
                     </span>
-                    <span class="text-sm font-bold">on this page</span>
+                    <span class="text-xs font-bold">on this page</span>
                 </button>
                 <div class="relative">
                     <div x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 z-20 overflow-hidden pb-4">
@@ -46,7 +46,7 @@
                             <ol>
                                 {% for item in items %}
                                     <li>
-                                        <a @click="goToContent()" href="#3-3-left-nav-{{ item.id }}" class="block text-sm py-3 px-5">
+                                        <a @click="goToContent()" href="#3-3-left-nav-{{ item.id }}" class="block text-xs py-3 px-5">
                                             {{ item.text }}
                                         </a>
                                         {% if not loop.last %}

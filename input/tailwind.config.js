@@ -32,12 +32,9 @@ tailwind.config = {
       ],
     },
     fontSize: {
-      'xs':    ['0.8125rem', 'normal'],  // 13px
-      'sm':    ['0.875rem',  '1.42857'], // 14px, 20px
-      // TODO: Rename this util and the preceding ones
-      // TODO: Update the ISPE repo
-      // TODO: Update the dev-helper page
-      'sm-new': ['0.9375rem', 'normal'], // 15px
+      '2xs':   ['0.8125rem', 'normal'],  // 13px
+      'xs':    ['0.875rem',  '1.42857'], // 14px, 20px
+      'sm':    ['0.9375rem', 'normal'],  // 15px
       'base':  ['1rem',      '1.5625'],  // 16px, 25px
       'lg':    ['1.0625rem', 'normal'],  // 17px
       'xl':    ['1.125rem',  'normal'],  // 18px
