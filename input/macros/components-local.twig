@@ -125,9 +125,9 @@
 
 {% macro counter(textGroups = []) %}
     {# TODO: Use proper Tailwind utils #}
-    <div class="bg-blue-400 flex flex-col md:flex-row justify-center items-center gap-16 md:gap-11 pt-[60px] pb-[60px] md:pt-[70px] md:pb-[80px] px-content-container">
+    <div class="bg-blue-400 w-full flex flex-col md:flex-row justify-center md:justify-between items-center max-md:gap-16 pt-[60px] pb-[60px] md:pt-[70px] md:pb-[80px] px-content-container lg:px-14">
         {% for textGroup in textGroups %}
-            <div class="flex flex-col items-center gap-1 md:gap-0">
+            <div class="flex flex-col items-center gap-1 md:gap-0 max-lg:px-4">
                 <div class="text-8xl text-blue-800">{{ textGroup.numberText }}</div>
                 <div class="text-sm-new text-white font-bold text-center uppercase">{{ textGroup.description }}</div>
             </div>
