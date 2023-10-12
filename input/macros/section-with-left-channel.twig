@@ -3,7 +3,7 @@
     <div>
         <div class="
             max-w-content-container-limit mx-auto
-            md:px-6
+            md:px-content-container
             grid
             max-md:grid-flow-row
             md:grid-cols-[17rem_1fr]
@@ -29,7 +29,7 @@
 
 {# main-content macros #}
 {% macro main_content_start() %}
-    <div class="px-5 md:px-0">
+    <div class="max-md:px-content-container">
 {% endmacro %}
 
 {% macro main_content_end() %}
