@@ -44,7 +44,7 @@
     </a>
 {% endmacro %}
 
-{% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, new_tab = false) %}
+{% macro link_button(address = '', text = '', size = 's', wide = false, primary = true, new_tab = false, icon = '') %}
     {% set background = primary ? 'bg-blue-400 hover:bg-blue-950' : 'bg-cyan-50 hover:bg-blue-400' %}
 
     {% set padding = '' %}
@@ -78,7 +78,7 @@
         {% set icon_scale = 'scale-250' %}
     {% endif %}
 
-    {% set code_for_copying = "{{ link_button(\'address\', \'Label\', \'" ~ size ~ "\', " ~ wide ~ ", " ~ primary ~ ", " ~ new_tab ~ ") }}" %}
+    {% set code_for_copying = "{{ link_button(\'address\', \'Label\', \'" ~ size ~ "\', " ~ wide ~ ", " ~ primary ~ ", " ~ new_tab ~ ", '') }}" %}
 
     <a x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
         {# TODO: Uncomment the following line for the production code (leaving it commented for now allows the link-buttons to be clicked for copying their usage code) #}
@@ -89,6 +89,9 @@
         <span>{{ text }}</span>
         {% if new_tab %}
             {% include '@globalPartials/link-icon.twig' with { class: icon_position ~ ' ' ~ icon_scale } only %}
+        {% elseif icon == 'pdf' %}
+            {# TODO: Fix the styling of this icon #}
+            {% include '@globalPartials/pdf-icon.twig' with { class: icon_position ~ ' ' ~ icon_scale ~ ' fill-blue-950' } only %}
         {% endif %}
     </a>
 {% endmacro %}

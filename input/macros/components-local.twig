@@ -164,6 +164,15 @@
     </div>
 {% endmacro %}
 
+{% macro download_cta(title = '', description = '', cta_url = '', cta_text, img_src = '') %}
+    <div class="flex flex-col items-center">
+        <h3>{{ title }}</h3>
+        <img src="{{ img_src }}" alt="{{ img_alt_text }}">
+        <div class="text-2xl leading-relaxed"></div>
+        {{ link_button('address', 'Label', 's', false, true, false, 'pdf') }}
+    </div>
+{% endmacro %}
+
 {% macro featured_content(text = '', link_text = '', link_url = '') %}
 <div class="w-full flex">
     <div class="grow-0 w-2 bg-blue-800"></div>

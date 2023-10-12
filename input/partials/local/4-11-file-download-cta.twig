@@ -1,0 +1,16 @@
+{% from '@macros/components-local.twig' import download_cta %}
+{% import '@macros/section.twig' as section %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '4.11 File Download CTA' } only %}
+</div>
+{{ section.start(true, true, true, '') }}
+    {{ download_cta(
+        'Scholarships & Grants One-Pager',
+        'Duis autem vel eum iriure dolor in hendrerit in vulputate molestie dolore feugiat nulla facilisis at vero eros et accumsan',
+        'https://www.example.com',
+        'Download PDF One-Pager',
+        './assets/file-download-preview.png',
+        ''
+    ) }}
+{{ section.end() }}
