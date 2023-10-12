@@ -123,6 +123,7 @@ tailwind.config = {
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
       },
       boxShadow: {
+        'sm': '4px 2px 10px 4px rgba(0, 0, 0, 0.06)',
         'md-heavy': '1px 4px 4px 0px rgba(0, 0, 0, 0.25)',
       },
       gridTemplateRows: {
@@ -149,6 +150,7 @@ tailwind.config = {
         72: '18rem',
       },
       maxHeight: {
+        58: '14.5rem',
         105: '26.26rem',
         116: '29rem',
       },

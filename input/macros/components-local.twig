@@ -164,12 +164,14 @@
     </div>
 {% endmacro %}
 
-{% macro download_cta(title = '', description = '', cta_url = '', cta_text, img_src = '') %}
+{% macro download_cta(title = '', description = '', cta_url = '', cta_label, img_src = '') %}
     <div class="flex flex-col items-center">
         <h3>{{ title }}</h3>
-        <img src="{{ img_src }}" alt="{{ img_alt_text }}">
-        <div class="text-2xl leading-relaxed"></div>
-        {{ link_button('address', 'Label', 's', false, true, false, 'pdf') }}
+        <img src="{{ img_src }}" alt="{{ img_alt_text }}" class="max-h-58 mt-7 shadow-sm">
+        <div class="text-2xl leading-relaxed mt-10">{{ description }}</div>
+        <div class="mt-12">
+            {{ link_button(cta_url, cta_label, 's', false, true, false, 'pdf') }}
+        </div>
     </div>
 {% endmacro %}
 
