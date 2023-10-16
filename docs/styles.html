@@ -69,13 +69,14 @@ tailwind.config = {
       'super': ['12.5rem',   'normal'],  // 200px
     },
     lineHeight: {
-      normal:   'normal',
-      match:    '1',
-      tight:    '1.11111',
-      snug:     '1.42857',
-      standard: '1.4375',
-      relaxed:  '1.5625',
-      loose:    '1.66666',
+      normal:     'normal',
+      match:      '1',
+      tight:      '1.11111',
+      snug:       '1.42857',
+      standard:   '1.4375',
+      relaxed:    '1.5',
+      loose:      '1.5625',
+      'loose-xl': '1.66666',
     },
     fontWeight: {
       normal: 400,
@@ -143,6 +144,7 @@ tailwind.config = {
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
       },
       boxShadow: {
+        'sm': '4px 2px 10px 4px rgba(0, 0, 0, 0.06)',
         'md-heavy': '1px 4px 4px 0px rgba(0, 0, 0, 0.25)',
       },
       gridTemplateRows: {
@@ -169,6 +171,7 @@ tailwind.config = {
         72: '18rem',
       },
       maxHeight: {
+        58: '14.5rem',
         105: '26.26rem',
         116: '29rem',
       },
@@ -263,7 +266,7 @@ tailwind.config = {
 
     .text-article {
       @apply text-xl;
-      @apply leading-loose;
+      @apply leading-loose-xl;
     }
 
     .text-detail {
@@ -297,7 +300,7 @@ tailwind.config = {
     }
 
     .text-widget {
-      @apply leading-relaxed;
+      @apply leading-loose;
       @apply text-gray-600;
     }
 
@@ -472,7 +475,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -487,7 +490,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, false, '') }}`)"
         
         
         
@@ -502,7 +505,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, true) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, true, '') }}`)"
         
         
         target="_blank"
@@ -522,7 +525,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, true) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, false, true, '') }}`)"
         
         
         target="_blank"
@@ -542,7 +545,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false, '') }}`)"
         
         
         
@@ -557,7 +560,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, false, '') }}`)"
         
         
         
@@ -572,7 +575,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, true) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, true, '') }}`)"
         
         
         target="_blank"
@@ -592,7 +595,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, true) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, false, true, '') }}`)"
         
         
         target="_blank"
@@ -612,7 +615,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, false, '') }}`)"
         
         
         
@@ -627,7 +630,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, false, '') }}`)"
         
         
         
@@ -642,7 +645,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, true) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, true, true, '') }}`)"
         
         
         target="_blank"
@@ -662,7 +665,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, true) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', false, false, true, '') }}`)"
         
         
         target="_blank"
@@ -684,7 +687,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false, '') }}`)"
         
         
         
@@ -699,7 +702,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false, '') }}`)"
         
         
         
@@ -714,7 +717,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'l\', true, true, false, '') }}`)"
         
         
         
@@ -1389,10 +1392,14 @@ tailwind.config = {
             </div>
                                     <div @click="() => navigator.clipboard.writeText(`leading-relaxed`)" class="flex font-mono text-xs py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
                 <div class="w-20 text-left">relaxed</div>
-                <div class="w-20 text-right">1.5625</div>
+                <div class="w-20 text-right">1.5</div>
             </div>
                                     <div @click="() => navigator.clipboard.writeText(`leading-loose`)" class="flex font-mono text-xs py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
                 <div class="w-20 text-left">loose</div>
+                <div class="w-20 text-right">1.5625</div>
+            </div>
+                                    <div @click="() => navigator.clipboard.writeText(`leading-loose-xl`)" class="flex font-mono text-xs py-4 px-4 hover:bg-gray-50 active:bg-gray-200 cursor-pointer">
+                <div class="w-20 text-left">loose-xl</div>
                 <div class="w-20 text-right">1.66666</div>
             </div>
                     </div>
@@ -1479,7 +1486,7 @@ tailwind.config = {
         <div>
         <div class="
             max-w-content-container-limit mx-auto
-            md:px-6
+            md:px-content-container
             grid
             max-md:grid-flow-row
             md:grid-cols-[17rem_1fr]
@@ -1620,7 +1627,7 @@ tailwind.config = {
             </div>
 
 
-            <div class="px-5 md:px-0">
+            <div class="max-md:px-content-container">
 
                 
     <div class="relative flex justify-center items-center h-86 bg-blue-800 pl-13 pr-16 md:pl-12 md:pr-16 lg:pl-16 lg:pr-21 overflow-hidden">
@@ -1687,7 +1694,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false, '') }}`)"
         
         
         
@@ -1758,7 +1765,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false, '') }}`)"
         
         
         
@@ -1841,7 +1848,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false, '') }}`)"
         
         
         
@@ -1929,7 +1936,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false, '') }}`)"
         
         
         
@@ -2018,7 +2025,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, true, false, '') }}`)"
         
         
         
@@ -2078,7 +2085,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false, '') }}`)"
         
         
         
@@ -2113,7 +2120,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false, '') }}`)"
         
         
         
@@ -2163,7 +2170,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', true, true, false, '') }}`)"
         
         
         
@@ -2201,6 +2208,53 @@ tailwind.config = {
         <div class="absolute bottom-12 right-21 md:right-26 lg:right-48 flex flex-col text-blue-400 font-semibold leading-snug">
             <div>Companyname</div>
             <div>Founder & CEO</div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+            </div>
+                    <div id="local-4-11-file-download-cta">
+                
+<div>
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.11 File Download CTA</h2>
+    </div>
+</div>
+</div>
+        
+                
+                    
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="max-w-max mx-auto flex flex-col md:flex-row items-center md:items-start md:gap-11">
+        <img src="./assets/file-download-preview.png" alt="" class="max-md:order-2 max-h-58 mt-7 md:mt-0 shadow-sm">
+        <div class="max-md:contents max-w-xl">
+            <h3 class="max-md:order-1 md:mt-1">Scholarships & Grants One-Pager</h3>
+            <div class="max-md:order-3 text-2xl leading-relaxed mt-10 md:mt-6">Duis autem vel eum iriure dolor in hendrerit in vulputate molestie dolore feugiat nulla facilisis at vero eros et accumsan</div>
+            <div class="max-md:order-4 mt-12 md:mt-7">
+                    
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Download PDF One-Pager</span>
+                    
+            <svg width="16" height="19" viewbox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5  fill-blue-950">
+	<path id="Vector" d="M7.57236 9.43468C7.38797 8.84463 7.39165 7.7051 7.4986 7.7051C7.80838 7.7051 7.77887 9.0659 7.57236 9.43468ZM7.50966 11.1753C7.2257 11.9203 6.87168 12.7721 6.46233 13.4876C7.1372 13.2294 7.90057 12.8533 8.78195 12.6799C8.3136 12.3259 7.86369 11.817 7.50966 11.1753ZM4.03945 15.7777C4.03945 15.8072 4.52624 15.5785 5.32649 14.2952C5.07941 14.5275 4.25334 15.1987 4.03945 15.7777ZM10.01 5.89071H15.0254V17.9867C15.0254 18.4771 14.6308 18.8717 14.1403 18.8717H1.74933C1.25885 18.8717 0.864258 18.4771 0.864258 17.9867V0.875305C0.864258 0.384828 1.25885 -0.00976562 1.74933 -0.00976562H9.12492V5.00564C9.12492 5.49242 9.5232 5.89071 10.01 5.89071ZM9.71497 12.2263C8.97741 11.7764 8.48693 11.1569 8.14028 10.2423C8.30623 9.56006 8.56806 8.52379 8.36892 7.87474C8.19559 6.79053 6.8053 6.89747 6.60615 7.62397C6.42176 8.29884 6.5914 9.25029 6.90487 10.4636C6.47708 11.4814 5.84647 12.8459 5.40025 13.6277C5.39656 13.6277 5.39656 13.6314 5.39287 13.6314C4.39348 14.144 2.67865 15.2725 3.38302 16.1391C3.58954 16.3935 3.97307 16.5079 4.1759 16.5079C4.83601 16.5079 5.49244 15.8441 6.42914 14.2288C7.38059 13.9153 8.42424 13.5244 9.3425 13.3732C10.1427 13.8084 11.0794 14.0924 11.7027 14.0924C12.7795 14.0924 12.8533 12.9123 12.4292 12.4919C11.9166 11.9903 10.4267 12.1341 9.71497 12.2263ZM14.7672 3.86242L11.1532 0.24838C10.9873 0.0824293 10.7623 -0.00976562 10.5263 -0.00976562H10.305V4.71061H15.0254V4.48566C15.0254 4.25333 14.9332 4.02837 14.7672 3.86242ZM12.0346 13.2774C12.1858 13.1778 11.9424 12.8385 10.4562 12.9455C11.8244 13.5281 12.0346 13.2774 12.0346 13.2774Z"/>
+</svg>
+            </a>
+
+            </div>
         </div>
     </div>
 
@@ -2458,7 +2512,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false, '') }}`)"
         
         
         
@@ -2488,7 +2542,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false, '') }}`)"
         
         
         
@@ -2518,7 +2572,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false, '') }}`)"
         
         
         
@@ -2552,7 +2606,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false, '') }}`)"
         
         
         
@@ -2582,7 +2636,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false, '') }}`)"
         
         
         
@@ -2615,7 +2669,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', true, false, false, '') }}`)"
         
         
         
@@ -2813,7 +2867,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -2841,7 +2895,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -2869,7 +2923,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -2908,7 +2962,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -2932,7 +2986,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -2956,7 +3010,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -3108,7 +3162,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -3132,7 +3186,7 @@ tailwind.config = {
                             
                                                         
     
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false) }}`)"
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'s\', false, true, false, '') }}`)"
         
         
         
@@ -3188,6 +3242,7 @@ tailwind.config = {
                                     <a @click="closeMenu()" href="#local-4-2-image-video-left-right" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-2-image-video-left-right</a>
                                     <a @click="closeMenu()" href="#local-4-3-stacked-blocks-short-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-3-stacked-blocks-short-image</a>
                                     <a @click="closeMenu()" href="#local-4-4-testimonial" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-4-testimonial</a>
+                                    <a @click="closeMenu()" href="#local-4-11-file-download-cta" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-11-file-download-cta</a>
                                     <a @click="closeMenu()" href="#local-4-12-counter" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-12-counter</a>
                                     <a @click="closeMenu()" href="#local-4-14-accordion" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-14-accordion</a>
                                     <a @click="closeMenu()" href="#local-4-17-slider-cards" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-17-slider-cards</a>
