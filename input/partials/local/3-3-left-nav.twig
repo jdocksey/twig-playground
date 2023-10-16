@@ -22,9 +22,8 @@
         const headers = document.querySelectorAll('.max-w-content-container-limit.px-6.mx-auto > h2');
         headers.forEach((header, index) => {
             if (!header.id) {
-                header.id = 'left-nav-table-of-contents-entry-' + index;
+                header.id = 'toc-entry-' + index;
             }
-
             entries.push({
                 id: header.id,
                 text: header.innerText
@@ -34,45 +33,18 @@
         {# Wait until the DOM is updated by Alpine.js #}
         await $nextTick();
 
-        {# Set all the link targets for the mobile nav menu #}
+        {# Set each link target in the mobile nav menu #}
         document.querySelectorAll('#left-nav-link-container-mobile li > a').forEach((link, index) => {
             const target = '#' + entries[index].id;
             link.setAttribute('href', target);
         });
 
-        {# Set all the link targets for the desktop nav menu #}
+        {# Set each link target in the desktop nav menu #}
         document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
-            const linkID = 'left-nav-desktop-link-' + index;
-            link.id = linkID;
             const target = '#' + entries[index].id;
             link.setAttribute('href', target);
 
         });
-
-        await $nextTick();
-
-        document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
-            const linkID = 'left-nav-desktop-link-' + index;
-            Alpine.bind('#' + linkID, () => ({
-                type: 'a',
-                '@click'() {
-                    console.log('click: ' + linkID);
-                }
-            }));
-        });
-
-
-        entries.forEach((entry, index) => {
-            Alpine.bind('#magic-todo-improve-this-' + index, () => ({
-                type: 'a',
-                '@click'() {
-                    console.log('click');
-                },
-            }));
-        });
-
-
-
     "
     class="my-12">
 
