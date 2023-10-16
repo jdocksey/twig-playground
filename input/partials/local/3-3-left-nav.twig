@@ -12,53 +12,35 @@
 ] %}
 
 
-
-
-    <script>
-        document.addEventListener('alpine:init', () => {
-            console.log('Manual');
-        })
-    </script>
-
-
-
-
-
 <div>
     {% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
 </div>
-<div x-data="{
-        entries: [],
-        init() {
-            console.log('init built-in');
-        }
-    }"
+<div x-data="{ entries: [] }"
     x-init="
+        {# Find all elements to create a table-of-contents entry for, and set and save their ID and entry text #}
+        {# TODO: Improve this selector #}
         const headers = document.querySelectorAll('.max-w-content-container-limit.px-6.mx-auto > h2');
         headers.forEach((header, index) => {
             if (!header.id) {
-                header.id = 'magic-todo-improve-this-' + index;
+                header.id = 'left-nav-table-of-contents-entry-' + index;
             }
 
-            // Add to the list ...
             entries.push({
                 id: header.id,
                 text: header.innerText
             });
         });
 
-
-        console.log('entries updated');
-
-
+        {# Wait until the DOM is updated by Alpine.js #}
         await $nextTick();
 
+        {# Set all the link targets for the mobile nav menu #}
         document.querySelectorAll('#left-nav-link-container-mobile li > a').forEach((link, index) => {
             const target = '#' + entries[index].id;
             link.setAttribute('href', target);
         });
 
-
+        {# Set all the link targets for the desktop nav menu #}
         document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
             const linkID = 'left-nav-desktop-link-' + index;
             link.id = linkID;
@@ -94,10 +76,6 @@
     "
     class="my-12">
 
-
-
-
-
     {{ section.start() }}
         {{ section.left_channel_start() }}
 
@@ -129,27 +107,12 @@
                             <ol id="left-nav-link-container-mobile">
                                 <template x-for="(entry, index) in entries">
                                     <li>
-
                                         <template x-if="index !== 0">
                                             <span class="block h-px mx-5 bg-gray-200"></span>
                                         </template>
-
-                                        <a @click="goToContent()" class="block text-xs py-3 px-5" x-text="entry.text"></a>
+                                        <a @click="goToContent()" x-text="entry.text" class="block text-xs py-3 px-5"></a>
                                     </li>
                                 </template>
-
-                                {#
-                                {% for item in items %}
-                                    <li>
-                                        <a @click="goToContent()" href="#3-3-left-nav-{{ item.id }}" class="block text-xs py-3 px-5">
-                                            {{ item.text }}
-                                        </a>
-                                        {% if not loop.last %}
-                                            <span class="block h-px mx-5 bg-gray-200"></span>
-                                        {% endif %}
-                                    </li>
-                                {% endfor %}
-                                #}
                             </ol>
                         </nav>
                     </div>
@@ -160,7 +123,6 @@
             <div x-data="{
                     selectedItemIndex: 0,
                     selectItem(index) {
-                        console.log('select item | ' + index);
                         this.selectedItemIndex = index;
                     }
                 }"
@@ -169,21 +131,10 @@
                     <ol id="left-nav-link-container-desktop">
                         <template x-for="(entry, index) in entries">
                             <li>
-                                <a @click=selectItem(index) :class="selectedItemIndex === index && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50    text-xs font-mono" x-text="entry.text">
-                                {# <a @click="selectItem({{ entry.id }})" href="#3-3-left-nav-{{ entry.id }}" :class="selectedItemIndex === index && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50"> #}
+                                <a @click=selectItem(index) x-text="entry.text" :class="selectedItemIndex === index && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 </a>
                             </li>
                         </template>
-
-                        {#
-                        {% for item in items %}
-                            <li>
-                                <a @click="selectItem({{ item.id }})" href="#3-3-left-nav-{{ item.id }}" :class="selectedItemID === {{ item.id }} && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
-                                    {{ item.text }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                        #}
                     </ol>
                 </nav>
             </div>
