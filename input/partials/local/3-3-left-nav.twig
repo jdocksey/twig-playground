@@ -11,10 +11,75 @@
     { id: 7, text: 'Timeline' },
 ] %}
 
+
+
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            console.log('Manual');
+        })
+    </script>
+
+
+
+
+
 <div>
     {% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
 </div>
-<div class="my-12">
+<div x-data="{
+        entries: [],
+        init() {
+            console.log('init built-in');
+        }
+    }"
+    x-init="
+        const headers = document.querySelectorAll('.max-w-content-container-limit.px-6.mx-auto > h2');
+        headers.forEach((header, index) => {
+            if (!header.id) {
+                header.id = 'magic-todo-improve-this-' + index;
+            }
+
+            // Add to the list ...
+            entries.push({
+                id: header.id,
+                text: header.innerText
+            });
+        });
+
+
+        console.log('entries updated');
+
+
+        await $nextTick();
+        console.log('tick');
+
+
+        document.querySelectorAll('#left-nav-link-container li > a').forEach((link, index) => {
+            const target = '#' + entries[index].id;
+            console.log(target);
+            link.setAttribute('href', target);
+        });
+
+
+        entries.forEach((entry, index) => {
+            Alpine.bind('#magic-todo-improve-this-' + index, () => ({
+                type: 'a',
+                '@click'() {
+                    console.log('click');
+                },
+            }));
+        });
+
+
+
+    "
+    class="my-12">
+
+
+
+
+
     {{ section.start() }}
         {{ section.left_channel_start() }}
 
@@ -69,7 +134,16 @@
                 }"
                 class="hidden md:block">
                 <nav class="border-r-2 border-gray-300">
-                    <ol>
+                    <ol id="left-nav-link-container">
+                        <template x-for="entry in entries">
+                            <li>
+                                <a class="block py-3 px-6 hover:bg-cyan-50    text-xs font-mono" x-text="entry.text">
+                                {# <a @click="selectItem({{ entry.id }})" href="#3-3-left-nav-{{ entry.id }}" :class="selectedItemID === {{ entry.id }} && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50"> #}
+                                </a>
+                            </li>
+                        </template>
+
+                        {#
                         {% for item in items %}
                             <li>
                                 <a @click="selectItem({{ item.id }})" href="#3-3-left-nav-{{ item.id }}" :class="selectedItemID === {{ item.id }} && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
@@ -77,6 +151,7 @@
                                 </a>
                             </li>
                         {% endfor %}
+                        #}
                     </ol>
                 </nav>
             </div>
