@@ -52,7 +52,6 @@
 
 
         await $nextTick();
-        console.log('tick');
 
         document.querySelectorAll('#left-nav-link-container-mobile li > a').forEach((link, index) => {
             const target = '#' + entries[index].id;
@@ -61,8 +60,23 @@
 
 
         document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
+            const linkID = 'left-nav-desktop-link-' + index;
+            link.id = linkID;
             const target = '#' + entries[index].id;
             link.setAttribute('href', target);
+
+        });
+
+        await $nextTick();
+
+        document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
+            const linkID = 'left-nav-desktop-link-' + index;
+            Alpine.bind('#' + linkID, () => ({
+                type: 'a',
+                '@click'() {
+                    console.log('click: ' + linkID);
+                }
+            }));
         });
 
 
@@ -144,18 +158,19 @@
 
             {# Navigation menu (desktop) #}
             <div x-data="{
-                    selectedItemID: 1,
-                    selectItem(id) {
-                        this.selectedItemID = id;
+                    selectedItemIndex: 0,
+                    selectItem(index) {
+                        console.log('select item | ' + index);
+                        this.selectedItemIndex = index;
                     }
                 }"
                 class="hidden md:block">
                 <nav class="border-r-2 border-gray-300">
                     <ol id="left-nav-link-container-desktop">
-                        <template x-for="entry in entries">
+                        <template x-for="(entry, index) in entries">
                             <li>
-                                <a class="block py-3 px-6 hover:bg-cyan-50    text-xs font-mono" x-text="entry.text">
-                                {# <a @click="selectItem({{ entry.id }})" href="#3-3-left-nav-{{ entry.id }}" :class="selectedItemID === {{ entry.id }} && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50"> #}
+                                <a @click=selectItem(index) :class="selectedItemIndex === index && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50    text-xs font-mono" x-text="entry.text">
+                                {# <a @click="selectItem({{ entry.id }})" href="#3-3-left-nav-{{ entry.id }}" :class="selectedItemIndex === index && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50"> #}
                                 </a>
                             </li>
                         </template>
