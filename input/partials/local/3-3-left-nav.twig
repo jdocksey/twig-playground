@@ -54,16 +54,14 @@
         await $nextTick();
         console.log('tick');
 
-
-        document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
+        document.querySelectorAll('#left-nav-link-container-mobile li > a').forEach((link, index) => {
             const target = '#' + entries[index].id;
-            console.log(target);
             link.setAttribute('href', target);
         });
 
-        document.querySelectorAll('#left-nav-link-container-mobile li > a').forEach((link, index) => {
+
+        document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
             const target = '#' + entries[index].id;
-            console.log(target);
             link.setAttribute('href', target);
         });
 
@@ -153,7 +151,7 @@
                 }"
                 class="hidden md:block">
                 <nav class="border-r-2 border-gray-300">
-                    <ol id="left-nav-link-container">
+                    <ol id="left-nav-link-container-desktop">
                         <template x-for="entry in entries">
                             <li>
                                 <a class="block py-3 px-6 hover:bg-cyan-50    text-xs font-mono" x-text="entry.text">
