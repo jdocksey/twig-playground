@@ -1,20 +1,41 @@
 {% from '@macros/components-local.twig' import testimonial %}
 {% import '@macros/section-with-left-channel.twig' as section %}
 
-{% set items = [
-    { id: 1, text: 'Purpose' },
-    { id: 2, text: 'Eligibility' },
-    { id: 3, text: 'Nature of Grant' },
-    { id: 4, text: 'General Information' },
-    { id: 5, text: 'Apply' },
-    { id: 6, text: 'Other Opportunities' },
-    { id: 7, text: 'Timeline' },
-] %}
-
 <div>
     {% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
 </div>
-<div class="my-12">
+<div x-data="{ entries: [] }"
+    x-init="
+        {# Find all elements to create a table-of-contents entry for, and set and save their ID and entry text #}
+        {# TODO: Update this selector in production #}
+        const headers = document.querySelectorAll('.max-w-content-container-limit.px-6.mx-auto > h2');
+        headers.forEach((header, index) => {
+            if (!header.id) {
+                header.id = 'toc-entry-' + index;
+            }
+            entries.push({
+                id: header.id,
+                text: header.innerText
+            });
+        });
+
+        {# Wait until Alpine.js finishes updating the DOM #}
+        await $nextTick();
+
+        {# Set each link target in the mobile nav menu #}
+        document.querySelectorAll('#left-nav-link-container-mobile li > a').forEach((link, index) => {
+            const target = '#' + entries[index].id;
+            link.setAttribute('href', target);
+        });
+
+        {# Set each link target in the desktop nav menu #}
+        document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
+            const target = '#' + entries[index].id;
+            link.setAttribute('href', target);
+        });
+    "
+    class="my-12">
+
     {{ section.start() }}
         {{ section.left_channel_start() }}
 
@@ -43,17 +64,15 @@
                     <div x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 z-20 overflow-hidden pb-4">
                         {# To have the shadow effect be shown on the bottom and not the top of this element: its parent `overflow` is set to `hidden`, and padding is added to the bottom of the parent #}
                         <nav class="bg-gray-50 pb-2 shadow-md">
-                            <ol>
-                                {% for item in items %}
+                            <ol id="left-nav-link-container-mobile">
+                                <template x-for="(entry, index) in entries">
                                     <li>
-                                        <a @click="goToContent()" href="#3-3-left-nav-{{ item.id }}" class="block text-xs py-3 px-5">
-                                            {{ item.text }}
-                                        </a>
-                                        {% if not loop.last %}
+                                        <template x-if="index !== 0">
                                             <span class="block h-px mx-5 bg-gray-200"></span>
-                                        {% endif %}
+                                        </template>
+                                        <a @click="goToContent()" x-text="entry.text" class="block text-xs py-3 px-5"></a>
                                     </li>
-                                {% endfor %}
+                                </template>
                             </ol>
                         </nav>
                     </div>
@@ -62,21 +81,20 @@
 
             {# Navigation menu (desktop) #}
             <div x-data="{
-                    selectedItemID: 1,
-                    selectItem(id) {
-                        this.selectedItemID = id;
+                    selectedItemIndex: 0,
+                    selectItem(index) {
+                        this.selectedItemIndex = index;
                     }
                 }"
                 class="hidden md:block">
                 <nav class="border-r-2 border-gray-300">
-                    <ol>
-                        {% for item in items %}
+                    <ol id="left-nav-link-container-desktop">
+                        <template x-for="(entry, index) in entries">
                             <li>
-                                <a @click="selectItem({{ item.id }})" href="#3-3-left-nav-{{ item.id }}" :class="selectedItemID === {{ item.id }} && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
-                                    {{ item.text }}
+                                <a @click=selectItem(index) x-text="entry.text" :class="selectedItemIndex === index && 'bg-cyan-50'" class="block py-3 px-6 hover:bg-cyan-50">
                                 </a>
                             </li>
-                        {% endfor %}
+                        </template>
                     </ol>
                 </nav>
             </div>
