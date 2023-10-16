@@ -27,7 +27,7 @@
                 }"
                 class="md:hidden relative z-20 bg-gray-50">
                 {# The z-index of the button is set higher than the menu dropdown so that the button's box-shadow will overlap the dropdown #}
-                <button @click="open = !open" :class="!open && 'shadow-md-heavy'" class="relative z-20 flex items-center gap-4 w-full py-4 px-5">
+                <button @click="open = !open" :class="!open && 'shadow-md'" class="relative z-20 flex items-center gap-4 w-full py-4 px-5">
                     {# The height and width are set so that there are no minor size changes when the icon being displayed changes #}
                     <span class="h-6 w-8">
                         <span x-show="!open">
@@ -42,7 +42,7 @@
                 <div class="relative">
                     <div x-cloak x-show="open" x-collapse class="absolute top-0 inset-x-0 z-20 overflow-hidden pb-4">
                         {# To have the shadow effect be shown on the bottom and not the top of this element: its parent `overflow` is set to `hidden`, and padding is added to the bottom of the parent #}
-                        <nav class="bg-gray-50 pb-2 shadow-md-heavy">
+                        <nav class="bg-gray-50 pb-2 shadow-md">
                             <ol>
                                 {% for item in items %}
                                     <li>

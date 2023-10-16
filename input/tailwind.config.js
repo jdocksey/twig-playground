@@ -93,6 +93,10 @@ tailwind.config = {
         'to': { opacity: 1, transform: 'translateY(0)' },
       },
     },
+    boxShadow: {
+      'sm': '4px 2px 10px 4px rgba(0, 0, 0, 0.06)',
+      'md': '1px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+    },
     extend: {
       colors: {
         black: '#000000',
@@ -118,13 +122,10 @@ tailwind.config = {
         },
         white: '#ffffff', // background color
       },
+      // TODO: Move out of `extend` for production
       borderRadius: {
         '5':  '.3125rem', // 5px (between `rounded` and `rounded-md`)
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
-      },
-      boxShadow: {
-        'sm': '4px 2px 10px 4px rgba(0, 0, 0, 0.06)',
-        'md-heavy': '1px 4px 4px 0px rgba(0, 0, 0, 0.25)',
       },
       gridTemplateRows: {
         '2-min-content-1fr': 'min-content 1fr',
