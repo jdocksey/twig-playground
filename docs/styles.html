@@ -193,8 +193,10 @@ tailwind.config = {
         5.5: '1.375rem',
         6.5: '1.625rem',
         7.5: '1.875rem',
+        8.5: '2.125rem',
         8.75: '2.1875rem',
         9.5: '2.375rem',
+        11.5: '2.875rem',
         12.5: '3.125rem',
         13: '3.25rem',
         13.5: '3.375rem',
@@ -1475,7 +1477,6 @@ tailwind.config = {
         <div x-cloak x-show="selectedPage === 'local'">
                     <div id="local-3-3-left-nav">
                 
-
 <div>
     <div class="bg-blue-950/80">
     <div class="max-w-content-container-limit px-6 mx-auto ">
@@ -1483,6 +1484,7 @@ tailwind.config = {
     </div>
 </div>
 </div>
+
 <div x-data="{ entries: [] }"
     x-init="
         
@@ -1511,7 +1513,6 @@ tailwind.config = {
         document.querySelectorAll('#left-nav-link-container-desktop li > a').forEach((link, index) => {
             const target = '#' + entries[index].id;
             link.setAttribute('href', target);
-
         });
     "
     class="my-12">
@@ -1646,40 +1647,6 @@ tailwind.config = {
 
 </div>
             </div>
-                    <div id="local-4-1-featured-content">
-                
-<div>
-    <div class="bg-blue-950/80">
-    <div class="max-w-content-container-limit px-6 mx-auto ">
-        <h2 class="text-white font-mono py-4">4.1 Featured Content with Button Link</h2>
-    </div>
-</div>
-</div>
-<div class="max-w-content-container-limit py-12 px-content-container mx-auto">
-    <div class="w-full flex">
-    <div class="grow-0 w-2 bg-blue-800"></div>
-    <div class="w-full flex justify-between items-center gap-8 py-8 md:py-10 lg:py-14 xl:py-17 sm:px-12 md:px-16 lg:px-20 xl:px-24 bg-cyan-50">
-        <div>ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.</div>
-        <div class="flex-none">
-                
-                            
-                                                        
-    
-    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false, '') }}`)"
-        
-        
-        
-        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
-    >
-        <span>Donate Now</span>
-            </a>
-
-        </div>
-    </div>
-</div>
-
-</div>
-            </div>
                     <div id="local-4-1-hero-1">
                 
 <div>
@@ -1694,12 +1661,34 @@ tailwind.config = {
             <div class="max-lg:contents space-y-2.5 xl:space-y-3 xl:px-6 xl:max-w-content-container-limit-1/2">
                 <div class="text-green-500 text-xs leading-normal font-bold tracking-widest uppercase">Philanthropic Pillar</div>
                 <h1 class="text-white">Scholarships & Grants</h1>
-                <h3 class="hidden md:block text-white lg:pt-1.5">We award scholarships and grants to the next generation of professionals.</h3>
+                <h3 class="text-white lg:pt-1.5">We award scholarships and grants to the next generation of professionals.</h3>
             </div>
         </div>
         <img class="max-lg:w-full lg:h-full lg:max-h-116 lg:w-full lg:object-cover lg:object-center" src="./assets/hero-1.png" alt="alt text goes here">
     </div>
 
+            <div class="max-w-content-container-limit mx-auto flex px-content-container mt-10 md:-mt-16 lg:-mt-12">
+            <div class="grow-0 w-1 lg:w-2 bg-blue-800"></div>
+            <div class="w-full flex flex-col md:flex-row justify-between items-center gap-12 md:gap-8 pt-6 pb-11.5 md:pt-8.5 md:pb-7.5 lg:py-14 xl:py-17 px-5 md:px-8 lg:px-20 xl:px-24 bg-cyan-50">
+                <div>ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.</div>
+                                    <div class="flex-none">
+                            
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{{ link_button(\'address\', \'Label\', \'m\', false, true, false, '') }}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wider text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+    >
+        <span>Donate Now</span>
+            </a>
+
+                    </div>
+                            </div>
+        </div>
+    
             </div>
                     <div id="local-4-2-image-video-left-right">
                 
@@ -3208,7 +3197,6 @@ tailwind.config = {
             <div x-show="selectedPage === 'local'" class="contents">
                                     <a @click="closeMenu()" href="#local-3-3-left-nav" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-3-left-nav</a>
                                     <a @click="closeMenu()" href="#local-3-6-news-header" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">3-6-news-header</a>
-                                    <a @click="closeMenu()" href="#local-4-1-featured-content" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-featured-content</a>
                                     <a @click="closeMenu()" href="#local-4-1-hero-1" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-1-hero-1</a>
                                     <a @click="closeMenu()" href="#local-4-2-image-video-left-right" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-2-image-video-left-right</a>
                                     <a @click="closeMenu()" href="#local-4-3-stacked-blocks-short-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-3-stacked-blocks-short-image</a>
