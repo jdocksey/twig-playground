@@ -177,28 +177,26 @@
     </div>
 {% endmacro %}
 
-{% macro featured_content(text = '', link_text = '', link_url = '') %}
-<div class="w-full flex">
-    <div class="grow-0 w-2 bg-blue-800"></div>
-    <div class="w-full flex justify-between items-center gap-8 py-8 md:py-10 lg:py-14 xl:py-17 sm:px-12 md:px-16 lg:px-20 xl:px-24 bg-cyan-50">
-        <div>{{ text }}</div>
-        <div class="flex-none">
-            {{ link_button('https://www.example.com', 'Donate Now', 'm', false, true, false) }}
-        </div>
-    </div>
-</div>
-{% endmacro %}
-
-{% macro hero_1(title = '', subtitle = '', label = '', alt_text = '') %}
+{% macro hero_1(title = '', subtitle = '', label = '', alt_text = '', featured_content_text = '', featured_content_cta_url = '', featured_content_cta_text = '') %}
     <div class="lg:h-116 lg:max-h-116 lg:grid lg:grid-cols-2">
         <div class="bg-blue-950 min-h-60 md:min-h-72 py-12 px-6.5 md:px-14 lg:py-29 lg:px-12 xl:px-0 xl:flex xl:justify-end">
             <div class="max-lg:contents space-y-2.5 xl:space-y-3 xl:px-6 xl:max-w-content-container-limit-1/2">
                 <div class="text-green-500 text-xs leading-normal font-bold tracking-widest uppercase">{{ label }}</div>
                 <h1 class="text-white">{{ title }}</h1>
-                <h3 class="hidden md:block text-white lg:pt-1.5">{{ subtitle }}</h3>
+                <h3 class="text-white lg:pt-1.5">{{ subtitle }}</h3>
             </div>
         </div>
         <img class="max-lg:w-full lg:h-full lg:max-h-116 lg:w-full lg:object-cover lg:object-center" src="./assets/hero-1.png" alt="{{ alt_text }}">
+    </div>
+
+    <div class="max-w-content-container-limit mx-auto flex px-content-container mt-10 md:-mt-16 lg:-mt-12">
+        <div class="grow-0 w-1 lg:w-2 bg-blue-800"></div>
+        <div class="w-full flex flex-col md:flex-row justify-between items-center gap-12 md:gap-8 pt-6 pb-11.5 md:pt-8.5 md:pb-7.5 lg:py-14 xl:py-17 px-5 md:px-8 lg:px-20 xl:px-24 bg-cyan-50">
+            <div>{{ featured_content_text }}</div>
+            <div class="flex-none">
+                {{ link_button(featured_content_cta_url, featured_content_cta_text, 'm', false, true, false) }}
+            </div>
+        </div>
     </div>
 {% endmacro %}
 

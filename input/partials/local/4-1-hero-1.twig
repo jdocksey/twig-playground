@@ -3,4 +3,12 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.1 Hero #1' } only %}
 </div>
-{{ hero_1('Scholarships & Grants', 'We award scholarships and grants to the next generation of professionals.', 'Philanthropic Pillar', 'alt text goes here') }}
+{{ hero_1(
+    'Scholarships & Grants',
+    'We award scholarships and grants to the next generation of professionals.',
+    'Philanthropic Pillar',
+    'alt text goes here',
+    'ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.',
+    'https://www.example.com',
+    'Donate Now'
+) }}
