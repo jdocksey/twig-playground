@@ -4,6 +4,7 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '3.3 Left Nav' } only %}
 </div>
+{# TODO: For production, consolidate all Alpine.js data into this top-level div, and modify behavior as necessary so that clicks on the desktop menu ensure that the mobile menu is closed, and that clicks on the mobile menu ensure the desktop menu selection is updated #}
 <div x-data="{ entries: [] }"
     x-init="
         {# Find all elements to create a table-of-contents entry for, and set and save their ID and entry text #}
