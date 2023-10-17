@@ -122,7 +122,6 @@ tailwind.config = {
         },
         white: '#ffffff', // background color
       },
-      // TODO: Move out of `extend` for production
       borderRadius: {
         '5':  '.3125rem', // 5px (between `rounded` and `rounded-md`)
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
