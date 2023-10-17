@@ -189,15 +189,19 @@
         <img class="max-lg:w-full lg:h-full lg:max-h-116 lg:w-full lg:object-cover lg:object-center" src="./assets/hero-1.png" alt="{{ alt_text }}">
     </div>
 
-    <div class="max-w-content-container-limit mx-auto flex px-content-container mt-10 md:-mt-16 lg:-mt-12">
-        <div class="grow-0 w-1 lg:w-2 bg-blue-800"></div>
-        <div class="w-full flex flex-col md:flex-row justify-between items-center gap-12 md:gap-8 pt-6 pb-11.5 md:pt-8.5 md:pb-7.5 lg:py-14 xl:py-17 px-5 md:px-8 lg:px-20 xl:px-24 bg-cyan-50">
-            <div>{{ featured_content_text }}</div>
-            <div class="flex-none">
-                {{ link_button(featured_content_cta_url, featured_content_cta_text, 'm', false, true, false) }}
+    {% if featured_content_text %}
+        <div class="max-w-content-container-limit mx-auto flex px-content-container mt-10 md:-mt-16 lg:-mt-12">
+            <div class="grow-0 w-1 lg:w-2 bg-blue-800"></div>
+            <div class="w-full flex flex-col md:flex-row justify-between items-center gap-12 md:gap-8 pt-6 pb-11.5 md:pt-8.5 md:pb-7.5 lg:py-14 xl:py-17 px-5 md:px-8 lg:px-20 xl:px-24 bg-cyan-50">
+                <div>{{ featured_content_text }}</div>
+                {% if featured_content_cta_url and featured_content_cta_text %}
+                    <div class="flex-none">
+                        {{ link_button(featured_content_cta_url, featured_content_cta_text, 'm', false, true, false) }}
+                    </div>
+                {% endif %}
             </div>
         </div>
-    </div>
+    {% endif %}
 {% endmacro %}
 
 {# TODO: Enforce a max-height of 420px on the image #}
