@@ -63,11 +63,8 @@ tailwind.config = {
       bold: 700,
     },
     letterSpacing: {
-      // TODO: Update these values:
-      wide: '0.00769em', // probably not needed after the `0.08em` updates
-      wider: '0.01875em',
-      // TODO: Add `0.04em` (for eyebrow text)
-      widest: '0.0875em', // can probably change to `0.08em`
+      wide: '0.3px',
+      wider: '1.3px',
     },
     animation: {
       'fade-in': 'fade-in 0.6s ease forwards',
