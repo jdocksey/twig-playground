@@ -253,7 +253,7 @@
                     {% for tag in tags %}
                         <div class="flex flex-col justify-center items-center gap-4 bg-gray-100 p-6 rounded-10">
                             {% include '@icons/' ~ tag.icon ~ '.twig' with { class: 'fill-blue-950' } only %}
-                            <h5 class="text-xl text-center">{{ tag.text }}</h5>
+                            <h5 class="text-center">{{ tag.text }}</h5>
                         </div>
                     {% endfor %}
                 </div>
