@@ -200,13 +200,12 @@
     {% endif %}
 {% endmacro %}
 
-{# TODO: Enforce a max-height of 420px on the image #}
-{# TODO: Read through and respond to Kristin's Figma comments: https://www.figma.com/file/LvVTEhpoWhY7oIGzmzSkPx?node-id=551:10734&mode=design#575144728 #}
 {% macro stacked_block(title = '', body_text = '', highlights = [], cta_url = '', cta_text = '', order_flag = true) %}
     {% set order_image = order_flag ? 'order-1' : 'order-2' %}
     {% set order_text = order_flag ? 'order-2' : 'order-1' %}
 
     <div class="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-12">
+    {# TODO: This may need to be modified so that the image uses the full width of the page in the mobile view #}
         <img src="./assets/content-750-420-2.png" alt="TODO: Add alt text" class="w-full {{ order_image }}">
         <div class="flex flex-col gap-4 {{ order_text }}">
             <h2>{{ title }}</h2>
@@ -226,8 +225,6 @@
     </div>
 {% endmacro %}
 
-{# TODO: Enforce a max-height of 420px on the image #}
-{# TODO: Read through and respond to Kristin's Figma comments: https://www.figma.com/file/LvVTEhpoWhY7oIGzmzSkPx?node-id=551:10734&mode=design#575144728 #}
 {% macro stacked_block_complex(label = '', title = '', body_text = '', tags = [],  cta_url = '', cta_text = '', img_src = '', img_alt_text = '', img_link_url = '', img_link_text = '', order_flag = true) %}
     {% set md_image_col = order_flag ? 'md:col-start-1' : 'md:col-start-2' %}
     {% set md_text_col = order_flag ? 'md:col-start-2' : 'md:col-start-1' %}
@@ -249,7 +246,8 @@
         <div class="max-md:order-3 {{ md_text_col }} px-content-container md:px-0 mt-8.75 md:mt-3.75">
             <p>{{ body_text }}</p>
             {% if tags.length > 0 %}
-                <div class="flex flex-col md:grid md:grid-cols-2 gap-3 mt-6.5 md:gap-5 md:mt-3">
+                {% set md_grid_cols = content.field_tags|length == 1 ? 'md:grid-cols-1' : 'md:grid-cols-2' %}
+                <div class="flex flex-col md:grid {{ md_grid_cols }} gap-3 mt-6.5 md:gap-5 md:mt-3">
                     {% for tag in tags %}
                         <div class="flex flex-col justify-center items-center gap-4 bg-gray-100 p-6 rounded-10">
                             {% include '@icons/' ~ tag.icon ~ '.twig' with { class: 'fill-blue-950' } only %}
