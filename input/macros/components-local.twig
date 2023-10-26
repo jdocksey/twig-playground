@@ -200,8 +200,26 @@
     {% endif %}
 {% endmacro %}
 
-{% macro image_gallery() %}
-    <div>Image Gallery ...</div>
+{# TODO: Remove the `number_of_images` parameter, which is just for testing during development #}
+{% macro image_gallery(id = '', number_of_images = 1) %}
+    {% set id = 'splide-' ~ id %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var splide = new Splide('#{{ id }}');
+            splide.mount();
+        });
+    </script>
+
+    <div id="{{ id }}" class="splide" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide">Slide 01</li>
+                <li class="splide__slide">Slide 02</li>
+                <li class="splide__slide">Slide 03</li>
+            </ul>
+        </div>
+    </div>
 {% endmacro %}
 
 {% macro stacked_block(title = '', body_text = '', highlights = [], cta_url = '', cta_text = '', order_flag = true) %}
