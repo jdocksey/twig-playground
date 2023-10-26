@@ -200,6 +200,10 @@
     {% endif %}
 {% endmacro %}
 
+{% macro image_gallery() %}
+    <div>Image Gallery ...</div>
+{% endmacro %}
+
 {% macro stacked_block(title = '', body_text = '', highlights = [], cta_url = '', cta_text = '', order_flag = true) %}
     {% set order_image = order_flag ? 'order-1' : 'order-2' %}
     {% set order_text = order_flag ? 'order-2' : 'order-1' %}

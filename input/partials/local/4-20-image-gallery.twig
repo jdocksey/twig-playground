@@ -1,0 +1,9 @@
+{% from '@macros/components-local.twig' import image_gallery %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '4.20 Image Gallery' } only %}
+</div>
+{{ image_gallery() }}
+
+{# TODO: Remove after development #}
+<div class="mt-[80vh]"></div>
