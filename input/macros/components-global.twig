@@ -78,7 +78,7 @@
         {% set icon_scale = 'scale-250' %}
     {% endif %}
 
-    {% set code_for_copying = "{{ link_button(\'address\', \'Label\', \'" ~ size ~ "\', " ~ wide ~ ", " ~ primary ~ ", " ~ new_tab ~ ", '') }}" %}
+    {% set code_for_copying = "{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: '" ~ size ~"', wide: " ~ wide ~ ", primary: " ~ primary ~ ", new_tab: " ~ new_tab ~ ", icon: '' } only %}" %}
 
     <a x-data @click="() => navigator.clipboard.writeText(`{{ code_for_copying }}`)"
         {# TODO: Uncomment the following line for the production code (leaving it commented for now allows the link-buttons to be clicked for copying their usage code) #}
