@@ -207,18 +207,21 @@
         document.addEventListener('DOMContentLoaded', function() {
             var elements = document.getElementsByClassName('splide');
             for (var i = 0; i < elements.length; i++) {
-                new Splide(elements[i]).mount();
+                new Splide(elements[i], {
+                    type: 'loop',
+                    perPage: 1
+                }).mount();
             }
         });
     </script>
 
     <div class="splide" aria-label="Splide Basic HTML Example">
         <div class="splide__track">
-            <ul class="splide__list">
-                <li class="splide__slide">Slide 01</li>
-                <li class="splide__slide">Slide 02</li>
-                <li class="splide__slide">Slide 03</li>
-            </ul>
+            <div class="splide__list">
+                {% for i in 1..number_of_images %}
+                    <div class="splide__slide">Slide {{ i }}</div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endmacro %}
