@@ -222,7 +222,7 @@
         });
     </script>
 
-    <div class="splide splide-image-gallery" aria-label="Splide Basic HTML Example">
+    <div class="splide splide-image-gallery     pb-16" aria-label="Splide Basic HTML Example">
 
     {#
 
@@ -233,9 +233,13 @@
 
 
     #}
+        <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+            <button class="splide__arrow--prev      bg-green-500 p-4 text-lg text-white">Previous</button>
+            <button class="splide__arrow--next      bg-green-500 p-4 text-lg text-white">Next</button>
+        </div>
 
 
-        <div class="splide__track">
+        <div class="splide__track z-10">
             <div class="splide__list">
                 {% for image_url in image_urls %}
                     <div class="splide__slide">

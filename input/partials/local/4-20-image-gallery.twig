@@ -11,7 +11,7 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.20 Image Gallery' } only %}
 </div>
-<div class="space-y-16">
+<div>
     {% for image_count in 5..1 %}
         {{ image_gallery(image_urls|slice(0, image_count)) }}
     {% endfor %}
