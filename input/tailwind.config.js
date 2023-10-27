@@ -156,6 +156,14 @@ tailwind.config = {
         'content-container-limit-1/2': '624px',
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
+        // These are the maximum widths for sliders: 750/8 = slide width of 750px, gap of 8px, -[number] = number of slides
+        'slider-750/8-1': '750px',
+        'slider-750/8-2': '1508px',
+        'slider-750/8-3': '2266px',
+        'slider-750/8-4': '3024px',
+        'slider-750/8-5': '3782px',
+        'slider-750/8-6': '4540px',
+        'slider-750/8-7': '5298px',
       },
       gap: {
         19.5: '4.875rem'
