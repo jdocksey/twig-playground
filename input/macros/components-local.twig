@@ -214,12 +214,27 @@
                     speed: 800,
                     autoWidth: true,
                     gap: '0.5rem',
+                    pagination: false,
+                    easing: 'ease',
+                    drag: 'free',
                 }).mount();
             }
         });
     </script>
 
     <div class="splide splide-image-gallery" aria-label="Splide Basic HTML Example">
+
+    {#
+
+        arrows: 'splide__arrows your-class-arrows',
+		arrow : 'splide__arrow your-class-arrow',
+		prev  : 'splide__arrow--prev your-class-prev',
+		next  : 'splide__arrow--next your-class-next',
+
+
+    #}
+
+
         <div class="splide__track">
             <div class="splide__list">
                 {% for image_url in image_urls %}
