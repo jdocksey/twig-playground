@@ -1,5 +1,23 @@
 {% from '@macros/components-local.twig' import image_gallery %}
 
+ {# TODO: In production, determine the proper location for the initialization code and the proper place for the configuration (https://splidejs.com/guides/options/#changing-options) (Consider how this was handled for the ISPE project) #}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elements = document.getElementsByClassName('splide-image-gallery');
+        for (var i = 0; i < elements.length; i++) {
+            new Splide(elements[i], {
+                type: 'loop',
+                pagination: false,
+                autoWidth: true,
+                gap: '0.5rem',
+                speed: 1200,
+                easing: 'ease',
+                focus: 'center',
+            }).mount();
+        }
+    });
+</script>
+
 {% set image_urls = [
     './assets/content-750-420-1.png',
     './assets/content-750-420-2.png',
@@ -11,9 +29,12 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.20 Image Gallery' } only %}
 </div>
-<div class="space-y-16">
+<div class="space-y-12 pt-8">
     {% for image_count in 5..1 %}
-        {{ image_gallery(image_urls|slice(0, image_count)) }}
+        <div>
+            <h3 class="text-center mb-4">Number of images: {{ image_count }}</h3>
+            {{ image_gallery(image_urls|slice(0, image_count)) }}
+        </div>
     {% endfor %}
 </div>
 
