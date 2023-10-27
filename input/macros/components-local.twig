@@ -205,13 +205,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             var elements = document.getElementsByClassName('splide-image-gallery');
             for (var i = 0; i < elements.length; i++) {
-                // TODO: In production, determine the proper location for the initialization code and the proper place for the configuration (https://splidejs.com/guides/options/#changing-options)
-                // Consider how this was handled for the ISPE project
+                // TODO: In production, determine the proper location for the initialization code and the proper place for the configuration (https://splidejs.com/guides/options/#changing-options) (Consider how this was handled for the ISPE project)
                 new Splide(elements[i], {
                     type: 'loop',
-                    // TODO: Determine the proper speed (https://codepen.io/microfront/pen/veagoK )
-                    // TODO: Implement a "smooth and gliding" transition
-                    speed: 800,
+                    speed: 1200,
                     autoWidth: true,
                     gap: '0.5rem',
                     pagination: false,
