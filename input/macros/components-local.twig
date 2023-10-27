@@ -220,15 +220,17 @@
     </script>
 
     <div class="splide splide-image-gallery pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
-        <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
-            {% set arrow_classes = 'flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full' %}
-            <button class="splide__arrow--prev {{ arrow_classes }}">
-                {% include '@globalPartials/chevron-left-medium.twig' with { alt_text: 'previous' } only %}
-            </button>
-            <button class="splide__arrow--next {{ arrow_classes }}">
-                {% include '@globalPartials/chevron-right-medium.twig' with { alt_text: 'next' } only %}
-            </button>
-        </div>
+        {% if image_urls.length > 1 %}
+            <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+                {% set arrow_classes = 'flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full' %}
+                <button class="splide__arrow--prev {{ arrow_classes }}">
+                    {% include '@globalPartials/chevron-left-medium.twig' with { alt_text: 'previous' } only %}
+                </button>
+                <button class="splide__arrow--next {{ arrow_classes }}">
+                    {% include '@globalPartials/chevron-right-medium.twig' with { alt_text: 'next' } only %}
+                </button>
+            </div>
+        {% endif %}
 
         <div class="splide__track z-10">
             <div class="splide__list">
