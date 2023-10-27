@@ -15,6 +15,10 @@
   <!-- core -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+<!-- SplideJS -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css" integrity="sha256-ZAXImCY06SjVuIrJfWUETkyCctX5aGdL1AVEBX5CxZA=" crossorigin="anonymous">
+
   <!-- Tailwind 3 playground CDN https://tailwindcss.com/docs/installation/play-cdn -->
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 
@@ -177,6 +181,15 @@ tailwind.config = {
         'content-container-limit-1/2': '624px',
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
+        // These are the maximum widths for sliders: 750/8 = slide width of 750px, gap of 8px, -[number] = number of slides
+        // TODO: Determine which, or any, of these should be used in production
+        'slider-750/8-1': '750px',
+        'slider-750/8-2': '1508px',
+        'slider-750/8-3': '2266px',
+        'slider-750/8-4': '3024px',
+        'slider-750/8-5': '3782px',
+        'slider-750/8-6': '4540px',
+        'slider-750/8-7': '5298px',
       },
       gap: {
         19.5: '4.875rem'
@@ -3135,6 +3148,220 @@ tailwind.config = {
     </div>
 
             </div>
+                    <div id="local-4-20-image-gallery">
+                
+ 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elements = document.getElementsByClassName('splide-image-gallery');
+        for (var i = 0; i < elements.length; i++) {
+            new Splide(elements[i], {
+                type: 'loop',
+                pagination: false,
+                autoWidth: true,
+                gap: '0.5rem',
+                speed: 1200,
+                easing: 'ease',
+                focus: 'center',
+            }).mount();
+        }
+    });
+</script>
+
+
+<div>
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.20 Image Gallery</h2>
+    </div>
+</div>
+</div>
+<div class="space-y-12 pt-8">
+            <div>
+            <h3 class="text-center mb-4">Number of images: 5</h3>
+                
+    
+    <div class="splide splide-image-gallery  mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class=" splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+                        <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>previous</title>
+    <path d="M0.117385 8.09664C0.117385 8.352 0.214886 8.60732 0.409477 8.80201L6.53594 14.9284C6.92566 15.3181 7.55753 15.3181 7.94709 14.9284C8.33665 14.5389 8.33665 13.9071 7.94709 13.5174L2.52605 8.09664L7.9469 2.67589C8.33646 2.28617 8.33646 1.6545 7.9469 1.26497C7.55734 0.875057 6.92547 0.875057 6.53575 1.26497L0.409288 7.39127C0.214664 7.58606 0.117385 7.84138 0.117385 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+            <button class="splide__arrow--next flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>next</title>
+    <path d="M8.88066 8.09664C8.88066 8.352 8.78316 8.60732 8.58857 8.80201L2.4621 14.9284C2.07238 15.3181 1.44052 15.3181 1.05096 14.9284C0.661399 14.5389 0.661399 13.9071 1.05096 13.5174L6.472 8.09664L1.05115 2.67589C0.661588 2.28617 0.661588 1.6545 1.05115 1.26497C1.44071 0.875057 2.07257 0.875057 2.46229 1.26497L8.58876 7.39127C8.78338 7.58606 8.88066 7.84138 8.88066 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+        </div>
+
+        <div class="splide__track z-10">
+            <div class="splide__list">
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-1.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-2.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-3.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-4.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-5.png" alt="">
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+        </div>
+            <div>
+            <h3 class="text-center mb-4">Number of images: 4</h3>
+                
+    
+    <div class="splide splide-image-gallery  mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class=" splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+                        <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>previous</title>
+    <path d="M0.117385 8.09664C0.117385 8.352 0.214886 8.60732 0.409477 8.80201L6.53594 14.9284C6.92566 15.3181 7.55753 15.3181 7.94709 14.9284C8.33665 14.5389 8.33665 13.9071 7.94709 13.5174L2.52605 8.09664L7.9469 2.67589C8.33646 2.28617 8.33646 1.6545 7.9469 1.26497C7.55734 0.875057 6.92547 0.875057 6.53575 1.26497L0.409288 7.39127C0.214664 7.58606 0.117385 7.84138 0.117385 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+            <button class="splide__arrow--next flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>next</title>
+    <path d="M8.88066 8.09664C8.88066 8.352 8.78316 8.60732 8.58857 8.80201L2.4621 14.9284C2.07238 15.3181 1.44052 15.3181 1.05096 14.9284C0.661399 14.5389 0.661399 13.9071 1.05096 13.5174L6.472 8.09664L1.05115 2.67589C0.661588 2.28617 0.661588 1.6545 1.05115 1.26497C1.44071 0.875057 2.07257 0.875057 2.46229 1.26497L8.58876 7.39127C8.78338 7.58606 8.88066 7.84138 8.88066 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+        </div>
+
+        <div class="splide__track z-10">
+            <div class="splide__list">
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-1.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-2.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-3.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-4.png" alt="">
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+        </div>
+            <div>
+            <h3 class="text-center mb-4">Number of images: 3</h3>
+                
+    
+    <div class="splide splide-image-gallery  mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class=" splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+                        <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>previous</title>
+    <path d="M0.117385 8.09664C0.117385 8.352 0.214886 8.60732 0.409477 8.80201L6.53594 14.9284C6.92566 15.3181 7.55753 15.3181 7.94709 14.9284C8.33665 14.5389 8.33665 13.9071 7.94709 13.5174L2.52605 8.09664L7.9469 2.67589C8.33646 2.28617 8.33646 1.6545 7.9469 1.26497C7.55734 0.875057 6.92547 0.875057 6.53575 1.26497L0.409288 7.39127C0.214664 7.58606 0.117385 7.84138 0.117385 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+            <button class="splide__arrow--next flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>next</title>
+    <path d="M8.88066 8.09664C8.88066 8.352 8.78316 8.60732 8.58857 8.80201L2.4621 14.9284C2.07238 15.3181 1.44052 15.3181 1.05096 14.9284C0.661399 14.5389 0.661399 13.9071 1.05096 13.5174L6.472 8.09664L1.05115 2.67589C0.661588 2.28617 0.661588 1.6545 1.05115 1.26497C1.44071 0.875057 2.07257 0.875057 2.46229 1.26497L8.58876 7.39127C8.78338 7.58606 8.88066 7.84138 8.88066 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+        </div>
+
+        <div class="splide__track z-10">
+            <div class="splide__list">
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-1.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-2.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-3.png" alt="">
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+        </div>
+            <div>
+            <h3 class="text-center mb-4">Number of images: 2</h3>
+                
+    
+    <div class="splide splide-image-gallery  mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class=" splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+                        <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>previous</title>
+    <path d="M0.117385 8.09664C0.117385 8.352 0.214886 8.60732 0.409477 8.80201L6.53594 14.9284C6.92566 15.3181 7.55753 15.3181 7.94709 14.9284C8.33665 14.5389 8.33665 13.9071 7.94709 13.5174L2.52605 8.09664L7.9469 2.67589C8.33646 2.28617 8.33646 1.6545 7.9469 1.26497C7.55734 0.875057 6.92547 0.875057 6.53575 1.26497L0.409288 7.39127C0.214664 7.58606 0.117385 7.84138 0.117385 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+            <button class="splide__arrow--next flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>next</title>
+    <path d="M8.88066 8.09664C8.88066 8.352 8.78316 8.60732 8.58857 8.80201L2.4621 14.9284C2.07238 15.3181 1.44052 15.3181 1.05096 14.9284C0.661399 14.5389 0.661399 13.9071 1.05096 13.5174L6.472 8.09664L1.05115 2.67589C0.661588 2.28617 0.661588 1.6545 1.05115 1.26497C1.44071 0.875057 2.07257 0.875057 2.46229 1.26497L8.58876 7.39127C8.78338 7.58606 8.88066 7.84138 8.88066 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+        </div>
+
+        <div class="splide__track z-10">
+            <div class="splide__list">
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-1.png" alt="">
+                    </div>
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-2.png" alt="">
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+        </div>
+            <div>
+            <h3 class="text-center mb-4">Number of images: 1</h3>
+                
+    
+    <div class="splide splide-image-gallery max-w-slider-750/8-1 mx-auto " aria-label="Splide Basic HTML Example">
+        <div class="hidden splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+                        <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>previous</title>
+    <path d="M0.117385 8.09664C0.117385 8.352 0.214886 8.60732 0.409477 8.80201L6.53594 14.9284C6.92566 15.3181 7.55753 15.3181 7.94709 14.9284C8.33665 14.5389 8.33665 13.9071 7.94709 13.5174L2.52605 8.09664L7.9469 2.67589C8.33646 2.28617 8.33646 1.6545 7.9469 1.26497C7.55734 0.875057 6.92547 0.875057 6.53575 1.26497L0.409288 7.39127C0.214664 7.58606 0.117385 7.84138 0.117385 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+            <button class="splide__arrow--next flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>next</title>
+    <path d="M8.88066 8.09664C8.88066 8.352 8.78316 8.60732 8.58857 8.80201L2.4621 14.9284C2.07238 15.3181 1.44052 15.3181 1.05096 14.9284C0.661399 14.5389 0.661399 13.9071 1.05096 13.5174L6.472 8.09664L1.05115 2.67589C0.661588 2.28617 0.661588 1.6545 1.05115 1.26497C1.44071 0.875057 2.07257 0.875057 2.46229 1.26497L8.58876 7.39127C8.78338 7.58606 8.88066 7.84138 8.88066 8.09664Z" fill="#0052A5"/>
+</svg>
+            </button>
+        </div>
+
+        <div class="splide__track z-10">
+            <div class="splide__list">
+                                    <div class="splide__slide">
+                        <img src="./assets/content-750-420-1.png" alt="">
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+
+<div class="mt-[40vh]"></div>
+            </div>
             </div>
 
     
@@ -3178,6 +3405,7 @@ tailwind.config = {
                                     <a @click="closeMenu()" href="#local-4-14-accordion" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-14-accordion</a>
                                     <a @click="closeMenu()" href="#local-4-17-slider-cards" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-17-slider-cards</a>
                                     <a @click="closeMenu()" href="#local-4-17-regular-cards" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-17-regular-cards</a>
+                                    <a @click="closeMenu()" href="#local-4-20-image-gallery" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-20-image-gallery</a>
                             </div>
 
             
