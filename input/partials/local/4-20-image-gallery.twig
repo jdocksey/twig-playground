@@ -1,11 +1,19 @@
 {% from '@macros/components-local.twig' import image_gallery %}
 
+{% set image_urls = [
+    './assets/content-750-420-1.png',
+    './assets/content-750-420-2.png',
+    './assets/content-750-420-3.png',
+    './assets/content-750-420-4.png',
+    './assets/content-750-420-5.png',
+] %}
+
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.20 Image Gallery' } only %}
 </div>
 <div class="space-y-16">
-    {% for number_of_images in 1..5 %}
-        {{ image_gallery(number_of_images) }}
+    {% for image_count in 5..1 %}
+        {{ image_gallery(image_urls|slice(0, image_count)) }}
     {% endfor %}
 </div>
 

@@ -200,12 +200,10 @@
     {% endif %}
 {% endmacro %}
 
-{# TODO: Remove the `number_of_images` parameter, which is just for testing during development #}
-{% macro image_gallery(number_of_images = 1) %}
-
+{% macro image_gallery(image_urls) %}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var elements = document.getElementsByClassName('splide');
+            var elements = document.getElementsByClassName('splide-image-gallery');
             for (var i = 0; i < elements.length; i++) {
                 new Splide(elements[i], {
                     type: 'loop',
@@ -215,11 +213,13 @@
         });
     </script>
 
-    <div class="splide" aria-label="Splide Basic HTML Example">
+    <div class="splide splide-image-gallery" aria-label="Splide Basic HTML Example">
         <div class="splide__track">
             <div class="splide__list">
-                {% for i in 1..number_of_images %}
-                    <div class="splide__slide">Slide {{ i }}</div>
+                {% for image_url in image_urls %}
+                    <div class="splide__slide       border border-black bg-gray-200">
+                        <img src="{{ image_url }}" alt="">
+                    </div>
                 {% endfor %}
             </div>
         </div>
