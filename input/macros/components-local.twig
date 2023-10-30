@@ -232,7 +232,12 @@
             "
         >
             {% for item in subcontent %}
-                <div class="relative">
+                <div
+                    {# TODO: Somehow, these must only have an effect at and above the :lg breakpoint #}
+                    @mouseenter="toggleSection({{ loop.index0 }})"
+                    @mouseleave="toggleSection({{ loop.index0 }})"
+                    class="relative"
+                >
                     <div @click="toggleSection({{ loop.index0 }})" class="flex flex-col items-center gap-2 p-4">
                         {% include '@icons/' ~ item.icon ~ '.twig' with { class: 'fill-white' } only %}
                         <strong class="font-bold leading-loose-2xl">{{ item.title }}</strong>
