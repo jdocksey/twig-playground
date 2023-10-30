@@ -211,7 +211,8 @@
             {% include '@icons/video_play.twig' %}
         </div>
     </div>
-    <div class="bg-blue-400 flex flex-col items-center gap-8 shadow-md-light py-8">
+    {# This element is intended to be slightly larger than the regular content #}
+    <div class="bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 shadow-md-light py-8">
         <h3 class="text-blue-950">{{ subcontent_title }}</h3>
         <div x-data="{
             statuses: new Array( {{ titles|length }} ).fill(false),
