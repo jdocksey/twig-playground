@@ -216,6 +216,11 @@
         <h3 class="text-blue-950">{{ subcontent_title }}</h3>
         <div x-data="{
             statuses: new Array( {{ titles|length }} ).fill(false),
+            onHover(index) {
+                if (window.innerWidth >= 768) {
+                    this.toggleSection(index);
+                }
+            },
             toggleSection(index) {
                 this.statuses.forEach((status, i) => {
                     if (i !== index) {
@@ -233,10 +238,9 @@
         >
             {% for item in subcontent %}
                 <div
-                    {# TODO: Somehow, these must only have an effect at and above the :lg breakpoint #}
-                    @mouseenter="toggleSection({{ loop.index0 }})"
-                    @mouseleave="toggleSection({{ loop.index0 }})"
-                    class="relative"
+                    @mouseenter="onHover({{ loop.index0 }})"
+                    @mouseleave="onHover({{ loop.index0 }})"
+                    class="relative cursor-pointer"
                 >
                     <div @click="toggleSection({{ loop.index0 }})" class="flex flex-col items-center gap-2 p-4">
                         {% include '@icons/' ~ item.icon ~ '.twig' with { class: 'fill-white' } only %}
