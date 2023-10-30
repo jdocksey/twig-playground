@@ -96,6 +96,7 @@ tailwind.config = {
     boxShadow: {
       'sm': '4px 2px 10px 4px rgba(0, 0, 0, 0.06)',
       'md': '1px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+      'md-light': '0px 2px 8px 0px rgba(0, 0, 0, 0.25)',
     },
     extend: {
       colors: {
