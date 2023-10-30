@@ -247,7 +247,7 @@
                         <strong class="font-bold leading-loose-2xl">{{ item.title }}</strong>
                     </div>
 
-                    <a x-cloak x-show="statuses[{{ loop.index0 }}]" href="{{ item.url }}" class="absolute z-10 top-0 inset-x-0 h-44 bg-blue-950 flex flex-col p-4">
+                    <a x-cloak href="{{ item.url }}" x-bind:inert="!statuses[{{ loop.index0 }}]" :class="statuses[{{ loop.index0 }}] ? 'block opacity-100' : 'opacity-0'" class="absolute z-10 top-0 inset-x-0 h-44 bg-blue-950 flex flex-col p-4 transition-opacity duration-500">
                         <strong class="font-bold leading-normal">
                             {{ item.title }}
                         </strong>
