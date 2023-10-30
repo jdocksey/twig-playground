@@ -1,0 +1,9 @@
+{% from '@macros/components-local.twig' import homepage_header_with_pillars %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '5.1 Homepage Header with Philanthropic Pillars' } only %}
+</div>
+{{ homepage_header_with_pillars() }}
+
+{# TODO: Remove after development #}
+<div class="mt-[90vh]"></div>
