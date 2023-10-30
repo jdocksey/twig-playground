@@ -44,18 +44,20 @@ tailwind.config = {
       '5xl':   ['1.875rem',  'normal'],  // 30px
       '6xl':   ['2.1875rem', 'normal'],  // 35px
       '7xl':   ['2.8125rem', 'normal'],  // 45px
-      '8xl':   ['3.75rem',   'normal'],  // 60px
+      '8xl':   ['3.125rem',  '1.3'],     // 50px, 65px
+      '9xl':   ['3.75rem',   'normal'],  // 60px
       'super': ['12.5rem',   'normal'],  // 200px
     },
     lineHeight: {
-      normal:     'normal',
-      match:      '1',
-      tight:      '1.11111',
-      snug:       '1.42857',
-      standard:   '1.4375',
-      relaxed:    '1.5',
-      loose:      '1.5625',
-      'loose-xl': '1.66666',
+      normal:       'normal',
+      match:        '1',
+      tight:        '1.11111',
+      'snug-tight': '1.3',
+      snug:         '1.42857',
+      standard:     '1.4375',
+      relaxed:      '1.5',
+      loose:        '1.5625',
+      'loose-xl':   '1.66666',
     },
     fontWeight: {
       normal: 400,
@@ -113,6 +115,7 @@ tailwind.config = {
           300: '#c3cbcd',
           500: '#737373',
           600: '#555555',
+          700: '#333333',
         },
         green: {
           500: '#b6c42c',

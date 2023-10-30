@@ -148,7 +148,7 @@
                     window.requestAnimationFrame(step);
                 })"
             >
-                <div class="text-8xl text-blue-800 text-center">
+                <div class="text-9xl text-blue-800 text-center">
                     <span>{{ t.prefix }}</span><span x-ref="el">{{ t.start }}</span><span class="{{ postfix_class }}">{{ t.postfix }}</span>
                 </div>
                 <div class="text-sm text-white font-bold text-center uppercase">{{ t.label }}</div>
@@ -200,9 +200,16 @@
     {% endif %}
 {% endmacro %}
 
-{% macro homepage_header_with_pillars(title = '', subtitle = '', label = '', subcontent_title = '', subcontent = []) %}
-    <div class="bg-blue-950 text-white">
-        Title
+{% macro homepage_header_with_pillars(title = '', subtitle = '', label_text = '', subcontent_title = '', subcontent = []) %}
+    <div class="flex flex-col bg-blue-950">
+        <div>
+            {{ label(label_text) }}
+            <h1 class="text-3xl lg:text-8xl lg:leading-snug-tight lg:font-semibold text-white">{{ title }}</h1>
+            <p class="text-white">{{ subtitle }}</p>
+        </div>
+        <div class="bg-black flex justify-center items-center">
+            {% include '@icons/video_play.twig' %}
+        </div>
     </div>
     <div class="bg-blue-400 text-blue-950">
         Subcontent
