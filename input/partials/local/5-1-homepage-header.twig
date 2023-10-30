@@ -3,7 +3,34 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '5.1 Homepage Header with Philanthropic Pillars' } only %}
 </div>
-{{ homepage_header_with_pillars() }}
+{{ homepage_header_with_pillars(
+    'We change lives, globally',
+    'With the  support of our donors, the Foundation champions programs that create opportunity, diversity, and success within the global pharmaceutical industry.',
+    'Impact',
+    'Our Philanthropic Pillars',
+    [
+        {
+            title: 'ISPE Knowledge Without Borders',
+            icon: 'globe_book',
+            description: 'Description will display here.',
+        },
+        {
+            title: 'Scholarships & Grants',
+            icon: 'scholar_stars_book',
+            description: 'Description will display here.',
+        },
+        {
+            title: 'Workforce Diversity',
+            icon: 'people_shiny',
+            description: 'Provides equitable and inclusive opportunities to marginalized communities pursuing pharmaceutical industry careers.',
+        },
+        {
+            title: 'Greatest Needs',
+            icon: 'globe_hand',
+            description: 'Description will display here.',
+        },
+    ]
+) }}
 
 {# TODO: Remove after development #}
 <div class="mt-[90vh]"></div>
