@@ -21,7 +21,7 @@
                     <h3>{{ title }}</h3>
                     <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
                         <div :class="statuses[{{ loop.index0 }}] ? '' : 'rotate-180'" class="transition-transform duration-300">
-                            {% include '@icons/arrow-down.twig' with { class: 'fill-blue-950' } only %}
+                            {% include '@icons/chevron-down.twig' with { class: 'fill-blue-950' } only %}
                         </div>
                     </div>
                 </button>
@@ -202,7 +202,7 @@
 
 {% macro homepage_header_with_pillars(title = '', subtitle = '', label_text = '', subcontent_title = '', subcontent = []) %}
     <div class="flex flex-col bg-blue-950">
-        <div>
+        <div class="p-8">
             {{ label(label_text) }}
             <h1 class="text-3xl lg:text-8xl lg:leading-snug-tight lg:font-semibold text-white">{{ title }}</h1>
             <p class="text-white">{{ subtitle }}</p>
@@ -211,8 +211,40 @@
             {% include '@icons/video_play.twig' %}
         </div>
     </div>
-    <div class="bg-blue-400 text-blue-950">
-        Subcontent
+    <div class="bg-blue-400 flex flex-col items-center gap-8 py-8">
+        <h3 class="text-blue-950">{{ subcontent_title }}</h3>
+        <div x-data="{
+            statuses: new Array( {{ titles|length }} ).fill(false),
+            toggleSection(index) {
+                this.statuses.forEach((status, i) => {
+                    if (i !== index) {
+                        this.statuses[i] = false;
+                    }
+                })
+                this.statuses[index] = !this.statuses[index];
+            }
+        }"
+            class="flex flex-col gap-8 text-white"
+        >
+            {% for item in subcontent %}
+                <div class="relative">
+                    <div @click="toggleSection({{ loop.index0 }})" class="flex flex-col items-center gap-2 p-4">
+                        {% include '@icons/' ~ item.icon ~ '.twig' with { class: 'fill-white' } only %}
+                        <strong class="font-bold leading-loose-2xl">{{ item.title }}</strong>
+                    </div>
+
+                    <a x-cloak x-show="statuses[{{ loop.index0 }}]" href="{{ item.url }}" class="absolute z-10 top-0 inset-x-0 h-44 bg-blue-950 flex flex-col p-4">
+                        <strong class="font-bold leading-normal">
+                            {{ item.title }}
+                        </strong>
+                        <p class="text-xs">
+                            {{ item.description }}
+                        </p>
+                        {% include '@icons/arrow-right.twig' with { class: 'absolute bottom-4 right-4 fill-white' } only %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endmacro %}
 

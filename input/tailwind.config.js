@@ -58,6 +58,7 @@ tailwind.config = {
       relaxed:      '1.5',
       loose:        '1.5625',
       'loose-xl':   '1.66666',
+      'loose-2xl':   '1.875',
     },
     fontWeight: {
       normal: 400,
