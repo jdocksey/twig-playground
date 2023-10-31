@@ -201,14 +201,16 @@
 {% endmacro %}
 
 {% macro homepage_header_with_pillars(title = '', subtitle = '', label_text = '', subcontent_title = '', subcontent = []) %}
-    <div class="flex flex-col bg-blue-950">
-        <div class="pt-12 pb-15 px-6">
-            {{ label(label_text) }}
-            <h1 class="text-3xl lg:text-8xl lg:leading-snug-tight lg:font-semibold text-white pt-5.5">{{ title }}</h1>
-            <p class="text-white pt-2.5">{{ subtitle }}</p>
-        </div>
-        <div class="bg-black flex justify-center items-center w-full aspect-video">
-            {% include '@icons/video_play.twig' with { class: 'h-20 w-20 sm:h-38 sm:w-38' } only %}
+    <div class="bg-blue-950 lg:pt-21 lg:pb-32 ">
+        <div class="max-w-content-container-limit mx-auto px-content-container flex flex-col lg:flex-row">
+            <div class="pt-12 pb-15 px-1 lg:px-0 lg:mr-32">
+                {{ label(label_text) }}
+                <h1 class="text-3xl lg:text-8xl lg:leading-snug-tight lg:font-semibold text-white pt-5.5">{{ title }}</h1>
+                <p class="text-white pt-2.5">{{ subtitle }}</p>
+            </div>
+            <div class="bg-black flex justify-center items-center w-full aspect-video">
+                {% include '@icons/video_play.twig' with { class: 'h-20 w-20 sm:h-38 sm:w-38' } only %}
+            </div>
         </div>
     </div>
     {# This element is intended to be slightly wider than the regular content #}
