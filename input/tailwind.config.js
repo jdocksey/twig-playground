@@ -128,6 +128,10 @@ tailwind.config = {
         '5':  '.3125rem', // 5px (between `rounded` and `rounded-md`)
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
       },
+      gridTemplateColumns: {
+        /* 4 = 4 columns / max-content/fill = each column takes up at least the maximum space of its content, and then expands to fill any remaining space */
+        '4-max-content/fill': 'repeat(4, minmax(max-content, 1fr))',
+      },
       gridTemplateRows: {
         '2-min-content-1fr': 'min-content 1fr',
       },
