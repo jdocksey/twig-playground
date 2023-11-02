@@ -225,6 +225,7 @@ tailwind.config = {
         17.5: '4.375rem',
         19: '4.75rem',
         21: '5.25rem',
+        21.25: '5.3125rem',
         23: '5.75rem',
         26: '6.5rem',
         29: '7.25rem',
@@ -349,8 +350,17 @@ tailwind.config = {
       @apply md:px-6;
     }
 
+    .lg\:px-content-container {
+      @apply lg:px-6;
+    }
+
     .max-md\:px-content-container {
       @apply max-md:px-5;
+    }
+
+    .max-lg\:px-content-container {
+      @apply max-md:px-5;
+      @apply md:max-lg:px-6;
     }
   </style>
 </head>
@@ -431,19 +441,19 @@ tailwind.config = {
             <div class="text-lg">bg-blue-950</div>
             <div class="text-gray-500 text-lg tracking-wide">#001b3f</div>
         </button>
-                    <button x-data @click="() => navigator.clipboard.writeText('bg-blue-400')"
-            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-2xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
-        >
-            <div class="bg-blue-400  w-full aspect-square rounded-full"></div>
-            <div class="text-lg">bg-blue-400</div>
-            <div class="text-gray-500 text-lg tracking-wide">#0abbe8</div>
-        </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-blue-800')"
             class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-2xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
         >
             <div class="bg-blue-800  w-full aspect-square rounded-full"></div>
             <div class="text-lg">bg-blue-800</div>
             <div class="text-gray-500 text-lg tracking-wide">#0052a5</div>
+        </button>
+                    <button x-data @click="() => navigator.clipboard.writeText('bg-blue-400')"
+            class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-2xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
+        >
+            <div class="bg-blue-400  w-full aspect-square rounded-full"></div>
+            <div class="text-lg">bg-blue-400</div>
+            <div class="text-gray-500 text-lg tracking-wide">#0abbe8</div>
         </button>
                     <button x-data @click="() => navigator.clipboard.writeText('bg-green-500')"
             class="flex flex-col items-center gap-6 p-4 rounded w-full font-mono text-2xs text-gray-900 hover:bg-gray-100 active:bg-gray-200 hover:ring-1 ring-inset ring-gray-200"
@@ -3424,7 +3434,7 @@ tailwind.config = {
         </div>
     </div>
     
-    <div class="bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 lg:gap-4.5 shadow-md-light py-8 px-6 lg:py-3 lg:-mt-9 lg:mb-7">
+    <div class="bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 lg:gap-4.5 shadow-md-light py-8 px-6 lg:py-3 lg:-mt-9 lg:mb-9">
         <h3 class="text-blue-950">Our Philanthropic Pillars</h3>
         <div x-data="{
             statuses: new Array( 0 ).fill(false),
@@ -3619,6 +3629,50 @@ tailwind.config = {
                     </div>
     </div>
 
+            </div>
+                    <div id="local-5-3-homepage-impact-story">
+                
+<div>
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">5.3 Homepage Impact Story</h2>
+    </div>
+</div>
+</div>
+    <div class="bg-blue-800 lg:pt-23 lg:pb-21.25">
+        <div class="flex flex-col lg:grid lg:grid-cols-2 max-w-content-container-limit mx-auto lg:px-content-container">
+            <div class="flex flex-col gap-4.5 pt-9.5 pb-11 md:pb-7.5 lg:py-0 lg:mr-16 xl:mr-32 max-lg:px-content-container">
+                    <div class="bg-green-500 h-fit w-fit py-1.5 px-5 rounded-5 text-impact text-gray-700">Impact Story</div>
+
+                <h2 class="text-5xl text-white">Story Title Will Go Here</h2>
+                <p class="text-white">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan dignissim qui blandit praesent delenit.
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem consequat, vel illum dolore eu feugiat nulla facilisis at vero eros.</p>
+                <div class="mt-6.5 md:mt-0 lg:mt-5 xl:mt-11">
+                        
+                            
+                                                        
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+    >
+        <span>Read More</span>
+            </a>
+
+                </div>
+            </div>
+            <div class="bg-black flex justify-center items-center w-full aspect-video">
+                <svg width="73" height="75" viewBox="0 0 73 75" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+    <circle cx="36.6806" cy="39.0735" r="35.9125" fill="#005EA2"/>
+    <path d="M23.6356 14.0156L63.1898 36.6464L23.8139 59.586L23.6356 14.0156Z" fill="#D9D9D9"/>
+</svg>
+            </div>
+        </div>
+    </div>
+
 
 
 <div class="mt-[60vh]"></div>
@@ -3668,6 +3722,7 @@ tailwind.config = {
                                     <a @click="closeMenu()" href="#local-4-17-regular-cards" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-17-regular-cards</a>
                                     <a @click="closeMenu()" href="#local-4-20-image-gallery" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-20-image-gallery</a>
                                     <a @click="closeMenu()" href="#local-5-1-homepage-header" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">5-1-homepage-header</a>
+                                    <a @click="closeMenu()" href="#local-5-3-homepage-impact-story" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">5-3-homepage-impact-story</a>
                             </div>
 
             
