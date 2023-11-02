@@ -214,7 +214,7 @@
         </div>
     </div>
     {# This element is intended to be slightly wider than the regular content #}
-    <div class="bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 lg:gap-4.5 shadow-md-light py-8 px-6 lg:py-3 lg:-mt-9 lg:mb-7">
+    <div class="bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 lg:gap-4.5 shadow-md-light py-8 px-6 lg:py-3 lg:-mt-9 lg:mb-9">
         <h3 class="text-blue-950">{{ subcontent_title }}</h3>
         <div x-data="{
             statuses: new Array( {{ titles|length }} ).fill(false),
@@ -267,6 +267,12 @@
                 </div>
             {% endfor %}
         </div>
+    </div>
+{% endmacro %}
+
+{% macro homepage_impact_story() %}
+    <div>
+        Homepage Impact Story
     </div>
 {% endmacro %}
 

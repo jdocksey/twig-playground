@@ -1,0 +1,9 @@
+{% from '@macros/components-local.twig' import homepage_impact_story %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '5.3 Homepage Impact Story' } only %}
+</div>
+{{ homepage_impact_story() }}
+
+{# TODO: Remove after development #}
+<div class="mt-[60vh]"></div>
