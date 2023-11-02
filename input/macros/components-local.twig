@@ -202,8 +202,8 @@
 
 {% macro homepage_header_with_pillars(title = '', subtitle = '', label_text = '', subcontent_title = '', subcontent = []) %}
     <div class="bg-blue-950 lg:pt-23 lg:pb-34">
-        <div class="max-w-content-container-limit mx-auto px-content-container flex flex-col lg:grid lg:grid-cols-2">
-            <div class="pt-12 pb-15 px-1 lg:pt-4 lg:px-0 lg:mr-16 xl:pt-2 xl:mr-32">
+        <div class="max-w-content-container-limit mx-auto lg:px-content-container flex flex-col lg:grid lg:grid-cols-2">
+            <div class="pt-12 pb-15 lg:pt-4 lg:mr-16 xl:pt-2 xl:mr-32 max-lg:px-content-container">
                 {{ label(label_text) }}
                 <h1 class="text-3xl lg:text-8xl lg:leading-snug-tight lg:font-semibold text-white pt-5.5 lg:pt-2">{{ title }}</h1>
                 <p class="text-white pt-2.5">{{ subtitle }}</p>
