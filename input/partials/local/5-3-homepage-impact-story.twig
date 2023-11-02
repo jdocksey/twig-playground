@@ -3,7 +3,13 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '5.3 Homepage Impact Story' } only %}
 </div>
-{{ homepage_impact_story() }}
+{{ homepage_impact_story(
+    'Story Title Will Go Here',
+    'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan dignissim qui blandit praesent delenit.\n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem consequat, vel illum dolore eu feugiat nulla facilisis at vero eros.',
+    'Impact Story',
+    'https://www.example.com',
+    'Read More'
+) }}
 
 {# TODO: Remove after development #}
 <div class="mt-[60vh]"></div>
