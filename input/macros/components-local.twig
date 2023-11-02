@@ -201,11 +201,11 @@
 {% endmacro %}
 
 {% macro homepage_header_with_pillars(title = '', subtitle = '', label_text = '', subcontent_title = '', subcontent = []) %}
-    <div class="bg-blue-950 lg:pt-21 lg:pb-32 ">
+    <div class="bg-blue-950 lg:pt-23 lg:pb-34">
         <div class="max-w-content-container-limit mx-auto px-content-container flex flex-col lg:grid lg:grid-cols-2">
-            <div class="pt-12 pb-15 px-1 lg:px-0 lg:mr-16 xl:mr-32">
+            <div class="pt-12 pb-15 px-1 lg:pt-4 lg:px-0 lg:mr-16 xl:pt-2 xl:mr-32">
                 {{ label(label_text) }}
-                <h1 class="text-3xl lg:text-8xl lg:leading-snug-tight lg:font-semibold text-white pt-5.5">{{ title }}</h1>
+                <h1 class="text-3xl lg:text-8xl lg:leading-snug-tight lg:font-semibold text-white pt-5.5 lg:pt-2">{{ title }}</h1>
                 <p class="text-white pt-2.5">{{ subtitle }}</p>
             </div>
             <div class="bg-black flex justify-center items-center w-full aspect-video">
@@ -214,7 +214,7 @@
         </div>
     </div>
     {# This element is intended to be slightly wider than the regular content #}
-    <div class="bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 lg:gap-4.5 shadow-md-light py-8 px-6 lg:py-5 lg:mb-7">
+    <div class="bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 lg:gap-4.5 shadow-md-light py-8 px-6 lg:py-3 lg:-mt-9 lg:mb-7">
         <h3 class="text-blue-950">{{ subcontent_title }}</h3>
         <div x-data="{
             statuses: new Array( {{ titles|length }} ).fill(false),
