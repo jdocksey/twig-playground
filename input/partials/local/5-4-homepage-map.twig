@@ -1,0 +1,66 @@
+{% from '@macros/components-local.twig' import homepage_map %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '5.4 Homepage Map' } only %}
+</div>
+{{ homepage_map(
+    [
+        {
+            "name": "Top",
+            "x": 83,
+            "y": 97,
+            "videoID": "I1rA68yF4tM"
+        },
+        {
+            "name": "Los Angeles",
+            "x": 13,
+            "y": 60,
+            "videoID": "I1rA68yF4tM"
+        },
+        {
+            "name": "Boston",
+            "x": 28.2,
+            "y": 63.5,
+            "videoID": "E__X8IDR6a0"
+        },
+        {
+            "name": "Argentina",
+            "x": 30,
+            "y": 15,
+            "videoID": "DWwppYEEdcI"
+        },
+        {
+            "name": "Ireland",
+            "x": 48,
+            "y": 71,
+            "videoID": "Ec6i45d74nk"
+        },
+        {
+            "name": "London",
+            "x": 51,
+            "y": 70,
+            "videoID": "Rd0HnxWm5CY"
+        },
+        {
+            "name": "Madagascar",
+            "x": 66,
+            "y": 28,
+            "videoID": "fOk8Tm815lE"
+        },
+        {
+            "name": "Dubai",
+            "x": 68,
+            "y": 52.1,
+            "videoID": "xWDIwsfgQnE"
+        },
+        {
+            "name": "Japan",
+            "x": 94.8,
+            "y": 59.6,
+            "videoID": "hbEWdw8"
+        }
+    ]
+) }}
+
+{# TODO: Remove after development #}
+<div class="mt-[60vh]"></div>

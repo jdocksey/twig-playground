@@ -70,12 +70,35 @@ tailwind.config = {
       wider: '1.3px',
     },
     animation: {
+      // TODO: Add an explanation for the `bounce-by-growing` animations
+      'bounce-by-growing': 'bounce-by-growing .8s infinite',
+      'bounce-by-growing-small': 'bounce-by-growing-small .8s infinite',
       'fade-in': 'fade-in 0.6s ease forwards',
       'fade-in-left': 'fade-in-left 0.6s ease forwards',
       'fade-in-right': 'fade-in-right 0.6s ease forwards',
       'fade-in-up': 'fade-in-up 0.6s ease forwards',
     },
     keyframes: {
+      'bounce-by-growing': {
+        '0%, 100%': {
+          height: '4rem',
+          'animation-timing-function': 'cubic-bezier(0, 0, 0 .2, 1)',
+        },
+        '50%': {
+          height: '4.8rem',
+          'animation-timing-function': 'cubic-bezier(0.95, 0, 1, 1)',
+        },
+      },
+      'bounce-by-growing-small': {
+        '0%, 100%': {
+          height: '2rem',
+          'animation-timing-function': 'cubic-bezier(0, 0, 0 .2, 1)',
+        },
+        '50%': {
+          height: '2.75rem',
+          'animation-timing-function': 'cubic-bezier(0.95, 0, 1, 1)',
+        },
+      },
       'fade-in': {
         'from': { opacity: 0 },
         'to': { opacity: 1 },
@@ -95,8 +118,10 @@ tailwind.config = {
     },
     boxShadow: {
       'sm': '4px 2px 10px 4px rgba(0, 0, 0, 0.06)',
-      'md': '1px 4px 4px 0px rgba(0, 0, 0, 0.25)',
-      'md-light': '0px 2px 8px 0px rgba(0, 0, 0, 0.25)',
+      'md': '1px 4px 4px  0px rgba(0, 0, 0, 0.25)',
+      'md-light': '0px 2px 8px  0px rgba(0, 0, 0, 0.25)',
+      'map': '0px 3px 5px  1px rgba(0, 0, 0, 0.3)',
+
     },
     extend: {
       colors: {
@@ -167,6 +192,7 @@ tailwind.config = {
         'content-container-limit-1/2': '624px',
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
+        'homepage-map': '1440px',
         // These are the maximum widths for sliders: 750/8 = slide width of 750px, gap of 8px, -[number] = number of slides
         // TODO: Determine which, or any, of these should be used in production
         'slider-750/8-1': '750px',
@@ -210,10 +236,13 @@ tailwind.config = {
         43.5: '10.875rem',
         44: '11rem',
         70: '17.5rem',
+        78.75: '19.6875rem',
         86: '21.5rem',
         110: '27.5rem',
+        140: '35rem',
         '5.75vw': '5.75vw',
         '10vw': '10vw',
+        '15vh': '15vh',
       },
     },
   },
