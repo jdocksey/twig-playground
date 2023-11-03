@@ -299,44 +299,42 @@
 {% endmacro %}
 
 {% macro homepage_map(pins = []) %}
-    <div class="bg-white mt-15vh">
-        <div class="relative mx-auto" x-data="{
-            showVideo: true,
-            videoUrl: 'https://www.youtube.com/embed/{{ pins[0].videoID }}',
-            openVideo(videoID) {
-                this.videoUrl = 'https://www.youtube.com/embed/' + videoID;
-                this.showVideo = true;
-            },
-            closeVideo() {
-                this.showVideo = false;
-            }
-        }">
-            {# map and pins #}
-            <img src="./assets/map.svg" alt="world map">
-            {% for pin in pins %}
-            <div class="absolute z-10 bottom-[{{ pin.y }}%] left-[calc({{ pin.x }}%-11.25px)] md:left-[calc({{ pin.x }}%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
-                <img @click="openVideo('{{ pin.videoID }}')" src="./assets/pin.svg" alt="{{ pin.name }}" class="h-8 md:h-16">
-            </div>
-            {% endfor %}
+    <div class="relative mx-auto" x-data="{
+        showVideo: true,
+        videoUrl: 'https://www.youtube.com/embed/{{ pins[0].videoID }}',
+        openVideo(videoID) {
+            this.videoUrl = 'https://www.youtube.com/embed/' + videoID;
+            this.showVideo = true;
+        },
+        closeVideo() {
+            this.showVideo = false;
+        }
+    }">
+        {# map and pins #}
+        <img src="./assets/map.svg" alt="world map">
+        {% for pin in pins %}
+        <div class="absolute z-10 bottom-[{{ pin.y }}%] left-[calc({{ pin.x }}%-11.25px)] md:left-[calc({{ pin.x }}%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
+            <img @click="openVideo('{{ pin.videoID }}')" src="./assets/pin.svg" alt="{{ pin.name }}" class="h-8 md:h-16">
+        </div>
+        {% endfor %}
 
-            {# video player #}
-            <div x-show="showVideo" class="absolute z-20 max-md:-bottom-12 max-md:aspect-w-16 max-md:aspect-h-9 right-8 flex justify-center px-8 md:block md:top-1/3 md:right-16 md:px-0">
-                <div class="relative w-full bg-gray-50 pt-6 pb-4 px-4 md:pt-12 md:pb-6 md:px-8 rounded-2xl md:rounded-3xl shadow-map">
-                    <button @click="closeVideo()" class="absolute top-2 right-2 md:top-4.5 md:right-4">
-                        <img src="./assets/x.svg" alt="Close video" class="h-2 md:h-full">
-                    </button>
+        {# video player #}
+        <div x-show="showVideo" class="absolute z-20 max-md:-bottom-12 max-md:aspect-w-16 max-md:aspect-h-9 right-8 flex justify-center px-8 md:block md:top-1/3 md:right-16 md:px-0">
+            <div class="relative w-full bg-gray-50 pt-6 pb-4 px-4 md:pt-12 md:pb-6 md:px-8 rounded-2xl md:rounded-3xl shadow-map">
+                <button @click="closeVideo()" class="absolute top-2 right-2 md:top-4.5 md:right-4">
+                    <img src="./assets/x.svg" alt="Close video" class="h-2 md:h-full">
+                </button>
 
-                    <div class="md:h-78.75 md:w-140">
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            :src="videoUrl"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                        >
-                        </iframe>
-                    </div>
+                <div class="md:h-78.75 md:w-140">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        :src="videoUrl"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    >
+                    </iframe>
                 </div>
             </div>
         </div>
