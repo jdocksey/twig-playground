@@ -263,7 +263,8 @@
                         x-cloak
                         x-bind:inert="!statuses[{{ loop.index0 }}]"
                         :class="statuses[{{ loop.index0 }}] ? 'opacity-100' : 'opacity-0'"
-                        class="absolute z-10 top-0 max-lg:inset-0 lg:top-3.5 lg:h-44 lg:w-70 bg-blue-950 flex flex-col p-4 transition-opacity duration-600 ease-in-out"
+                        {# The last link is positioned such that it won't go past the right edge of the parent container #}
+                        class="absolute z-10 top-0 max-lg:inset-0 lg:top-3.5 lg:h-44 lg:w-70 {{ loop.last ? 'lg:-right-8' }} bg-blue-950 flex flex-col p-4 transition-opacity duration-600 ease-in-out"
                     >
                         <strong class="font-bold leading-normal">
                             {{ item.title }}
