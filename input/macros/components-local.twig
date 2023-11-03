@@ -203,8 +203,12 @@
 {% macro homepage_header_with_pillars(title = '', subtitle = '', label_text = '', subcontent_title = '', subcontent = []) %}
     <div class="relative bg-blue-950 overflow-hidden lg:pt-23 lg:pb-34">
 
-        <div class="absolute z-0 -top-16 bottom-0 -right-8">
-            {% include '@icons/ispe-globe.twig' with { class: 'fill-white opacity-30 h-full' } only %}
+        <div class="hidden lg:block absolute z-0 inset-0">
+            <div class="relative max-w-[1400px] mx-auto">
+                <div class="absolute h-[65vw] max-h-[720px] top-[-11rem] right-[-13rem]">
+                    {% include '@icons/ispe-globe.twig' with { class: 'fill-white opacity-30 h-full' } only %}
+                </div>
+            </div>
         </div>
 
         <div class="relative z-10 max-w-content-container-limit mx-auto lg:px-content-container flex flex-col lg:grid lg:grid-cols-2">
