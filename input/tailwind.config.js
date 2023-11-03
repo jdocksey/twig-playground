@@ -121,7 +121,6 @@ tailwind.config = {
       'md': '1px 4px 4px  0px rgba(0, 0, 0, 0.25)',
       'md-light': '0px 2px 8px  0px rgba(0, 0, 0, 0.25)',
       'map': '0px 3px 5px  1px rgba(0, 0, 0, 0.3)',
-
     },
     extend: {
       colors: {
