@@ -300,7 +300,7 @@
 
 {% macro homepage_map(pins = []) %}
     <div class="bg-white mt-15vh">
-        <div class="relative max-w-content-extra-wide mx-auto" x-data="{
+        <div class="relative mx-auto" x-data="{
             showVideo: true,
             videoUrl: 'https://www.youtube.com/embed/{{ pins[0].videoID }}',
             openVideo(videoID) {
