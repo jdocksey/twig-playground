@@ -204,8 +204,8 @@
     <div class="relative bg-blue-950 overflow-hidden lg:pt-23 lg:pb-34">
 
         <div class="hidden lg:block absolute z-0 inset-0">
-            <div class="relative max-w-[1440px] mx-auto">
-                <div class="absolute h-[67vw] max-h-[704px] top-[-10.75rem] right-[-10rem]">
+            <div class="relative max-w-content-extra-wide mx-auto">
+                <div class="absolute h-67vw max-h-176 -top-43 -right-40">
                     {% include '@icons/ispe-globe.twig' with { class: 'fill-white opacity-30 h-full' } only %}
                 </div>
             </div>
@@ -299,7 +299,7 @@
 
 {% macro homepage_map(pins = []) %}
     <div class="bg-white mt-15vh">
-        <div class="relative max-w-homepage-map mx-auto" x-data="{
+        <div class="relative max-w-content-extra-wide mx-auto" x-data="{
             showVideo: true,
             videoUrl: 'https://www.youtube.com/embed/{{ pins[0].videoID }}',
             openVideo(videoID) {

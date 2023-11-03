@@ -186,13 +186,14 @@ tailwind.config = {
         58: '14.5rem',
         105: '26.26rem',
         116: '29rem',
+        176: '44rem',
       },
       maxWidth: {
         // This value is 24px greater than half of the content limit of 1200px to account for the 1.5rem (24px) of horizontal padding on just one side
         'content-container-limit-1/2': '624px',
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
         'content-container-limit': '1248px',
-        'homepage-map': '1440px',
+        'content-extra-wide': '1440px',
         // These are the maximum widths for sliders: 750/8 = slide width of 750px, gap of 8px, -[number] = number of slides
         // TODO: Determine which, or any, of these should be used in production
         'slider-750/8-1': '750px',
@@ -233,6 +234,7 @@ tailwind.config = {
         30: '7.5rem',
         34: '8.5rem',
         38: '9.5rem',
+        43: '10.75rem',
         43.5: '10.875rem',
         44: '11rem',
         70: '17.5rem',
@@ -240,9 +242,10 @@ tailwind.config = {
         86: '21.5rem',
         110: '27.5rem',
         140: '35rem',
+        '15vh': '15vh',
         '5.75vw': '5.75vw',
         '10vw': '10vw',
-        '15vh': '15vh',
+        '67vw': '67vw',
       },
     },
   },
