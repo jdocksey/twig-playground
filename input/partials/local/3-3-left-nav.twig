@@ -53,10 +53,10 @@
                     {# The height and width are set so that there are no minor size changes when the icon being displayed changes #}
                     <span class="h-6 w-8">
                         <span x-show="!open">
-                            {% include '@icons/menu.twig' with { alt_text: 'open intra-page navigation' } only %}
+                            {% include '@svg/menu.svg.twig' with { alt_text: 'open intra-page navigation' } only %}
                         </span>
                         <span x-show="open">
-                            {% include '@icons/cross.twig' with { alt_text: 'close intra-page navigation' } only %}
+                            {% include '@svg/cross.svg.twig' with { alt_text: 'close intra-page navigation' } only %}
                         </span>
                     </span>
                     <span class="text-xs font-bold">on this page</span>

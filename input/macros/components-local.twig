@@ -21,7 +21,7 @@
                     <h3>{{ title }}</h3>
                     <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
                         <div :class="statuses[{{ loop.index0 }}] ? '' : 'rotate-180'" class="transition-transform duration-300">
-                            {% include '@icons/chevron-down.twig' with { class: 'fill-blue-950' } only %}
+                            {% include '@svg/chevron-down.svg.twig' with { class: 'fill-blue-950' } only %}
                         </div>
                     </div>
                 </button>
@@ -39,7 +39,7 @@
             {{ label(label_text) }}
             <h1 class="text-center mt-3.5 md:mt-5.5">{{ title }}</h1>
             <div class="flex items-center gap-5 mt-4 md:mt-5">
-                {% include '@icons/calendar.twig' with { class: 'relative bottom-0.25' } only %}
+                {% include '@svg/calendar.svg.twig' with { class: 'relative bottom-0.25' } only %}
                 <div>{{ date_text }}</div>
             </div>
         </div>
@@ -206,7 +206,7 @@
         <div class="hidden lg:block absolute z-0 inset-0">
             <div class="relative max-w-content-extra-wide mx-auto">
                 <div class="absolute h-67vw max-h-176 -top-43 -right-40">
-                    {% include '@icons/ispe-globe.twig' with { class: 'fill-white opacity-30 h-full' } only %}
+                    {% include '@svg/ispe-globe.svg.twig' with { class: 'fill-white opacity-30 h-full' } only %}
                 </div>
             </div>
         </div>
@@ -218,7 +218,7 @@
                 <p class="text-white pt-2.5">{{ subtitle }}</p>
             </div>
             <div class="bg-black flex justify-center items-center w-full aspect-video">
-                {% include '@icons/video_play.twig' with { class: 'h-20 w-20 sm:h-38 sm:w-38 lg:h-24 lg:w-24 xl:h-29 xl:w-29' } only %}
+                {% include '@svg/video_play.svg.twig' with { class: 'h-20 w-20 sm:h-38 sm:w-38 lg:h-24 lg:w-24 xl:h-29 xl:w-29' } only %}
             </div>
         </div>
     </div>
@@ -254,7 +254,7 @@
                     class="relative cursor-pointer lg:flex lg:justify-center   "
                 >
                     <div @click="toggleSection({{ loop.index0 }})" class="flex flex-col items-center gap-2.5 md:justify-between md:h-36 lg:w-max p-4">
-                        {% include '@icons/' ~ item.icon ~ '.twig' with { class: 'fill-white' } only %}
+                        {% include '@svg/' ~ item.icon ~ '.svg.twig' with { class: 'fill-white' } only %}
                         <strong class="font-bold leading-loose-2xl">{{ item.title }}</strong>
                     </div>
 
@@ -272,7 +272,7 @@
                         <p class="text-xs">
                             {{ item.description }}
                         </p>
-                        {% include '@icons/arrow-right.twig' with { class: 'absolute bottom-4 right-4 fill-white' } only %}
+                        {% include '@svg/arrow-right.svg.twig' with { class: 'absolute bottom-4 right-4 fill-white' } only %}
                     </a>
                 </div>
             {% endfor %}
@@ -292,7 +292,7 @@
                 </div>
             </div>
             <div class="bg-black flex justify-center items-center w-full aspect-video">
-                {% include '@icons/video_play.twig' with { class: '' } only %}
+                {% include '@svg/video_play.svg.twig' with { class: '' } only %}
             </div>
         </div>
     </div>
@@ -386,7 +386,7 @@
             <div class="flex flex-col gap-2 md:gap-4">
                 {% for highlight in highlights %}
                     <div class="flex items-center gap-4 md:gap-5 text-blue-800 stroke-blue-800">
-                        {% include '@icons/checkmark.twig' with { class: 'relative bottom-0.5' } only %}
+                        {% include '@svg/checkmark.svg.twig' with { class: 'relative bottom-0.5' } only %}
                         {{ highlight }}
                     </div>
                 {% endfor %}
@@ -423,7 +423,7 @@
                 <div class="flex flex-col md:grid {{ md_grid_cols }} gap-3 mt-6.5 md:gap-5 md:mt-3">
                     {% for tag in tags %}
                         <div class="flex flex-col justify-center items-center gap-4 bg-gray-100 p-6 rounded-10 fill-blue-950">
-                            {% include '@icons/' ~ tag.icon ~ '.twig' %}
+                            {% include '@svg/' ~ tag.icon ~ '.svg.twig' %}
                             <h5 class="text-center">{{ tag.text }}</h5>
                         </div>
                     {% endfor %}

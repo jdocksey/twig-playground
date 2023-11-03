@@ -82,7 +82,7 @@ function renderTemplate(template: string, data: any): string {
         data: template,
         namespaces: {
             macros: './input/macros',
-            icons: './input/partials/icons',
+            svg: './input/partials/svg',
             globalPartials: './input/partials/global',
             localPartials: './input/partials/local',
         },
