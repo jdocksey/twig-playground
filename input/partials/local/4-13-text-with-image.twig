@@ -3,4 +3,26 @@
 <div>
     {% include '@localPartials/component-title.twig' with { text: '4.13 Text + Image' } only %}
 </div>
-{{ text_plus_image() }}
+title = '', text_blocks = [], image_url = ''
+{{ text_plus_image(
+    'How We Make A Difference',
+    [
+        {
+            header: 'Clear Concise Header',
+            body: 'Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum.'
+        },
+        {
+            header: 'Clear Concise Header',
+            body: 'At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum.'
+        },
+        {
+            header: 'Clear Concise Header',
+            body: 'Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum.'
+        },
+        {
+            header: 'Clear Concise Header',
+            body: 'At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum.'
+        },
+    ],
+    './assets/attendees.png'
+) }}
