@@ -461,6 +461,14 @@
 
 {% macro text_plus_image(title = '', text_blocks = [], img_src = '', img_alt_text = '') %}
     <div class="relative">
+        {#
+
+            Regarding the box above the `md:` breakpoint:
+                - The text will always be aligned with the left-side content limit. L/R inner padding will remain consistent (and equal to each other)
+                    - the box will "float" at XL window sizes
+
+        #}
+
         <div class="md:absolute-TODO-IMPLEMENT bg-blue-950 text-white">
             <div class="bg-green-500 h-2.5"></div>
             <div class="py-16 px-content-container">
