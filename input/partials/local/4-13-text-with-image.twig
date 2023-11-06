@@ -1,0 +1,6 @@
+{% from '@macros/components-local.twig' import text_plus_image %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '4.13 Text + Image' } only %}
+</div>
+{{ text_plus_image() }}
