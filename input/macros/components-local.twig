@@ -459,6 +459,23 @@
     </div>
 {% endmacro %}
 
-{% macro text_plus_image(title = '', text_blocks = [], image_url = '') %}
-    <div>text_plus_image</div>
+{% macro text_plus_image(title = '', text_blocks = [], img_src = '', img_alt_text = '') %}
+    <div class="relative">
+        <div class="md:absolute-TODO-IMPLEMENT bg-blue-950 text-white">
+            {# TODO: Verify color and set height #}
+            <div class="bg-green-500 h-8"></div>
+            <div>
+                <h2>{{ title }}</h2>
+                <div class="md:grid md:grid-cols-2">
+                    {% for block in text_blocks %}
+                        <div>
+                            <h4>{{ block.title }}</h4>
+                            <p>{{ block.description }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <img src="{{ img_src }}" alt="{{ img_alt_text }}">
+    </div>
 {% endmacro %}
