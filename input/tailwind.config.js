@@ -70,7 +70,6 @@ tailwind.config = {
       wider: '1.3px',
     },
     animation: {
-      // TODO: Add an explanation for the `bounce-by-growing` animations
       'bounce-by-growing': 'bounce-by-growing .8s infinite',
       'bounce-by-growing-small': 'bounce-by-growing-small .8s infinite',
       'fade-in': 'fade-in 0.6s ease forwards',
@@ -79,6 +78,11 @@ tailwind.config = {
       'fade-in-up': 'fade-in-up 0.6s ease forwards',
     },
     keyframes: {
+      /*
+        The "bounce-by-growing" animations create a bouncing effect for an element by increasing its height. Typically `transform: translateY(...)` is used for this,
+        but this may result in poor UX when the animation is triggered by a mouse hover, as the element can then move away from the cursor on its on, therefore automatically stopping, and then restarting, the animation.
+        Increasing the height of the element instead ensures that the element will remain under the hovering cursor.
+      */
       'bounce-by-growing': {
         '0%, 100%': {
           height: '4rem',
