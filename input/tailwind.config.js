@@ -192,6 +192,7 @@ tailwind.config = {
         176: '44rem',
       },
       maxWidth: {
+        185: '46.25rem',
         // This value is 24px greater than half of the content limit of 1200px to account for the 1.5rem (24px) of horizontal padding on just one side
         'content-container-limit-1/2': '624px',
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
