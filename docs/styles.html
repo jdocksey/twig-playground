@@ -217,6 +217,8 @@ tailwind.config = {
         176: '44rem',
       },
       maxWidth: {
+        185: '46.25rem',
+        360: '90rem',
         // This value is 24px greater than half of the content limit of 1200px to account for the 1.5rem (24px) of horizontal padding on just one side
         'content-container-limit-1/2': '624px',
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
@@ -251,8 +253,10 @@ tailwind.config = {
         13: '3.25rem',
         13.5: '3.375rem',
         15: '3.75rem',
+        16.5: '4.125rem',
         17: '4.25rem',
         17.5: '4.375rem',
+        18.5: '4.625rem',
         19: '4.75rem',
         21: '5.25rem',
         21.25: '5.3125rem',
@@ -265,11 +269,15 @@ tailwind.config = {
         43: '10.75rem',
         43.5: '10.875rem',
         44: '11rem',
+        54.5: '13.625rem',
         70: '17.5rem',
         78.75: '19.6875rem',
         86: '21.5rem',
+        93: '23.25rem',
         110: '27.5rem',
+        135: '33.75rem',
         140: '35rem',
+        142.5: '35.625rem',
         '15vh': '15vh',
         '5.75vw': '5.75vw',
         '10vw': '10vw',
@@ -2447,6 +2455,46 @@ tailwind.config = {
     </div>
 
             </div>
+                    <div id="local-4-13-text-with-image">
+                
+<div>
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.13 Text + Image</h2>
+    </div>
+</div>
+</div>
+    <div class="relative max-w-360 mx-auto md:pt-18.5 xl:pt-26">
+        <div class="md:absolute md:top-0 md:left-0 md:w-max">
+            <div class="bg-green-500 h-2.5"></div>
+            
+            <div class="bg-blue-950 text-white py-16.5 xl:pb-23 px-content-container md:px-12 xl:px-[clamp(3rem,_calc(37.5vw_-_27.5rem),_7.5rem)]">
+                <h2>How We Make A Difference</h2>
+                <div class="mt-6 md:mt-13 flex flex-col gap-11 xl:gap-16 md:grid md:grid-cols-2">
+                                            <div class="md:w-56 xl:w-54.5">
+                            <h4>Clear Concise Header</h4>
+                            <p class="mt-2">Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum.</p>
+                        </div>
+                                            <div class="md:w-56 xl:w-54.5">
+                            <h4>Clear Concise Header</h4>
+                            <p class="mt-2">At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum.</p>
+                        </div>
+                                            <div class="md:w-56 xl:w-54.5">
+                            <h4>Clear Concise Header</h4>
+                            <p class="mt-2">Et has minim elitr intellegat. Mea aeterno eleifend antiopam ad, nam no suscipit quaerendum.</p>
+                        </div>
+                                            <div class="md:w-56 xl:w-54.5">
+                            <h4>Clear Concise Header</h4>
+                            <p class="mt-2">At nam minimum ponderum. Est audiam animal molestiae te. Ex duo eripuit mentitum.</p>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <img src="./assets/content-1996-1249.png" alt="" class="h-93 md:h-142.5 xl:h-135 w-full object-cover object-center">
+
+            </div>
                     <div id="local-4-14-accordion">
                 
 <div>
@@ -3853,6 +3901,7 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem c
                                     <a @click="closeMenu()" href="#local-4-4-testimonial" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-4-testimonial</a>
                                     <a @click="closeMenu()" href="#local-4-11-file-download-cta" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-11-file-download-cta</a>
                                     <a @click="closeMenu()" href="#local-4-12-counter" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-12-counter</a>
+                                    <a @click="closeMenu()" href="#local-4-13-text-with-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-13-text-with-image</a>
                                     <a @click="closeMenu()" href="#local-4-14-accordion" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-14-accordion</a>
                                     <a @click="closeMenu()" href="#local-4-17-slider-cards" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-17-slider-cards</a>
                                     <a @click="closeMenu()" href="#local-4-17-regular-cards" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-17-regular-cards</a>
