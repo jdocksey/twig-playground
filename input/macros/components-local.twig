@@ -160,9 +160,13 @@
     </div>
 {% endmacro %}
 
-{% macro cta_left_text() %}%}
+{% macro cta_left_text(title = '', description = '', link_url = '', link_text = '', cta_url = '', cta_text = '', img_src = '', img_alt_text = '') %}
+    <img src="{{ img_src }}" alt="{{ img_alt_text }}">
     <div>
-        abc
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+        {{ link_button(cta_url, cta_text, 'm', false, true, false) }}
+        {{ link_block(link_url, link_text, 'r') }}
     </div>
 {% endmacro %}%}
 

@@ -5,5 +5,14 @@
     {% include '@localPartials/component-title.twig' with { text: '4.6 CTA Left Text' } only %}
 </div>
 {{ section.start(false, true, true, '') }}
-    {{ cta_left_text() }}
+    {{ cta_left_text(
+        'Our Commitment to Investing in Emerging Leaders',
+        'Issuance of the 2023 ISPE Biotechnology Conference Student and Recent Graduate Attendance Grants is consistent with the ISPE Foundation’s mission to fuel global health equity by fostering access to knowledge and nurturing diverse talent.',
+        'https://www.example.com',
+        'Other Student Opportunities',
+        'https://www.example.com',
+        'Scholarships & Grants Initiative',
+        './assets/content-1500-840-1.png',
+        ''
+    ) }}
 {{ section.end() }}
