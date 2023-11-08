@@ -160,6 +160,12 @@
     </div>
 {% endmacro %}
 
+{% macro cta_left_text() %}%}
+    <div>
+        abc
+    </div>
+{% endmacro %}%}
+
 {% macro download_cta(title = '', description = '', cta_url = '', cta_text, img_src = '') %}
     <div class="max-w-max mx-auto flex flex-col md:flex-row items-center md:items-start md:gap-11">
         <img src="{{ img_src }}" alt="{{ img_alt_text }}" class="max-md:order-2 max-h-58 mt-7 md:mt-0 shadow-sm">

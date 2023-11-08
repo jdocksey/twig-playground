@@ -1,0 +1,9 @@
+{% from '@macros/components-local.twig' import cta_left_text %}
+{% import '@macros/section.twig' as section %}
+
+<div>
+    {% include '@localPartials/component-title.twig' with { text: '4.6 CTA Left Text' } only %}
+</div>
+{{ section.start(false, true, true, '') }}
+    {{ cta_left_text() }}
+{{ section.end() }}
