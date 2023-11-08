@@ -60,7 +60,7 @@
         {% set text_size = wide ? 'text-xl leading-match' : 'text-xs leading-tight' %}
         {% set font_weight = 'font-bold' %}
         {% set icon_gap = 'gap-2' %}
-        {% set icon_position = 'relative bottom-0.5' %}
+        {% set icon_position = 'relative bottom-0.25' %}
         {% set icon_scale = '' %}
     {% elseif size == 'm' %}
         {% set padding = wide ? 'py-4.5 px-15' : 'py-4 px-15' %}
@@ -91,7 +91,7 @@
             {% include '@globalPartials/link-icon.twig' with { class: icon_position ~ ' ' ~ icon_scale } only %}
         {% elseif icon == 'pdf' %}
             {# TODO: Fix the styling of this icon #}
-            {% include '@globalPartials/pdf-icon.twig' with { class: icon_position ~ ' ' ~ icon_scale ~ ' fill-blue-950' } only %}
+            {% include '@globalPartials/pdf-icon.twig' with { class: icon_position ~ ' ' ~ icon_scale ~ ' stroke-none fill-blue-950' } only %}
         {% endif %}
     </a>
 {% endmacro %}
