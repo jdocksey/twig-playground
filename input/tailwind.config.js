@@ -58,7 +58,7 @@ tailwind.config = {
       relaxed:      '1.5',
       loose:        '1.5625',
       'loose-xl':   '1.66666',
-      'loose-2xl':   '1.875',
+      'loose-2xl':  '1.875',
     },
     fontWeight: {
       normal: 400,
@@ -122,9 +122,9 @@ tailwind.config = {
     },
     boxShadow: {
       'sm': '4px 2px 10px 4px rgba(0, 0, 0, 0.06)',
-      'md': '1px 4px 4px  0px rgba(0, 0, 0, 0.25)',
-      'md-light': '0px 2px 8px  0px rgba(0, 0, 0, 0.25)',
-      'map': '0px 3px 5px  1px rgba(0, 0, 0, 0.3)',
+      'md': '1px 4px 4px  0 rgba(0, 0, 0, 0.25)',
+      'md-light': '0 2px 8px  0 rgba(0, 0, 0, 0.25)',
+      'map': '0 3px 5px  1px rgba(0, 0, 0, 0.3)',
     },
     extend: {
       colors: {
@@ -157,8 +157,10 @@ tailwind.config = {
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
       },
       gridTemplateColumns: {
-        /* 4 = 4 columns / max-content/fill = each column takes up at least the maximum space of its content, and then expands to fill any remaining space */
-        '4-max-content/fill': 'repeat(4, minmax(max-content, 1fr))',
+        /* 2 = 2 columns / l-68 = the left column is fixed at 68 "Tailwind units" */
+        '2-l-68': '17rem 1fr',
+        /* 2 = 2 columns / 9/5 = the ratio between the left and right columns is 9/5 */
+        '2-9/5': '9fr 5fr',
       },
       gridTemplateRows: {
         '2-min-content-1fr': 'min-content 1fr',
@@ -235,16 +237,19 @@ tailwind.config = {
         19: '4.75rem',
         21: '5.25rem',
         21.25: '5.3125rem',
+        21.5: '5.375rem',
         23: '5.75rem',
         26: '6.5rem',
         29: '7.25rem',
         30: '7.5rem',
         34: '8.5rem',
+        37: '9.25rem',
         38: '9.5rem',
         43: '10.75rem',
         43.5: '10.875rem',
         44: '11rem',
         54.5: '13.625rem',
+        58: '14.5rem',
         70: '17.5rem',
         78.75: '19.6875rem',
         86: '21.5rem',
