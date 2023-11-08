@@ -20,8 +20,8 @@
                 <button @click="toggleSection({{ loop.index0 }})" class="flex justify-between items-center w-full py-6 pl-14 pr-9">
                     <h3>{{ title }}</h3>
                     <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
-                        <div :class="statuses[{{ loop.index0 }}] ? '' : 'rotate-180'" class="transition-transform duration-300">
-                            {% include '@svg/chevron-down.svg.twig' with { class: 'fill-blue-950' } only %}
+                        <div :class="statuses[{{ loop.index0 }}] ? '-rotate-180' : ''" class="transition-transform duration-300">
+                            {% include '@svg/chevron-up.svg.twig' with { class: 'fill-blue-950' } only %}
                         </div>
                     </div>
                 </button>
