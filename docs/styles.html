@@ -83,7 +83,7 @@ tailwind.config = {
       relaxed:      '1.5',
       loose:        '1.5625',
       'loose-xl':   '1.66666',
-      'loose-2xl':   '1.875',
+      'loose-2xl':  '1.875',
     },
     fontWeight: {
       normal: 400,
@@ -147,9 +147,9 @@ tailwind.config = {
     },
     boxShadow: {
       'sm': '4px 2px 10px 4px rgba(0, 0, 0, 0.06)',
-      'md': '1px 4px 4px  0px rgba(0, 0, 0, 0.25)',
-      'md-light': '0px 2px 8px  0px rgba(0, 0, 0, 0.25)',
-      'map': '0px 3px 5px  1px rgba(0, 0, 0, 0.3)',
+      'md': '1px 4px 4px  0 rgba(0, 0, 0, 0.25)',
+      'md-light': '0 2px 8px  0 rgba(0, 0, 0, 0.25)',
+      'map': '0 3px 5px  1px rgba(0, 0, 0, 0.3)',
     },
     extend: {
       colors: {
@@ -182,8 +182,10 @@ tailwind.config = {
         '10': '.6125rem', // 10px (between `rounded-lg` and `rounded-xl`)
       },
       gridTemplateColumns: {
-        /* 4 = 4 columns / max-content/fill = each column takes up at least the maximum space of its content, and then expands to fill any remaining space */
-        '4-max-content/fill': 'repeat(4, minmax(max-content, 1fr))',
+        /* 2 = 2 columns / l-68 = the left column is fixed at 68 "Tailwind units" */
+        '2-l-68': '17rem 1fr',
+        /* 2 = 2 columns / 9/5 = the ratio between the left and right columns is 9/5 */
+        '2-9/5': '9fr 5fr',
       },
       gridTemplateRows: {
         '2-min-content-1fr': 'min-content 1fr',
@@ -212,6 +214,7 @@ tailwind.config = {
       },
       maxHeight: {
         58: '14.5rem',
+        100: '25rem',
         105: '26.26rem',
         116: '29rem',
         176: '44rem',
@@ -219,6 +222,7 @@ tailwind.config = {
       maxWidth: {
         185: '46.25rem',
         360: '90rem',
+        '93-pct': '93%',
         // This value is 24px greater than half of the content limit of 1200px to account for the 1.5rem (24px) of horizontal padding on just one side
         'content-container-limit-1/2': '624px',
         // This value is greater than the actual content of 1200px to account for 3rem (48px) of horizontal padding between the content and the window edges
@@ -260,21 +264,25 @@ tailwind.config = {
         19: '4.75rem',
         21: '5.25rem',
         21.25: '5.3125rem',
+        21.5: '5.375rem',
         23: '5.75rem',
         26: '6.5rem',
         29: '7.25rem',
         30: '7.5rem',
         34: '8.5rem',
+        37: '9.25rem',
         38: '9.5rem',
         43: '10.75rem',
         43.5: '10.875rem',
         44: '11rem',
         54.5: '13.625rem',
+        58: '14.5rem',
         70: '17.5rem',
         78.75: '19.6875rem',
         86: '21.5rem',
         93: '23.25rem',
         110: '27.5rem',
+        118: '29.5rem',
         135: '33.75rem',
         140: '35rem',
         142.5: '35.625rem',
@@ -556,14 +564,16 @@ tailwind.config = {
     <div class="grid grid-cols-[max-content] sm:grid-cols-[repeat(2,_max-content)] xl:grid-cols-[repeat(4,_max-content)] gap-8">
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Small</span>
             </a>
@@ -571,14 +581,16 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Small</span>
             </a>
@@ -586,17 +598,19 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: true, icon: '' } only %}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 fill-none stroke-blue-950 hover:stroke-white w-fit"
     >
         <span>Small</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 ">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 ">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -606,17 +620,19 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: false, new_tab: true, icon: '' } only %}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 fill-none stroke-blue-950 hover:stroke-white w-fit"
     >
         <span>Small</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 ">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 ">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -626,14 +642,16 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3  w-fit"
     >
         <span>Medium</span>
             </a>
@@ -641,14 +659,16 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: false, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3  w-fit"
     >
         <span>Medium</span>
             </a>
@@ -656,17 +676,19 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: false, primary: true, new_tab: true, icon: '' } only %}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 fill-none stroke-blue-950 hover:stroke-white w-fit"
     >
         <span>Medium</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -676,17 +698,19 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: false, primary: false, new_tab: true, icon: '' } only %}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-4 px-15  text-xl leading-tight  font-semibold gap-3 fill-none stroke-blue-950 hover:stroke-white w-fit"
     >
         <span>Medium</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-125">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -696,14 +720,16 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'l', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8  w-fit"
     >
         <span>Large</span>
             </a>
@@ -711,14 +737,16 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'l', wide: false, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8  w-fit"
     >
         <span>Large</span>
             </a>
@@ -726,17 +754,19 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'l', wide: false, primary: true, new_tab: true, icon: '' } only %}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 fill-none stroke-blue-950 hover:stroke-white w-fit"
     >
         <span>Large</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -746,17 +776,19 @@ tailwind.config = {
             </div>
                     <div class="w-fit cursor-pointer">
                     
-                            
+                                
                                                         
+                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'l', wide: false, primary: false, new_tab: true, icon: '' } only %}`)"
         
         
         target="_blank"
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-cyan-50 hover:bg-blue-400 py-5 px-15  text-6xl leading-tight  font-semibold gap-8 fill-none stroke-blue-950 hover:stroke-white w-fit"
     >
         <span>Large</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-1 scale-250">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -768,14 +800,16 @@ tailwind.config = {
     <div class="flex flex-col gap-8 mt-12">
                     <div class="cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2  w-full"
     >
         <span>Wide: Small</span>
             </a>
@@ -783,14 +817,16 @@ tailwind.config = {
             </div>
                     <div class="cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Wide: Medium</span>
             </a>
@@ -798,14 +834,16 @@ tailwind.config = {
             </div>
                     <div class="cursor-pointer">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'l', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-7.5 px-15  text-6xl leading-tight  font-semibold gap-8 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-7.5 px-15  text-6xl leading-tight  font-semibold gap-8  w-full"
     >
         <span>Wide: Large</span>
             </a>
@@ -905,7 +943,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>external inline link</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1044,7 +1082,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>examples</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1059,7 +1097,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>examples for menus</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1173,7 +1211,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>an external link</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1208,7 +1246,7 @@ tailwind.config = {
         target="_blank"
     >
         <span>an external link</span>
-                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
+                    <svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5 scale-75">
     <path d="M12.9242 9.39712V13.9366C12.9242 14.3379 12.7645 14.7228 12.4802 15.0066C12.196 15.2903 11.8105 15.4497 11.4085 15.4497H3.07231C2.67033 15.4497 2.28481 15.2903 2.00057 15.0066C1.71633 14.7228 1.55664 14.3379 1.55664 13.9366V5.61423C1.55664 5.21292 1.71633 4.82804 2.00057 4.54427C2.28481 4.2605 2.67033 4.10107 3.07231 4.10107H7.61932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10.6504 1.83154H15.1974V6.37101" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M6.86133 10.1539L15.1975 1.83154" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1772,14 +1810,16 @@ tailwind.config = {
                 <div>ISPE Knowledge Without Borders makes pharmaceutical manufacturing best practices available to new and emerging markets, helping to implement processes in line with regulatory requirements that deliver better outcomes.</div>
                                     <div class="flex-none">
                             
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3  w-fit"
     >
         <span>Donate Now</span>
             </a>
@@ -1821,14 +1861,16 @@ tailwind.config = {
             <p>The ISPE Foundation’s greatest needs provide unrestricted funding to address emerging needs and seizes opportunities that increase access within industry.</p>
                         <div class="mt-6 md:mt-10">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Learn More</span>
             </a>
@@ -1904,14 +1946,16 @@ tailwind.config = {
                                     </div>
                         <div class="mt-6 md:mt-10">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Learn More</span>
             </a>
@@ -1992,14 +2036,16 @@ tailwind.config = {
                                     </div>
                         <div class="mt-6 md:mt-10">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Learn More</span>
             </a>
@@ -2081,14 +2127,16 @@ tailwind.config = {
                                     </div>
                         <div class="mt-6 md:mt-10">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Learn More</span>
             </a>
@@ -2142,14 +2190,16 @@ tailwind.config = {
                             </div>
             <div class="mt-2 md:mt-3">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2  w-full"
     >
         <span>Share My Story</span>
             </a>
@@ -2178,14 +2228,16 @@ tailwind.config = {
                             </div>
             <div class="">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2  w-full"
     >
         <span>CTA Here</span>
             </a>
@@ -2229,14 +2281,16 @@ tailwind.config = {
                             </div>
             <div class="mt-2 md:mt-3">
                     
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: true, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-blue-400 hover:bg-blue-950 py-3.75 px-10  text-xl leading-match  font-bold gap-2  w-full"
     >
         <span>Share My Story</span>
             </a>
@@ -2277,6 +2331,73 @@ tailwind.config = {
     </div>
 
             </div>
+                    <div id="local-4-6-cta-left-text">
+                
+<div>
+    <div class="bg-blue-950/80">
+    <div class="max-w-content-container-limit px-6 mx-auto ">
+        <h2 class="text-white font-mono py-4">4.6 CTA Left Text</h2>
+    </div>
+</div>
+</div>
+    <div class="">
+        <div class="max-w-screen-xl mx-auto">
+
+        <div class="relative">
+        <img src="./assets/content-1500-840-1.png" alt="" class="w-full object-cover object-center h-86 md:h-118">
+        <div class="flex flex-col bg-white md:absolute md:top-9 md:left-6 md:max-h-100 md:max-w-93-pct pt-10 pb-13 md:pt-10 md:pb-7.5 px-9 md:px-content-container">
+            <h2 class="md:overflow-y-auto">Our Commitment to Investing in Emerging Leaders</h2>
+            <p class="mt-3 md:w-min md:min-w-full md:overflow-y-auto">
+                Issuance of the 2023 ISPE Biotechnology Conference Student and Recent Graduate Attendance Grants is consistent with the ISPE Foundation’s mission to fuel global health equity by fostering access to knowledge and nurturing diverse talent.>
+            </p>
+            <div class="mt-8 md:w-max md:order-last">
+                    
+                                
+                                                        
+    
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
+        
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3  w-fit"
+    >
+        <span>Scholarships & Grants Initiative</span>
+            </a>
+
+            </div>
+            <div class="mt-8 md:w-max">
+                    <div>
+        <a href="https://www.example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
+            
+            <span>Other Student Opportunities</span>
+
+                            <span class="bg-cyan-50 h-fit p-1.25 rounded-full">
+                    <svg width="8" height="9" viewbox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title></title>
+	<g clip-path="url(#clip0_675_26598)">
+		<path d="M7.0364 4.45409C7.0364 4.58686 6.9857 4.71961 6.88453 4.82084L3.69911 8.00623C3.49647 8.20886 3.16794 8.20886 2.96539 8.00623C2.76284 7.80368 2.76284 7.47521 2.96539 7.27256L5.78403 4.45409L2.96549 1.6356C2.76294 1.43297 2.76294 1.10453 2.96549 0.901999C3.16804 0.699269 3.49657 0.699269 3.6992 0.901999L6.88462 4.08734C6.98582 4.18861 7.0364 4.32137 7.0364 4.45409Z" fill="#0052A5"/>
+	</g>
+	<defs>
+		<clipPath id="clip0_675_26598">
+			<rect width="7.40827" height="7.40827" fill="white" transform="matrix(0 -1 1 0 0.220703 8.1582)"/>
+		</clipPath>
+	</defs>
+</svg>
+            </span>
+
+                    </a>
+    </div>
+
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+            </div>
                     <div id="local-4-11-file-download-cta">
                 
 <div>
@@ -2300,19 +2421,21 @@ tailwind.config = {
             <div class="max-md:order-3 text-2xl leading-relaxed mt-10 md:mt-6">Duis autem vel eum iriure dolor in hendrerit in vulputate molestie dolore feugiat nulla facilisis at vero eros et accumsan</div>
             <div class="max-md:order-4 mt-12 md:mt-7">
                     
-                            
+                                
                                                         
+                
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 fill-blue-950 hover:fill-white w-fit"
     >
         <span>Download PDF One-Pager</span>
                     
-            <svg width="16" height="19" viewbox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.5  fill-blue-950">
-	<path id="Vector" d="M7.57236 9.43468C7.38797 8.84463 7.39165 7.7051 7.4986 7.7051C7.80838 7.7051 7.77887 9.0659 7.57236 9.43468ZM7.50966 11.1753C7.2257 11.9203 6.87168 12.7721 6.46233 13.4876C7.1372 13.2294 7.90057 12.8533 8.78195 12.6799C8.3136 12.3259 7.86369 11.817 7.50966 11.1753ZM4.03945 15.7777C4.03945 15.8072 4.52624 15.5785 5.32649 14.2952C5.07941 14.5275 4.25334 15.1987 4.03945 15.7777ZM10.01 5.89071H15.0254V17.9867C15.0254 18.4771 14.6308 18.8717 14.1403 18.8717H1.74933C1.25885 18.8717 0.864258 18.4771 0.864258 17.9867V0.875305C0.864258 0.384828 1.25885 -0.00976562 1.74933 -0.00976562H9.12492V5.00564C9.12492 5.49242 9.5232 5.89071 10.01 5.89071ZM9.71497 12.2263C8.97741 11.7764 8.48693 11.1569 8.14028 10.2423C8.30623 9.56006 8.56806 8.52379 8.36892 7.87474C8.19559 6.79053 6.8053 6.89747 6.60615 7.62397C6.42176 8.29884 6.5914 9.25029 6.90487 10.4636C6.47708 11.4814 5.84647 12.8459 5.40025 13.6277C5.39656 13.6277 5.39656 13.6314 5.39287 13.6314C4.39348 14.144 2.67865 15.2725 3.38302 16.1391C3.58954 16.3935 3.97307 16.5079 4.1759 16.5079C4.83601 16.5079 5.49244 15.8441 6.42914 14.2288C7.38059 13.9153 8.42424 13.5244 9.3425 13.3732C10.1427 13.8084 11.0794 14.0924 11.7027 14.0924C12.7795 14.0924 12.8533 12.9123 12.4292 12.4919C11.9166 11.9903 10.4267 12.1341 9.71497 12.2263ZM14.7672 3.86242L11.1532 0.24838C10.9873 0.0824293 10.7623 -0.00976562 10.5263 -0.00976562H10.305V4.71061H15.0254V4.48566C15.0254 4.25333 14.9332 4.02837 14.7672 3.86242ZM12.0346 13.2774C12.1858 13.1778 11.9424 12.8385 10.4562 12.9455C11.8244 13.5281 12.0346 13.2774 12.0346 13.2774Z"/>
+            <svg width="15" height="19" viewBox="0 0 15 19" xmlns="http://www.w3.org/2000/svg" class="relative bottom-0.25 ">
+    <path id="Vector" d="M7.36508 9.52257C7.18069 8.93252 7.18438 7.79299 7.29133 7.79299C7.6011 7.79299 7.5716 9.15379 7.36508 9.52257ZM7.30239 11.2632C7.01843 12.0081 6.6644 12.86 6.25506 13.5755C6.92992 13.3173 7.6933 12.9412 8.57468 12.7678C8.10633 12.4138 7.65642 11.9049 7.30239 11.2632ZM3.83217 15.8656C3.83217 15.8951 4.31896 15.6664 5.11921 14.3831C4.87213 14.6154 4.04607 15.2866 3.83217 15.8656ZM9.80271 5.9786H14.8181V18.0746C14.8181 18.565 14.4235 18.9596 13.933 18.9596H1.54205C1.05158 18.9596 0.656982 18.565 0.656982 18.0746V0.963196C0.656982 0.472719 1.05158 0.078125 1.54205 0.078125H8.91764V5.09353C8.91764 5.58032 9.31593 5.9786 9.80271 5.9786ZM9.50769 12.3142C8.77013 11.8643 8.27965 11.2448 7.933 10.3302C8.09895 9.64795 8.36079 8.61168 8.16165 7.96263C7.98832 6.87842 6.59802 6.98536 6.39888 7.71186C6.21449 8.38673 6.38413 9.33818 6.69759 10.5515C6.26981 11.5693 5.63919 12.9338 5.19297 13.7156C5.18928 13.7156 5.18928 13.7193 5.1856 13.7193C4.1862 14.2319 2.47138 15.3603 3.17575 16.227C3.38226 16.4814 3.76579 16.5958 3.96862 16.5958C4.62874 16.5958 5.28517 15.932 6.22187 14.3167C7.17332 14.0032 8.21696 13.6123 9.13522 13.4611C9.93548 13.8963 10.8722 14.1803 11.4954 14.1803C12.5722 14.1803 12.646 13.0002 12.2219 12.5798C11.7093 12.0782 10.2194 12.222 9.50769 12.3142ZM14.56 3.95031L10.9459 0.336271C10.78 0.17032 10.555 0.078125 10.319 0.078125H10.0977V4.7985H14.8181V4.57355C14.8181 4.34122 14.7259 4.11626 14.56 3.95031ZM11.8273 13.3652C11.9785 13.2657 11.7351 12.9264 10.2489 13.0333C11.6171 13.616 11.8273 13.3652 11.8273 13.3652Z"/>
 </svg>
             </a>
 
@@ -2528,9 +2651,9 @@ tailwind.config = {
                 <button @click="toggleSection(0)" class="flex justify-between items-center w-full py-6 pl-14 pr-9">
                     <h3>View Donor History</h3>
                     <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
-                        <div :class="statuses[0] ? '' : 'rotate-180'" class="transition-transform duration-300">
-                            <svg width="16" height="9" viewbox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-blue-950">
-	<path id="Vector" d="M7.89359 8.2542C7.63824 8.2542 7.38291 8.1567 7.18822 7.96211L1.06182 1.83564C0.672101 1.44592 0.672101 0.814057 1.06182 0.424495C1.45138 0.0349339 2.08312 0.0349339 2.47287 0.424495L7.89359 5.84553L13.3143 0.424685C13.7041 0.0351237 14.3357 0.0351238 14.7253 0.424685C15.1152 0.814247 15.1152 1.44611 14.7253 1.83583L8.59896 7.96229C8.40418 8.15692 8.14885 8.2542 7.89359 8.2542Z"/>
+                        <div :class="statuses[0] ? '-rotate-180' : ''" class="transition-transform duration-300">
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-blue-950">
+    <path d="M7.90531 3.79365C7.64996 3.79365 7.39463 3.89116 7.19994 4.08575L1.07354 10.2122C0.68382 10.6019 0.68382 11.2338 1.07354 11.6234C1.4631 12.0129 2.09484 12.0129 2.48459 11.6234L7.90531 6.20232L13.3261 11.6232C13.7158 12.0127 14.3475 12.0127 14.737 11.6232C15.1269 11.2336 15.1269 10.6017 14.737 10.212L8.61068 4.08556C8.4159 3.89093 8.16057 3.79365 7.90531 3.79365Z"/>
 </svg>
                         </div>
                     </div>
@@ -2543,9 +2666,9 @@ tailwind.config = {
                 <button @click="toggleSection(1)" class="flex justify-between items-center w-full py-6 pl-14 pr-9">
                     <h3>Favorite Restaurants</h3>
                     <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
-                        <div :class="statuses[1] ? '' : 'rotate-180'" class="transition-transform duration-300">
-                            <svg width="16" height="9" viewbox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-blue-950">
-	<path id="Vector" d="M7.89359 8.2542C7.63824 8.2542 7.38291 8.1567 7.18822 7.96211L1.06182 1.83564C0.672101 1.44592 0.672101 0.814057 1.06182 0.424495C1.45138 0.0349339 2.08312 0.0349339 2.47287 0.424495L7.89359 5.84553L13.3143 0.424685C13.7041 0.0351237 14.3357 0.0351238 14.7253 0.424685C15.1152 0.814247 15.1152 1.44611 14.7253 1.83583L8.59896 7.96229C8.40418 8.15692 8.14885 8.2542 7.89359 8.2542Z"/>
+                        <div :class="statuses[1] ? '-rotate-180' : ''" class="transition-transform duration-300">
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-blue-950">
+    <path d="M7.90531 3.79365C7.64996 3.79365 7.39463 3.89116 7.19994 4.08575L1.07354 10.2122C0.68382 10.6019 0.68382 11.2338 1.07354 11.6234C1.4631 12.0129 2.09484 12.0129 2.48459 11.6234L7.90531 6.20232L13.3261 11.6232C13.7158 12.0127 14.3475 12.0127 14.737 11.6232C15.1269 11.2336 15.1269 10.6017 14.737 10.212L8.61068 4.08556C8.4159 3.89093 8.16057 3.79365 7.90531 3.79365Z"/>
 </svg>
                         </div>
                     </div>
@@ -2558,9 +2681,9 @@ tailwind.config = {
                 <button @click="toggleSection(2)" class="flex justify-between items-center w-full py-6 pl-14 pr-9">
                     <h3>Types of Trees</h3>
                     <div class="bg-cyan-50 h-9 w-9 flex justify-center items-center rounded-full">
-                        <div :class="statuses[2] ? '' : 'rotate-180'" class="transition-transform duration-300">
-                            <svg width="16" height="9" viewbox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-blue-950">
-	<path id="Vector" d="M7.89359 8.2542C7.63824 8.2542 7.38291 8.1567 7.18822 7.96211L1.06182 1.83564C0.672101 1.44592 0.672101 0.814057 1.06182 0.424495C1.45138 0.0349339 2.08312 0.0349339 2.47287 0.424495L7.89359 5.84553L13.3143 0.424685C13.7041 0.0351237 14.3357 0.0351238 14.7253 0.424685C15.1152 0.814247 15.1152 1.44611 14.7253 1.83583L8.59896 7.96229C8.40418 8.15692 8.14885 8.2542 7.89359 8.2542Z"/>
+                        <div :class="statuses[2] ? '-rotate-180' : ''" class="transition-transform duration-300">
+                            <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-blue-950">
+    <path d="M7.90531 3.79365C7.64996 3.79365 7.39463 3.89116 7.19994 4.08575L1.07354 10.2122C0.68382 10.6019 0.68382 11.2338 1.07354 11.6234C1.4631 12.0129 2.09484 12.0129 2.48459 11.6234L7.90531 6.20232L13.3261 11.6232C13.7158 12.0127 14.3475 12.0127 14.737 11.6232C15.1269 11.2336 15.1269 10.6017 14.737 10.212L8.61068 4.08556C8.4159 3.89093 8.16057 3.79365 7.90531 3.79365Z"/>
 </svg>
                         </div>
                     </div>
@@ -2607,14 +2730,16 @@ tailwind.config = {
         <p class="grow pb-4 mt-3">Learn more about internship opportunities. This is placeholder text. Link to ISPE.org or the foundation webpage.</p>
         <div class="bottom-7 inset-x-10">
                 
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Call to Action</span>
             </a>
@@ -2633,14 +2758,16 @@ tailwind.config = {
         <p class="grow pb-4 mt-3">A unique opportunity for students and recent graduates to experience an ISPE conference.</p>
         <div class="bottom-7 inset-x-10">
                 
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Call to Action</span>
             </a>
@@ -2659,14 +2786,16 @@ tailwind.config = {
         <p class="grow pb-4 mt-3">These blocks will have a strict character limit. We suggest manually managing these to ensure ideal presentation.</p>
         <div class="bottom-7 inset-x-10">
                 
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Call to Action</span>
             </a>
@@ -2689,14 +2818,16 @@ tailwind.config = {
         <p class="grow pb-4 mt-3">Learn more about internship opportunities. This is placeholder text. Link to ISPE.org or the foundation webpage.</p>
         <div class="bottom-9.5 inset-x-15">
                 
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Call to Action</span>
             </a>
@@ -2715,14 +2846,16 @@ tailwind.config = {
         <p class="grow pb-4 mt-3">A unique opportunity for students and recent graduates to experience an ISPE conference.</p>
         <div class="bottom-9.5 inset-x-15">
                 
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Call to Action</span>
             </a>
@@ -2744,14 +2877,16 @@ tailwind.config = {
         <p class="grow pb-4 mt-3">Learn more about internship opportunities. This is placeholder text. Link to ISPE.org or the foundation webpage.</p>
         <div class="bottom-12.5 inset-x-15">
                 
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: true, primary: false, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3 w-full"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-full bg-cyan-50 hover:bg-blue-400 py-4.5 px-15  text-xl leading-match  font-bold gap-3  w-full"
     >
         <span>Call to Action</span>
             </a>
@@ -2942,14 +3077,16 @@ tailwind.config = {
         
                                     <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Read More</span>
             </a>
@@ -2970,14 +3107,16 @@ tailwind.config = {
         
                                     <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Read More</span>
             </a>
@@ -2998,14 +3137,16 @@ tailwind.config = {
         
                                     <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Read More</span>
             </a>
@@ -3037,14 +3178,16 @@ tailwind.config = {
         
                                     <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Optional Button</span>
             </a>
@@ -3061,14 +3204,16 @@ tailwind.config = {
         
                                     <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Optional Button</span>
             </a>
@@ -3085,14 +3230,16 @@ tailwind.config = {
         
                                     <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Optional Button</span>
             </a>
@@ -3237,14 +3384,16 @@ tailwind.config = {
         
                                     <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Read More</span>
             </a>
@@ -3261,14 +3410,16 @@ tailwind.config = {
         
                                     <div class="w-fit mt-7.5 md:mt-5.5 lg:mt-6.5 px-content-container md:px-0">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Read More</span>
             </a>
@@ -3752,14 +3903,16 @@ tailwind.config = {
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem consequat, vel illum dolore eu feugiat nulla facilisis at vero eros.</p>
                 <div class="mt-6.5 md:mt-0 lg:mt-5 xl:mt-11">
                         
-                            
+                                
                                                         
+    
     
     <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
         
         
         
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white stroke-blue-950 hover:stroke-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2 w-fit"
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
     >
         <span>Read More</span>
             </a>
@@ -3899,6 +4052,7 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem c
                                     <a @click="closeMenu()" href="#local-4-2-image-video-left-right" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-2-image-video-left-right</a>
                                     <a @click="closeMenu()" href="#local-4-3-stacked-blocks-short-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-3-stacked-blocks-short-image</a>
                                     <a @click="closeMenu()" href="#local-4-4-testimonial" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-4-testimonial</a>
+                                    <a @click="closeMenu()" href="#local-4-6-cta-left-text" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-6-cta-left-text</a>
                                     <a @click="closeMenu()" href="#local-4-11-file-download-cta" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-11-file-download-cta</a>
                                     <a @click="closeMenu()" href="#local-4-12-counter" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-12-counter</a>
                                     <a @click="closeMenu()" href="#local-4-13-text-with-image" class="p-4 first:pt-6 first:rounded-t-md hover:bg-gray-100">4-13-text-with-image</a>
