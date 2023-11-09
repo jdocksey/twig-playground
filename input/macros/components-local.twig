@@ -163,13 +163,15 @@
 {% macro cta_left_text(title = '', description = '', link_url = '', link_text = '', cta_url = '', cta_text = '', img_src = '', img_alt_text = '') %}
     <div class="relative">
         <img src="{{ img_src }}" alt="{{ img_alt_text }}" class="w-full object-cover object-center h-[21.5rem] md:h-[29.5rem]">
-        <div class="bg-white md:absolute md:bottom-8 md:left-8 flex flex-col py-12 md:pt-10 md:pb-7.5 px-content-container">
+        <div class="bg-white md:absolute md:bottom-8 md:left-8 flex flex-col pt-10 pb-13 md:pt-10 md:pb-7.5 px-9 md:px-content-container">
             <h2>{{ title }}</h2>
-            <p>{{ description }}</p>
-            <div class="md:order-last">
+            <p class="mt-3">{{ description }}</p>
+            <div class="mt-8 md:order-last">
                 {{ link_button(cta_url, cta_text, 'm', false, true, false) }}
             </div>
-            {{ link_block(link_url, link_text, 'r') }}
+            <div class="mt-8">
+                {{ link_block(link_url, link_text, 'r') }}
+            </div>
         </div>
     </div>
 {% endmacro %}%}
