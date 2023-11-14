@@ -375,7 +375,7 @@
         1: 'max-w-slider-750/8-1',
     } %}
 
-    <div class="splide splide-image-gallery {{ max_width_by_image_count[image_urls.length] }} mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
+    <div class="splide splide-image-gallery {{ max_width_by_image_count[image_urls.length] }} mx-auto pb-14.5 md:pb-17" aria-label="Splide Basic HTML Example">
         <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
             {% set arrow_classes = 'flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full' %}
             <button class="splide__arrow--prev {{ arrow_classes }}">
@@ -386,11 +386,11 @@
             </button>
         </div>
 
-        <div class="splide__track z-10">
+        <div class="splide__track z-10 h-55.5 md:h-98.75">
             <div class="splide__list">
                 {% for image_url in image_urls %}
                     <div class="splide__slide">
-                        <img src="{{ image_url }}" alt="">
+                        <img src="{{ image_url }}" alt="" class="h-full">
                     </div>
                 {% endfor %}
             </div>
