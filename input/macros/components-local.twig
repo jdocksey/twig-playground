@@ -371,14 +371,12 @@
 {% endmacro %}
 
 {% macro image_gallery(image_urls) %}
-    {% set multiple_images = image_urls.length > 1 %}
-
     {% set max_width_by_image_count = {
         1: 'max-w-slider-750/8-1',
     } %}
 
-    <div class="splide splide-image-gallery {{ max_width_by_image_count[image_urls.length] }} mx-auto {{ multiple_images ? 'pb-12.5 md:pb-17' }}" aria-label="Splide Basic HTML Example">
-        <div class="{{ not multiple_images ? 'hidden' }} splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+    <div class="splide splide-image-gallery {{ max_width_by_image_count[image_urls.length] }} mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
             {% set arrow_classes = 'flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full' %}
             <button class="splide__arrow--prev {{ arrow_classes }}">
                 {% include '@globalPartials/chevron-left-medium.twig' with { alt_text: 'previous' } only %}
