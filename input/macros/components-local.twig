@@ -168,16 +168,16 @@
             <p class="mt-3 md:w-min md:min-w-full md:overflow-y-auto">
                 {{ description }}>
             </p>
-            <div class="mt-8 md:w-max md:order-last">
+            <div class="mt-8 md:w-max">
+                {{ link_block(link_url, link_text, 'r') }}
+            </div>
+            <div class="mt-8 md:w-max">
                 <div class="md:hidden">
                     {{ link_button(cta_url, cta_text, 's', false, true, false) }}
                 </div>
                 <div class="max-md:hidden">
                     {{ link_button(cta_url, cta_text, 'm', false, true, false) }}
                 </div>
-            </div>
-            <div class="mt-8 md:w-max">
-                {{ link_block(link_url, link_text, 'r') }}
             </div>
         </div>
     </div>
@@ -485,7 +485,7 @@
         <div class="md:absolute md:top-0 md:left-0 md:w-max">
 
             {# This box blends in with the main content and appears to always extend it to the left-edge of the window #}
-            <div class="hidden xl:block absolute z-10 bg-blue-950 inset-y-0 left-[-50vw] right-0">
+            <div class="hidden xl:block absolute z-10 bg-blue-950 inset-y-0 -left-50vw right-0">
                 <div class="bg-green-500 h-2.5"></div>
             </div>
 

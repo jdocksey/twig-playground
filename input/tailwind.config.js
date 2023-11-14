@@ -267,6 +267,7 @@ tailwind.config = {
         '15vh': '15vh',
         '5.75vw': '5.75vw',
         '10vw': '10vw',
+        '50vw': '50vw',
         '67vw': '67vw',
       },
     },
