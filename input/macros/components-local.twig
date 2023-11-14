@@ -169,7 +169,12 @@
                 {{ description }}>
             </p>
             <div class="mt-8 md:w-max md:order-last">
-                {{ link_button(cta_url, cta_text, 'm', false, true, false) }}
+                <div class="md:hidden">
+                    {{ link_button(cta_url, cta_text, 's', false, true, false) }}
+                </div>
+                <div class="max-md:hidden">
+                    {{ link_button(cta_url, cta_text, 'm', false, true, false) }}
+                </div>
             </div>
             <div class="mt-8 md:w-max">
                 {{ link_block(link_url, link_text, 'r') }}
