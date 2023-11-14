@@ -478,13 +478,22 @@
 {% macro text_plus_image(title = '', text_blocks = [], img_src = '', img_alt_text = '') %}
     <div class="relative max-w-360 mx-auto md:pt-18.5 xl:pt-26">
         <div class="md:absolute md:top-0 md:left-0 md:w-max">
-            <div class="bg-green-500 h-2.5"></div>
+
+            {# This box blends in with the main content and appears to always extend it to the left-edge of the window #}
+            <div class="hidden xl:block absolute z-10 bg-blue-950 inset-y-0 left-[-50vw] right-0">
+                <div class="bg-green-500 h-2.5"></div>
+            </div>
+
+            {# This is the green bar above the main content, with the same width as the main content's container #}
+            <div class="relative z-20 bg-green-500 h-2.5"></div>
+
+            {# This is the main content #}
             {# The complex horizontal padding value is necessary to ensure that the following conditions are, as much as possible, simultaneously met:
             - the content within the rectangle stays left-aligned with the rest of the content on the page
             - the rectangle and its padding expand to their full size as the window grows beyond the XL breakpoint
             - the left and right padding areas are always fully visible and equal
             #}
-            <div class="bg-blue-950 text-white py-16.5 xl:pb-23 px-content-container md:px-12 xl:px-[clamp(3rem,_calc(37.5vw_-_27.5rem),_7.5rem)]">
+            <div class="relative z-20 bg-blue-950 text-white py-16.5 xl:pb-23 px-content-container md:px-12 xl:px-[clamp(3rem,_calc(37.5vw_-_27.5rem),_7.5rem)]">
                 <h2>{{ title }}</h2>
                 <div class="mt-6 md:mt-13 flex flex-col gap-11 xl:gap-16 md:grid md:grid-cols-2">
                     {% for block in text_blocks %}
