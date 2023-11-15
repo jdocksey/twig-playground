@@ -249,21 +249,21 @@
     <div class="relative z-20 bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 lg:gap-4.5 shadow-md-light py-8 px-6 lg:py-3 lg:-mt-9 lg:mb-9">
         <h3 class="text-blue-950">{{ subcontent_title }}</h3>
         <div x-data="{
-            statuses: new Array( {{ titles|length }} ).fill(false),
-            onHover(index) {
-                if (window.innerWidth >= 768) {
-                    this.toggleSection(index);
-                }
-            },
-            toggleSection(index) {
-                this.statuses.forEach((status, i) => {
-                    if (i !== index) {
-                        this.statuses[i] = false;
+                statuses: new Array( {{ titles|length }} ).fill(false),
+                onHover(index) {
+                    if (window.innerWidth >= 768) {
+                        this.toggleSection(index);
                     }
-                })
-                this.statuses[index] = !this.statuses[index];
-            }
-        }"
+                },
+                toggleSection(index) {
+                    this.statuses.forEach((status, i) => {
+                        if (i !== index) {
+                            this.statuses[i] = false;
+                        }
+                    })
+                    this.statuses[index] = !this.statuses[index];
+                }
+            }"
             class="
                 flex flex-col gap-3 text-white
                 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-10vw
