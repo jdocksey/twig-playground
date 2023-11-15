@@ -274,7 +274,7 @@
                 <div
                     @mouseenter="onHover({{ loop.index0 }})"
                     @mouseleave="onHover({{ loop.index0 }})"
-                    class="relative cursor-pointer lg:flex lg:justify-center   "
+                    class="relative cursor-pointer lg:flex lg:justify-center"
                 >
                     <div @click="toggleSection({{ loop.index0 }})" class="flex flex-col items-center gap-2.5 md:justify-between md:h-36 lg:w-max p-4">
                         {% include '@svg/' ~ item.icon ~ '.svg.twig' with { class: 'fill-white' } only %}
