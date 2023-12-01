@@ -256,6 +256,7 @@ tailwind.config = {
         12.5: '3.125rem',
         13: '3.25rem',
         13.5: '3.375rem',
+        14.5: '3.625rem',
         15: '3.75rem',
         16.5: '4.125rem',
         17: '4.25rem',
@@ -276,11 +277,13 @@ tailwind.config = {
         43.5: '10.875rem',
         44: '11rem',
         54.5: '13.625rem',
+        55.5: '13.875rem',
         58: '14.5rem',
         70: '17.5rem',
         78.75: '19.6875rem',
         86: '21.5rem',
         93: '23.25rem',
+        98.75: '24.6875rem',
         110: '27.5rem',
         118: '29.5rem',
         135: '33.75rem',
@@ -289,6 +292,7 @@ tailwind.config = {
         '15vh': '15vh',
         '5.75vw': '5.75vw',
         '10vw': '10vw',
+        '50vw': '50vw',
         '67vw': '67vw',
       },
     },
@@ -2350,23 +2354,6 @@ tailwind.config = {
             <p class="mt-3 md:w-min md:min-w-full md:overflow-y-auto">
                 Issuance of the 2023 ISPE Biotechnology Conference Student and Recent Graduate Attendance Grants is consistent with the ISPE Foundation’s mission to fuel global health equity by fostering access to knowledge and nurturing diverse talent.>
             </p>
-            <div class="mt-8 md:w-max md:order-last">
-                    
-                                
-                                                        
-    
-    
-    <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
-        
-        
-        
-        
-        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3  w-fit"
-    >
-        <span>Scholarships & Grants Initiative</span>
-            </a>
-
-            </div>
             <div class="mt-8 md:w-max">
                     <div>
         <a href="https://www.example.com" class="flex items-end gap-3 text-black font-bold underline underline-offset-10 decoration-2 decoration-blue-800">
@@ -2390,6 +2377,42 @@ tailwind.config = {
                     </a>
     </div>
 
+            </div>
+            <div class="mt-8 md:w-max">
+                <div class="md:hidden">
+                        
+                                
+                                                        
+    
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 's', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
+        
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4.5 px-10  text-xs leading-tight  font-bold gap-2  w-fit"
+    >
+        <span>Scholarships & Grants Initiative</span>
+            </a>
+
+                </div>
+                <div class="max-md:hidden">
+                        
+                                
+                                                        
+    
+    
+    <a x-data @click="() => navigator.clipboard.writeText(`{% include '@ispe_foundation/components/link-button.html.twig' with { url: content.field_link.url, text: content.field_link.text, size: 'm', wide: false, primary: true, new_tab: false, icon: '' } only %}`)"
+        
+        
+        
+        
+        class="flex justify-center items-center rounded-full tracking-wide text-blue-950 hover:text-white transition-colors duration-250 ease-out w-fit bg-blue-400 hover:bg-blue-950 py-4 px-15  text-xl leading-tight  font-semibold gap-3  w-fit"
+    >
+        <span>Scholarships & Grants Initiative</span>
+            </a>
+
+                </div>
             </div>
         </div>
     </div>
@@ -2589,9 +2612,18 @@ tailwind.config = {
 </div>
     <div class="relative max-w-360 mx-auto md:pt-18.5 xl:pt-26">
         <div class="md:absolute md:top-0 md:left-0 md:w-max">
-            <div class="bg-green-500 h-2.5"></div>
+
             
-            <div class="bg-blue-950 text-white py-16.5 xl:pb-23 px-content-container md:px-12 xl:px-[clamp(3rem,_calc(37.5vw_-_27.5rem),_7.5rem)]">
+            <div class="hidden xl:block absolute z-10 bg-blue-950 inset-y-0 -left-50vw right-0">
+                <div class="bg-green-500 h-2.5"></div>
+            </div>
+
+            
+            <div class="relative z-20 bg-green-500 h-2.5"></div>
+
+            
+            
+            <div class="relative z-20 bg-blue-950 text-white py-16.5 xl:pb-23 px-content-container md:px-12 xl:px-[clamp(3rem,_calc(37.5vw_-_27.5rem),_7.5rem)]">
                 <h2>How We Make A Difference</h2>
                 <div class="mt-6 md:mt-13 flex flex-col gap-11 xl:gap-16 md:grid md:grid-cols-2">
                                             <div class="md:w-56 xl:w-54.5">
@@ -3463,9 +3495,8 @@ tailwind.config = {
             <div>
             <h3 class="text-center mb-4">Number of images: 5</h3>
                 
-    
-    <div class="splide splide-image-gallery  mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
-        <div class=" splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+    <div class="splide splide-image-gallery  mx-auto pb-14.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
                         <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
                 <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <title>previous</title>
@@ -3480,22 +3511,22 @@ tailwind.config = {
             </button>
         </div>
 
-        <div class="splide__track z-10">
+        <div class="splide__track z-10 h-55.5 md:h-98.75">
             <div class="splide__list">
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-1.png" alt="">
+                        <img src="./assets/content-750-420-1.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-2.png" alt="">
+                        <img src="./assets/content-750-420-2.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-3.png" alt="">
+                        <img src="./assets/content-750-420-3.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-4.png" alt="">
+                        <img src="./assets/content-750-420-4.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-5.png" alt="">
+                        <img src="./assets/content-750-420-5.png" alt="" class="h-full">
                     </div>
                             </div>
         </div>
@@ -3505,9 +3536,8 @@ tailwind.config = {
             <div>
             <h3 class="text-center mb-4">Number of images: 4</h3>
                 
-    
-    <div class="splide splide-image-gallery  mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
-        <div class=" splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+    <div class="splide splide-image-gallery  mx-auto pb-14.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
                         <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
                 <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <title>previous</title>
@@ -3522,19 +3552,19 @@ tailwind.config = {
             </button>
         </div>
 
-        <div class="splide__track z-10">
+        <div class="splide__track z-10 h-55.5 md:h-98.75">
             <div class="splide__list">
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-1.png" alt="">
+                        <img src="./assets/content-750-420-1.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-2.png" alt="">
+                        <img src="./assets/content-750-420-2.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-3.png" alt="">
+                        <img src="./assets/content-750-420-3.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-4.png" alt="">
+                        <img src="./assets/content-750-420-4.png" alt="" class="h-full">
                     </div>
                             </div>
         </div>
@@ -3544,9 +3574,8 @@ tailwind.config = {
             <div>
             <h3 class="text-center mb-4">Number of images: 3</h3>
                 
-    
-    <div class="splide splide-image-gallery  mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
-        <div class=" splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+    <div class="splide splide-image-gallery  mx-auto pb-14.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
                         <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
                 <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <title>previous</title>
@@ -3561,16 +3590,16 @@ tailwind.config = {
             </button>
         </div>
 
-        <div class="splide__track z-10">
+        <div class="splide__track z-10 h-55.5 md:h-98.75">
             <div class="splide__list">
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-1.png" alt="">
+                        <img src="./assets/content-750-420-1.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-2.png" alt="">
+                        <img src="./assets/content-750-420-2.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-3.png" alt="">
+                        <img src="./assets/content-750-420-3.png" alt="" class="h-full">
                     </div>
                             </div>
         </div>
@@ -3580,9 +3609,8 @@ tailwind.config = {
             <div>
             <h3 class="text-center mb-4">Number of images: 2</h3>
                 
-    
-    <div class="splide splide-image-gallery  mx-auto pb-12.5 md:pb-17" aria-label="Splide Basic HTML Example">
-        <div class=" splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+    <div class="splide splide-image-gallery  mx-auto pb-14.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
                         <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
                 <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <title>previous</title>
@@ -3597,13 +3625,13 @@ tailwind.config = {
             </button>
         </div>
 
-        <div class="splide__track z-10">
+        <div class="splide__track z-10 h-55.5 md:h-98.75">
             <div class="splide__list">
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-1.png" alt="">
+                        <img src="./assets/content-750-420-1.png" alt="" class="h-full">
                     </div>
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-2.png" alt="">
+                        <img src="./assets/content-750-420-2.png" alt="" class="h-full">
                     </div>
                             </div>
         </div>
@@ -3613,9 +3641,8 @@ tailwind.config = {
             <div>
             <h3 class="text-center mb-4">Number of images: 1</h3>
                 
-    
-    <div class="splide splide-image-gallery max-w-slider-750/8-1 mx-auto " aria-label="Splide Basic HTML Example">
-        <div class="hidden splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
+    <div class="splide splide-image-gallery max-w-slider-750/8-1 mx-auto pb-14.5 md:pb-17" aria-label="Splide Basic HTML Example">
+        <div class="splide__arrows absolute z-20 bottom-0 inset-x-0 flex justify-center gap-2">
                         <button class="splide__arrow--prev flex justify-center items-center bg-cyan-50 h-9 w-9 p-1.25 rounded-full">
                 <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <title>previous</title>
@@ -3630,10 +3657,10 @@ tailwind.config = {
             </button>
         </div>
 
-        <div class="splide__track z-10">
+        <div class="splide__track z-10 h-55.5 md:h-98.75">
             <div class="splide__list">
                                     <div class="splide__slide">
-                        <img src="./assets/content-750-420-1.png" alt="">
+                        <img src="./assets/content-750-420-1.png" alt="" class="h-full">
                     </div>
                             </div>
         </div>
@@ -3686,21 +3713,21 @@ tailwind.config = {
     <div class="relative z-20 bg-blue-400 max-w-content-container-limit mx-auto flex flex-col items-center gap-8 lg:gap-4.5 shadow-md-light py-8 px-6 lg:py-3 lg:-mt-9 lg:mb-9">
         <h3 class="text-blue-950">Our Philanthropic Pillars</h3>
         <div x-data="{
-            statuses: new Array( 0 ).fill(false),
-            onHover(index) {
-                if (window.innerWidth >= 768) {
-                    this.toggleSection(index);
-                }
-            },
-            toggleSection(index) {
-                this.statuses.forEach((status, i) => {
-                    if (i !== index) {
-                        this.statuses[i] = false;
+                statuses: new Array( 0 ).fill(false),
+                onHover(index) {
+                    if (window.innerWidth >= 768) {
+                        this.toggleSection(index);
                     }
-                })
-                this.statuses[index] = !this.statuses[index];
-            }
-        }"
+                },
+                toggleSection(index) {
+                    this.statuses.forEach((status, i) => {
+                        if (i !== index) {
+                            this.statuses[i] = false;
+                        }
+                    })
+                    this.statuses[index] = !this.statuses[index];
+                }
+            }"
             class="
                 flex flex-col gap-3 text-white
                 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-10vw
@@ -3710,7 +3737,7 @@ tailwind.config = {
                             <div
                     @mouseenter="onHover(0)"
                     @mouseleave="onHover(0)"
-                    class="relative cursor-pointer lg:flex lg:justify-center   "
+                    class="relative cursor-pointer lg:flex lg:justify-center"
                 >
                     <div @click="toggleSection(0)" class="flex flex-col items-center gap-2.5 md:justify-between md:h-36 lg:w-max p-4">
                         <svg width="87" height="63" viewbox="0 0 87 63" xmlns="http://www.w3.org/2000/svg" class="fill-white">
@@ -3762,7 +3789,7 @@ tailwind.config = {
                             <div
                     @mouseenter="onHover(1)"
                     @mouseleave="onHover(1)"
-                    class="relative cursor-pointer lg:flex lg:justify-center   "
+                    class="relative cursor-pointer lg:flex lg:justify-center"
                 >
                     <div @click="toggleSection(1)" class="flex flex-col items-center gap-2.5 md:justify-between md:h-36 lg:w-max p-4">
                         <svg width="91" height="68" viewbox="0 0 91 68" xmlns="http://www.w3.org/2000/svg" class="fill-white">
@@ -3796,7 +3823,7 @@ tailwind.config = {
                             <div
                     @mouseenter="onHover(2)"
                     @mouseleave="onHover(2)"
-                    class="relative cursor-pointer lg:flex lg:justify-center   "
+                    class="relative cursor-pointer lg:flex lg:justify-center"
                 >
                     <div @click="toggleSection(2)" class="flex flex-col items-center gap-2.5 md:justify-between md:h-36 lg:w-max p-4">
                         <svg width="63" height="75" viewbox="0 0 63 75" xmlns="http://www.w3.org/2000/svg" class="fill-white">
@@ -3835,7 +3862,7 @@ tailwind.config = {
                             <div
                     @mouseenter="onHover(3)"
                     @mouseleave="onHover(3)"
-                    class="relative cursor-pointer lg:flex lg:justify-center   "
+                    class="relative cursor-pointer lg:flex lg:justify-center"
                 >
                     <div @click="toggleSection(3)" class="flex flex-col items-center gap-2.5 md:justify-between md:h-36 lg:w-max p-4">
                         <svg width="50" height="73" viewbox="0 0 50 73" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3957,31 +3984,25 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem c
     >
         
                         <img src="./assets/map.svg" alt="world map">
-                    <div class="absolute z-10 bottom-[97%] left-[calc(83%-11.25px)] md:left-[calc(83%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
+                    <div class="absolute z-10 bottom-[97%] left-[calc(85.8%-11.25px)] md:left-[calc(85.8%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
                 <img @click="openVideo('I1rA68yF4tM')" src="./assets/pin.svg" alt="Top" class="h-8 md:h-16">
             </div>
-                    <div class="absolute z-10 bottom-[60%] left-[calc(13%-11.25px)] md:left-[calc(13%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
+                    <div class="absolute z-10 bottom-[60%] left-[calc(15.8%-11.25px)] md:left-[calc(15.8%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
                 <img @click="openVideo('I1rA68yF4tM')" src="./assets/pin.svg" alt="Los Angeles" class="h-8 md:h-16">
             </div>
-                    <div class="absolute z-10 bottom-[63.5%] left-[calc(28.2%-11.25px)] md:left-[calc(28.2%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
+                    <div class="absolute z-10 bottom-[63.5%] left-[calc(31%-11.25px)] md:left-[calc(31%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
                 <img @click="openVideo('E__X8IDR6a0')" src="./assets/pin.svg" alt="Boston" class="h-8 md:h-16">
             </div>
-                    <div class="absolute z-10 bottom-[15%] left-[calc(30%-11.25px)] md:left-[calc(30%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
-                <img @click="openVideo('DWwppYEEdcI')" src="./assets/pin.svg" alt="Argentina" class="h-8 md:h-16">
-            </div>
-                    <div class="absolute z-10 bottom-[71%] left-[calc(48%-11.25px)] md:left-[calc(48%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
+                    <div class="absolute z-10 bottom-[70%] left-[calc(45.8%-11.25px)] md:left-[calc(45.8%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
                 <img @click="openVideo('Ec6i45d74nk')" src="./assets/pin.svg" alt="Ireland" class="h-8 md:h-16">
             </div>
-                    <div class="absolute z-10 bottom-[70%] left-[calc(51%-11.25px)] md:left-[calc(51%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
+                    <div class="absolute z-10 bottom-[69.5%] left-[calc(48%-11.25px)] md:left-[calc(48%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
                 <img @click="openVideo('Rd0HnxWm5CY')" src="./assets/pin.svg" alt="London" class="h-8 md:h-16">
             </div>
-                    <div class="absolute z-10 bottom-[28%] left-[calc(66%-11.25px)] md:left-[calc(66%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
-                <img @click="openVideo('fOk8Tm815lE')" src="./assets/pin.svg" alt="Madagascar" class="h-8 md:h-16">
-            </div>
-                    <div class="absolute z-10 bottom-[52.1%] left-[calc(68%-11.25px)] md:left-[calc(68%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
+                    <div class="absolute z-10 bottom-[50.6%] left-[calc(62.7%-11.25px)] md:left-[calc(62.7%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
                 <img @click="openVideo('xWDIwsfgQnE')" src="./assets/pin.svg" alt="Dubai" class="h-8 md:h-16">
             </div>
-                    <div class="absolute z-10 bottom-[59.6%] left-[calc(94.8%-11.25px)] md:left-[calc(94.8%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
+                    <div class="absolute z-10 bottom-[59%] left-[calc(85%-11.25px)] md:left-[calc(85%-22.5px)] cursor-pointer hover:animate-bounce-by-growing-small md:hover:animate-bounce-by-growing">
                 <img @click="openVideo('hbEWdw8')" src="./assets/pin.svg" alt="Japan" class="h-8 md:h-16">
             </div>
         
@@ -4015,6 +4036,784 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem c
 <div class="pt-[60vh] bg-gray-300"></div>
             </div>
             </div>
+
+    
+    <div x-cloak x-show="selectedPage === 'names'">
+        <div id="names">
+            
+
+            
+    
+            
+                
+                                        
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5  mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/homepage-header-pillars.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Hero: Homepage
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Homepage header and philanthropic Pillars
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/hero-arced-banner.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Hero: Arched
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Hero with Arced Banner Image & Foundation Logo
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/hero-1-featured-content.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Hero: Split
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Hero #1 & Featured content, Button Right
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/events-opportunities-header.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Hero: Events
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Event & Opportunities header
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/cta-with-background-banner.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Banner: Centered
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            CTA with Background Banner
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/text-block-and-image.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Banner: Offset Dark
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Text block + Image
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/cta-left-text-block.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Banner: Offset Light
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            CTA left text block
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/homepage-feature-impact-story.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Banner: Featured Impact Story
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Homepage Feature Impact Story
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/events-opportunities-block.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Event Info
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Event & Opportunities Block
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/image-video-left-right.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Stackable Image and Text - Simple
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Image/Video Left and Right + Text + Button
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/stacked-blocks-with-short-image.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Stackable Image and Text - Complex
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Stacked Blocks with Short Image
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/file-download-cta.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Download CTA
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            File download CTA
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/testimonial.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Quote
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Testimonial
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/image-gallery.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Image Gallery
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            ✅
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/homepage-map.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Map
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Homepage Map
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/cards-simple.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Cards: Simple
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Cards
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <div></div>
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Cards: Dynamic
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Dynamic Cards
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <div></div>
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Cards: Dynamic - Opportunities
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Dynamic Opportunities Cards
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/counter.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Counter
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            ✅
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/accordion.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Accordion
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            ✅
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/button.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Button
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            ✅
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <div></div>
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Text
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            ✅
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/featured-text.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Text: Featured
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Featured Text
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <div></div>
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Media
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            ✅
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <div></div>
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Spacer
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            ✅
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-8.75  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <div></div>
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Table of Contents
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            ✅
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                                                            
+                    
+    <div class="bg-gray-50 pt-17.5 pb-17.5 mt-8.75 mb-8.75">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/giving-fuel-form.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Form: GivingFuel
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            GivingFuel Form
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+            
+    
+            
+                
+                        
+    <div class="bg-white pt-8.75 pb-17.5  ">
+        <div class="max-w-content-container-limit mx-auto px-content-container ">
+
+        <div class="grid grid-cols-2 gap-8">
+                            <img src="./assets/component-screenshots/webform.png" alt="" class="justify-self-center">
+                        <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                                            Form: Webform
+                                    </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                                            Webform
+                                    </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+        </div>
+    </div>
 
     
     <div class="z-50 fixed bottom-4 right-4 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 flex flex-col items-end gap-4">
@@ -4069,6 +4868,7 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestiem c
             <div class="contents">
                                     <button @click="switchPage('global')" :class="selectedPage === 'global' ? 'bg-cyan-50' : 'bg-white'" class="text-black capitalize p-4 first:border-t hover:bg-gray-100">global</button>
                                     <button @click="switchPage('local')" :class="selectedPage === 'local' ? 'bg-cyan-50' : 'bg-white'" class="text-black capitalize p-4 first:border-t hover:bg-gray-100">local</button>
+                                    <button @click="switchPage('names')" :class="selectedPage === 'names' ? 'bg-cyan-50' : 'bg-white'" class="text-black capitalize p-4 first:border-t hover:bg-gray-100">names</button>
                             </div>
 
             <button @click="menu.keepOpen = !menu.keepOpen" :class="menu.keepOpen ? 'bg-cyan-50 text-black' : 'bg-white text-black/60'" class="p-4 border-t rounded-b-md hover:text-black hover:bg-gray-100">Keep Open</button>
