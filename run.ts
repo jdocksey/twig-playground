@@ -85,6 +85,7 @@ function renderTemplate(template: string, data: any): string {
             svg: './input/partials/svg',
             globalPartials: './input/partials/global',
             localPartials: './input/partials/local',
+            namesPartials: './input/partials/names',
         },
     };
 

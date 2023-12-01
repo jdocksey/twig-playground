@@ -1,9 +1,11 @@
 {% set global_page = 'global' %}
 {% set local_page = 'local' %}
+{% set names_page = 'names' %}
 
 {% set pages = [
     global_page,
     local_page,
+    names_page,
 ] %}
 
 <div x-data="{
@@ -69,6 +71,13 @@
                 {% include '@localPartials/' ~ partial ~ '.twig' with { gray_background: false,  first: loop.first,  last: loop.last } only %}
             </div>
         {% endfor %}
+    </div>
+
+    {# "Names" page #}
+    <div x-cloak x-show="selectedPage === '{{ names_page }}'">
+        <div id="{{ names_page }}">
+            {% include '@namesPartials/names.twig' %}
+        </div>
     </div>
 
     {# Table of Contents and Breakpoint Indicator #}

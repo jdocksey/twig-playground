@@ -1,0 +1,71 @@
+{% import '@macros/section.twig' as section %}
+
+{% set components = [
+    { name_current: 'Homepage header and philanthropic Pillars',      image: 'homepage-header-pillars.png',         name_proposed: 'Hero: Homepage' },
+    { name_current: 'Hero with Arced Banner Image & Foundation Logo', image: 'hero-arced-banner.png',               name_proposed: 'Hero: Arched' },
+    { name_current: 'Hero #1 & Featured content, Button Right',       image: 'hero-1-featured-content.png',         name_proposed: 'Hero: Split' },
+    { name_current: 'Event & Opportunities header',                   image: 'events-opportunities-header.png',     name_proposed: 'Hero: Events' },
+    { name_current: 'CTA with Background Banner',                     image: 'cta-with-background-banner.png',      name_proposed: 'Banner: Centered' },
+    { name_current: 'Text block + Image',                             image: 'text-block-and-image.png',            name_proposed: 'Banner: Offset Dark' },
+    { name_current: 'CTA left text block',                            image: 'cta-left-text-block.png',             name_proposed: 'Banner: Offset Light' },
+    { name_current: 'Homepage Feature Impact Story',                  image: 'homepage-feature-impact-story.png',   name_proposed: 'Banner: Featured Impact Story' },
+    { name_current: 'Event & Opportunities Block',                    image: 'events-opportunities-block.png',      name_proposed: 'Event Info' },
+    { name_current: 'Image/Video Left and Right + Text + Button',     image: 'image-video-left-right.png',          name_proposed: 'Stackable Image and Text - Simple' },
+    { name_current: 'Stacked Blocks with Short Image',                image: 'stacked-blocks-with-short-image.png', name_proposed: 'Stackable Image and Text - Complex' },
+    { name_current: 'File download CTA',                              image: 'file-download-cta.png',               name_proposed: 'Download CTA' },
+    { name_current: 'Testimonial',                                    image: 'testimonial.png',                     name_proposed: 'Quote' },
+    { name_current: 'Image Gallery',                                  image: 'image-gallery.png',                   name_proposed: null },
+    { name_current: 'Homepage Map',                                   image: 'homepage-map.png',                    name_proposed: 'Map' },
+    { name_current: 'Cards',                                          image: 'cards-simple.png',                    name_proposed: 'Cards: Simple' },
+    { name_current: 'Dynamic Cards',                                  image: '',                                    name_proposed: 'Cards: Dynamic' },
+    { name_current: 'Dynamic Opportunities Cards',                    image: '',                                    name_proposed: 'Cards: Dynamic - Opportunities' },
+    { name_current: 'Counter',                                        image: 'counter.png',                         name_proposed: null },
+    { name_current: 'Accordion',                                      image: 'accordion.png',                       name_proposed: null },
+    { name_current: 'Button',                                         image: 'button.png',                          name_proposed: null },
+    { name_current: 'Text',                                           image: '',                                    name_proposed: null },
+    { name_current: 'Featured Text',                                  image: 'featured-text.png',                   name_proposed: 'Text: Featured' },
+    { name_current: 'Media',                                          image: '',                                    name_proposed: null },
+    { name_current: 'Spacer',                                         image: '',                                    name_proposed: null },
+    { name_current: 'Table of Contents',                              image: '',                                    name_proposed: null },
+    { name_current: 'GivingFuel Form',                                image: 'giving-fuel-form.png',                name_proposed: 'Form: GivingFuel' },
+    { name_current: 'Webform',                                        image: 'webform.png',                         name_proposed: 'Form: Webform' },
+] %}
+
+{% for component in components %}
+    {% set gray_background = loop.index0 % 2 == 0 %}
+    {% set first = loop.first %}
+    {% set last = loop.last %}
+
+    {% set name_unchanged = component.name_proposed == null %}
+
+    {{ section.start(gray_background, first, last) }}
+        <div class="grid grid-cols-2 gap-8">
+            {% if component.image %}
+                <img src="{{ './assets/component-screenshots/' ~ component.image }}" alt="" class="justify-self-center">
+            {% else %}
+                <div></div>
+            {% endif %}
+            <div class="flex flex-col font-mono text-sm">
+
+                <div>
+                    {% if name_unchanged %}
+                        {{ component.name_current }}
+                    {% else %}
+                        {{ component.name_proposed }}
+                    {% endif %}
+                </div>
+
+                <div class="bg-gray-300 h-px my-4"></div>
+
+                <div class="text-gray-500 text-xs">
+                    {% if name_unchanged %}
+                        ✅
+                    {% else %}
+                        {{ component.name_current }}
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    {{ section.end() }}
+{% endfor %}
